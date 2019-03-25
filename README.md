@@ -1,5 +1,7 @@
 Component simplifies integration [tiptap](https://github.com/scrumpy/tiptap) with [vuetify](https://github.com/vuetifyjs/vuetify).
 
+![](https://i.imgur.com/C46cX8m.png)
+
 ## Installation
 
 ```
