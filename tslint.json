@@ -1,0 +1,42 @@
+{
+  "defaultSeverity": "warning",
+  "extends": ["tslint:latest", "tslint-config-standard"],
+  "linterOptions": {
+//    "include": [
+//      "./src/**/*.ts"
+//    ],
+//    "exclude": [
+//      "**/*.spec.js",
+//      "./node_modules/**/*"
+//    ]
+  },
+  "rules": {
+    "no-console": false,
+
+    // не указывать public (он по умолчанию)
+    "member-access": [true, "no-public"],
+    "object-literal-key-quotes": false,
+    "no-var-requires": false,
+    "interface-name" : [true, "never-prefix"],
+    "prefer-const": true,
+    "ordered-imports": [false],
+    "object-literal-sort-keys": [false],
+    "arrow-parens": false,
+
+    // it is important for the imports work
+//    "no-implicit-dependencies": [true, "dev"],
+//    "no-implicit-dependencies": [true, "dev", ["~", "@"]],
+    "no-implicit-dependencies": false,
+    "no-submodule-imports": [true, "~", "@"],
+
+    "quotemark": [true, "single"],
+    "semicolon": [true, "never"],
+    "trailing-comma": [true, {
+      "multiline": "never",
+      "singleline": "never"
+    }],
+    "space-before-function-paren": true,
+
+    "restrict-plus-operands": false
+  }
+}
