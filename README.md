@@ -95,6 +95,8 @@ export default {
 
 You can use the necessary extensions. The corresponding buttons are added automatically.
 
+How to import and use them can be seen in the example above.
+
 Available extensions:
 
 - `Bold`
@@ -185,6 +187,7 @@ How to use:
   :toolbar-attributes="{ color: 'yellow' }"
 >
   <template #toolbar="{ buttons, commands, isActive }">
+    <!--You can render the buttons as you wish (you can see in the source code how this is done).-->
     <pre>{{ buttons }}</pre>
   </template>
 </tiptap-vuetify>
@@ -204,9 +207,9 @@ How to use:
 </tiptap-vuetify>
 ```
 
-### toolbar-after
+### footer
 
-You can add content after the toolbar.
+Footer of the Editor.
 
 ### toolbar-before
 
