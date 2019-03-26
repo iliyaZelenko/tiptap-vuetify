@@ -1,6 +1,6 @@
 {
   "name": "tiptap-vuetify",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "license": "MIT",
   "scripts": {
     "dev": "vue-cli-service serve ./demo/main.js",
@@ -34,7 +34,7 @@
     "tslib": "^1.9.3",
     "tslint": "^5.11.0",
     "tslint-config-standard": "^8.0.1",
-    "typescript": "^3.1.6",
+    "typescript": "^3.4-rc",
     "vue": "^2.6.10",
     "vue-class-component": "^7.0.1",
     "vue-property-decorator": "^8.1.0",

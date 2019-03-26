@@ -89,7 +89,7 @@ export default {
 
 ## Props
 
-# extensions
+### extensions
 
 You can use the necessary extensions. The corresponding buttons are added automatically.
 
@@ -110,7 +110,7 @@ Available extensions:
 - `HorizontalRule`
 - `History`
 
-# toolbar-attributes
+### toolbar-attributes
 
 You can specify your attributes for the toolbar (`<v-toolbar>` vuetify component).
 
@@ -118,3 +118,98 @@ For example, change the color:
 ```vue
 :toolbar-attributes="{ color: 'yellow' }"
 ```
+
+### editor-properties
+
+Tiptap `Editor` properties (passed to the constructor).
+
+You can see the full list of machines [here](https://github.com/scrumpy/tiptap#editor-properties).
+
+Only these machines are not available: `content`, `onUpdate`, they are used in this package.
+If you want to add extensions to the `extensions` property, then use the `native-extensions` prop of this package.
+
+
+### native-extensions
+
+How to use:
+
+```vue
+<tiptap-vuetify
+  :native-extensions="nativeExtensions"
+/>
+```
+
+```js
+// in script:
+data () {
+  return {
+    nativeExtensions: [new TiptapExtension1(), new TiptapExtension2()]
+  }
+}
+```
+
+## Events
+
+### @init
+
+**first argument** (object):
+```ts
+{
+  // tiptap editor instance
+  editor: Editor
+}
+```
+
+How to use:
+
+```vue
+<tiptap-vuetify
+  @init="onInit"
+/>
+```
+
+## Slots
+
+### toolbar
+
+How to use:
+
+1) Since Vue `2.6.0` (new syntax):
+
+```vue
+<tiptap-vuetify
+  v-model="content"
+  :extensions="extensions"
+  :toolbar-attributes="{ color: 'yellow' }"
+>
+  <template #toolbar="{ buttons, commands, isActive }">
+    <pre>{{ buttons }}</pre>
+  </template>
+</tiptap-vuetify>
+```
+
+2) Before `2.6.0`:
+
+```vue
+<tiptap-vuetify>
+  <div 
+    slot="toolbar" 
+    slot-scope="{ buttons, commands, isActive }"
+  >
+    <!--You can render the buttons as you wish (you can see in the source code how this is done).-->
+    <pre>{{ buttons }}</pre>
+  </div>
+</tiptap-vuetify>
+```
+
+### toolbar-after
+
+You can add content after the toolbar.
+
+### toolbar-before
+
+You can add content before the toolbar.
+
+### toolbar-after
+
+You can add content after the toolbar.

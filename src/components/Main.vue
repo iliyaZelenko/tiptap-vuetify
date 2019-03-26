@@ -1,16 +1,33 @@
 <template>
   <div class="tiptap-vuetify-editor">
     <v-card v-if="editor">
-      <editor-menu
+      <slot name="toolbar-before" />
+
+      <toolbar
         :editor="editor"
         :buttons="buttons"
-        :toolbar-attributes="toolbarAttributes"
-      />
+        :toolbar-attributes="$props[PROPS.TOOLBAR_ATTRIBUTES]"
+      >
+        <template
+          #default="scopedSlot"
+          v-if="$scopedSlots.toolbar"
+        >
+          <slot
+            name="toolbar"
+            v-bind="scopedSlot"
+          />
+        </template>
+      </toolbar>
+
+      <slot name="toolbar-after" />
+
       <div class="tiptap-vuetify-editor__content">
         <editor-content
           :editor="editor"
         />
       </div>
+
+      <slot name="footer" />
     </v-card>
   </div>
 </template>
@@ -22,24 +39,43 @@ import { Editor, EditorContent } from 'tiptap'
 import {
   Link
 } from 'tiptap-extensions'
-import Menu from '~/components/Menu.vue'
+import Toolbar from '~/components/Toolbar.vue'
 import { Prop, Watch } from 'vue-property-decorator'
 import AbstractExtensionAdapter from '~/extensionAdapters/AbstractExtensionAdapter'
+import { PROPS, EVENTS } from '~/const'
 
 @Component({
   components: {
     EditorContent,
-    EditorMenu: Menu
+    Toolbar
   }
 })
 export default class Main extends Vue {
-  @Prop({ type: String, default: '' }) readonly value!: string
-  @Prop({ type: Array, default: () => [] }) readonly extensions!: any
+  @Prop({ type: String, default: '' })
+  readonly [PROPS.VALUE]: string
+
+  @Prop({ type: Array, default: () => [] })
+  readonly [PROPS.EXTENSIONS]: any
+
   @Prop({
     type: [Array, Object],
     default: () => ({})
-  }) readonly toolbarAttributes!: any
+  })
+  readonly [PROPS.TOOLBAR_ATTRIBUTES]: any
 
+  @Prop({
+    type: Object,
+    default: () => ({})
+  })
+  readonly [PROPS.EDITOR_PROPERTIES]: any
+
+  @Prop({
+    type: Array,
+    default: () => []
+  })
+  readonly [PROPS.NATIVE_EXTENSIONS]: any
+
+  PROPS = PROPS
   editor: Editor | null = null
   buttons: any = []
   emitAfterOnUpdate: boolean = false
@@ -58,7 +94,7 @@ export default class Main extends Vue {
   mounted () {
     const extensionsInstances: any = []
 
-    this.extensions.forEach((adapter: AbstractExtensionAdapter) => {
+    this[PROPS.EXTENSIONS].forEach((adapter: AbstractExtensionAdapter) => {
       this.buttons.push(...adapter.availableButtons)
 
       if (adapter.extensionInstance) {
@@ -67,7 +103,9 @@ export default class Main extends Vue {
     })
 
     this.editor = new Editor({
+      ...this[PROPS.EDITOR_PROPERTIES],
       extensions: [
+        ...this[PROPS.NATIVE_EXTENSIONS],
         // new Blockquote(),
         // new CodeBlock(),
         // new HardBreak(),
@@ -80,6 +118,7 @@ export default class Main extends Vue {
         // new Bold(),
         // new Code(),
         // new Italic(),
+        // TODO
         new Link(),
         // new Strike(),
         // new Underline(),
@@ -87,13 +126,17 @@ export default class Main extends Vue {
         // new HorizontalRule(),
         ...extensionsInstances
       ],
-      content: this.value,
+      content: this[PROPS.VALUE],
       onUpdate: this.onUpdate
+    })
+
+    this.$emit(EVENTS.INIT, {
+      editor: this.editor
     })
   }
   onUpdate (info) {
     this.emitAfterOnUpdate = true
-    this.$emit('input', info.getHTML(), info)
+    this.$emit(EVENTS.INPUT, info.getHTML(), info)
   }
 
   beforeDestroy () {
@@ -118,14 +161,18 @@ export default class Main extends Vue {
       margin: 10px 0 20px !important
 
     blockquote
-      border-left: 4px solid lightgray !important;
-      padding-left: 12px !important;
-      overflow: auto !important;
+      border-left: .25em solid #dfe2e5;
+      color: #6a737d;
+      padding-left: 1em;
       margin: 20px 0 !important
 
     code
-      padding: 8px !important;
+      padding: 0 4px !important
       margin: 0 5px !important
+
+    pre code
+        padding: 8px !important;
+        margin: 0 5px !important
 
     code:before, code:after
       content: none !important;

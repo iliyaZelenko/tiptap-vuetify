@@ -6,6 +6,7 @@
       :toolbar-attributes="{ color: 'yellow' }"
     />
 
+    <br><br>
     <h1>Preview</h1>
     <hr>
 
