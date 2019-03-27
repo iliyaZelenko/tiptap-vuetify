@@ -20,7 +20,7 @@
 <script>
 import { TiptapVuetify, Heading, Bold, Italic, Strike, Underline, Code, CodeBlock, Paragraph, BulletList, OrderedList,
   ListItem, Blockquote, HardBreak, HorizontalRule, History
-} from '~/main' // '../../dist/bundle'
+} from '../../dist/bundle-cjs' // '~/main' // '../../dist/bundle-umd'
 
 export default {
   components: { TiptapVuetify },

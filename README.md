@@ -1,6 +1,11 @@
 Component simplifies integration [tiptap](https://github.com/scrumpy/tiptap) with [vuetify](https://github.com/vuetifyjs/vuetify).
 
+[DEMO on codesanbox](https://codesandbox.io/s/p2wnzxyo90?fontsize=14&module=%2Fsrc%2Fexamples%2FSimple.vue)
+[
 ![](https://i.imgur.com/C46cX8m.png)
+](https://codesandbox.io/s/p2wnzxyo90?fontsize=14&module=%2Fsrc%2Fexamples%2FSimple.vue)
+
+
 
 ## Installation
 
@@ -16,9 +21,9 @@ npm install --save tiptap-vuetify
 1) Add `Vue.use` for plugin. You can select your icons group (`iconsGroup`, `'md'` by default).
 
 ```js
-import TiptapVuetify from 'tiptap-vuetify'
+import { TiptapVuetifyPlugin } from 'tiptap-vuetify'
 
-Vue.use(TiptapVuetify, {
+Vue.use(TiptapVuetifyPlugin, {
   // optional, default to 'md' (default vuetify icons)
   iconsGroup: 'md'
 })
@@ -87,6 +92,18 @@ export default {
   })
 }
 </script>
+```
+
+There is another use case with the script tag (CDN version of package):
+
+```html
+<script src="https://unpkg.com/tiptap-vuetify"></script>
+```
+
+Or
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/tiptap-vuetify"></script>
 ```
 
 ## Props

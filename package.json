@@ -1,10 +1,11 @@
 {
   "name": "tiptap-vuetify",
-  "version": "1.1.0",
+  "version": "1.2.2",
   "license": "MIT",
   "scripts": {
     "dev": "vue-cli-service serve ./demo/main.js",
-    "build": "rollup -c",
+    "build": "rollup -c --environment BUILD:production",
+    "build-watch": "rollup -w -c",
     "lint": "tslint -p tsconfig.json"
   },
   "dependencies": {
@@ -43,7 +44,7 @@
     "vuetify": "^1.5.7"
   },
   "peerDependencies": {
-    "tiptap": "^1.0.0",
+    "vue": "^2.0.0",
     "vuetify": "^1.0.0"
   },
   "keywords": [
@@ -65,7 +66,11 @@
   "homepage": "https://github.com/iliyaZelenko/tiptap-vuetify#readme",
   "description": "Vuetify WYSIWYG editor based on Tiptap.",
   "author": "Ilya Zelenko",
-  "main": "dist/bundle.js",
+  "main": "dist/bundle-cjs.js",
+  "module": "dist/bundle-esm.js",
+  "unpkg": "dist/bundle-umd.js",
+  "jsdelivr": "dist/bundle-umd.js",
+  "typings": "src/types/index.d.ts",
   "files": [
     "dist/*",
     "src/*"

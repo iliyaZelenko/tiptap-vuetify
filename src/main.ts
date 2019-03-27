@@ -3,7 +3,9 @@ import theme, { VuetifyIconsGropus } from '~/configs/theme'
 
 export const TiptapVuetify = MainComponent
 
-export default new (class Plugin {
+// дефолтный экспорт не подходит и это плохая практика:
+// It is bad practice to mix default and named exports in the same module, though it is allowed by the specification.
+export const TiptapVuetifyPlugin = new (class Plugin {
   iconsGroup: VuetifyIconsGropus
 
   install (Vue, options: OptionsInterface = {}) {

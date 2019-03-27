@@ -18,7 +18,7 @@
             <v-tooltip
               v-for="button of buttons"
               :key="button.tooltip"
-              bottom
+              top
             >
               <!--:disabled="isButtonDisabled(commands, button)"-->
               <template v-slot:activator="{ on }">
@@ -53,7 +53,7 @@ import { Prop } from 'vue-property-decorator'
 // import themeConfig from '~/configs/theme'
 import TextIcon from '~/extensionAdapters/icons/TextIcon'
 import VuetifyIcon from '~/extensionAdapters/icons/VuetifyIcon'
-import Plugin from '~/main'
+import { TiptapVuetifyPlugin } from '~/main'
 import toolbarConfig from '~/configs/toolbar'
 
 @Component({
@@ -96,7 +96,7 @@ export default class Menu extends Vue {
   }
 
   getButtonIcon (button) {
-    return button.icons[Plugin.iconsGroup]
+    return button.icons[TiptapVuetifyPlugin.iconsGroup]
   }
 }
 </script>

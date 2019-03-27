@@ -10,9 +10,9 @@ import '@fortawesome/fontawesome-free/css/all.css'
 import App from './App'
 import router from './router'
 
-import TiptapVuetify from '../src/main' // '../dist/bundle'
+import { TiptapVuetifyPlugin } from '../dist/bundle-cjs' // '~/main' // '../dist/bundle-umd'
 
-Vue.use(TiptapVuetify, {
+Vue.use(TiptapVuetifyPlugin, {
   iconsGroup: 'md'
 })
 Vue.use(Vuetify)
