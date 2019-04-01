@@ -32,6 +32,7 @@ export { default as Blockquote } from '~/extensionAdapters/Blockquote'
 export { default as HardBreak } from '~/extensionAdapters/HardBreak'
 export { default as HorizontalRule } from '~/extensionAdapters/HorizontalRule'
 export { default as History } from '~/extensionAdapters/History'
+export { default as Link } from '~/extensionAdapters/Link'
 
 interface OptionsInterface {
   iconsGroup?: VuetifyIconsGropus

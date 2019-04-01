@@ -17,7 +17,7 @@
           >
             <v-tooltip
               v-for="button of buttons"
-              :key="button.tooltip"
+              :key="button.tooltip.toString()"
               top
             >
               <!--:disabled="isButtonDisabled(commands, button)"-->
@@ -47,9 +47,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import Component from 'vue-class-component'
+import { Component, Prop } from 'vue-property-decorator'
 import { Editor, EditorMenuBar } from 'tiptap'
-import { Prop } from 'vue-property-decorator'
 // import themeConfig from '~/configs/theme'
 import TextIcon from '~/extensionAdapters/icons/TextIcon'
 import VuetifyIcon from '~/extensionAdapters/icons/VuetifyIcon'

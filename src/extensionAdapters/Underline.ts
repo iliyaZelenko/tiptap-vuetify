@@ -2,6 +2,7 @@ import { Underline as UnderlineOriginal } from 'tiptap-extensions'
 import AbstractExtensionAdapter from '~/extensionAdapters/AbstractExtensionAdapter'
 import { VuetifyIconsGropus } from '~/configs/theme'
 import VuetifyIcon from '~/extensionAdapters/icons/VuetifyIcon'
+import I18nText from '~/i18n/I18nText'
 
 export default class Underline extends AbstractExtensionAdapter {
   constructor (options) {
@@ -12,7 +13,7 @@ export default class Underline extends AbstractExtensionAdapter {
     return [
       {
         name: 'underline',
-        tooltip: 'Underline',
+        tooltip: new I18nText('extensions.Underline.buttons.underline.tooltip'),
         icons: {
           [VuetifyIconsGropus.md]: new VuetifyIcon('format_underline'),
           [VuetifyIconsGropus.fa]: new VuetifyIcon('fas fa-underline fa-lg'),

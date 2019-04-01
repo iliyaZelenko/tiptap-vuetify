@@ -7,7 +7,7 @@
     />
 
     <br><br>
-    <h1>Preview</h1>
+    <h1>Preview {{ $vuetify.lang.current }}</h1>
     <hr>
 
     <div
@@ -19,8 +19,8 @@
 
 <script>
 import { TiptapVuetify, Heading, Bold, Italic, Strike, Underline, Code, CodeBlock, Paragraph, BulletList, OrderedList,
-  ListItem, Blockquote, HardBreak, HorizontalRule, History
-} from '../../dist/bundle-cjs' // '~/main' // '../../dist/bundle-umd'
+  ListItem, Link, Blockquote, HardBreak, HorizontalRule, History
+} from '~/main' // '../../dist/bundle-cjs' // '../../dist/bundle-umd'
 
 export default {
   components: { TiptapVuetify },
@@ -39,6 +39,7 @@ export default {
       new BulletList(),
       new OrderedList(),
       new ListItem(),
+      new Link(),
       new Blockquote(),
       new HardBreak(),
       new HorizontalRule(),

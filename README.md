@@ -1,11 +1,18 @@
-Component simplifies integration [tiptap](https://github.com/scrumpy/tiptap) with [vuetify](https://github.com/vuetifyjs/vuetify).
+WYSIWYG editor for Vuetify. Component simplifies integration [tiptap](https://github.com/scrumpy/tiptap) with [vuetify](https://github.com/vuetifyjs/vuetify).
 
 [DEMO on codesanbox](https://codesandbox.io/s/p2wnzxyo90?fontsize=14&module=%2Fsrc%2Fexamples%2FSimple.vue)
 [
 ![](https://i.imgur.com/C46cX8m.png)
 ](https://codesandbox.io/s/p2wnzxyo90?fontsize=14&module=%2Fsrc%2Fexamples%2FSimple.vue)
 
+## Features
 
+- used vuetify components
+- internationalization (2 languages: en, ru)
+- internationalization (2 languages: en, ru)
+- everything is ready for use
+- props and events are available
+- the project is ready to actively develop if there is support (stars)!
 
 ## Installation
 
@@ -22,9 +29,11 @@ npm install --save tiptap-vuetify
 
 ```js
 import { TiptapVuetifyPlugin } from 'tiptap-vuetify'
+// don't forget to import styles
+import 'tiptap-vuetify/dist/main.css'
 
 Vue.use(TiptapVuetifyPlugin, {
-  // optional, default to 'md' (default vuetify icons)
+  // optional, default to 'md' (default vuetify icons before v2.0.0)
   iconsGroup: 'md'
 })
 ```
@@ -56,7 +65,7 @@ More about vuetify icons you can read [here](https://vuetifyjs.com/en/components
 <script>
 // import the component and the necessary extensions
 import { TiptapVuetify, Heading, Bold, Italic, Strike, Underline, Code, CodeBlock, Paragraph, BulletList, OrderedList,
-  ListItem, Blockquote, HardBreak, HorizontalRule, History
+  ListItem, Link, Blockquote, HardBreak, HorizontalRule, History
 } from 'tiptap-vuetify'
 
 export default {
@@ -79,6 +88,7 @@ export default {
       new BulletList(),
       new OrderedList(),
       new ListItem(),
+      new Link(),
       new Blockquote(),
       new HardBreak(),
       new HorizontalRule(),
@@ -110,7 +120,8 @@ Or
 
 ### extensions
 
-You can use the necessary extensions. The corresponding buttons are added automatically.
+You can use the necessary extensions. The corresponding buttons are added automatically
+(in the order in which you specify the extension).
 
 How to import and use them can be seen in the example above.
 
@@ -126,6 +137,7 @@ Available extensions:
 - `BulletList`
 - `OrderedList`
 - `ListItem`
+- `Link`
 - `Blockquote`
 - `HardBreak`
 - `HorizontalRule`
@@ -235,3 +247,9 @@ You can add content before the toolbar.
 ### toolbar-after
 
 You can add content after the toolbar.
+
+
+## TODO
+
+- images uploading (free hosting by default)
+- emoticons

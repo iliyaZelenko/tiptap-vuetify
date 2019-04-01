@@ -2,10 +2,9 @@ import { Bold as BoldOriginal } from 'tiptap-extensions'
 import AbstractExtensionAdapter from '~/extensionAdapters/AbstractExtensionAdapter'
 import { VuetifyIconsGropus } from '~/configs/theme'
 import VuetifyIcon from '~/extensionAdapters/icons/VuetifyIcon'
+import I18nText from '~/i18n/I18nText'
 
 export default class Bold extends AbstractExtensionAdapter {
-  name: string = 'bold'
-
   constructor (options) {
     super(options, BoldOriginal)
   }
@@ -13,8 +12,8 @@ export default class Bold extends AbstractExtensionAdapter {
   get availableButtons () {
     return [
       {
-        name: this.name,
-        tooltip: 'Bold',
+        name: 'bold',
+        tooltip: new I18nText('extensions.Bold.buttons.bold.tooltip'),
         icons: {
           [VuetifyIconsGropus.md]: new VuetifyIcon('format_bold'),
           [VuetifyIconsGropus.fa]: new VuetifyIcon('fas fa-bold fa-lg'),

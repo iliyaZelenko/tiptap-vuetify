@@ -2,6 +2,7 @@ import { CodeBlock as CodeBlockOriginal } from 'tiptap-extensions'
 import AbstractExtensionAdapter from '~/extensionAdapters/AbstractExtensionAdapter'
 import { VuetifyIconsGropus } from '~/configs/theme'
 import VuetifyIcon from '~/extensionAdapters/icons/VuetifyIcon'
+import I18nText from '~/i18n/I18nText'
 
 // TODO текст перед / после иконки. Сделать через массив: [new VuetifyIcon('code'), new TextForIcon('text')]
 export default class CodeBlock extends AbstractExtensionAdapter {
@@ -15,7 +16,7 @@ export default class CodeBlock extends AbstractExtensionAdapter {
     return [
       {
         name: this.name,
-        tooltip: 'Code block',
+        tooltip: new I18nText('extensions.CodeBlock.buttons.codeBlock.tooltip'),
         icons: {
           [VuetifyIconsGropus.md]: new VuetifyIcon('code'),
           [VuetifyIconsGropus.fa]: new VuetifyIcon('fas fa-code fa-lg'),

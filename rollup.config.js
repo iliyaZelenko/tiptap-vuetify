@@ -1,58 +1,64 @@
 import commonjs from 'rollup-plugin-commonjs'
 import vue from 'rollup-plugin-vue'
-import typescript from 'rollup-plugin-typescript'
+import typescript from 'rollup-plugin-typescript2'
 import alias from 'rollup-plugin-alias'
+import postcss from 'rollup-plugin-postcss'
 import resolve from 'rollup-plugin-node-resolve'
 import { join } from 'path'
 
 const isProduction = process.env.BUILD === 'production'
+const srtDir = join(__dirname, 'src')
+const distDir = join(__dirname, 'dist')
 
 export default (async () => [
   // You can also get a more optimized wrapper by creating dedicated builds for the formats “cjs” (Node), “amd” or “iife” (script tag)
-  getConfig({
+  await getConfig({
+    optimize: true,
     output: {
-      file: join(__dirname, 'dist/bundle-umd.js'),
+      file: join(distDir, 'bundle-umd.js'),
       format: 'umd',
       esModule: true
-    }
-    // plugins: [
-    //   // оптимизация
-    //   isProduction && (await import('rollup-plugin-terser')).terser()
-    // ]
+    },
+    // не важно какой output.format, главное сгенерировать css файл один раз, а не для каждой сборки (конфига)
+    // generateCssFile: join(distDir, 'main.css')
   }),
-  getConfig({
+  await getConfig({
     output: {
-      file: join(__dirname, 'dist/bundle-esm.js'),
+      file: join(distDir, 'bundle-esm.js'),
       format: 'esm',
       // это отдельная сборка под ES модули
       esModule: true
-    }
+    },
   }),
-  getConfig({
+  await getConfig({
+    optimize: true,
     output: {
-      file: join(__dirname, 'dist/bundle-cjs.js'),
+      file: join(distDir, 'bundle-cjs.js'),
       format: 'cjs'
     }
   }),
-  getConfig({
+  await getConfig({
+    optimize: true,
     output: {
-      file: join(__dirname, 'dist/bundle-iife.js'),
+      file: join(distDir, 'bundle-iife.js'),
       format: 'iife'
     }
   })
 ])
 
-function getConfig ({
+async function getConfig ({
+  optimize = false,
   output: {
     file,
     format,
     name = undefined,
     esModule = false
   },
-  plugins = []
+  plugins = [],
+  generateCssFile = false
 }) {
   return {
-    input: join(__dirname, 'src/main.ts'),
+    input: join(srtDir, 'main.ts'),
     output: {
       esModule,
       file,
@@ -72,6 +78,7 @@ function getConfig ({
         'vuetify': 'Vuetify'
       }
     },
+    // можно Object.keys(globals)
     external: [
       'vue',
       // 'vue-class-component',
@@ -83,20 +90,32 @@ function getConfig ({
     plugins: [
       alias({
         resolve: ['.ts', '.js', '.vue'],
-        '~': join(__dirname, 'src')
+        '~': srtDir
       }),
       commonjs(),
-      typescript(),
       resolve({
         customResolveOptions: {
           moduleDirectory: 'node_modules'
         }
       }),
+      // TODO autoprefixer
+      postcss({
+        // TODO для каждого конфига генерируется свой main.css (одинаковый файл), исправить
+        extract: join(distDir, 'main.css'),
+        minimize: true
+      }),
+      typescript({
+        // это фиксит Unknown object type "asyncfunction"
+        // https://github.com/ezolenko/rollup-plugin-typescript2/issues/105
+        clean: true
+      }),
       vue({
         defaultLang: { script: 'ts' },
         // Inject CSS in JavaScript. Setting css: false would extract styles in a .css file.
-        css: true,
+        css: false
       }),
+      // оптимизация
+      optimize && isProduction && (await import('rollup-plugin-terser')).terser(),
       ...plugins
     ]
   }

@@ -3,6 +3,7 @@ import AbstractExtensionAdapter from '~/extensionAdapters/AbstractExtensionAdapt
 import { VuetifyIconsGropus } from '~/configs/theme'
 import VuetifyIcon from '~/extensionAdapters/icons/VuetifyIcon'
 import TextIcon from '~/extensionAdapters/icons/TextIcon'
+import I18nText from '~/i18n/I18nText'
 
 export default class HorizontalRule extends AbstractExtensionAdapter {
   name: string = 'horizontal_rule'
@@ -15,7 +16,7 @@ export default class HorizontalRule extends AbstractExtensionAdapter {
     return [
       {
         name: this.name,
-        tooltip: 'Horizontal line',
+        tooltip: new I18nText('extensions.HorizontalRule.buttons.horizontalRule.tooltip'),
         icons: {
           [VuetifyIconsGropus.md]: new TextIcon('—'),
           [VuetifyIconsGropus.fa]: new VuetifyIcon('fas fa-minus fa-lg'),

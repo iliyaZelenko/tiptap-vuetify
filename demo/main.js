@@ -10,7 +10,8 @@ import '@fortawesome/fontawesome-free/css/all.css'
 import App from './App'
 import router from './router'
 
-import { TiptapVuetifyPlugin } from '../dist/bundle-cjs' // '~/main' // '../dist/bundle-umd'
+import { TiptapVuetifyPlugin } from '~/main' // '../dist/bundle-cjs' // '../dist/bundle-umd'
+// import '../dist/main.css'
 
 Vue.use(TiptapVuetifyPlugin, {
   iconsGroup: 'md'
@@ -21,8 +22,9 @@ Vue.use(Router)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
-new Vue({
+export const vueApp = new Vue({
   el: '#app',
   router,
   render: h => h(App)
 })
+

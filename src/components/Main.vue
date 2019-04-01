@@ -1,6 +1,14 @@
 <template>
-  <div class="tiptap-vuetify-editor">
-    <v-card v-if="editor">
+  <div
+    v-if="editor"
+    class="tiptap-vuetify-editor"
+  >
+    <bubble
+      v-if="hasLink"
+      :editor="editor"
+    />
+
+    <v-card>
       <slot name="toolbar-before" />
 
       <toolbar
@@ -34,18 +42,17 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import Component from 'vue-class-component'
-import { Editor, EditorContent } from 'tiptap'
-import {
-  Link
-} from 'tiptap-extensions'
+import { Editor, EditorContent, Extension } from 'tiptap'
 import Toolbar from '~/components/Toolbar.vue'
-import { Prop, Watch } from 'vue-property-decorator'
+import { Component, Prop, Watch } from 'vue-property-decorator'
 import AbstractExtensionAdapter from '~/extensionAdapters/AbstractExtensionAdapter'
 import { PROPS, EVENTS } from '~/const'
+import Bubble from '~/components/Bubble.vue'
+import { Link } from '~/main'
 
 @Component({
   components: {
+    Bubble,
     EditorContent,
     Toolbar
   }
@@ -79,6 +86,11 @@ export default class Main extends Vue {
   editor: Editor | null = null
   buttons: any = []
   emitAfterOnUpdate: boolean = false
+  editorExtensions: Extension[] = []
+
+  get hasLink (): boolean {
+    return this[PROPS.EXTENSIONS].some((adapter: AbstractExtensionAdapter) => adapter instanceof Link)
+  }
 
   @Watch('value')
   onValueChange (val) {
@@ -101,31 +113,31 @@ export default class Main extends Vue {
         extensionsInstances.push(adapter.extensionInstance)
       }
     })
+    const extensions = [
+      ...this[PROPS.NATIVE_EXTENSIONS],
+      // new Blockquote(),
+      // new CodeBlock(),
+      // new HardBreak(),
+      // new Heading({ levels: [1, 2, 3] }),
+      // new BulletList(),
+      // new OrderedList(),
+      // new ListItem(),
+      //// new TodoItem(),
+      //// new TodoList(),
+      // new Bold(),
+      // new Code(),
+      // new Italic(),
+      // new Link(),
+      // new Strike(),
+      // new Underline(),
+      // new History(),
+      // new HorizontalRule(),
+      ...extensionsInstances
+    ]
 
     this.editor = new Editor({
+      extensions,
       ...this[PROPS.EDITOR_PROPERTIES],
-      extensions: [
-        ...this[PROPS.NATIVE_EXTENSIONS],
-        // new Blockquote(),
-        // new CodeBlock(),
-        // new HardBreak(),
-        // new Heading({ levels: [1, 2, 3] }),
-        // new BulletList(),
-        // new OrderedList(),
-        // new ListItem(),
-        //// new TodoItem(),
-        //// new TodoList(),
-        // new Bold(),
-        // new Code(),
-        // new Italic(),
-        // TODO
-        new Link(),
-        // new Strike(),
-        // new Underline(),
-        // new History(),
-        // new HorizontalRule(),
-        ...extensionsInstances
-      ],
       content: this[PROPS.VALUE],
       onUpdate: this.onUpdate
     })
@@ -158,21 +170,21 @@ export default class Main extends Vue {
     padding: 5px;
 
     h1, h2, h3, h4
-      margin: 10px 0 20px !important
+      margin: 10px 0 20px !important;
 
     blockquote
       border-left: .25em solid #dfe2e5;
       color: #6a737d;
       padding-left: 1em;
-      margin: 20px 0 !important
+      margin: 20px 0 !important;
 
     code
-      padding: 0 4px !important
-      margin: 0 5px !important
+      padding: 0 4px !important;
+      margin: 0 5px !important;
 
     pre code
         padding: 8px !important;
-        margin: 0 5px !important
+        margin: 0 5px !important;
 
     code:before, code:after
       content: none !important;
@@ -181,4 +193,6 @@ export default class Main extends Vue {
     p
       margin-top: 16px !important;
       margin-bottom: 16px !important;
+      /* без этого пустой <p> в превью не будет занимать пространство (чтобы был вид пустой строки) как он это делает в редакторе */
+      min-height: 1rem;
 </style>
