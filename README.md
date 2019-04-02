@@ -26,8 +26,11 @@ WYSIWYG editor for Vuetify. Component simplifies integration [tiptap](https://gi
 
 [DEMO on codesanbox](https://codesandbox.io/s/p2wnzxyo90?fontsize=14&module=%2Fsrc%2Fexamples%2FSimple.vue)
 [
-![](https://i.imgur.com/C46cX8m.png)
+![](https://i.imgur.com/vfKWfkv.png)
 ](https://codesandbox.io/s/p2wnzxyo90?fontsize=14&module=%2Fsrc%2Fexamples%2FSimple.vue)
+
+
+
 
 ## Features
 
