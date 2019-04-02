@@ -9,7 +9,7 @@
       <img src="https://img.shields.io/npm/l/tiptap-vuetify.svg" alt="License">
     </a>
     <a href="https://circleci.com/gh/iliyaZelenko/tiptap-vuetify">
-      <img src="https://circleci.com/gh/iliyaZelenko/tiptap-vuetify.svg?style=shield" alt="CircleCI Build Status">
+      <img src="https://circleci.com/gh/iliyaZelenko/tiptap-vuetify.svg?style=svg" alt="CircleCI Build Status">
     </a>
     <a href="https://lgtm.com/projects/g/iliyaZelenko/tiptap-vuetify/context:javascript">
       <img alt="Language grade: JavaScript" src="https://img.shields.io/lgtm/grade/javascript/g/iliyaZelenko/tiptap-vuetify.svg?logo=lgtm&logoWidth=18" />
