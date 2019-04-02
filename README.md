@@ -14,6 +14,9 @@
     <a href="https://standardjs.com/">
       <img alt="codebeat badge" src="https://badgen.net/badge/code%20style/standard/f2a" />
     </a>
+    <a href="https://www.npmjs.com/package/tiptap-vuetify">
+      <img alt="codebeat badge" src="https://img.shields.io/badge/size-6.58%20kB-44cc11.svg" />
+    </a>
   </p>
 
 WYSIWYG editor for Vuetify. Component simplifies integration [tiptap](https://github.com/scrumpy/tiptap) with [vuetify](https://github.com/vuetifyjs/vuetify).
