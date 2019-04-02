@@ -278,4 +278,3 @@ You can add content after the toolbar.
 - images uploading (free hosting by default)
 - emoticons
 - tests
-- CI
