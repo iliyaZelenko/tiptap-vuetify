@@ -1,7 +1,13 @@
+// Warnings are errors in CI
+const OFF = 'off'
+const ERROR = 'error'
+const WARNING = isTruthy(process.env.CI) ? ERROR : 'warn'
+
 module.exports = {
   root: true,
   env: {
-    'node': true
+    node: true,
+    browser: true
   },
   extends: [
     // add more generic rulesets here, such as:
@@ -15,18 +21,22 @@ module.exports = {
   ],
   parserOptions: {
     'parser': '@typescript-eslint/parser',
-    'sourceType': 'module',
-    'extraFileExtensions': ['.vue'],
     'project': './tsconfig.json',
   },
   rules: {
-    'indent': 'off',
-    '@typescript-eslint/indent': ['error', 2],
+    'indent': OFF,
+    '@typescript-eslint/indent': [ERROR, 2],
     // allows 'any' type
-    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-explicit-any': OFF,
     // tslint config integration for eslint
-    '@typescript-eslint/tslint/config': ['warn', {
+    '@typescript-eslint/tslint/config': [WARNING, {
       'lintFile': './tslint.json', // path to tslint.json of your project
     }],
   }
+}
+
+function isTruthy (value) {
+  if (!value) return false
+
+  return ['1', 'true'].includes(value.toLowerCase())
 }
