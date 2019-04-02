@@ -1,6 +1,6 @@
 import { Code as CodeOriginal } from 'tiptap-extensions'
 import AbstractExtensionAdapter from '~/extensionAdapters/AbstractExtensionAdapter'
-import { VuetifyIconsGropus } from '~/configs/theme'
+import { faIconsSize, VuetifyIconsGropus } from '~/configs/theme'
 import VuetifyIcon from '~/extensionAdapters/icons/VuetifyIcon'
 import I18nText from '~/i18n/I18nText'
 
@@ -19,7 +19,7 @@ export default class Code extends AbstractExtensionAdapter {
         tooltip: new I18nText('extensions.Code.buttons.code.tooltip'),
         icons: {
           [VuetifyIconsGropus.md]: new VuetifyIcon('code'),
-          [VuetifyIconsGropus.fa]: new VuetifyIcon('fas fa-code fa-lg'),
+          [VuetifyIconsGropus.fa]: new VuetifyIcon('fas fa-code ' + faIconsSize),
           [VuetifyIconsGropus.mdi]: new VuetifyIcon('mdi-code-tags')
         }
       }

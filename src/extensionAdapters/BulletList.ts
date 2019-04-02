@@ -1,6 +1,6 @@
 import { BulletList as BulletListOriginal } from 'tiptap-extensions'
 import AbstractExtensionAdapter from '~/extensionAdapters/AbstractExtensionAdapter'
-import { VuetifyIconsGropus } from '~/configs/theme'
+import { faIconsSize, VuetifyIconsGropus } from '~/configs/theme'
 import VuetifyIcon from '~/extensionAdapters/icons/VuetifyIcon'
 import I18nText from '~/i18n/I18nText'
 
@@ -18,7 +18,7 @@ export default class BulletList extends AbstractExtensionAdapter {
         tooltip: new I18nText('extensions.BulletList.buttons.bulletList.tooltip'),
         icons: {
           [VuetifyIconsGropus.md]: new VuetifyIcon('format_list_bulleted'),
-          [VuetifyIconsGropus.fa]: new VuetifyIcon('fas fa-list-ul fa-lg'),
+          [VuetifyIconsGropus.fa]: new VuetifyIcon('fas fa-list-ul ' + faIconsSize),
           [VuetifyIconsGropus.mdi]: new VuetifyIcon('mdi-format-list-bulleted')
         }
       }

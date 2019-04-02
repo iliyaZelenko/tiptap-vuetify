@@ -8,3 +8,5 @@ export const enum VuetifyIconsGropus {
 export default {
   defaultIconsGroup: VuetifyIconsGropus.md
 }
+
+export const faIconsSize = 'fa-sm'

@@ -17,8 +17,8 @@
         :toolbar-attributes="$props[PROPS.TOOLBAR_ATTRIBUTES]"
       >
         <template
-          #default="scopedSlot"
           v-if="$scopedSlots.toolbar"
+          #default="scopedSlot"
         >
           <slot
             name="toolbar"

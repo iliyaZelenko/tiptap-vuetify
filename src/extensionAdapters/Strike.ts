@@ -1,6 +1,6 @@
 import { Strike as StrikeOriginal } from 'tiptap-extensions'
 import AbstractExtensionAdapter from '~/extensionAdapters/AbstractExtensionAdapter'
-import { VuetifyIconsGropus } from '~/configs/theme'
+import { faIconsSize, VuetifyIconsGropus } from '~/configs/theme'
 import VuetifyIcon from '~/extensionAdapters/icons/VuetifyIcon'
 import I18nText from '~/i18n/I18nText'
 
@@ -16,7 +16,7 @@ export default class Strike extends AbstractExtensionAdapter {
         tooltip: new I18nText('extensions.Strike.buttons.strike.tooltip'),
         icons: {
           [VuetifyIconsGropus.md]: new VuetifyIcon('format_strikethrough'),
-          [VuetifyIconsGropus.fa]: new VuetifyIcon('fas fa-strikethrough fa-lg'),
+          [VuetifyIconsGropus.fa]: new VuetifyIcon('fas fa-strikethrough ' + faIconsSize),
           [VuetifyIconsGropus.mdi]: new VuetifyIcon('mdi-format-strikethrough')
         }
       }

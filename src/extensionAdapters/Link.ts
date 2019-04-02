@@ -1,23 +1,28 @@
 import { Link as LinkOriginal } from 'tiptap-extensions'
 import AbstractExtensionAdapter from '~/extensionAdapters/AbstractExtensionAdapter'
-import { VuetifyIconsGropus } from '~/configs/theme'
+import { faIconsSize, VuetifyIconsGropus } from '~/configs/theme'
 import VuetifyIcon from '~/extensionAdapters/icons/VuetifyIcon'
 
 export const icons = {
   save: {
     [VuetifyIconsGropus.md]: new VuetifyIcon('check'),
-    [VuetifyIconsGropus.fa]: new VuetifyIcon('fas fa-strikethrough fa-lg'),
-    [VuetifyIconsGropus.mdi]: new VuetifyIcon('mdi-format-strikethrough')
+    [VuetifyIconsGropus.fa]: new VuetifyIcon('fas fa-strikethrough ' + faIconsSize),
+    [VuetifyIconsGropus.mdi]: new VuetifyIcon('mdi-check')
   },
   cancel: {
-    [VuetifyIconsGropus.md]: new VuetifyIcon('cancel'),
-    [VuetifyIconsGropus.fa]: new VuetifyIcon('fas fa-strikethrough fa-lg'),
-    [VuetifyIconsGropus.mdi]: new VuetifyIcon('mdi-format-strikethrough')
+    [VuetifyIconsGropus.md]: new VuetifyIcon('link_off'),
+    [VuetifyIconsGropus.fa]: new VuetifyIcon('fas fa-unlink ' + faIconsSize),
+    [VuetifyIconsGropus.mdi]: new VuetifyIcon('mdi-link-off')
   },
-  link: {
+  linkUpdate: {
     [VuetifyIconsGropus.md]: new VuetifyIcon('link'),
-    [VuetifyIconsGropus.fa]: new VuetifyIcon('fas fa-strikethrough fa-lg'),
-    [VuetifyIconsGropus.mdi]: new VuetifyIcon('mdi-format-strikethrough')
+    [VuetifyIconsGropus.fa]: new VuetifyIcon('fas fas fa-link ' + faIconsSize),
+    [VuetifyIconsGropus.mdi]: new VuetifyIcon('mdi-link')
+  },
+  linkAdd: {
+    [VuetifyIconsGropus.md]: new VuetifyIcon('link'),
+    [VuetifyIconsGropus.fa]: new VuetifyIcon('fas fa-strikethrough ' + faIconsSize),
+    [VuetifyIconsGropus.mdi]: new VuetifyIcon('mdi-link-plus')
   }
 }
 

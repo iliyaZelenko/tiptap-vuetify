@@ -9,7 +9,6 @@ WYSIWYG editor for Vuetify. Component simplifies integration [tiptap](https://gi
 
 - used vuetify components
 - internationalization (2 languages: en, ru)
-- internationalization (2 languages: en, ru)
 - everything is ready for use
 - props and events are available
 - the project is ready to actively develop if there is support (stars)!

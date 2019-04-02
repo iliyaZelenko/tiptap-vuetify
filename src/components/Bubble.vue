@@ -8,6 +8,7 @@
       <!--
       v-show="menu.isActive"
       absolute
+      fixed
       // Классы не применяются:
       :content-class="{
         'tiptap-vuetify-editor__menububble-tooltip': true,
@@ -18,6 +19,7 @@
         :value="menu.isActive"
         :position-x="menu.left"
         :position-y="getMenuY(menu)"
+        absolute
         top
       >
         <div>
@@ -64,7 +66,9 @@
             @click="showLinkMenu(getMarkAttrs('link'))"
           >
             <v-icon left>
-              {{ getIconByKey('link') }}
+              {{ getIconByKey(
+                isActive.link() ? 'linkUpdate' : 'linkAdd'
+              ) }}
             </v-icon>
 
             {{ isActive.link() ? $i18n.getMsg('extensions.Link.bubble.updateLink') : $i18n.getMsg('extensions.Link.bubble.addLink') }}
@@ -96,7 +100,13 @@ export default class Menu extends mixins(I18nMixin) {
   linkMenuIsActive: null | boolean = false
 
   getMenuY (menu) {
-    return window.innerHeight - menu.bottom
+    // высота всей страницы - высота окна - сколько страницу прокрученно от верха
+    const diff = document.documentElement.scrollHeight - window.innerHeight - window.scrollY
+    // bottom позиция относитель низа окна
+    const bottomRelatedToWindow = menu.bottom - diff
+
+    // top позиция
+    return window.innerHeight - bottomRelatedToWindow
   }
 
   getIconByKey (key) {

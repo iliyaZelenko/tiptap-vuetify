@@ -22,6 +22,7 @@
     "ordered-imports": [false],
     "object-literal-sort-keys": [false],
     "arrow-parens": false,
+    "indent": [true, "spaces", 2],
 
     // it is important for the imports work
 //    "no-implicit-dependencies": [true, "dev"],

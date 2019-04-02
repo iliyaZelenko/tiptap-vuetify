@@ -22,10 +22,11 @@
             >
               <!--:disabled="isButtonDisabled(commands, button)"-->
               <template v-slot:activator="{ on }">
+                <!--TODO сделать чтобы компонент сам определял какой компонент кнопка и что делать с commands, isActive-->
                 <v-btn
-                  v-on="on"
                   :class="{ 'v-btn--active': isButtonActive(isActive, button) }"
                   icon
+                  v-on="on"
                   @click="onButtonClick(commands, button)"
                 >
                   <b v-if="isButtonHasTextIcon(button)">
