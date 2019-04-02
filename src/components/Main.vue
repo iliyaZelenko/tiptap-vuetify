@@ -2,6 +2,7 @@
   <div
     class="tiptap-vuetify-editor"
     v-if="editor"
+
   >
     <bubble
       v-if="hasLink"
