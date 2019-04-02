@@ -1,3 +1,24 @@
+  <p align="center">
+    <a href="https://www.npmjs.com/package/tiptap-vuetify">
+      <img src="https://img.shields.io/npm/v/tiptap-vuetify.svg" alt="Version">
+    </a>
+    <a href="https://www.npmjs.com/package/tiptap-vuetify">
+      <img src="https://img.shields.io/npm/dm/tiptap-vuetify.svg" alt="Downloads">
+    </a>
+    <a href="https://www.npmjs.com/package/tiptap-vuetify">
+      <img src="https://img.shields.io/npm/l/tiptap-vuetify.svg" alt="License">
+    </a>
+    <a href="https://lgtm.com/projects/g/iliyaZelenko/tiptap-vuetify/context:javascript">
+      <img alt="Language grade: JavaScript" src="https://img.shields.io/lgtm/grade/javascript/g/iliyaZelenko/tiptap-vuetify.svg?logo=lgtm&logoWidth=18" />
+    </a>
+    <a href="https://standardjs.com/">
+      <img alt="codebeat badge" src="https://badgen.net/badge/code%20style/standard/f2a" />
+    </a>
+    <a href="https://www.npmjs.com/package/tiptap-vuetify">
+      <img alt="codebeat badge" src="https://img.shields.io/badge/size-6.58%20kB-44cc11.svg" />
+    </a>
+  </p>
+
 WYSIWYG editor for Vuetify. Component simplifies integration [tiptap](https://github.com/scrumpy/tiptap) with [vuetify](https://github.com/vuetifyjs/vuetify).
 
 [DEMO on codesanbox](https://codesandbox.io/s/p2wnzxyo90?fontsize=14&module=%2Fsrc%2Fexamples%2FSimple.vue)
@@ -12,6 +33,7 @@ WYSIWYG editor for Vuetify. Component simplifies integration [tiptap](https://gi
 - everything is ready for use
 - props and events are available
 - the project is ready to actively develop if there is support (stars)!
+- TypeScript support
 
 ## Installation
 
@@ -252,3 +274,5 @@ You can add content after the toolbar.
 
 - images uploading (free hosting by default)
 - emoticons
+- tests
+- CI
