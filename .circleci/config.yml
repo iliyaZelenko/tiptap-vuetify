@@ -26,6 +26,6 @@ jobs:
             - ~/.cache/yarn
       #          paths:
       #            - ~/.cache/yarn
-      - run: yarn lint
+      - run: yarn lint --max-warnings
       - run: yarn build
       - run: yarn semantic-release
