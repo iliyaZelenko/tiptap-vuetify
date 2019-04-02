@@ -1,8 +1,7 @@
 <template>
   <div
-    class="tiptap-vuetify-editor"
     v-if="editor"
-
+    class="tiptap-vuetify-editor"
   >
     <bubble
       v-if="hasLink"
