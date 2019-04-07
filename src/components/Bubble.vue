@@ -37,8 +37,6 @@
               @keydown.esc="hideLinkMenu"
             />
 
-            1{{ getIconByKey('save') }}1
-
             <v-btn
               color="success"
               type="submit"
@@ -86,7 +84,6 @@ import { Component, Prop } from 'vue-property-decorator'
 import { mixins } from 'vue-class-component'
 import { Editor, EditorMenuBubble } from 'tiptap'
 import { icons } from '~/extensionAdapters/Link'
-import { TiptapVuetifyPlugin } from '~/main'
 import I18nMixin from '~/mixins/I18nMixin'
 
 @Component({
@@ -112,7 +109,7 @@ export default class Menu extends mixins(I18nMixin) {
   }
 
   getIconByKey (key) {
-    return icons[key][TiptapVuetifyPlugin.iconsGroup]
+    return icons[key][this.$tiptapVuetify.iconsGroup]
   }
 
   showLinkMenu (attrs) {

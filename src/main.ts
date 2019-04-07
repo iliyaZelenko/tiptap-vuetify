@@ -6,14 +6,14 @@ export const TiptapVuetify = MainComponent
 // дефолтный экспорт не подходит и это плохая практика:
 // It is bad practice to mix default and named exports in the same module, though it is allowed by the specification.
 export const TiptapVuetifyPlugin = new (class Plugin {
-  iconsGroup: VuetifyIconsGropus = theme.defaultIconsGroup
-
   install (Vue, options: OptionsInterface = {}) {
     const {
       iconsGroup = theme.defaultIconsGroup
     } = options
-
-    this.iconsGroup = iconsGroup
+    const plugin: VuePrototypePluginInterface = {
+      iconsGroup
+    }
+    Vue.prototype.$tiptapVuetify = plugin
   }
 })()
 
@@ -36,4 +36,8 @@ export { default as Link } from '~/extensionAdapters/Link'
 
 interface OptionsInterface {
   iconsGroup?: VuetifyIconsGropus
+}
+
+export interface VuePrototypePluginInterface {
+  iconsGroup: VuetifyIconsGropus
 }
