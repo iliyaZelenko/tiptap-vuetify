@@ -37,6 +37,8 @@
               @keydown.esc="hideLinkMenu"
             />
 
+            1{{ getIconByKey('save') }}1
+
             <v-btn
               color="success"
               type="submit"
@@ -151,4 +153,3 @@ export default class Menu extends mixins(I18nMixin) {
     display: flex;
     align-items: center;
 </style>
-

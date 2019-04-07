@@ -6,7 +6,7 @@ export const TiptapVuetify = MainComponent
 // дефолтный экспорт не подходит и это плохая практика:
 // It is bad practice to mix default and named exports in the same module, though it is allowed by the specification.
 export const TiptapVuetifyPlugin = new (class Plugin {
-  iconsGroup: VuetifyIconsGropus
+  iconsGroup: VuetifyIconsGropus = theme.defaultIconsGroup
 
   install (Vue, options: OptionsInterface = {}) {
     const {
