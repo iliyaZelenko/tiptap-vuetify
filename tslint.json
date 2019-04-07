@@ -1,6 +1,7 @@
 {
   "defaultSeverity": "warning",
-  "extends": ["tslint:latest", "tslint-config-standard"],
+  // tslint:latest почему-то сбивает правила указанные в rules, например quotemark (раньше такого вроде не было)
+  "extends": ["tslint", "tslint-config-standard"],
   "linterOptions": {
 //    "include": [
 //      "./src/**/*.ts"
@@ -11,6 +12,7 @@
 //    ]
   },
   "rules": {
+
     "no-console": false,
 
     // не указывать public (он по умолчанию)
@@ -25,8 +27,6 @@
     "indent": [true, "spaces", 2],
 
     // it is important for the imports work
-//    "no-implicit-dependencies": [true, "dev"],
-//    "no-implicit-dependencies": [true, "dev", ["~", "@"]],
     "no-implicit-dependencies": false,
     "no-submodule-imports": [true, "~", "@"],
 

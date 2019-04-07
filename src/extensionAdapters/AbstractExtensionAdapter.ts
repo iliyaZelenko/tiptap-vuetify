@@ -18,6 +18,7 @@ export default abstract class AbstractExtensionAdapter {
 
   protected constructor (protected options, protected extensionClass: Extension | null) {
     if (extensionClass) {
+      // eslint-disable-next-line
       this.extensionInstance = new extensionClass(options)
     }
   }
