@@ -4,13 +4,14 @@ import typescript from 'rollup-plugin-typescript2'
 import alias from 'rollup-plugin-alias'
 import postcss from 'rollup-plugin-postcss'
 import resolve from 'rollup-plugin-node-resolve'
+import ttypescript from 'ttypescript'
 import { join } from 'path'
 
 const isProduction = process.env.BUILD === 'production'
 const srtDir = join(__dirname, 'src')
 const distDir = join(__dirname, 'dist')
 
-export default (async () => [
+export default async () => [
   // You can also get a more optimized wrapper by creating dedicated builds for the formats “cjs” (Node), “amd” or “iife” (script tag)
   await getConfig({
     optimize: true,
@@ -18,7 +19,7 @@ export default (async () => [
       file: join(distDir, 'bundle-umd.js'),
       format: 'umd',
       esModule: true
-    },
+    }
     // не важно какой output.format, главное сгенерировать css файл один раз, а не для каждой сборки (конфига)
     // generateCssFile: join(distDir, 'main.css')
   }),
@@ -28,7 +29,7 @@ export default (async () => [
       format: 'esm',
       // это отдельная сборка под ES модули
       esModule: true
-    },
+    }
   }),
   await getConfig({
     optimize: true,
@@ -44,18 +45,16 @@ export default (async () => [
       format: 'iife'
     }
   })
-])
+]
 
 async function getConfig ({
   optimize = false,
   output: {
     file,
     format,
-    name = undefined,
     esModule = false
   },
-  plugins = [],
-  generateCssFile = false
+  plugins = []
 }) {
   return {
     input: join(srtDir, 'main.ts'),
@@ -72,10 +71,10 @@ async function getConfig ({
         // 'vue-class-component': 'VueClassComponent',
         // https://github.com/kaorun343/vue-property-decorator/blob/master/rollup.config.js
         // 'vue-property-decorator': 'VuePropertyDecorator',
-        'tiptap': 'tiptap',
+        tiptap: 'tiptap',
         // Походу так и есть: https://github.com/scrumpy/tiptap/blob/master/build/packages/config.js#L44
         'tiptap-extensions': 'tiptap', // TODO tiptapExtensions
-        'vuetify': 'Vuetify'
+        vuetify: 'Vuetify'
       }
     },
     // можно Object.keys(globals)
@@ -107,7 +106,8 @@ async function getConfig ({
       typescript({
         // это фиксит Unknown object type "asyncfunction"
         // https://github.com/ezolenko/rollup-plugin-typescript2/issues/105
-        clean: true
+        clean: true,
+        typescript: ttypescript
       }),
       vue({
         defaultLang: { script: 'ts' },
