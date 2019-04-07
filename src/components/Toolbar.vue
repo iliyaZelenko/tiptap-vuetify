@@ -53,7 +53,6 @@ import { Editor, EditorMenuBar } from 'tiptap'
 // import themeConfig from '~/configs/theme'
 import TextIcon from '~/extensionAdapters/icons/TextIcon'
 import VuetifyIcon from '~/extensionAdapters/icons/VuetifyIcon'
-import { TiptapVuetifyPlugin } from '~/main'
 import toolbarConfig from '~/configs/toolbar'
 
 @Component({
@@ -96,7 +95,7 @@ export default class Menu extends Vue {
   }
 
   getButtonIcon (button) {
-    return button.icons[TiptapVuetifyPlugin.iconsGroup]
+    return button.icons[this.$tiptapVuetify.iconsGroup]
   }
 }
 </script>

@@ -70,7 +70,12 @@
 
     /* Experimental Options */
     "experimentalDecorators": true,           /* Enables experimental support for ES7 decorators. */
-    "emitDecoratorMetadata": true             /* Enables experimental support for emitting type metadata for decorators. */
+    "emitDecoratorMetadata": true,             /* Enables experimental support for emitting type metadata for decorators. */
+
+    /* ttypescript (wrapper for typescript) */
+    "plugins": [
+      { "transform": "@zerollup/ts-transform-paths" }
+    ]
   },
   "include": [
     "types/**/*",
@@ -81,6 +86,7 @@
     "tests/**/*.tsx"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "src/**/*.spec.ts"
   ]
 }

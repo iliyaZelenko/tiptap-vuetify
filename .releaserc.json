@@ -1,0 +1,21 @@
+{
+  "branch": "next",
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    ["@semantic-release/changelog", {
+      "changelogFile": "CHANGELOG.md"
+    }],
+    ["@semantic-release/github", {
+      "assets": [
+        { "path": "dist/themes/main.css", "label": "CSS" },
+        { "path": "dist/bundle-cjs.js", "label": "CommonJS module" },
+        { "path": "dist/bundle-umd.js", "label": "UMD module" },
+        { "path": "dist/bundle-esm.js", "label": "ECMAScript 6 module" },
+        { "path": "dist/bundle-iife.js", "label": "Browser IIFE module for <script> tag" }
+      ]
+    }],
+    "@semantic-release/npm",
+    "@semantic-release/git"
+  ]
+}
