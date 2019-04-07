@@ -8,15 +8,19 @@ export const dictionary = {
 }
 export function getCurrentLang () {
   if (!Vue.prototype.$vuetify) {
-    console.warn('Could not determine language, because Vue.prototype.$vuetify is not available. ' +
-      'Please make sure to execute Vue.use(Vuetify, ...) before loading tiptap-vuetify. Using language \'en\' by default.')
+    console.warn('tiptap-vuetify: Could not determine language, because Vue.prototype.$vuetify is not available. ' +
+      'Using language \'en\' by default.')
     return 'en'
   }
   return Vue.prototype.$vuetify.lang.current
 }
 export function getMsg (path: string, args?): string {
-  const validLang = dictionary.hasOwnProperty(getCurrentLang()) ? getCurrentLang() : 'en'
-  const dictionaryByLang = dictionary[validLang]
+  let currentLang = getCurrentLang()
+  if (!dictionary.hasOwnProperty(currentLang)) {
+    console.warn('tiptap-vuetify: The current language \'' + currentLang + '\' is not yet available. Using language \'en\' by default.')
+    currentLang = 'en'
+  }
+  const dictionaryByLang = dictionary[currentLang]
   const target = path.split('.').reduce((prev: string, curr: string) => {
     return prev[curr]
   }, dictionaryByLang)
