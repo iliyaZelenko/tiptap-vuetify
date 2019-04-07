@@ -1,7 +1,7 @@
 // Warnings are errors in CI
 const OFF = 'off'
 const ERROR = 'error'
-const WARNING = isTruthy(process.env.CI) ? ERROR : 'warn'
+// const WARNING = isTruthy(process.env.CI) ? ERROR : 'warn'
 
 module.exports = {
   root: true,
