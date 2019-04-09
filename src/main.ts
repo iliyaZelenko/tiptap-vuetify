@@ -1,38 +1,77 @@
-import MainComponent from '~/components/Main.vue'
+import TiptapVuetify from '~/components/TiptapVuetify.vue'
 import theme, { VuetifyIconsGropus } from '~/configs/theme'
+import VueWithVuetify from '../types'
+import { VuetifyVuePrototypeProperty } from '~/const'
+import { VuetifyObject } from 'vuetify'
+import ConsoleLogger from '~/logging/ConsoleLogger'
+import { defaultLanguage } from '~/i18n'
+// export {
+//   Heading,
+//   Bold,
+//   Italic,
+//   Strike,
+//   Underline,
+//   Code,
+//   CodeBlock,
+//   Paragraph,
+//   BulletList,
+//   OrderedList,
+//   ListItem,
+//   Blockquote,
+//   HardBreak,
+//   HorizontalRule,
+//   History,
+//   Link
+// } from '~/extensionAdapters'
 
-export const TiptapVuetify = MainComponent
+export * from '~/extensionAdapters'
+
+export {
+  TiptapVuetify
+}
 
 // дефолтный экспорт не подходит и это плохая практика:
 // It is bad practice to mix default and named exports in the same module, though it is allowed by the specification.
 export const TiptapVuetifyPlugin = new (class Plugin {
-  install (Vue, options: OptionsInterface = {}) {
+  installed: boolean = false
+  currentVueFuncConstructor!: VueWithVuetify
+  currentVuePrototype!: VueWithVuetify
+
+  get vuetify (): VuetifyObject {
+    return this.currentVuePrototype[VuetifyVuePrototypeProperty]
+  }
+
+  get vuetifyLang () {
+    // TODO optional chaining
+    return (this.vuetify && this.vuetify.lang && this.vuetify.lang.current) || null
+  }
+
+  install (VueFuncConstructor, options: OptionsInterface = {}) {
     const {
+      // TODO default language
       iconsGroup = theme.defaultIconsGroup
     } = options
     const plugin: VuePrototypePluginInterface = {
       iconsGroup
     }
-    Vue.prototype.$tiptapVuetify = plugin
+    VueFuncConstructor.prototype.$tiptapVuetify = plugin
+
+    this.currentVueFuncConstructor = VueFuncConstructor
+    this.currentVuePrototype = VueFuncConstructor.prototype
+
+    this.checkVuetifyLang()
+
+    this.installed = true
+  }
+
+  checkVuetifyLang () {
+    if (!this.vuetifyLang) {
+      ConsoleLogger.warn(`Could not determine language, because Vue.prototype.${VuetifyVuePrototypeProperty} is not available. Using language "${defaultLanguage}" by default.`)
+
+      return defaultLanguage
+    }
   }
 })()
-
-export { default as Heading } from '~/extensionAdapters/Heading'
-export { default as Bold } from '~/extensionAdapters/Bold'
-export { default as Italic } from '~/extensionAdapters/Italic'
-export { default as Strike } from '~/extensionAdapters/Strike'
-export { default as Underline } from '~/extensionAdapters/Underline'
-export { default as Code } from '~/extensionAdapters/Code'
-export { default as CodeBlock } from '~/extensionAdapters/CodeBlock'
-export { default as Paragraph } from '~/extensionAdapters/Paragraph'
-export { default as BulletList } from '~/extensionAdapters/BulletList'
-export { default as OrderedList } from '~/extensionAdapters/OrderedList'
-export { default as ListItem } from '~/extensionAdapters/ListItem'
-export { default as Blockquote } from '~/extensionAdapters/Blockquote'
-export { default as HardBreak } from '~/extensionAdapters/HardBreak'
-export { default as HorizontalRule } from '~/extensionAdapters/HorizontalRule'
-export { default as History } from '~/extensionAdapters/History'
-export { default as Link } from '~/extensionAdapters/Link'
 
 interface OptionsInterface {
   iconsGroup?: VuetifyIconsGropus

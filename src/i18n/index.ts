@@ -1,25 +1,34 @@
-import Vue from 'vue'
 import en from './en'
 import ru from './ru'
+import ConsoleLogger from '~/logging/ConsoleLogger'
+import { TiptapVuetifyPlugin } from '~/main'
+
+export const defaultLanguage = 'en'
 
 export const dictionary = {
   en,
   ru
 }
+
 export function getCurrentLang () {
-  if (!Vue.prototype.$vuetify) {
-    console.warn('tiptap-vuetify: Could not determine language, because Vue.prototype.$vuetify is not available. ' +
-      'Using language \'en\' by default.')
-    return 'en'
+  const vuetifyLang = TiptapVuetifyPlugin.vuetifyLang
+
+  if (!vuetifyLang) {
+    return defaultLanguage
   }
-  return Vue.prototype.$vuetify.lang.current
+
+  return vuetifyLang
 }
+
 export function getMsg (path: string, args?): string {
   let currentLang = getCurrentLang()
-  if (!dictionary.hasOwnProperty(currentLang)) {
-    console.warn('tiptap-vuetify: The current language \'' + currentLang + '\' is not yet available. Using language \'en\' by default.')
-    currentLang = 'en'
+
+  if (!dictionary[currentLang]) {
+    currentLang = defaultLanguage
+
+    ConsoleLogger.warn(`The current language "${currentLang}" is not yet available. Using language "${defaultLanguage}" by default.`)
   }
+
   const dictionaryByLang = dictionary[currentLang]
   const target = path.split('.').reduce((prev: string, curr: string) => {
     return prev[curr]

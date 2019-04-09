@@ -7,7 +7,7 @@
     />
 
     <br><br>
-    <h1>Preview {{ $vuetify.lang.current }}</h1>
+    <h1>Preview</h1>
     <hr>
 
     <div
@@ -18,14 +18,25 @@
 </template>
 
 <script>
-import { TiptapVuetify, Heading, Bold, Italic, Strike, Underline, Code, CodeBlock, Paragraph, BulletList, OrderedList,
-  ListItem, Link, Blockquote, HardBreak, HorizontalRule, History
-} from '../../dist/bundle-cjs' //  // '../../dist/bundle-umd'
+import { MAIN_MODULE } from '../config'
 
 export default {
-  components: { TiptapVuetify },
+  components: {
+    TiptapVuetify: () => MAIN_MODULE.then(({ TiptapVuetify }) => TiptapVuetify)
+  },
   data: () => ({
-    extensions: [
+    extensions: null,
+    content: `
+    <h1>Yay Headlines!</h1>
+    <p>All these <strong>cool tags</strong> are working now.</p>
+  `
+  }),
+  async created () {
+    const { Heading, Bold, Italic, Strike, Underline, Code, CodeBlock, Paragraph, BulletList, OrderedList, ListItem,
+      Link, Blockquote, HardBreak, HorizontalRule, History
+    } = await MAIN_MODULE
+
+    this.extensions = [
       new Heading({
         levels: [1, 2, 3]
       }),
@@ -44,11 +55,7 @@ export default {
       new HardBreak(),
       new HorizontalRule(),
       new History()
-    ],
-    content: `
-      <h1>Yay Headlines!</h1>
-      <p>All these <strong>cool tags</strong> are working now.</p>
-    `
-  })
+    ]
+  }
 }
 </script>

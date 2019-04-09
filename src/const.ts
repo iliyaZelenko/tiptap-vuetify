@@ -1,3 +1,7 @@
+export const PACKAGE_NAME = 'tiptap-vuetify'
+
+export const VuetifyVuePrototypeProperty = '$vuetify'
+
 export const EVENTS = {
   INPUT: 'input' as const,
   INIT: 'init' as const

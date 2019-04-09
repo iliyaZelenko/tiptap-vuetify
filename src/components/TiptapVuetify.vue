@@ -57,7 +57,7 @@ import { Link } from '~/main'
     Toolbar
   }
 })
-export default class Main extends Vue {
+export default class TiptapVuetify extends Vue {
   @Prop({ type: String, default: '' })
   readonly [PROPS.VALUE]: string
 
