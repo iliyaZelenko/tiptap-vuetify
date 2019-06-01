@@ -1,5 +1,8 @@
 /node_modules/
 /dist/
+/.yalc/
+
+yalc.lock
 
 # Log files
 *.log*

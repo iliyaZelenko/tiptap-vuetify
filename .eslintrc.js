@@ -49,6 +49,8 @@ module.exports = {
     '@typescript-eslint/no-var-requires': OFF,
     // allows 'any' type
     '@typescript-eslint/no-explicit-any': OFF,
+    // allows non null assertion
+    '@typescript-eslint/no-non-null-assertion': OFF,
     // tslint config integration for eslint
     // '@typescript-eslint/tslint/config': [WARNING, {
     //   'lintFile': './tslint.json', // path to tslint.json of your project
@@ -56,6 +58,6 @@ module.exports = {
   }
 }
 
-function isTruthy (value) {
-  return value && ['1', 'true'].includes(value.toLowerCase())
-}
+// function isTruthy (value) {
+//   return value && ['1', 'true'].includes(value.toLowerCase())
+// }
