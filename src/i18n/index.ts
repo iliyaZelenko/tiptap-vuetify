@@ -1,7 +1,7 @@
+import Vue from 'vue'
 import en from './en'
 import ru from './ru'
 import ConsoleLogger from '~/logging/ConsoleLogger'
-import { TiptapVuetifyPlugin } from '~/main'
 
 export const defaultLanguage = 'en'
 
@@ -11,13 +11,7 @@ export const dictionary = {
 }
 
 export function getCurrentLang () {
-  const vuetifyLang = TiptapVuetifyPlugin.vuetifyLang
-
-  if (!vuetifyLang) {
-    return defaultLanguage
-  }
-
-  return vuetifyLang
+  return Vue.prototype.tiptapVuetifyPlugin.vuetifyLang || 'defaultLanguage'
 }
 
 export function getMsg (path: string, args?): string {

@@ -28,7 +28,7 @@
 
     // it is important for the imports work
     "no-implicit-dependencies": false,
-    "no-submodule-imports": [true, "~", "@", "vue"],
+    "no-submodule-imports": [true, "~", "@"],
 
     "quotemark": [true, "single"],
     "semicolon": [true, "never"],

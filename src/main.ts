@@ -1,38 +1,17 @@
 import TiptapVuetify from '~/components/TiptapVuetify.vue'
-import theme, { VuetifyIconsGropus } from '~/configs/theme'
-import VueWithVuetify from '../types'
+import theme from '~/configs/theme'
+import VueWithVuetify, { OptionsInterface, PluginInterface } from '../types'
 import { VuetifyVuePrototypeProperty } from '~/const'
 import { VuetifyObject } from 'vuetify'
 import ConsoleLogger from '~/logging/ConsoleLogger'
-import { defaultLanguage } from '~/i18n'
-// export {
-//   Heading,
-//   Bold,
-//   Italic,
-//   Strike,
-//   Underline,
-//   Code,
-//   CodeBlock,
-//   Paragraph,
-//   BulletList,
-//   OrderedList,
-//   ListItem,
-//   Blockquote,
-//   HardBreak,
-//   HorizontalRule,
-//   History,
-//   Link
-// } from '~/extensionAdapters'
+import { defaultLanguage } from '~/i18n/index'
 
-export * from '~/extensionAdapters'
-
-export {
-  TiptapVuetify
-}
+export * from '~/extensionAdapters/index'
+export { TiptapVuetify }
 
 // дефолтный экспорт не подходит и это плохая практика:
 // It is bad practice to mix default and named exports in the same module, though it is allowed by the specification.
-export const TiptapVuetifyPlugin = new (class Plugin {
+export const TiptapVuetifyPlugin = new (class Plugin implements PluginInterface {
   installed: boolean = false
   currentVueFuncConstructor!: VueWithVuetify
   currentVuePrototype!: VueWithVuetify
@@ -42,19 +21,21 @@ export const TiptapVuetifyPlugin = new (class Plugin {
   }
 
   get vuetifyLang () {
+    const vuetify = this.vuetify
     // TODO optional chaining
-    return (this.vuetify && this.vuetify.lang && this.vuetify.lang.current) || null
+    return (vuetify && vuetify.lang && vuetify.lang.current) || null
   }
 
   install (VueFuncConstructor, options: OptionsInterface = {}) {
     const {
-      // TODO default language
+      // TODO default language (походу в ts так нельзя)
       iconsGroup = theme.defaultIconsGroup
     } = options
-    const plugin: VuePrototypePluginInterface = {
+
+    VueFuncConstructor.prototype.$tiptapVuetify = {
       iconsGroup
     }
-    VueFuncConstructor.prototype.$tiptapVuetify = plugin
+    VueFuncConstructor.prototype.tiptapVuetifyPlugin = TiptapVuetifyPlugin
 
     this.currentVueFuncConstructor = VueFuncConstructor
     this.currentVuePrototype = VueFuncConstructor.prototype
@@ -66,17 +47,8 @@ export const TiptapVuetifyPlugin = new (class Plugin {
 
   checkVuetifyLang () {
     if (!this.vuetifyLang) {
-      ConsoleLogger.warn(`Could not determine language, because Vue.prototype.${VuetifyVuePrototypeProperty} is not available. Using language "${defaultLanguage}" by default.`)
-
-      return defaultLanguage
+      ConsoleLogger.warn(`Could not determine language, because Vue.prototype.${VuetifyVuePrototypeProperty}` +
+        `is not available. Using language "${defaultLanguage}" by default.`)
     }
   }
 })()
-
-interface OptionsInterface {
-  iconsGroup?: VuetifyIconsGropus
-}
-
-export interface VuePrototypePluginInterface {
-  iconsGroup: VuetifyIconsGropus
-}

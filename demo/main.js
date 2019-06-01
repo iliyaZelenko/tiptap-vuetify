@@ -10,7 +10,6 @@ import '@fortawesome/fontawesome-free/css/all.css'
 import App from './App'
 import router from './router'
 
-// import { TiptapVuetifyPlugin } from '~/main' // '../dist/bundle-cjs'
 import '../dist/main.css'
 import { MAIN_MODULE } from './config'
 

@@ -148,6 +148,18 @@ Or
 
 ## Props
 
+### placeholder
+
+Placeholder is displayed when there is no content in the editor.
+
+How to use:
+
+```vue
+  <tiptap-vuetify
+    placeholder="Write something …"
+  />
+```
+
 ### extensions
 
 You can use the necessary extensions. The corresponding buttons are added automatically
@@ -284,3 +296,5 @@ You can add content after the toolbar.
 - images uploading (free hosting by default)
 - emoticons
 - tests
+- custom content for bubble menu
+- choose where the extension buttons should be displayed: in the toolbar or in the bubble menu

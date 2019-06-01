@@ -12,5 +12,6 @@ export const PROPS = {
   EXTENSIONS: 'extensions' as const,
   TOOLBAR_ATTRIBUTES: 'toolbarAttributes' as const,
   EDITOR_PROPERTIES: 'editorProperties' as const,
-  NATIVE_EXTENSIONS: 'nativeExtensions' as const
+  NATIVE_EXTENSIONS: 'nativeExtensions' as const,
+  PLACEHOLDER: 'placeholder' as const
 }

@@ -6,7 +6,7 @@ import VuetifyIcon from '~/extensionAdapters/icons/VuetifyIcon'
 export const icons = {
   save: {
     [VuetifyIconsGropus.md]: new VuetifyIcon('check'),
-    [VuetifyIconsGropus.fa]: new VuetifyIcon('fas fa-strikethrough ' + faIconsSize),
+    [VuetifyIconsGropus.fa]: new VuetifyIcon('fas fa-check ' + faIconsSize),
     [VuetifyIconsGropus.mdi]: new VuetifyIcon('mdi-check')
   },
   cancel: {
@@ -21,7 +21,7 @@ export const icons = {
   },
   linkAdd: {
     [VuetifyIconsGropus.md]: new VuetifyIcon('link'),
-    [VuetifyIconsGropus.fa]: new VuetifyIcon('fas fa-strikethrough ' + faIconsSize),
+    [VuetifyIconsGropus.fa]: new VuetifyIcon('fas fa-link ' + faIconsSize),
     [VuetifyIconsGropus.mdi]: new VuetifyIcon('mdi-link-plus')
   }
 }

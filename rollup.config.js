@@ -6,6 +6,7 @@ import postcss from 'rollup-plugin-postcss'
 import resolve from 'rollup-plugin-node-resolve'
 import ttypescript from 'ttypescript'
 import { join } from 'path'
+import postcssPresetEnv from 'postcss-preset-env'
 
 const isProduction = process.env.BUILD === 'production'
 const srtDir = join(__dirname, 'src')
@@ -91,17 +92,22 @@ async function getConfig ({
         resolve: ['.ts', '.js', '.vue'],
         '~': srtDir
       }),
-      commonjs(),
+      // TODO раньшн resolve был после commonjs (но в github я видел в таком порядке)
       resolve({
+        extensions: ['.ts', '.js', '.json'],
         customResolveOptions: {
           moduleDirectory: 'node_modules'
         }
       }),
+      commonjs(),
       // TODO autoprefixer
       postcss({
         // TODO для каждого конфига генерируется свой main.css (одинаковый файл), исправить
         extract: join(distDir, 'main.css'),
-        minimize: true
+        minimize: true,
+        plugins: [
+          postcssPresetEnv
+        ]
       }),
       typescript({
         // это фиксит Unknown object type "asyncfunction"

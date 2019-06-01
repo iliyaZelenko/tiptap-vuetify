@@ -49,6 +49,9 @@ import AbstractExtensionAdapter from '~/extensionAdapters/AbstractExtensionAdapt
 import { PROPS, EVENTS } from '~/const'
 import Bubble from '~/components/Bubble.vue'
 import { Link } from '~/main'
+import {
+  Placeholder
+} from 'tiptap-extensions'
 
 @Component({
   components: {
@@ -63,6 +66,9 @@ export default class TiptapVuetify extends Vue {
 
   @Prop({ type: Array, default: () => [] })
   readonly [PROPS.EXTENSIONS]: any
+
+  @Prop({ type: String })
+  readonly [PROPS.PLACEHOLDER]: string
 
   @Prop({
     type: [Array, Object],
@@ -100,7 +106,7 @@ export default class TiptapVuetify extends Vue {
       return
     }
 
-    this.editor.setContent(val)
+    if (this.editor) this.editor.setContent(val)
   }
 
   mounted () {
@@ -115,24 +121,14 @@ export default class TiptapVuetify extends Vue {
     })
     const extensions = [
       ...this[PROPS.NATIVE_EXTENSIONS],
-      // new Blockquote(),
-      // new CodeBlock(),
-      // new HardBreak(),
-      // new Heading({ levels: [1, 2, 3] }),
-      // new BulletList(),
-      // new OrderedList(),
-      // new ListItem(),
-      /// / new TodoItem(),
-      /// / new TodoList(),
-      // new Bold(),
-      // new Code(),
-      // new Italic(),
-      // new Link(),
-      // new Strike(),
-      // new Underline(),
-      // new History(),
-      // new HorizontalRule(),
-      ...extensionsInstances
+      ...extensionsInstances,
+
+      // TODO ONLY FOR TEST
+      new Placeholder({
+        emptyNodeClass: 'tiptap-vuetify-editor__paragraph--is-empty',
+        emptyNodeText: this[PROPS.PLACEHOLDER],
+        showOnlyWhenEditable: true
+      })
     ]
 
     this.editor = new Editor({
@@ -146,13 +142,14 @@ export default class TiptapVuetify extends Vue {
       editor: this.editor
     })
   }
+
   onUpdate (info) {
     this.emitAfterOnUpdate = true
     this.$emit(EVENTS.INPUT, info.getHTML(), info)
   }
 
   beforeDestroy () {
-    this.editor.destroy()
+    if (this.editor) this.editor.destroy()
   }
 }
 </script>
@@ -166,6 +163,7 @@ export default class TiptapVuetify extends Vue {
   /* Элемент не обязательно содрежится в .tiptap-vuetify-editor, может использоваться для отображения результата
   редактора в не редактора */
   .tiptap-vuetify-editor__content
+    transition: all 2s;
     overflow: auto !important;
     padding: 5px;
 
@@ -195,4 +193,14 @@ export default class TiptapVuetify extends Vue {
       margin-bottom: 16px !important;
       /* без этого пустой <p> в превью не будет занимать пространство (чтобы был вид пустой строки) как он это делает в редакторе */
       min-height: 1rem;
+
+      // placeholder
+      &.tiptap-vuetify-editor__paragraph--is-empty
+        &:first-child::before
+          content: attr(data-empty-text);
+          float: left;
+          color: #aaa;
+          pointer-events: none;
+          height: 0;
+          font-style: italic;
 </style>

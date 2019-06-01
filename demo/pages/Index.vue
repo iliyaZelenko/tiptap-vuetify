@@ -4,6 +4,7 @@
       v-model="content"
       :extensions="extensions"
       :toolbar-attributes="{ color: 'yellow' }"
+      placeholder="Write something …"
     />
 
     <br><br>
@@ -27,9 +28,9 @@ export default {
   data: () => ({
     extensions: null,
     content: `
-    <h1>Yay Headlines!</h1>
-    <p>All these <strong>cool tags</strong> are working now.</p>
-  `
+      <h1>Yay Headlines!</h1>
+      <p>All these <strong>cool tags</strong> are working now.</p>
+    `
   }),
   async created () {
     const { Heading, Bold, Italic, Strike, Underline, Code, CodeBlock, Paragraph, BulletList, OrderedList, ListItem,
