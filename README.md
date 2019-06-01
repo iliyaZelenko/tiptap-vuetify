@@ -25,6 +25,7 @@
 WYSIWYG editor for Vuetify. Component simplifies integration [tiptap](https://github.com/scrumpy/tiptap) with [vuetify](https://github.com/vuetifyjs/vuetify).
 
 [DEMO on codesanbox](https://codesandbox.io/s/p2wnzxyo90?fontsize=14&module=%2Fsrc%2Fexamples%2FSimple.vue)
+
 [
 ![](https://i.imgur.com/vfKWfkv.png)
 ](https://codesandbox.io/s/p2wnzxyo90?fontsize=14&module=%2Fsrc%2Fexamples%2FSimple.vue)
