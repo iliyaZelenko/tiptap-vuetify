@@ -58,6 +58,6 @@ module.exports = {
   }
 }
 
-function isTruthy (value) {
-  return value && ['1', 'true'].includes(value.toLowerCase())
-}
+// function isTruthy (value) {
+//   return value && ['1', 'true'].includes(value.toLowerCase())
+// }
