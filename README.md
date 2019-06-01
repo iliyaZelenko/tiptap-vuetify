@@ -183,9 +183,9 @@ For example, change the color:
 
 Tiptap `Editor` properties (passed to the constructor).
 
-You can see the full list of machines [here](https://github.com/scrumpy/tiptap#editor-properties).
+You can see the full list of properties [here](https://github.com/scrumpy/tiptap#editor-properties).
 
-Only these machines are not available: `content`, `onUpdate`, they are used in this package.
+Only these properties are not available: `content`, `onUpdate`, they are used in this package.
 If you want to add extensions to the `extensions` property, then use the `native-extensions` prop of this package.
 
 
