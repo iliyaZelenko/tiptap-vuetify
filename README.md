@@ -59,6 +59,9 @@ import { TiptapVuetifyPlugin } from 'tiptap-vuetify'
 // don't forget to import styles
 import 'tiptap-vuetify/dist/main.css'
 
+// first it
+Vue.use(Vuetify)
+// AFTER Vue.use(Vuetify) !!!
 Vue.use(TiptapVuetifyPlugin, {
   // optional, default to 'md' (default vuetify icons before v2.0.0)
   iconsGroup: 'md'
@@ -144,6 +147,18 @@ Or
 ```
 
 ## Props
+
+### placeholder
+
+Placeholder is displayed when there is no content in the editor.
+
+How to use:
+
+```vue
+  <tiptap-vuetify
+    placeholder="Write something …"
+  />
+```
 
 ### extensions
 
@@ -281,3 +296,5 @@ You can add content after the toolbar.
 - images uploading (free hosting by default)
 - emoticons
 - tests
+- custom content for bubble menu
+- choose where the extension buttons should be displayed: in the toolbar or in the bubble menu
