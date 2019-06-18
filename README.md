@@ -225,6 +225,17 @@ data () {
 }
 ```
 
+### output-format
+
+The format to output from the v-model. This defaults to `html`
+
+For example, to get json instead:
+```vue
+<tiptap-vuetify
+  output-format="json"
+/>
+```
+
 ## Events
 
 ### @init
