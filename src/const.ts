@@ -13,5 +13,6 @@ export const PROPS = {
   TOOLBAR_ATTRIBUTES: 'toolbarAttributes' as const,
   EDITOR_PROPERTIES: 'editorProperties' as const,
   NATIVE_EXTENSIONS: 'nativeExtensions' as const,
-  PLACEHOLDER: 'placeholder' as const
+  PLACEHOLDER: 'placeholder' as const,
+  OUTPUT_FORMAT: 'outputFormat' as const
 }
