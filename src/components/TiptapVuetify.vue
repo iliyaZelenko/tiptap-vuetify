@@ -70,6 +70,9 @@ export default class TiptapVuetify extends Vue {
   @Prop({ type: String })
   readonly [PROPS.PLACEHOLDER]: string
 
+  @Prop({ type: String, default: 'html' })
+  readonly [PROPS.OUTPUT_FORMAT]: string
+
   @Prop({
     type: [Array, Object],
     default: () => ({})
@@ -145,7 +148,15 @@ export default class TiptapVuetify extends Vue {
 
   onUpdate (info) {
     this.emitAfterOnUpdate = true
-    this.$emit(EVENTS.INPUT, info.getHTML(), info)
+    let output: any
+
+    if (this[PROPS.OUTPUT_FORMAT] === 'html') {
+      output = info.getHTML()
+    } else {
+      output = JSON.stringify(info.getJSON())
+    }
+
+    this.$emit(EVENTS.INPUT, output, info)
   }
 
   beforeDestroy () {
