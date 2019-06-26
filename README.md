@@ -346,7 +346,7 @@ In the future version this problem will most likely be solved and you will not n
 
 ## TODO
 
-- images uploading (free hosting by default) https://github.com/iliyaZelenko/tiptap-vuetify/issues/16
+- images uploading (free hosting by default) [Relevant issue.](https://github.com/iliyaZelenko/tiptap-vuetify/issues/16)
 - site with docs and examples
 - emoticons
 - tests
