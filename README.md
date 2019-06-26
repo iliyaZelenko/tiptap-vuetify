@@ -41,6 +41,7 @@ WYSIWYG editor for Vuetify. Component simplifies integration [tiptap](https://gi
 - [Props](#props)
 - [Events](#events)
 - [Slots](#slots)
+- [Frequent issues](#frequent-issues)
 - [TODO](#todo)
 
 <!-- /TOC -->
@@ -315,7 +316,7 @@ You can add content before the toolbar.
 
 You can add content after the toolbar.
 
-## Common issues
+## Frequent issues
 
 ### A La Carte / VuetifyLoaderPlugin
 
