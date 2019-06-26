@@ -333,11 +333,12 @@ To solve it, specify for Vuetify that you want to use components that this packa
 ```
 Vue.use(Vuetify, {
   components: {
+    VTextField,
     VTooltip,
     VToolbar,
     VCard,
     VIcon,
-    VBtn
+    VBtn,
   }
 });
 ```
