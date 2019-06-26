@@ -31,7 +31,19 @@ WYSIWYG editor for Vuetify. Component simplifies integration [tiptap](https://gi
 ](https://codesandbox.io/s/p2wnzxyo90?fontsize=14&module=%2Fsrc%2Fexamples%2FSimple.vue)
 
 
+## Navigation
 
+<!-- TOC -->
+
+- [Features](#features)
+- [Installation](#installation)
+- [Get started](#get-started)
+- [Props](#props)
+- [Events](#events)
+- [Slots](#slots)
+- [TODO](#todo)
+
+<!-- /TOC -->
 
 ## Features
 
@@ -303,11 +315,38 @@ You can add content before the toolbar.
 
 You can add content after the toolbar.
 
+## Common issues
+
+### A La Carte / VuetifyLoaderPlugin
+
+You may receive an error like this:
+
+```
+[Vue warn]:  Unknown custom element: <v-card> - did you register 
+the component correctly? For recursive components, 
+make sure to provide the "name" option.
+```
+
+To solve it, specify for Vuetify that you want to use components that this package uses: 
+
+```
+Vue.use(Vuetify, {
+  components: {
+    VTooltip,
+    VToolbar,
+    VCard,
+    VIcon,
+    VBtn
+  }
+});
+```
+
+In the future version this problem will most likely be solved and you will not need to do anything.
 
 ## TODO
 
-- images uploading (free hosting by default)
+- images uploading (free hosting by default) https://github.com/iliyaZelenko/tiptap-vuetify/issues/16
+- site with docs and examples
 - emoticons
 - tests
-- custom content for bubble menu
-- choose where the extension buttons should be displayed: in the toolbar or in the bubble menu
+- choose where the extension buttons should be displayed: in the toolbar or in the bubble menu (it's done and ready to go to the new version)
