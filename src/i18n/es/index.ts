@@ -96,7 +96,7 @@ export default {
     Heading: {
       buttons: {
         heading: {
-          tooltip: args => 'Nivel de encabezado ' + args.level
+          tooltip: args => `Nivel de encabezado ${args.level}`
         }
       }
     }
