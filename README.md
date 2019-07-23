@@ -25,18 +25,33 @@
 WYSIWYG editor for Vuetify. Component simplifies integration [tiptap](https://github.com/scrumpy/tiptap) with [vuetify](https://github.com/vuetifyjs/vuetify).
 
 [DEMO on codesanbox](https://codesandbox.io/s/p2wnzxyo90?fontsize=14&module=%2Fsrc%2Fexamples%2FSimple.vue)
+
 [
 ![](https://i.imgur.com/vfKWfkv.png)
 ](https://codesandbox.io/s/p2wnzxyo90?fontsize=14&module=%2Fsrc%2Fexamples%2FSimple.vue)
 
 
+## Navigation
 
+<!-- TOC -->
+
+- [Features](#features)
+- [Installation](#installation)
+- [Get started](#get-started)
+- [Props](#props)
+- [Events](#events)
+- [Slots](#slots)
+- [Frequent issues](#frequent-issues)
+- [TODO](#todo)
+
+<!-- /TOC -->
 
 ## Features
 
 - used vuetify components
+- support for different types of icons ([fa](https://fontawesome.com/),  [md](https://material.io/tools/icons/), [mdi](https://materialdesignicons.com/))
 - internationalization (2 languages: en, ru)
-- everything is ready for use
+- easy to start using
 - props and events are available
 - the project is ready to actively develop if there is support (stars)!
 - TypeScript support
@@ -198,9 +213,9 @@ For example, change the color:
 
 Tiptap `Editor` properties (passed to the constructor).
 
-You can see the full list of machines [here](https://github.com/scrumpy/tiptap#editor-properties).
+You can see the full list of properties [here](https://github.com/scrumpy/tiptap#editor-properties).
 
-Only these machines are not available: `content`, `onUpdate`, they are used in this package.
+Only these properties are not available: `content`, `onUpdate`, they are used in this package.
 If you want to add extensions to the `extensions` property, then use the `native-extensions` prop of this package.
 
 
@@ -221,6 +236,17 @@ data () {
     nativeExtensions: [new TiptapExtension1(), new TiptapExtension2()]
   }
 }
+```
+
+### output-format
+
+The format to output from the v-model. This defaults to `html`
+
+For example, to get json instead:
+```vue
+<tiptap-vuetify
+  output-format="json"
+/>
 ```
 
 ## Events
@@ -290,11 +316,39 @@ You can add content before the toolbar.
 
 You can add content after the toolbar.
 
+## Frequent issues
+
+### A La Carte / VuetifyLoaderPlugin
+
+You may receive an error like this:
+
+```
+[Vue warn]:  Unknown custom element: <v-card> - did you register 
+the component correctly? For recursive components, 
+make sure to provide the "name" option.
+```
+
+To solve it, specify for Vuetify that you want to use components that this package uses: 
+
+```
+Vue.use(Vuetify, {
+  components: {
+    VTextField,
+    VTooltip,
+    VToolbar,
+    VCard,
+    VIcon,
+    VBtn,
+  }
+});
+```
+
+In the future version this problem will most likely be solved and you will not need to do anything.
 
 ## TODO
 
-- images uploading (free hosting by default)
+- images uploading (free hosting by default) [Relevant issue.](https://github.com/iliyaZelenko/tiptap-vuetify/issues/16)
+- site with docs and examples
 - emoticons
 - tests
-- custom content for bubble menu
-- choose where the extension buttons should be displayed: in the toolbar or in the bubble menu
+- choose where the extension buttons should be displayed: in the toolbar or in the bubble menu (it's done and ready to go to the new version)

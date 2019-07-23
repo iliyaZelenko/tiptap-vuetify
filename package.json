@@ -1,6 +1,6 @@
 {
   "name": "tiptap-vuetify",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "license": "MIT",
   "scripts": {
     "commit": "git-cz",
@@ -64,7 +64,7 @@
   },
   "peerDependencies": {
     "vue": "^2.0.0",
-    "vuetify": "^1.0.0"
+    "vuetify": "^1.4.0"
   },
   "keywords": [
     "editor",

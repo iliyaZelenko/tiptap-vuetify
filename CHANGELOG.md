@@ -1,4 +1,4 @@
-# [1.4.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v1.3.5...v1.4.0) (2019-06-01)
+# [1.4.1](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v1.3.5...v1.4.1) (2019-06-01)
 
 
 ### Features

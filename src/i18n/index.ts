@@ -1,13 +1,15 @@
 import Vue from 'vue'
 import en from './en'
 import ru from './ru'
+import es from './es'
 import ConsoleLogger from '~/logging/ConsoleLogger'
 
 export const defaultLanguage = 'en'
 
 export const dictionary = {
   en,
-  ru
+  ru,
+  es
 }
 
 export function getCurrentLang () {
