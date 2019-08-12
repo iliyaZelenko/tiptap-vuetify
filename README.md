@@ -70,6 +70,7 @@ npm install --save tiptap-vuetify
 1) Add `Vue.use` for plugin. You can select your icons group (`iconsGroup`, `'md'` by default).
 
 ```js
+import Vue from 'vue'
 import { TiptapVuetifyPlugin } from 'tiptap-vuetify'
 // don't forget to import styles
 import 'tiptap-vuetify/dist/main.css'
