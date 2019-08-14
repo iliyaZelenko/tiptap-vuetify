@@ -61,7 +61,7 @@ export default {
     },
     Link: {
       bubble: {
-        updateLink: 'Zaktalizuj link',
+        updateLink: 'Zaktualizuj link',
         addLink: 'Dodaj Link'
       }
     },
