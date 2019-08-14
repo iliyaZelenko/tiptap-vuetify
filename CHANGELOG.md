@@ -3,8 +3,6 @@
 
 ### Features
 
-* **i18n:** Polish language ([4561b1b](https://github.com/iliyaZelenko/tiptap-vuetify/commit/4561b1b))
-* **i18n:** Polish language ([2c75733](https://github.com/iliyaZelenko/tiptap-vuetify/commit/2c75733))
 * **i18n:** Polish language ([b63c731](https://github.com/iliyaZelenko/tiptap-vuetify/commit/b63c731))
 
 # [1.5.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v1.4.1...v1.5.0) (2019-07-23)
