@@ -1,3 +1,5 @@
+**At the moment, this package does not fully support Vuetifi 2. If you want me to work more on this project, you can give me motivation in the form of a star. Thanks for attention!**
+  
   <p align="center">
     <a href="https://www.npmjs.com/package/tiptap-vuetify">
       <img src="https://img.shields.io/npm/v/tiptap-vuetify.svg" alt="Version">
