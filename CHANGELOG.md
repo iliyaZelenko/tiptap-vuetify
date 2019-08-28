@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v1.6.0...v1.7.0) (2019-08-28)
+
+
+### Features
+
+* **i18n:** french translation ([06dd3ea](https://github.com/iliyaZelenko/tiptap-vuetify/commit/06dd3ea)), closes [#39](https://github.com/iliyaZelenko/tiptap-vuetify/issues/39)
+
 # [1.6.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v1.5.0...v1.6.0) (2019-08-14)
 
 
