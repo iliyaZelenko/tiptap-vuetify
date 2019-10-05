@@ -6,23 +6,30 @@ const ERROR = 'error'
 module.exports = {
   root: true,
   env: {
+    es6: true,
     node: true,
     browser: true
   },
   extends: [
     // add more generic rulesets here, such as:
-    // 'eslint:recommended',
-    'standard',
+    'eslint:recommended',
+    // 'standard',
+    'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:vue/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    // 'plugin:vue/recommended',
   ],
-  // plugins: [
-  //   '@typescript-eslint'
-  //   // '@typescript-eslint/tslint'
-  // ],
+  plugins: [
+    'vue',
+    '@typescript-eslint'
+    // '@typescript-eslint/tslint'
+  ],
+  parser: 'vue-eslint-parser',
   parserOptions: {
     parser: '@typescript-eslint/parser',
-    project: './tsconfig.json'
+    project: './tsconfig.json',
+    sourceType: 'module',
+    extraFileExtensions: ['.vue']
   },
   rules: {
     // работает через @typescript-eslint/indent
@@ -30,7 +37,7 @@ module.exports = {
     // не правильно работает для конструктора typescript: constructor (public text) {}
     'no-useless-constructor': OFF,
 
-    '@typescript-eslint/explicit-member-accessibility': 'no-public',
+    '@typescript-eslint/explicit-member-accessibility': [ERROR, { accessibility: 'no-public' }],
     '@typescript-eslint/no-use-before-define': OFF,
     '@typescript-eslint/explicit-function-return-type': OFF,
     '@typescript-eslint/indent': [ERROR, 2],

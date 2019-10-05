@@ -13,12 +13,15 @@ import router from './router'
 import '../dist/main.css'
 import { MAIN_MODULE } from './config'
 
+const vuetify = new Vuetify()
+
 MAIN_MODULE.then(({ TiptapVuetifyPlugin }) => {
+  Vue.use(Router)
   Vue.use(Vuetify)
   Vue.use(TiptapVuetifyPlugin, {
+    vuetify,
     iconsGroup: 'fa'
   })
-  Vue.use(Router)
 
   Vue.config.productionTip = false
 
@@ -26,6 +29,7 @@ MAIN_MODULE.then(({ TiptapVuetifyPlugin }) => {
   new Vue({
     el: '#app',
     router,
+    vuetify,
     render: h => h(App)
   })
 })

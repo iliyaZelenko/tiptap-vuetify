@@ -4,7 +4,6 @@ import ru from './ru'
 import ConsoleLogger from '~/logging/ConsoleLogger'
 
 export const defaultLanguage = 'en'
-
 export const dictionary = {
   en,
   ru

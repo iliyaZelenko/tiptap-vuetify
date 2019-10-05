@@ -1,25 +1,28 @@
 <template>
   <!-- @hide="hideLinkMenu"-->
+  <!-- { commands, isActive, getMarkAttrs, menu } -->
   <editor-menu-bubble
     class="tiptap-vuetify-editor__menububble"
     :editor="editor"
+    :keep-in-bounds="true"
+    v-slot="context"
   >
-    <!-- { commands, isActive, getMarkAttrs, menu } -->
-    <template #default="context">
-      <!--
-      v-show="menu.isActive"
-      absolute
-      fixed
-      // Классы не применяются:
-      :content-class="{
-        'tiptap-vuetify-editor__menububble-tooltip': true,
-        'tiptap-vuetify-editor__menububble-tooltip--is-active': menu.isActive
-      }"
-      -->
+    <!--
+    v-show="menu.isActive"
+    absolute
+    fixed
+    // Классы не применяются:
+    :content-class="{
+      'tiptap-vuetify-editor__menububble-tooltip': true,
+      'tiptap-vuetify-editor__menububble-tooltip--is-active': menu.isActive
+    }"
+    -->
+    <div>
       <v-tooltip
         :value="context.menu.isActive"
         :position-x="context.menu.left"
         :position-y="getMenuY(context.menu)"
+        tag="div"
         content-class="tiptap-vuetify-editor__menububble-toolptip"
         absolute
         bottom
@@ -86,7 +89,7 @@
           />
         </div>
       </v-tooltip>
-    </template>
+    </div>
   </editor-menu-bubble>
 </template>
 

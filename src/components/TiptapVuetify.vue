@@ -108,7 +108,7 @@ export default class TiptapVuetify extends Vue {
     toolbar: [],
     bubbleMenu: []
   }
-  emitAfterOnUpdate: boolean = false
+  emitAfterOnUpdate = false
 
   get hasLink (): boolean {
     return this[PROPS.EXTENSIONS].some((extension: AbstractExtension) => extension instanceof Link)
@@ -163,7 +163,7 @@ export default class TiptapVuetify extends Vue {
       extensions,
       ...this[PROPS.EDITOR_PROPERTIES],
       content: this[PROPS.VALUE],
-      onUpdate: this.onUpdate
+      onUpdate: this.onUpdate.bind(this)
     })
 
     this.$emit(EVENTS.INIT, {
