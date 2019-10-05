@@ -1,10 +1,11 @@
 <template>
+  <!-- @hide="hideLinkMenu"-->
   <editor-menu-bubble
     class="tiptap-vuetify-editor__menububble"
     :editor="editor"
-    @hide="hideLinkMenu"
   >
-    <template #default="{ commands, isActive, getMarkAttrs, menu }">
+    <!-- { commands, isActive, getMarkAttrs, menu } -->
+    <template #default="context">
       <!--
       v-show="menu.isActive"
       absolute
@@ -16,13 +17,16 @@
       }"
       -->
       <v-tooltip
-        :value="menu.isActive"
-        :position-x="menu.left"
-        :position-y="getMenuY(menu)"
+        :value="context.menu.isActive"
+        :position-x="context.menu.left"
+        :position-y="getMenuY(context.menu)"
+        content-class="tiptap-vuetify-editor__menububble-toolptip"
         absolute
-        top
+        bottom
+        dark
       >
         <div>
+          <!--
           <form
             v-if="linkMenuIsActive"
             class="tiptap-vuetify-editor__menububble-form"
@@ -73,6 +77,13 @@
 
             {{ isActive.link() ? $i18n.getMsg('extensions.Link.bubble.updateLink') : $i18n.getMsg('extensions.Link.bubble.addLink') }}
           </v-btn>
+          -->
+
+          <actions-btns-render
+            :actions="actions"
+            :context="context"
+            :dark="true"
+          />
         </div>
       </v-tooltip>
     </template>
@@ -83,11 +94,14 @@
 import { Component, Prop } from 'vue-property-decorator'
 import { mixins } from 'vue-class-component'
 import { Editor, EditorMenuBubble } from 'tiptap'
-import { icons } from '~/extensionAdapters/Link'
+// import { icons } from '~/extensions/nativeExtensions/link/Link'
 import I18nMixin from '~/mixins/I18nMixin'
+import ExtensionActionInterface from '~/extensions/actions/ExtensionActionInterface'
+import ActionsBtnsRender from '~/components/ActionsBtnsRender.vue'
 
 @Component({
   components: {
+    ActionsBtnsRender,
     EditorMenuBubble
   }
 })
@@ -95,8 +109,14 @@ export default class Menu extends mixins(I18nMixin) {
   @Prop({ type: Object, required: true })
   readonly editor!: Editor
 
-  linkUrl: null | string = null
-  linkMenuIsActive: null | boolean = false
+  @Prop({
+    type: Array,
+    default: () => []
+  })
+  readonly actions: ExtensionActionInterface[]
+
+  // linkUrl: null | string = null
+  // linkMenuIsActive: null | boolean = false
 
   getMenuY (menu) {
     // высота всей страницы - высота окна - сколько страницу прокрученно от верха
@@ -105,48 +125,38 @@ export default class Menu extends mixins(I18nMixin) {
     const bottomRelatedToWindow = menu.bottom - diff
 
     // top позиция
-    return window.innerHeight - bottomRelatedToWindow
+    return window.innerHeight - bottomRelatedToWindow + 15 // + 15 из-за того что bottom, если top, то не нужно
   }
 
-  getIconByKey (key) {
-    return icons[key][this.$tiptapVuetify.iconsGroup]
-  }
+  // getIconByKey (key) {
+  //   return icons[key][this.$tiptapVuetify.iconsGroup]
+  // }
 
-  showLinkMenu (attrs) {
-    this.linkUrl = attrs.href
-    this.linkMenuIsActive = true
-    this.$nextTick(() => {
-      // @ts-ignore
-      this.$refs.linkInput.focus()
-    })
-  }
+  // showLinkMenu (attrs) {
+  //   this.linkUrl = attrs.href
+  //   this.linkMenuIsActive = true
+  //   this.$nextTick(() => {
+  //     // @ts-ignore
+  //     this.$refs.linkInput.focus()
+  //   })
+  // }
 
-  hideLinkMenu () {
-    this.linkUrl = null
-    this.linkMenuIsActive = false
-  }
+  // hideLinkMenu () {
+  //   this.linkUrl = null
+  //   this.linkMenuIsActive = false
+  // }
 
-  setLinkUrl (command, url) {
-    command({ href: url })
-    this.hideLinkMenu()
-    this.editor.focus()
-  }
+  // setLinkUrl (command, url) {
+  //   command({ href: url })
+  //   this.hideLinkMenu()
+  //   this.editor.focus()
+  // }
 }
 </script>
 
 <style lang="stylus">
-  /*
-    .tiptap-vuetify-editor__menububble
-      .v-tooltip__content
-        opacity: 1 !important;
-
-    .tiptap-vuetify-editor__menububble-tooltip
-      opacity: 0;
-
-      &.tiptap-vuetify-editor__menububble-tooltip--is-active
-        opacity: 1;
-  */
-  .tiptap-vuetify-editor__menububble-form
-    display: flex;
-    align-items: center;
+  .tiptap-vuetify-editor
+    &__menububble-toolptip
+      padding: 0;
+      opacity: 1 !important;
 </style>

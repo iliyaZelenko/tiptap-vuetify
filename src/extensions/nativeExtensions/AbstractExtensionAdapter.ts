@@ -8,14 +8,6 @@ export default abstract class AbstractExtensionAdapter {
    */
   abstract get availableButtons ()
 
-  get isActiveOptions (): any {
-    return undefined
-  }
-
-  get clickOptions (): any {
-    return undefined
-  }
-
   // extensionClass: Extension | null
   protected constructor (protected options, protected extensionClass) {
     if (extensionClass) {

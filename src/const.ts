@@ -13,5 +13,11 @@ export const PROPS = {
   TOOLBAR_ATTRIBUTES: 'toolbarAttributes' as const,
   EDITOR_PROPERTIES: 'editorProperties' as const,
   NATIVE_EXTENSIONS: 'nativeExtensions' as const,
-  PLACEHOLDER: 'placeholder' as const
+  PLACEHOLDER: 'placeholder' as const,
+  TYPE: 'type' as const
+}
+
+export enum EDITOR_TYPES_ENUM {
+  card = 'card',
+  inline = 'inline'
 }

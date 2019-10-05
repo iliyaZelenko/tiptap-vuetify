@@ -3,19 +3,23 @@
     v-if="editor"
     class="tiptap-vuetify-editor"
   >
+    <!-- hasLink || -->
     <bubble
-      v-if="hasLink"
+      v-if="availableActions.bubbleMenu.length"
       :editor="editor"
+      :actions="availableActions.bubbleMenu"
     />
 
-    <v-card>
+    <v-card v-if="$props[PROPS.TYPE] === EDITOR_TYPES_ENUM.card">
       <slot name="toolbar-before" />
 
       <toolbar
+        v-if="availableActions.toolbar.length"
         :editor="editor"
-        :buttons="buttons"
+        :actions="availableActions.toolbar"
         :toolbar-attributes="$props[PROPS.TOOLBAR_ATTRIBUTES]"
       >
+        <!-- Позволяет пользователю показывать свой тулбар -->
         <template
           v-if="$scopedSlots.toolbar"
           #default="scopedSlot"
@@ -42,16 +46,16 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { Editor, EditorContent, Extension } from 'tiptap'
+import { Editor, EditorContent } from 'tiptap'
 import Toolbar from '~/components/Toolbar.vue'
 import { Component, Prop, Watch } from 'vue-property-decorator'
-import AbstractExtensionAdapter from '~/extensionAdapters/AbstractExtensionAdapter'
-import { PROPS, EVENTS } from '~/const'
+import { EVENTS, PROPS, EDITOR_TYPES_ENUM } from '~/const'
 import Bubble from '~/components/Bubble.vue'
 import { Link } from '~/main'
-import {
-  Placeholder
-} from 'tiptap-extensions'
+import { Placeholder } from 'tiptap-extensions'
+import { ExtensionActionRenderInEnum } from '~/extensions/actions/ExtensionActionRenderInEnum'
+import ExtensionActionInterface from '~/extensions/actions/ExtensionActionInterface'
+import AbstractExtension from '~/extensions/AbstractExtension'
 
 @Component({
   components: {
@@ -88,14 +92,30 @@ export default class TiptapVuetify extends Vue {
   })
   readonly [PROPS.NATIVE_EXTENSIONS]: any
 
+  @Prop({
+    type: String,
+    default: EDITOR_TYPES_ENUM.card
+  })
+  readonly [PROPS.TYPE]: EDITOR_TYPES_ENUM
+
   PROPS = PROPS
+  EDITOR_TYPES_ENUM = EDITOR_TYPES_ENUM
   editor: Editor | null = null
-  buttons: any = []
+  availableActions: {
+    toolbar: ExtensionActionInterface[]
+    bubbleMenu: ExtensionActionInterface[]
+  } = {
+    toolbar: [],
+    bubbleMenu: []
+  }
   emitAfterOnUpdate: boolean = false
-  editorExtensions: Extension[] = []
 
   get hasLink (): boolean {
-    return this[PROPS.EXTENSIONS].some((adapter: AbstractExtensionAdapter) => adapter instanceof Link)
+    return this[PROPS.EXTENSIONS].some((extension: AbstractExtension) => extension instanceof Link)
+  }
+
+  get toolbarActions () {
+    return this[PROPS.EXTENSIONS].filter(i => i.renderIn)
   }
 
   @Watch('value')
@@ -110,20 +130,28 @@ export default class TiptapVuetify extends Vue {
   }
 
   mounted () {
-    const extensionsInstances: any = []
+    const nativeExtensionsInstances: any = []
 
-    this[PROPS.EXTENSIONS].forEach((adapter: AbstractExtensionAdapter) => {
-      this.buttons.push(...adapter.availableButtons)
+    this[PROPS.EXTENSIONS].forEach(([ExtensionClass, options]) => {
+      const extension: AbstractExtension = new ExtensionClass(options.nativeOptions)
+      const renderInVariants = Object.values(ExtensionActionRenderInEnum)
 
-      if (adapter.extensionInstance) {
-        extensionsInstances.push(adapter.extensionInstance)
+      if (!renderInVariants.includes(options.renderIn)) {
+        throw new Error('Please, set the "renderIn" option to one of following values: ' + renderInVariants)
+      }
+
+      this.availableActions[options.renderIn].push(...extension.availableActions)
+
+      if (extension.nativeExtensionInstance) {
+        nativeExtensionsInstances.push(extension.nativeExtensionInstance)
       }
     })
     const extensions = [
       ...this[PROPS.NATIVE_EXTENSIONS],
-      ...extensionsInstances,
+      ...nativeExtensionsInstances,
 
-      // TODO ONLY FOR TEST
+      // TODO только если есть prop placeholder
+      // !!!!!!!!!!!!!!!!! TODO ONLY FOR TEST (update: не помню что это, возможно и не нужно убирать код ниже)
       new Placeholder({
         emptyNodeClass: 'tiptap-vuetify-editor__paragraph--is-empty',
         emptyNodeText: this[PROPS.PLACEHOLDER],

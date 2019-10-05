@@ -1,7 +1,7 @@
 import { OrderedList as OrderedListOriginal } from 'tiptap-extensions'
-import AbstractExtensionAdapter from '~/extensionAdapters/AbstractExtensionAdapter'
+import AbstractExtensionAdapter from '~/extensions/nativeExtensions/AbstractExtensionAdapter'
 import { faIconsSize, VuetifyIconsGropus } from '~/configs/theme'
-import VuetifyIcon from '~/extensionAdapters/icons/VuetifyIcon'
+import VuetifyIcon from '~/extensions/nativeExtensions/icons/VuetifyIcon'
 import I18nText from '~/i18n/I18nText'
 
 export default class OrderedList extends AbstractExtensionAdapter {

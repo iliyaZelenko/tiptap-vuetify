@@ -97,7 +97,7 @@ More about vuetify icons you can read [here](https://vuetifyjs.com/en/components
 import { TiptapVuetify, Heading, Bold, Italic, Strike, Underline, Code, CodeBlock, Paragraph, BulletList, OrderedList,
   ListItem, Link, Blockquote, HardBreak, HorizontalRule, History
 } from 'tiptap-vuetify'
-
+import { TiptapVuetifyPlugin } from 'tiptap-vuetify'
 export default {
   // specify in the list of components
   components: { TiptapVuetify },

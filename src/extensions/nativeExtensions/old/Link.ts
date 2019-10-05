@@ -1,7 +1,7 @@
 import { Link as LinkOriginal } from 'tiptap-extensions'
-import AbstractExtensionAdapter from '~/extensionAdapters/AbstractExtensionAdapter'
+import AbstractExtensionAdapter from '~/extensions/nativeExtensions/AbstractExtensionAdapter'
 import { faIconsSize, VuetifyIconsGropus } from '~/configs/theme'
-import VuetifyIcon from '~/extensionAdapters/icons/VuetifyIcon'
+import VuetifyIcon from '~/extensions/nativeExtensions/icons/VuetifyIcon'
 
 export const icons = {
   save: {

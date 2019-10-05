@@ -1,5 +1,5 @@
 import { HardBreak as HardBreakOriginal } from 'tiptap-extensions'
-import AbstractExtensionAdapter from '~/extensionAdapters/AbstractExtensionAdapter'
+import AbstractExtensionAdapter from '~/extensions/nativeExtensions/AbstractExtensionAdapter'
 
 export default class HardBreak extends AbstractExtensionAdapter {
   name = null

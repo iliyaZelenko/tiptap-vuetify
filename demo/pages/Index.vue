@@ -38,24 +38,37 @@ export default {
     } = await MAIN_MODULE
 
     this.extensions = [
-      new Heading({
-        levels: [1, 2, 3]
-      }),
-      new Bold(),
-      new Italic(),
-      new Strike(),
-      new Underline(),
-      new Code(),
-      new CodeBlock(),
-      new Paragraph(),
-      new BulletList(),
-      new OrderedList(),
-      new ListItem(),
-      new Link(),
-      new Blockquote(),
-      new HardBreak(),
-      new HorizontalRule(),
-      new History()
+      // опции которые попадают в расширение tiptap
+      [Blockquote, {
+        renderIn: 'bubbleMenu',
+        nativeOptions: {
+          levels: [1, 2, 3]
+        }
+      }],
+      [Bold, {
+        renderIn: 'toolbar'
+      }],
+      [Link, {
+        renderIn: 'bubbleMenu'
+      }]
+      // new Heading({
+      //   levels: [1, 2, 3]
+      // }),
+      // new Bold(),
+      // new Italic(),
+      // new Strike(),
+      // new Underline(),
+      // new Code(),
+      // new CodeBlock(),
+      // new Paragraph(),
+      // new BulletList(),
+      // new OrderedList(),
+      // new ListItem(),
+      // new Link()
+      // new Blockquote(),
+      // new HardBreak(),
+      // new HorizontalRule(),
+      // new History()
     ]
   }
 }

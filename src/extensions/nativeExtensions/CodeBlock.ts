@@ -1,7 +1,7 @@
 import { CodeBlock as CodeBlockOriginal } from 'tiptap-extensions'
-import AbstractExtensionAdapter from '~/extensionAdapters/AbstractExtensionAdapter'
+import AbstractExtensionAdapter from '~/extensions/nativeExtensions/AbstractExtensionAdapter'
 import { faIconsSize, VuetifyIconsGropus } from '~/configs/theme'
-import VuetifyIcon from '~/extensionAdapters/icons/VuetifyIcon'
+import VuetifyIcon from '~/extensions/nativeExtensions/icons/VuetifyIcon'
 import I18nText from '~/i18n/I18nText'
 
 // TODO текст перед / после иконки. Сделать через массив: [new VuetifyIcon('code'), new TextForIcon('text')]

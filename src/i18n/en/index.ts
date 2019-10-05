@@ -60,9 +60,16 @@ export default {
       }
     },
     Link: {
-      bubble: {
-        updateLink: 'Update Link',
-        addLink: 'Add Link'
+      buttons: {
+        isActive: {
+          tooltip: 'Change Link'
+        },
+        notActive: {
+          tooltip: 'Add Link'
+        }
+      },
+      window: {
+        // ...
       }
     },
     OrderedList: {

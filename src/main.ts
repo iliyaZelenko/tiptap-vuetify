@@ -6,7 +6,7 @@ import { VuetifyObject } from 'vuetify'
 import ConsoleLogger from '~/logging/ConsoleLogger'
 import { defaultLanguage } from '~/i18n/index'
 
-export * from '~/extensionAdapters/index'
+export * from '~/extensions/nativeExtensions/index'
 export { TiptapVuetify }
 
 // дефолтный экспорт не подходит и это плохая практика:

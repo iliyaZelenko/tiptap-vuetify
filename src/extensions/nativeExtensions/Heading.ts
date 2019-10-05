@@ -1,6 +1,6 @@
 import { Heading as HeadingOriginal } from 'tiptap-extensions'
-import TextIcon from '~/extensionAdapters/icons/TextIcon'
-import AbstractExtensionAdapter from '~/extensionAdapters/AbstractExtensionAdapter'
+import TextIcon from '~/extensions/nativeExtensions/icons/TextIcon'
+import AbstractExtensionAdapter from '~/extensions/nativeExtensions/AbstractExtensionAdapter'
 import { VuetifyIconsGropus } from '~/configs/theme'
 import I18nText from '~/i18n/I18nText'
 

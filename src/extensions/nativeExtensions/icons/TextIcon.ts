@@ -1,4 +1,4 @@
-import IconInterface from '~/extensionAdapters/icons/IconInterface'
+import IconInterface from '~/extensions/nativeExtensions/icons/IconInterface'
 
 export default class TextIcon implements IconInterface {
   constructor (public text) {}

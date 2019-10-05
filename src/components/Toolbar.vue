@@ -1,13 +1,14 @@
 <template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
+  <!-- Open/Closed principle https://css-tricks.com/creating-vue-js-component-instances-programmatically/ -->
   <div class="tiptap-vuetify-editor__toolbar">
     <editor-menu-bar :editor="editor">
       <!--Вместо #default можно v-slot-->
-      <template #default="{ commands, isActive }">
+      <template #default="menuBarContext">
+        <!-- :buttons="buttons" -->
         <slot
           name="default"
-          :buttons="buttons"
-          :isActive="isActive"
-          :commands="commands"
+          :isActive="menuBarContext.isActive"
+          :commands="menuBarContext.commands"
         >
           <v-toolbar
             v-bind="{
@@ -15,30 +16,10 @@
               ...toolbarAttributes
             }"
           >
-            <v-tooltip
-              v-for="button of buttons"
-              :key="button.tooltip.toString()"
-              top
-            >
-              <!--:disabled="isButtonDisabled(commands, button)"-->
-              <template v-slot:activator="{ on }">
-                <!--TODO сделать чтобы компонент сам определял какой компонент кнопка и что делать с commands, isActive-->
-                <v-btn
-                  :class="{ 'v-btn--active': isButtonActive(isActive, button) }"
-                  icon
-                  v-on="on"
-                  @click="onButtonClick(commands, button)"
-                >
-                  <b v-if="isButtonHasTextIcon(button)">
-                    {{ getButtonIcon(button) }}
-                  </b>
-                  <v-icon v-else-if="isButtonHasVuetifyIcon(button)">
-                    {{ getButtonIcon(button) }}
-                  </v-icon>
-                </v-btn>
-              </template>
-              <template>{{ button.tooltip }}</template>
-            </v-tooltip>
+            <actions-btns-render
+              :actions="actions"
+              :context="getContext(menuBarContext)"
+            />
           </v-toolbar>
         </slot>
       </template>
@@ -50,25 +31,26 @@
 import Vue from 'vue'
 import { Component, Prop } from 'vue-property-decorator'
 import { Editor, EditorMenuBar } from 'tiptap'
-// import themeConfig from '~/configs/theme'
-import TextIcon from '~/extensionAdapters/icons/TextIcon'
-import VuetifyIcon from '~/extensionAdapters/icons/VuetifyIcon'
 import toolbarConfig from '~/configs/toolbar'
+import ExtensionActionInterface from '~/extensions/actions/ExtensionActionInterface'
+import ExtensionActionRenderBtn from '~/extensions/actions/renders/btn/ExtensionActionRenderBtn.ts'
+import ActionsBtnsRender from '~/components/ActionsBtnsRender.vue'
 
 @Component({
   components: {
+    ActionsBtnsRender,
     EditorMenuBar
   }
 })
-export default class Menu extends Vue {
+export default class Toolbar extends Vue {
   @Prop({ type: Object, required: true })
-  readonly editor!: Editor
+  readonly editor: Editor
 
   @Prop({
     type: Array,
     default: () => []
   })
-  readonly buttons!: any
+  readonly actions: ExtensionActionInterface[]
 
   @Prop({
     type: [Array, Object],
@@ -76,27 +58,22 @@ export default class Menu extends Vue {
   })
   readonly toolbarAttributes!: any
 
+  mounted () {
+    console.log(this.actions)
+  }
+
+  getContext (menuBarContext) {
+    return {
+      ...menuBarContext,
+      editor: this.editor
+    }
+  }
+
+  isBtn (action: ExtensionActionInterface): boolean {
+    return action.render instanceof ExtensionActionRenderBtn
+  }
+
   toolbarConfig = toolbarConfig
-
-  isButtonHasTextIcon (button) {
-    return this.getButtonIcon(button) instanceof TextIcon
-  }
-
-  isButtonHasVuetifyIcon (button) {
-    return this.getButtonIcon(button) instanceof VuetifyIcon
-  }
-
-  isButtonActive (isActive, button): boolean {
-    return !!isActive[button.name] && isActive[button.name](button.isActiveOptions)
-  }
-
-  onButtonClick (commands, button) {
-    return commands[button.name](button.clickOptions)
-  }
-
-  getButtonIcon (button) {
-    return button.icons[this.$tiptapVuetify.iconsGroup]
-  }
 }
 </script>
 
