@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.0.1...v2.0.2) (2019-10-06)
+
+
+### Bug Fixes
+
+* **history:** fix error if no options for the extension ([af5e3be](https://github.com/iliyaZelenko/tiptap-vuetify/commit/af5e3be))
+
 ## [2.0.1](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.0.0...v2.0.1) (2019-10-06)
 
 
