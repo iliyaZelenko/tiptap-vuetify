@@ -1,3 +1,20 @@
+# [2.0.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v1.7.0...v2.0.0) (2019-10-06)
+
+
+### Features
+
+* architecture changes ([14b6604](https://github.com/iliyaZelenko/tiptap-vuetify/commit/14b6604))
+* rewrite plugin, dependency update, small refactor ([f0a5d06](https://github.com/iliyaZelenko/tiptap-vuetify/commit/f0a5d06))
+* **eslint:** rollback versions for ESLint's tools until they solve the problems with the Vue ([e0a29ef](https://github.com/iliyaZelenko/tiptap-vuetify/commit/e0a29ef))
+* **extensions, i18n, icons:** rewrite extensions for a new look, news i18n for links, fix icons ([42cdc13](https://github.com/iliyaZelenko/tiptap-vuetify/commit/42cdc13))
+* **vuetify 2:** rewrote the components for the Vuetify 2. Also other minor changes ([7ac50f3](https://github.com/iliyaZelenko/tiptap-vuetify/commit/7ac50f3)), closes [#33](https://github.com/iliyaZelenko/tiptap-vuetify/issues/33) [#29](https://github.com/iliyaZelenko/tiptap-vuetify/issues/29) [#43](https://github.com/iliyaZelenko/tiptap-vuetify/issues/43) [#21](https://github.com/iliyaZelenko/tiptap-vuetify/issues/21) [#18](https://github.com/iliyaZelenko/tiptap-vuetify/issues/18)
+
+
+### BREAKING CHANGES
+
+* Vuetify version, accces to vuetify via required property in options
+* extensions are now used differently
+
 # [1.7.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v1.6.0...v1.7.0) (2019-08-28)
 
 
