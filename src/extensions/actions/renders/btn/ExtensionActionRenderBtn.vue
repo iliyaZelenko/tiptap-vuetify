@@ -6,11 +6,15 @@
       <v-btn
         :class="{ 'v-btn--active': $props[PROPS.OPTIONS].isActive($props[PROPS.CONTEXT]) }"
         :dark="$props[PROPS.DARK]"
+        small
         icon
         v-on="on"
-        @click="options.onClick($props[PROPS.CONTEXT])"
+        @click="options.onClick({ context: $props[PROPS.CONTEXT], editor: $props[PROPS.EDITOR] })"
       >
-        <component :is="isTextIcon ? 'b' : isVuetifyIcon ? 'v-icon' : null">
+        <component
+          :is="isTextIcon ? 'b' : isVuetifyIcon ? 'v-icon' : null"
+          x-small
+        >
           {{ buttonIcon }}
         </component>
       </v-btn>
@@ -22,19 +26,28 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Component, Prop } from 'vue-property-decorator'
+import { Editor } from 'tiptap'
 import ExtensionActionRenderBtnOptionsInterface from './ExtensionActionRenderBtnOptionsInterface'
 import TextIcon from '~/extensions/nativeExtensions/icons/TextIcon'
 import VuetifyIcon from '~/extensions/nativeExtensions/icons/VuetifyIcon'
 import IconInterface from '~/extensions/nativeExtensions/icons/IconInterface'
+import { VTooltip, VBtn, VIcon } from 'vuetify/lib'
 
+// TODO можно использовать как миксин, передавать туда сразу пропсы и не нужно будет писать PROPS = PROPS
 export const PROPS = {
+  EDITOR: 'editor' as const,
   OPTIONS: 'options' as const,
   CONTEXT: 'context' as const,
   DARK: 'dark' as const
 }
 
-@Component
+@Component({
+  components: { VTooltip, VBtn, VIcon }
+})
 export default class ExtensionActionRenderBtn extends Vue {
+  @Prop({ type: Object, required: true })
+  readonly [PROPS.EDITOR]: Editor
+
   @Prop({ type: Object, required: true })
   readonly [PROPS.OPTIONS]: ExtensionActionRenderBtnOptionsInterface
 

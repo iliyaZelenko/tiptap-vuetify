@@ -1,9 +1,9 @@
-<template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
+<template>
   <!-- Open/Closed principle https://css-tricks.com/creating-vue-js-component-instances-programmatically/ -->
   <div class="tiptap-vuetify-editor__toolbar">
     <editor-menu-bar
-      :editor="editor"
       v-slot="menuBarContext"
+      :editor="editor"
     >
       <!-- :buttons="buttons" -->
       <slot
@@ -19,7 +19,8 @@
         >
           <actions-btns-render
             :actions="actions"
-            :context="getContext(menuBarContext)"
+            :context="menuBarContext"
+            :editor="editor"
           />
         </v-toolbar>
       </slot>
@@ -35,11 +36,13 @@ import toolbarConfig from '~/configs/toolbar'
 import ExtensionActionInterface from '~/extensions/actions/ExtensionActionInterface'
 import ExtensionActionRenderBtn from '~/extensions/actions/renders/btn/ExtensionActionRenderBtn.ts'
 import ActionsBtnsRender from '~/components/ActionsBtnsRender.vue'
+import { VToolbar } from 'vuetify/lib'
 
 @Component({
   components: {
     ActionsBtnsRender,
-    EditorMenuBar
+    EditorMenuBar,
+    VToolbar
   }
 })
 export default class Toolbar extends Vue {
@@ -58,29 +61,20 @@ export default class Toolbar extends Vue {
   })
   readonly toolbarAttributes!: any
 
-  mounted () {
-    console.log(this.actions)
-  }
-
-  getContext (menuBarContext) {
-    return {
-      ...menuBarContext,
-      editor: this.editor
-    }
-  }
+  readonly toolbarConfig = toolbarConfig
 
   isBtn (action: ExtensionActionInterface): boolean {
     return action.render instanceof ExtensionActionRenderBtn
   }
-
-  toolbarConfig = toolbarConfig
 }
 </script>
 
 <style lang="stylus">
   .tiptap-vuetify-editor__toolbar
     .v-toolbar
+      display: flex
+
       .v-toolbar__content
-        height: auto !important;
-        flex-wrap: wrap;
+        height: auto !important
+        flex-wrap: wrap
 </style>

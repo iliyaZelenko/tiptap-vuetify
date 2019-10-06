@@ -9,7 +9,7 @@ export default interface ExtensionActionRenderBtnOptionsInterface {
     [VuetifyIconsGropus.fa]: IconInterface
     [VuetifyIconsGropus.mdi]: IconInterface
   }
-  onClick: (...arg: any) => any
+  onClick: ({ context, editor }) => any
   isActive: (...arg: any) => boolean
   nativeExtensionName?: string
 }

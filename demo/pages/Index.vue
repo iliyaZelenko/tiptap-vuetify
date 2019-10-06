@@ -1,9 +1,9 @@
 <template>
   <div>
+    <!-- :toolbar-attributes="{ color: 'yellow' }" -->
     <tiptap-vuetify
       v-model="content"
       :extensions="extensions"
-      :toolbar-attributes="{ color: 'yellow' }"
       placeholder="Write something …"
     />
 
@@ -29,6 +29,7 @@ export default {
     extensions: null,
     content: `
       <h1>Yay Headlines!</h1>
+      <blockquote>Test quote.</blockquote>
       <p>All these <strong>cool tags</strong> are working now.</p>
     `
   }),

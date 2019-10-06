@@ -30,3 +30,22 @@ TODO: i18n для нового текста
    указывать каждое расширение. Например, в тулбаре или в bubbleMenu, в будущем могут быть еще варианты.
 5. Сделать чтобы дополнительные расширения (e.g. загрузка изображений) шли в отдельном пакете.
 6. Возможность переопределять текст в i18n
+7. Гибкий способ использования компонента:
+
+<tiptap-vuetify>
+  <tiptap-vuetify-toolbar />
+
+  <tiptap-vuetify-content />
+</tiptap-vuetify>
+
+или
+
+<tiptap-vuetify>
+  <tiptap-vuetify-toolbar v-slot="data">
+    Опираясь на data пользователь может вывести данные
+  </tiptap-vuetify-toolbar>
+
+  <tiptap-vuetify-content v-slot="data">
+    Опираясь на data пользователь может вывести данные
+  </tiptap-vuetify-content>
+</tiptap-vuetify>

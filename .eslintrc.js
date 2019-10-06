@@ -12,12 +12,12 @@ module.exports = {
   },
   extends: [
     // add more generic rulesets here, such as:
+    'standard',
     'eslint:recommended',
-    // 'standard',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
-    // 'plugin:vue/recommended',
+    'plugin:vue/recommended',
   ],
   plugins: [
     'vue',

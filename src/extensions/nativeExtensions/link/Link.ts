@@ -29,14 +29,16 @@ export default class Link extends AbstractExtension {
             [VuetifyIconsGropus.mdi]: new VuetifyIcon('mdi-link')
           },
           nativeExtensionName,
-          onClick (context) {
+          onClick ({ context, editor }) {
             const href = context.getMarkAttrs(nativeExtensionName).href
             const LinkWindowComponent = Vue.extend(LinkWindow)
             const instance = new LinkWindowComponent({
+              vuetify: Vue.prototype.tiptapVuetifyPlugin.vuetify,
               propsData: {
                 value: true,
                 nativeExtensionName,
                 context,
+                editor,
                 href
               }
             })

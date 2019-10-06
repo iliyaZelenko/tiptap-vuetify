@@ -34,7 +34,7 @@
       </v-card-text>
       <v-card-actions>
         <v-btn
-          flat
+          text
           @click="close"
         >
           <!-- TODO i18n -->
@@ -44,7 +44,7 @@
         <v-btn
           :disabled="isDisabled"
           :color="isRemove ? 'error' : 'primary'"
-          flat
+          text
           @click="apply"
         >
           <!-- TODO i18n -->
@@ -58,6 +58,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Component, Prop } from 'vue-property-decorator'
+import { VDialog, VCard, VCardTitle, VCardText, VCardActions, VBtn, VSpacer, VIcon, VTextField } from 'vuetify/lib'
 
 export const PROPS = {
   VALUE: 'value' as const,
@@ -67,7 +68,9 @@ export const PROPS = {
   HREF: 'href' as const
 }
 
-@Component
+@Component({
+  components: { VDialog, VCard, VCardTitle, VCardText, VCardActions, VBtn, VSpacer, VIcon, VTextField }
+})
 export default class LinkWindow extends Vue {
   @Prop({
     type: Boolean,
@@ -86,6 +89,12 @@ export default class LinkWindow extends Vue {
     required: true
   })
   readonly [PROPS.CONTEXT]: any
+
+  @Prop({
+    type: Object,
+    required: true
+  })
+  readonly [PROPS.EDITOR]: any
 
   @Prop({
     type: String
@@ -111,7 +120,7 @@ export default class LinkWindow extends Vue {
     })
 
     this.close()
-    this[PROPS.CONTEXT].editor.focus()
+    this[PROPS.EDITOR].focus()
   }
 
   close () {

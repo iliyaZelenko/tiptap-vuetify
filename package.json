@@ -47,6 +47,7 @@
     "rollup-plugin-terser": "^5.1.2",
     "rollup-plugin-typescript2": "^0.24.3",
     "rollup-plugin-vue": "^5.0.1",
+    "sass-loader": "^7.0.0",
     "semantic-release": "^15.13.3",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",

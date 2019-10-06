@@ -56,12 +56,14 @@ import { Placeholder } from 'tiptap-extensions'
 import { ExtensionActionRenderInEnum } from '~/extensions/actions/ExtensionActionRenderInEnum'
 import ExtensionActionInterface from '~/extensions/actions/ExtensionActionInterface'
 import AbstractExtension from '~/extensions/AbstractExtension'
+import { VCard } from 'vuetify/lib'
 
 @Component({
   components: {
     Bubble,
     EditorContent,
-    Toolbar
+    Toolbar,
+    VCard
   }
 })
 export default class TiptapVuetify extends Vue {
@@ -196,50 +198,50 @@ export default class TiptapVuetify extends Vue {
 <style lang="stylus">
   .tiptap-vuetify-editor
     .ProseMirror
-      outline: none !important;
-      margin: 20px !important;
+      outline: none !important
+      margin: 20px !important
 
   /* Элемент не обязательно содрежится в .tiptap-vuetify-editor, может использоваться для отображения результата
   редактора в не редактора */
   .tiptap-vuetify-editor__content
-    transition: all 2s;
-    overflow: auto !important;
-    padding: 5px;
+    transition: all 2s
+    overflow: auto !important
+    padding: 5px
 
     h1, h2, h3, h4
-      margin: 10px 0 20px !important;
+      margin: 10px 0 20px !important
 
     blockquote
-      border-left: .25em solid #dfe2e5;
-      color: #6a737d;
-      padding-left: 1em;
-      margin: 20px 0 !important;
+      border-left: .25em solid #dfe2e5
+      color: #6a737d
+      padding-left: 1em
+      margin: 20px 0 !important
 
     code
-      padding: 0 4px !important;
-      margin: 0 5px !important;
+      padding: 0 4px !important
+      margin: 0 5px !important
 
     pre code
-        padding: 8px !important;
-        margin: 0 5px !important;
+        padding: 8px !important
+        margin: 0 5px !important
 
     code:before, code:after
-      content: none !important;
-      letter-spacing: initial !important;
+      content: none !important
+      letter-spacing: initial !important
 
     p
-      margin-top: 16px !important;
-      margin-bottom: 16px !important;
+      margin-top: 16px !important
+      margin-bottom: 16px !important
       /* без этого пустой <p> в превью не будет занимать пространство (чтобы был вид пустой строки) как он это делает в редакторе */
-      min-height: 1rem;
+      min-height: 1rem
 
       // placeholder
       &.tiptap-vuetify-editor__paragraph--is-empty
         &:first-child::before
-          content: attr(data-empty-text);
-          float: left;
-          color: #aaa;
-          pointer-events: none;
-          height: 0;
-          font-style: italic;
+          content: attr(data-empty-text)
+          float: left
+          color: #aaa
+          pointer-events: none
+          height: 0
+          font-style: italic
 </style>

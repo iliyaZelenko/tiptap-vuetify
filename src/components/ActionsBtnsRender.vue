@@ -8,6 +8,7 @@
         v-if="isBtn(action)"
         :options="action.render.options"
         :context="$props[PROPS.CONTEXT]"
+        :editor="$props[PROPS.EDITOR]"
         :dark="$props[PROPS.DARK]"
       />
     </span>
@@ -20,8 +21,10 @@ import { Component, Prop } from 'vue-property-decorator'
 import ExtensionActionInterface from '~/extensions/actions/ExtensionActionInterface'
 import ExtensionActionRenderBtnComponent from '~/extensions/actions/renders/btn/ExtensionActionRenderBtn.vue'
 import ExtensionActionRenderBtn from '~/extensions/actions/renders/btn/ExtensionActionRenderBtn.ts'
+import { Editor } from 'tiptap'
 
 export const PROPS = {
+  EDITOR: 'editor' as const,
   ACTIONS: 'actions' as const,
   CONTEXT: 'context' as const,
   DARK: 'dark' as const
@@ -33,6 +36,9 @@ export const PROPS = {
   }
 })
 export default class ActionsBtnsRender extends Vue {
+  @Prop({ type: Object, required: true })
+  readonly [PROPS.EDITOR]: Editor
+
   @Prop({
     type: Array,
     default: () => []
@@ -62,6 +68,6 @@ export default class ActionsBtnsRender extends Vue {
   .tiptap-vuetify-editor__toolbar
     .v-toolbar
       .v-toolbar__content
-        height: auto !important;
-        flex-wrap: wrap;
+        height: auto !important
+        flex-wrap: wrap
 </style>

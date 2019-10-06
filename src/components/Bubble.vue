@@ -2,10 +2,10 @@
   <!-- @hide="hideLinkMenu"-->
   <!-- { commands, isActive, getMarkAttrs, menu } -->
   <editor-menu-bubble
-    class="tiptap-vuetify-editor__menububble"
+    v-slot="context"
     :editor="editor"
     :keep-in-bounds="true"
-    v-slot="context"
+    class="tiptap-vuetify-editor__menububble"
   >
     <!--
     v-show="menu.isActive"
@@ -17,78 +17,73 @@
       'tiptap-vuetify-editor__menububble-tooltip--is-active': menu.isActive
     }"
     -->
+    <!-- getMenuY(context.menu) v-show="context.menu.isActive" -->
     <div>
-      <v-tooltip
-        :value="context.menu.isActive"
-        :position-x="context.menu.left"
-        :position-y="getMenuY(context.menu)"
-        tag="div"
-        content-class="tiptap-vuetify-editor__menububble-toolptip"
-        absolute
-        bottom
+      <v-card
+        :style="getBubbleContentStyle(context)"
+        class="tiptap-vuetify-editor__menububble-card"
         dark
       >
-        <div>
-          <!--
-          <form
-            v-if="linkMenuIsActive"
-            class="tiptap-vuetify-editor__menububble-form"
-            @submit.prevent="setLinkUrl(commands.link, linkUrl)"
-          >
-            <v-text-field
-              ref="linkInput"
-              v-model="linkUrl"
-              placeholder="Link"
-              hide-details
-              solo
-              @keydown.esc="hideLinkMenu"
-            />
-
-            <v-btn
-              color="success"
-              type="submit"
-              icon
-            >
-              <v-icon>
-                {{ getIconByKey('save') }}
-              </v-icon>
-            </v-btn>
-
-            <v-btn
-              color="error"
-              icon
-              @click="setLinkUrl(commands.link, null)"
-            >
-              <v-icon>
-                {{ getIconByKey('cancel') }}
-              </v-icon>
-            </v-btn>
-          </form>
+        <!--
+        <form
+          v-if="linkMenuIsActive"
+          class="tiptap-vuetify-editor__menububble-form"
+          @submit.prevent="setLinkUrl(commands.link, linkUrl)"
+        >
+          <v-text-field
+            ref="linkInput"
+            v-model="linkUrl"
+            placeholder="Link"
+            hide-details
+            solo
+            @keydown.esc="hideLinkMenu"
+          />
 
           <v-btn
-            v-else
-            :class="{ 'v-btn--active': isActive.link() }"
-            color="primary"
-            small
-            @click="showLinkMenu(getMarkAttrs('link'))"
+            color="success"
+            type="submit"
+            icon
           >
-            <v-icon left>
-              {{ getIconByKey(
-                isActive.link() ? 'linkUpdate' : 'linkAdd'
-              ) }}
+            <v-icon>
+              {{ getIconByKey('save') }}
             </v-icon>
-
-            {{ isActive.link() ? $i18n.getMsg('extensions.Link.bubble.updateLink') : $i18n.getMsg('extensions.Link.bubble.addLink') }}
           </v-btn>
-          -->
 
-          <actions-btns-render
-            :actions="actions"
-            :context="context"
-            :dark="true"
-          />
-        </div>
-      </v-tooltip>
+          <v-btn
+            color="error"
+            icon
+            @click="setLinkUrl(commands.link, null)"
+          >
+            <v-icon>
+              {{ getIconByKey('cancel') }}
+            </v-icon>
+          </v-btn>
+        </form>
+
+        <v-btn
+          v-else
+          :class="{ 'v-btn--active': isActive.link() }"
+          color="primary"
+          small
+          @click="showLinkMenu(getMarkAttrs('link'))"
+        >
+          <v-icon left>
+            {{ getIconByKey(
+              isActive.link() ? 'linkUpdate' : 'linkAdd'
+            ) }}
+          </v-icon>
+
+          {{ isActive.link() ? $i18n.getMsg('extensions.Link.bubble.updateLink') : $i18n.getMsg('extensions.Link.bubble.addLink') }}
+        </v-btn>
+        -->
+
+        <actions-btns-render
+          :actions="actions"
+          :context="context"
+          :editor="editor"
+          :dark="true"
+        />
+      </v-card>
     </div>
   </editor-menu-bubble>
 </template>
@@ -101,11 +96,13 @@ import { Editor, EditorMenuBubble } from 'tiptap'
 import I18nMixin from '~/mixins/I18nMixin'
 import ExtensionActionInterface from '~/extensions/actions/ExtensionActionInterface'
 import ActionsBtnsRender from '~/components/ActionsBtnsRender.vue'
+import { VCard } from 'vuetify/lib'
 
 @Component({
   components: {
     ActionsBtnsRender,
-    EditorMenuBubble
+    EditorMenuBubble,
+    VCard
   }
 })
 export default class Menu extends mixins(I18nMixin) {
@@ -129,6 +126,17 @@ export default class Menu extends mixins(I18nMixin) {
 
     // top позиция
     return window.innerHeight - bottomRelatedToWindow + 15 // + 15 из-за того что bottom, если top, то не нужно
+  }
+
+  getBubbleContentStyle (context) {
+    return {
+      display: context.menu.isActive ? 'block' : 'none',
+      // иначе не видно
+      zIndex: 1,
+      position: 'absolute',
+      left: context.menu.left + 'px',
+      bottom: context.menu.bottom + 'px'
+    }
   }
 
   // getIconByKey (key) {
@@ -159,7 +167,7 @@ export default class Menu extends mixins(I18nMixin) {
 
 <style lang="stylus">
   .tiptap-vuetify-editor
-    &__menububble-toolptip
-      padding: 0;
-      opacity: 1 !important;
+    &__menububble-card
+      opacity: 0.9 !important
+      padding: 5px
 </style>

@@ -16,7 +16,7 @@ export const dictionary = {
 }
 
 export function getCurrentLang () {
-  return Vue.prototype.tiptapVuetifyPlugin.vuetifyLang || 'defaultLanguage'
+  return Vue.prototype.tiptapVuetifyPlugin.vuetifyLang || defaultLanguage
 }
 
 export function getMsg (path: string, args?): string {
@@ -25,7 +25,7 @@ export function getMsg (path: string, args?): string {
   if (!dictionary[currentLang]) {
     currentLang = defaultLanguage
 
-    ConsoleLogger.warn(`The current language "${currentLang}" is not yet available. Using language "${defaultLanguage}" by default.`)
+    ConsoleLogger.warn(`The current language "${currentLang}" is not yet available. Using language "${defaultLanguage}" by default. Contribution to github is welcome.`)
   }
 
   const dictionaryByLang = dictionary[currentLang]

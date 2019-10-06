@@ -1,5 +1,9 @@
 import Vue from 'vue'
-import Vuetify from 'vuetify'
+import Vuetify, {
+  VApp,
+  VContent,
+  VContainer
+} from 'vuetify/lib'
 import Router from 'vue-router'
 import 'vuetify/dist/vuetify.min.css'
 
@@ -17,7 +21,14 @@ const vuetify = new Vuetify()
 
 MAIN_MODULE.then(({ TiptapVuetifyPlugin }) => {
   Vue.use(Router)
-  Vue.use(Vuetify)
+  Vue.use(Vuetify, {
+    components: {
+      VApp,
+      VContent,
+      VContainer
+    },
+    directives: {}
+  })
   Vue.use(TiptapVuetifyPlugin, {
     vuetify,
     iconsGroup: 'fa'

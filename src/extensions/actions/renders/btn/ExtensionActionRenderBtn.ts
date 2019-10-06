@@ -14,8 +14,8 @@ export default class ExtensionActionRenderBtn {
     const nativeExtensionName = options.nativeExtensionName!
 
     this.options = {
-      onClick ({ commands }) {
-        commands[nativeExtensionName]()
+      onClick ({ context }) {
+        context.commands[nativeExtensionName]()
       },
       isActive ({ isActive }) {
         return !!isActive[nativeExtensionName] && isActive[nativeExtensionName]()
