@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.0.0...v2.0.1) (2019-10-06)
+
+
+### Bug Fixes
+
+* **build:** fix rollup dependencies and config (on prev commit) ([db5c15c](https://github.com/iliyaZelenko/tiptap-vuetify/commit/db5c15c))
+
 # [2.0.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v1.7.0...v2.0.0) (2019-10-06)
 
 
