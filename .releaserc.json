@@ -8,7 +8,7 @@
     }],
     ["@semantic-release/github", {
       "assets": [
-        { "path": "dist/themes/main.css", "label": "CSS" },
+        { "path": "dist/main.css", "label": "CSS" },
         { "path": "dist/bundle-cjs.js", "label": "CommonJS module" },
         { "path": "dist/bundle-umd.js", "label": "UMD module" },
         { "path": "dist/bundle-esm.js", "label": "ECMAScript 6 module" },

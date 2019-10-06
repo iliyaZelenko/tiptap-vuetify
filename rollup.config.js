@@ -75,7 +75,8 @@ async function getConfig ({
         tiptap: 'tiptap',
         // Походу так и есть: https://github.com/scrumpy/tiptap/blob/master/build/packages/config.js#L44
         'tiptap-extensions': 'tiptap', // TODO tiptapExtensions
-        vuetify: 'Vuetify'
+        vuetify: 'Vuetify',
+        'vuetify/lib': 'Vuetify'
       }
     },
     // можно Object.keys(globals)
@@ -85,7 +86,8 @@ async function getConfig ({
       // 'vue-property-decorator',
       'tiptap',
       'tiptap-extensions',
-      'vuetify'
+      'vuetify',
+      'vuetify/lib'
     ],
     plugins: [
       alias({
