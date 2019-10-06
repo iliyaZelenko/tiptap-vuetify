@@ -56,7 +56,8 @@ export default class ActionsRender extends Vue {
 
   PROPS = PROPS
 
-  isBtn (action: ExtensionActionInterface): boolean {
+  // action: ExtensionActionInterface
+  isBtn (): boolean {
     // TODO action.render instanceof ExtensionActionRenderBtn не срабатывает, может из-за того, что это как prop
     return true
   }

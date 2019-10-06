@@ -15,8 +15,8 @@
         @click="options.onClick({ context: $props[PROPS.CONTEXT], editor: $props[PROPS.EDITOR] })"
       >
         <component
-          class="tiptap-vuetify-editor__btn-icon"
           :is="isTextIcon ? 'b' : isVuetifyIcon ? 'v-icon' : null"
+          class="tiptap-vuetify-editor__btn-icon"
         >
           {{ buttonIcon }}
         </component>
