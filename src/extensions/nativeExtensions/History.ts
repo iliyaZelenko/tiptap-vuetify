@@ -13,7 +13,7 @@ export default class History extends AbstractExtension {
 
   get availableActions (): ExtensionActionInterface[] {
     // если не нужны кнокпи
-    if (this.options.noActions) return []
+    if (this.options && this.options.noActions) return []
 
     return [
       {
