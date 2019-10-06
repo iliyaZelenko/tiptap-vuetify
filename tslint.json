@@ -28,7 +28,8 @@
 
     // it is important for the imports work
     "no-implicit-dependencies": false,
-    "no-submodule-imports": [true, "~", "@"],
+    // было true
+    "no-submodule-imports": [false, "~", "@"],
 
     "quotemark": [true, "single"],
     "semicolon": [true, "never"],

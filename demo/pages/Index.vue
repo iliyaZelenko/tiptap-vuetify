@@ -1,9 +1,9 @@
 <template>
   <div>
+    <!-- :toolbar-attributes="{ color: 'yellow' }" -->
     <tiptap-vuetify
       v-model="content"
       :extensions="extensions"
-      :toolbar-attributes="{ color: 'yellow' }"
       placeholder="Write something …"
     />
 
@@ -29,33 +29,51 @@ export default {
     extensions: null,
     content: `
       <h1>Yay Headlines!</h1>
+      <blockquote>Test quote.</blockquote>
       <p>All these <strong>cool tags</strong> are working now.</p>
     `
   }),
   async created () {
-    const { Heading, Bold, Italic, Strike, Underline, Code, CodeBlock, Paragraph, BulletList, OrderedList, ListItem,
+    const {
+      Heading, Bold, Italic, Strike, Underline, Code, CodeBlock, Paragraph, BulletList, OrderedList, ListItem,
       Link, Blockquote, HardBreak, HorizontalRule, History
     } = await MAIN_MODULE
 
     this.extensions = [
-      new Heading({
-        levels: [1, 2, 3]
-      }),
-      new Bold(),
-      new Italic(),
-      new Strike(),
-      new Underline(),
-      new Code(),
-      new CodeBlock(),
-      new Paragraph(),
-      new BulletList(),
-      new OrderedList(),
-      new ListItem(),
-      new Link(),
-      new Blockquote(),
-      new HardBreak(),
-      new HorizontalRule(),
-      new History()
+      Code,
+      CodeBlock,
+      HorizontalRule,
+      Paragraph,
+      [History, {
+        // если не нужны кнокпи
+        options: { noActions: true }
+      }],
+      HardBreak, // позволяет переносить через Shift + Ctrl + Enter
+      Underline,
+      Strike,
+      Italic,
+      ListItem, // если нужно использовать список (BulletList, OrderedList)
+      BulletList,
+      OrderedList,
+      [Heading, {
+        // Опции которые попадают в расширение tiptap
+        options: {
+          levels: [1, 2, 3]
+        }
+      }],
+      // но опции не обязательно указывать если нужно чтобы renderIn: 'toolbar', это по умолчанию.
+      [Bold, {
+        renderIn: 'toolbar'
+      }],
+      [Blockquote, {
+        renderIn: 'bubbleMenu',
+        options: {
+          levels: [1, 2, 3]
+        }
+      }],
+      [Link, {
+        renderIn: 'bubbleMenu'
+      }]
     ]
   }
 }

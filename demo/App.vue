@@ -5,21 +5,19 @@
       rel="stylesheet"
     >
 
-    <div id="app">
-      <v-app>
-        <v-content>
-          <v-container>
-            <h1>
-              The Tiptap Editor Package
-            </h1>
+    <v-app>
+      <v-content>
+        <v-container>
+          <h1>
+            The Tiptap Editor Package
+          </h1>
 
-            <div class="mt-4">
-              <router-view />
-            </div>
-          </v-container>
-        </v-content>
-      </v-app>
-    </div>
+          <div class="mt-4">
+            <router-view />
+          </div>
+        </v-container>
+      </v-content>
+    </v-app>
   </div>
 </template>
 

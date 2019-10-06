@@ -1,4 +1,4 @@
-**At the moment, this package does not fully support Vuetifi 2. If you want me to work more on this project, you can give me motivation in the form of a star. Thanks for attention!**
+**At the moment, this package does not fully support Vuetify 2, but it is planned soon. If you want me to work more on this project, you can give me motivation in the form of a star. Thanks for attention!**
   
   <p align="center">
     <a href="https://www.npmjs.com/package/tiptap-vuetify">
@@ -52,11 +52,13 @@ WYSIWYG editor for Vuetify. Component simplifies integration [tiptap](https://gi
 
 - used vuetify components
 - support for different types of icons ([fa](https://fontawesome.com/),  [md](https://material.io/tools/icons/), [mdi](https://materialdesignicons.com/))
-- internationalization (2 languages: en, ru)
+- internationalization (en, fr, pl, es, ru), with automatic detection of the current language through the Vuetify
 - easy to start using
 - props and events are available
-- the project is ready to actively develop if there is support (stars)!
 - TypeScript support
+- the project is ready to actively develop if there is support (stars)!
+- the ability to create and use your own extensions
+- choose where the extension buttons should be displayed: in the toolbar or in the bubble menu
 
 ## Installation
 
@@ -115,7 +117,7 @@ More about vuetify icons you can read [here](https://vuetifyjs.com/en/components
 import { TiptapVuetify, Heading, Bold, Italic, Strike, Underline, Code, CodeBlock, Paragraph, BulletList, OrderedList,
   ListItem, Link, Blockquote, HardBreak, HorizontalRule, History
 } from 'tiptap-vuetify'
-
+import { TiptapVuetifyPlugin } from 'tiptap-vuetify'
 export default {
   // specify in the list of components
   components: { TiptapVuetify },
@@ -354,4 +356,3 @@ In the future version this problem will most likely be solved and you will not n
 - site with docs and examples
 - emoticons
 - tests
-- choose where the extension buttons should be displayed: in the toolbar or in the bubble menu (it's done and ready to go to the new version)

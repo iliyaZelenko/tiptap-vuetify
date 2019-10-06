@@ -11,7 +11,7 @@ module.exports = {
   },
   extends: [
     // add more generic rulesets here, such as:
-    // 'eslint:recommended',
+    'eslint:recommended',
     'standard',
     'plugin:@typescript-eslint/recommended',
     'plugin:vue/recommended',
@@ -29,6 +29,7 @@ module.exports = {
     'indent': OFF,
     // не правильно работает для конструктора typescript: constructor (public text) {}
     'no-useless-constructor': OFF,
+    'no-console': OFF,
 
     '@typescript-eslint/explicit-member-accessibility': 'no-public',
     '@typescript-eslint/no-use-before-define': OFF,

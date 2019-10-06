@@ -7,17 +7,18 @@
     "dev": "vue-cli-service serve ./demo/main.js",
     "build": "rollup -c --environment BUILD:production",
     "build-watch": "rollup -w -c",
-    "lint": "eslint . --ext .ts,.js,.vue --ignore-path .gitignore",
+    "lint": "eslint ./src --ext .ts,.js,.vue --ignore-path .gitignore",
     "lint-fix": "yarn lint --fix"
   },
   "dependencies": {
-    "tiptap": "^1.14.0",
+    "tiptap": "1.16.2",
     "tiptap-extensions": "^1.14.0"
   },
   "devDependencies": {
+    "vue-eslint-parser": "^6.0.4",
     "@babel/plugin-proposal-optional-chaining": "^7.2.0",
     "@fortawesome/fontawesome-free": "^5.8.1",
-    "@mdi/font": "^3.5.95",
+    "@mdi/font": "^4.4.95",
     "@semantic-release/changelog": "^3.0.2",
     "@semantic-release/commit-analyzer": "^6.1.0",
     "@semantic-release/git": "^7.0.8",
@@ -29,8 +30,8 @@
     "@vue/cli-plugin-typescript": "^3.5.1",
     "@vue/cli-service": "^3.5.1",
     "@zerollup/ts-transform-paths": "^1.7.0",
-    "commitizen": "^3.0.7",
-    "cross-env": "^5.2.0",
+    "commitizen": "^4.0.3",
+    "cross-env": "^6.0.3",
     "eslint": "^5.16.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.16.0",
@@ -40,13 +41,14 @@
     "eslint-plugin-vue": "^5.2.2",
     "postcss-preset-env": "^6.6.0",
     "rollup": "^1.7.0",
-    "rollup-plugin-alias": "^1.5.1",
-    "rollup-plugin-commonjs": "^9.2.1",
-    "rollup-plugin-node-resolve": "^4.0.1",
+    "rollup-plugin-alias": "^2.0.1",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-postcss": "^2.0.3",
-    "rollup-plugin-terser": "^4.0.4",
-    "rollup-plugin-typescript2": "^0.20.1",
-    "rollup-plugin-vue": "^4.7.2",
+    "rollup-plugin-terser": "^5.1.2",
+    "rollup-plugin-typescript2": "^0.24.3",
+    "rollup-plugin-vue": "^5.0.1",
+    "sass-loader": "^7.0.0",
     "semantic-release": "^15.13.3",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
@@ -60,11 +62,11 @@
     "vue-property-decorator": "^8.1.0",
     "vue-router": "^3.0.2",
     "vue-template-compiler": "^2.6.10",
-    "vuetify": "^1.5.7"
+    "vuetify": "^2.1.1"
   },
   "peerDependencies": {
     "vue": "^2.0.0",
-    "vuetify": "^1.4.0"
+    "vuetify": "^2.0.0"
   },
   "keywords": [
     "editor",

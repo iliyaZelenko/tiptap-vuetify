@@ -59,12 +59,6 @@ export default {
         }
       }
     },
-    Link: {
-      bubble: {
-        updateLink: 'Update Link',
-        addLink: 'Add Link'
-      }
-    },
     OrderedList: {
       buttons: {
         orderedList: {
@@ -96,7 +90,28 @@ export default {
     Heading: {
       buttons: {
         heading: {
-          tooltip: args => args.level + ' level header'
+          tooltip: ({ level }) => level + ' level header'
+        }
+      }
+    },
+    Link: {
+      buttons: {
+        isActive: {
+          tooltip: 'Change Link'
+        },
+        notActive: {
+          tooltip: 'Add Link'
+        }
+      },
+      window: {
+        title: 'Link control',
+        form: {
+          hrefLabel: 'Href'
+        },
+        buttons: {
+          close: 'Close',
+          remove: 'Remove',
+          apply: 'Apply'
         }
       }
     }

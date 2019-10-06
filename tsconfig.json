@@ -42,6 +42,8 @@
     "typeRoots": ["./types" ,"./node_modules/@types"],
     // "typeRoots": [],                       /* List of folders to include type definitions from. */
      "types": [                               /* Type declaration files to be included in compilation. */
+       "webpack-env",
+       "node"
      ],
     // "allowSyntheticDefaultImports": true,  /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */
     // "preserveSymlinks": true,              /* Do not resolve the real path of symlinks. */
@@ -77,6 +79,9 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
+    "demo/**/*.vue",
+    "demo/**/*.ts",
+    "demo/**/*.js",
     "tests/**/*.ts",
     "tests/**/*.tsx"
   ],

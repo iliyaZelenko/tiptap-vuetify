@@ -14,5 +14,11 @@ export const PROPS = {
   EDITOR_PROPERTIES: 'editorProperties' as const,
   NATIVE_EXTENSIONS: 'nativeExtensions' as const,
   PLACEHOLDER: 'placeholder' as const,
-  OUTPUT_FORMAT: 'outputFormat' as const
+  OUTPUT_FORMAT: 'outputFormat' as const,
+  TYPE: 'type' as const
+}
+
+export enum EDITOR_TYPES_ENUM {
+  card = 'card',
+  inline = 'inline'
 }
