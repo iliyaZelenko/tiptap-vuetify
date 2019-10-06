@@ -79,7 +79,7 @@ async function getConfig ({
         'vuetify/lib': 'Vuetify'
       }
     },
-    // можно Object.keys(globals)
+    // TODO можно Object.keys(globals)
     external: [
       'vue',
       // 'vue-class-component',
