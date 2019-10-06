@@ -44,10 +44,7 @@ export default {
       CodeBlock,
       HorizontalRule,
       Paragraph,
-      [History, {
-        // если не нужны кнокпи
-        options: { noActions: true }
-      }],
+      History,
       HardBreak, // позволяет переносить через Shift + Ctrl + Enter
       Underline,
       Strike,
