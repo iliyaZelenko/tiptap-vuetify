@@ -17,7 +17,11 @@ import router from './router'
 import '../dist/main.css'
 import { MAIN_MODULE } from './config'
 
-const vuetify = new Vuetify()
+const vuetify = new Vuetify({
+  lang: {
+    current: 'en' // en | es | fr | pl | ru
+  }
+})
 
 MAIN_MODULE.then(({ TiptapVuetifyPlugin }) => {
   Vue.use(Router)
@@ -31,7 +35,7 @@ MAIN_MODULE.then(({ TiptapVuetifyPlugin }) => {
   })
   Vue.use(TiptapVuetifyPlugin, {
     vuetify,
-    iconsGroup: 'fa'
+    iconsGroup: 'fa' // VuetifyIconsGroups (fa, md, mdi)
   })
 
   Vue.config.productionTip = false

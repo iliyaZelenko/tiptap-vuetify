@@ -59,12 +59,6 @@ export default {
         }
       }
     },
-    Link: {
-      bubble: {
-        updateLink: 'Обновить ссылку',
-        addLink: 'Добавить ссылку'
-      }
-    },
     OrderedList: {
       buttons: {
         orderedList: {
@@ -97,6 +91,27 @@ export default {
       buttons: {
         heading: {
           tooltip: ({ level }) => `Заголовок ${level} уровня`
+        }
+      }
+    },
+    Link: {
+      buttons: {
+        isActive: {
+          tooltip: 'Изменить ссылку'
+        },
+        notActive: {
+          tooltip: 'Добавить ссылку'
+        }
+      },
+      window: {
+        title: 'Управление ссылкой',
+        form: {
+          hrefLabel: 'Href'
+        },
+        buttons: {
+          close: 'Закрыть',
+          remove: 'Удалить',
+          apply: 'Применить'
         }
       }
     }

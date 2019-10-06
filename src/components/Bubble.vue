@@ -77,7 +77,7 @@
         </v-btn>
         -->
 
-        <actions-btns-render
+        <actions-render
           :actions="actions"
           :context="context"
           :editor="editor"
@@ -95,12 +95,12 @@ import { Editor, EditorMenuBubble } from 'tiptap'
 // import { icons } from '~/extensions/nativeExtensions/link/Link'
 import I18nMixin from '~/mixins/I18nMixin'
 import ExtensionActionInterface from '~/extensions/actions/ExtensionActionInterface'
-import ActionsBtnsRender from '~/components/ActionsBtnsRender.vue'
+import ActionsRender from '~/components/ActionsRender.vue'
 import { VCard } from 'vuetify/lib'
 
 @Component({
   components: {
-    ActionsBtnsRender,
+    ActionsRender,
     EditorMenuBubble,
     VCard
   }

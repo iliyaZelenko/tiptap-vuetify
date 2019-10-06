@@ -5,9 +5,8 @@
   >
     <v-card>
       <v-card-title>
-        <!-- TODO i18n -->
         <span class="headline">
-          Link control
+          {{ $i18n.getMsg('extensions.Link.window.title') }}
         </span>
 
         <v-spacer />
@@ -22,7 +21,7 @@
       <v-card-text>
         <v-text-field
           v-model="form.href"
-          label="Href"
+          :label="$i18n.getMsg('extensions.Link.window.form.hrefLabel')"
         />
 
         <!--
@@ -37,8 +36,7 @@
           text
           @click="close"
         >
-          <!-- TODO i18n -->
-          Close
+          {{ $i18n.getMsg('extensions.Link.window.buttons.close') }}
         </v-btn>
 
         <v-btn
@@ -47,8 +45,7 @@
           text
           @click="apply"
         >
-          <!-- TODO i18n -->
-          {{ isRemove ? 'Remove' : 'Apply' }}
+          {{ $i18n.getMsg('extensions.Link.window.buttons.' + (isRemove ? 'remove' : 'apply')) }}
         </v-btn>
       </v-card-actions>
     </v-card>
@@ -56,9 +53,10 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { mixins } from 'vue-class-component'
 import { Component, Prop } from 'vue-property-decorator'
 import { VDialog, VCard, VCardTitle, VCardText, VCardActions, VBtn, VSpacer, VIcon, VTextField } from 'vuetify/lib'
+import I18nMixin from '~/mixins/I18nMixin'
 
 export const PROPS = {
   VALUE: 'value' as const,
@@ -71,7 +69,7 @@ export const PROPS = {
 @Component({
   components: { VDialog, VCard, VCardTitle, VCardText, VCardActions, VBtn, VSpacer, VIcon, VTextField }
 })
-export default class LinkWindow extends Vue {
+export default class LinkWindow extends mixins(I18nMixin) {
   @Prop({
     type: Boolean,
     default: false

@@ -1,26 +1,28 @@
 import { Italic as ItalicOriginal } from 'tiptap-extensions'
-import AbstractExtensionAdapter from '~/extensions/nativeExtensions/AbstractExtensionAdapter'
-import { faIconsSize, VuetifyIconsGropus } from '~/configs/theme'
+import { VuetifyIconsGroups } from '~/configs/theme'
 import VuetifyIcon from '~/extensions/nativeExtensions/icons/VuetifyIcon'
 import I18nText from '~/i18n/I18nText'
+import ExtensionActionInterface from '~/extensions/actions/ExtensionActionInterface'
+import ExtensionActionRenderBtn from '~/extensions/actions/renders/btn/ExtensionActionRenderBtn.ts'
+import AbstractExtension from '~/extensions/AbstractExtension'
 
-export default class Italic extends AbstractExtensionAdapter {
-  name: string = 'italic'
-
+export default class Italic extends AbstractExtension {
   constructor (options) {
     super(options, ItalicOriginal)
   }
 
-  get availableButtons () {
+  get availableActions (): ExtensionActionInterface[] {
     return [
       {
-        name: this.name,
-        tooltip: new I18nText('extensions.Italic.buttons.italic.tooltip'),
-        icons: {
-          [VuetifyIconsGropus.md]: new VuetifyIcon('format_italic'),
-          [VuetifyIconsGropus.fa]: new VuetifyIcon('fas fa-italic ' + faIconsSize),
-          [VuetifyIconsGropus.mdi]: new VuetifyIcon('mdi-format-italic')
-        }
+        render: new ExtensionActionRenderBtn({
+          tooltip: new I18nText('extensions.Italic.buttons.italic.tooltip'),
+          icons: {
+            [VuetifyIconsGroups.md]: new VuetifyIcon('format_italic'),
+            [VuetifyIconsGroups.fa]: new VuetifyIcon('fas fa-italic'),
+            [VuetifyIconsGroups.mdi]: new VuetifyIcon('mdi-format-italic')
+          },
+          nativeExtensionName: 'italic'
+        })
       }
     ]
   }

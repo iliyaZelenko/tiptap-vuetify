@@ -136,33 +136,56 @@ export default class TiptapVuetify extends Vue {
 
   mounted () {
     const nativeExtensionsInstances: any = []
+    // опции расширений по умолчанию
+    const paramsDefault = {
+      renderIn: ExtensionActionRenderInEnum.toolbar,
+      options: {}
+    }
 
-    this[PROPS.EXTENSIONS].forEach(([ExtensionClass, options]) => {
-      const extension: AbstractExtension = new ExtensionClass(options.nativeOptions)
-      const renderInVariants = Object.values(ExtensionActionRenderInEnum)
+    this[PROPS.EXTENSIONS].forEach(extensionDefinition => {
+      let ExtensionClass
+      let params
 
-      if (!renderInVariants.includes(options.renderIn)) {
-        throw new Error('Please, set the "renderIn" option to one of following values: ' + renderInVariants)
+      // Получение расширения и его опций
+      if (Array.isArray(extensionDefinition)) {
+        ([ExtensionClass, params] = extensionDefinition)
+      } else if (extensionDefinition.prototype instanceof AbstractExtension) { // Если extends от AbstractExtension
+        ExtensionClass = extensionDefinition
+      } else {
+        throw new Error('Incorrect extension declaration passed to "extensions" prop (array). ' +
+          'It looks like the array\'s element is in the wrong format.')
       }
 
-      this.availableActions[options.renderIn].push(...extension.availableActions)
+      // параметры с дефолтными значениями TODO deep merge
+      const paramsFinal = { ...paramsDefault, ...params }
+      const extension: AbstractExtension = new ExtensionClass(paramsFinal.options)
+      // const renderInVariants = Object.values(ExtensionActionRenderInEnum)
+      //
+      // if (!renderInVariants.includes(options.renderIn)) {
+      //   throw new Error('Please, set the "renderIn" option to one of following values: ' + renderInVariants)
+      // }
 
+      // пополнение доступных действий для конкретного renderIn
+      this.availableActions[paramsFinal.renderIn].push(...extension.availableActions)
+
+      // Сбор нативных расширений
       if (extension.nativeExtensionInstance) {
         nativeExtensionsInstances.push(extension.nativeExtensionInstance)
       }
     })
     const extensions = [
       ...this[PROPS.NATIVE_EXTENSIONS],
-      ...nativeExtensionsInstances,
+      ...nativeExtensionsInstances
+    ]
 
-      // TODO только если есть prop placeholder
+    if (this[PROPS.PLACEHOLDER]) {
       // !!!!!!!!!!!!!!!!! TODO ONLY FOR TEST (update: не помню что это, возможно и не нужно убирать код ниже)
-      new Placeholder({
+      extensions.push(new Placeholder({
         emptyNodeClass: 'tiptap-vuetify-editor__paragraph--is-empty',
         emptyNodeText: this[PROPS.PLACEHOLDER],
         showOnlyWhenEditable: true
-      })
-    ]
+      }))
+    }
 
     this.editor = new Editor({
       extensions,

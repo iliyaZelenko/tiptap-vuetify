@@ -1,5 +1,5 @@
 import { Blockquote as BlockquoteOriginal } from 'tiptap-extensions'
-import { faIconsSize, VuetifyIconsGropus } from '~/configs/theme'
+import { VuetifyIconsGroups } from '~/configs/theme'
 import VuetifyIcon from '~/extensions/nativeExtensions/icons/VuetifyIcon'
 import I18nText from '~/i18n/I18nText'
 import AbstractExtension from '~/extensions/AbstractExtension'
@@ -17,9 +17,9 @@ export default class Blockquote extends AbstractExtension {
         render: new ExtensionActionRenderBtn({
           tooltip: new I18nText('extensions.Blockquote.buttons.blockquote.tooltip'),
           icons: {
-            [VuetifyIconsGropus.md]: new VuetifyIcon('format_quote'),
-            [VuetifyIconsGropus.fa]: new VuetifyIcon('fas fa-quote-right ' + faIconsSize),
-            [VuetifyIconsGropus.mdi]: new VuetifyIcon('mdi-format-quote-close')
+            [VuetifyIconsGroups.md]: new VuetifyIcon('format_quote'),
+            [VuetifyIconsGroups.fa]: new VuetifyIcon('fas fa-quote-right'),
+            [VuetifyIconsGroups.mdi]: new VuetifyIcon('mdi-format-quote-close')
           },
           nativeExtensionName: 'blockquote'
         })

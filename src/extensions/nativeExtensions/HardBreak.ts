@@ -1,14 +1,13 @@
 import { HardBreak as HardBreakOriginal } from 'tiptap-extensions'
-import AbstractExtensionAdapter from '~/extensions/nativeExtensions/AbstractExtensionAdapter'
+import AbstractExtension from '~/extensions/AbstractExtension'
+import ExtensionActionInterface from '~/extensions/actions/ExtensionActionInterface'
 
-export default class HardBreak extends AbstractExtensionAdapter {
-  name = null
-
+export default class HardBreak extends AbstractExtension {
   constructor (options) {
     super(options, HardBreakOriginal)
   }
 
-  get availableButtons () {
+  get availableActions (): ExtensionActionInterface[] {
     return []
   }
 }

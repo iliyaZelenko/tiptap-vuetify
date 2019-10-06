@@ -17,7 +17,7 @@
             ...toolbarAttributes
           }"
         >
-          <actions-btns-render
+          <actions-render
             :actions="actions"
             :context="menuBarContext"
             :editor="editor"
@@ -35,12 +35,12 @@ import { Editor, EditorMenuBar } from 'tiptap'
 import toolbarConfig from '~/configs/toolbar'
 import ExtensionActionInterface from '~/extensions/actions/ExtensionActionInterface'
 import ExtensionActionRenderBtn from '~/extensions/actions/renders/btn/ExtensionActionRenderBtn.ts'
-import ActionsBtnsRender from '~/components/ActionsBtnsRender.vue'
+import ActionsRender from '~/components/ActionsRender.vue'
 import { VToolbar } from 'vuetify/lib'
 
 @Component({
   components: {
-    ActionsBtnsRender,
+    ActionsRender,
     EditorMenuBar,
     VToolbar
   }

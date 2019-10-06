@@ -1,4 +1,4 @@
-export const enum VuetifyIconsGropus {
+export const enum VuetifyIconsGroups {
   // default icons in vuetify (official material design icons)
   md = 'md',
   mdi = 'mdi',
@@ -6,7 +6,5 @@ export const enum VuetifyIconsGropus {
 }
 
 export default {
-  defaultIconsGroup: VuetifyIconsGropus.md
+  defaultIconsGroup: VuetifyIconsGroups.md
 }
-
-export const faIconsSize = 'fa-sm'

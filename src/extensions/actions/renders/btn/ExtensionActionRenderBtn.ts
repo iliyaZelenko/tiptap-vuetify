@@ -15,10 +15,10 @@ export default class ExtensionActionRenderBtn {
 
     this.options = {
       onClick ({ context }) {
-        context.commands[nativeExtensionName]()
+        context.commands[nativeExtensionName](options.onClickOptions)
       },
       isActive ({ isActive }) {
-        return !!isActive[nativeExtensionName] && isActive[nativeExtensionName]()
+        return !!isActive[nativeExtensionName] && isActive[nativeExtensionName](options.isActiveOptions)
       },
       ...options
     }

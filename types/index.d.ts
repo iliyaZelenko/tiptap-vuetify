@@ -1,7 +1,7 @@
 // !!! В этом файле не использовать алиасы в путях (e.g. "~")
 import Vue, { PluginObject } from 'vue'
 import { Framework } from 'vuetify'
-import { VuetifyIconsGropus } from '../src/configs/theme'
+import { VuetifyIconsGroups } from '../src/configs/theme'
 
 // тут нужно все экспортировать (export), а не использовтаь namepsace
 
@@ -15,11 +15,11 @@ export interface PluginInterface<T> extends PluginObject<T> {
 
 export interface OptionsInterface {
   vuetify: Framework
-  iconsGroup?: VuetifyIconsGropus
+  iconsGroup?: VuetifyIconsGroups
 }
 
 export interface VuePrototypePluginInterface {
-  iconsGroup: VuetifyIconsGropus
+  iconsGroup: VuetifyIconsGroups
 }
 
 declare module 'vue/types/vue' {

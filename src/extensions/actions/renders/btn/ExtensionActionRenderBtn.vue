@@ -4,7 +4,10 @@
     <template #activator="{ on }">
       <!--TODO options.isActive сделать реактивным -->
       <v-btn
-        :class="{ 'v-btn--active': $props[PROPS.OPTIONS].isActive($props[PROPS.CONTEXT]) }"
+        :class="{
+          'tiptap-vuetify-editor__action-render-btn': true,
+          'v-btn--active': $props[PROPS.OPTIONS].isActive($props[PROPS.CONTEXT])
+        }"
         :dark="$props[PROPS.DARK]"
         small
         icon
@@ -12,8 +15,8 @@
         @click="options.onClick({ context: $props[PROPS.CONTEXT], editor: $props[PROPS.EDITOR] })"
       >
         <component
+          class="tiptap-vuetify-editor__btn-icon"
           :is="isTextIcon ? 'b' : isVuetifyIcon ? 'v-icon' : null"
-          x-small
         >
           {{ buttonIcon }}
         </component>
@@ -82,3 +85,11 @@ export default class ExtensionActionRenderBtn extends Vue {
   }
 }
 </script>
+
+<style lang="stylus">
+.tiptap-vuetify-editor__action-render-btn
+  margin: 0 6px
+
+.tiptap-vuetify-editor__btn-icon.v-icon.fas
+  font-size: 16px
+</style>

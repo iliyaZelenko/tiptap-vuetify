@@ -1,27 +1,29 @@
 import { CodeBlock as CodeBlockOriginal } from 'tiptap-extensions'
-import AbstractExtensionAdapter from '~/extensions/nativeExtensions/AbstractExtensionAdapter'
-import { faIconsSize, VuetifyIconsGropus } from '~/configs/theme'
+import { VuetifyIconsGroups } from '~/configs/theme'
 import VuetifyIcon from '~/extensions/nativeExtensions/icons/VuetifyIcon'
 import I18nText from '~/i18n/I18nText'
+import AbstractExtension from '~/extensions/AbstractExtension'
+import ExtensionActionInterface from '~/extensions/actions/ExtensionActionInterface'
+import ExtensionActionRenderBtn from '~/extensions/actions/renders/btn/ExtensionActionRenderBtn.ts'
 
 // TODO текст перед / после иконки. Сделать через массив: [new VuetifyIcon('code'), new TextForIcon('text')]
-export default class CodeBlock extends AbstractExtensionAdapter {
-  name: string = 'code_block'
-
+export default class CodeBlock extends AbstractExtension {
   constructor (options) {
     super(options, CodeBlockOriginal)
   }
 
-  get availableButtons () {
+  get availableActions (): ExtensionActionInterface[] {
     return [
       {
-        name: this.name,
-        tooltip: new I18nText('extensions.CodeBlock.buttons.codeBlock.tooltip'),
-        icons: {
-          [VuetifyIconsGropus.md]: new VuetifyIcon('code'),
-          [VuetifyIconsGropus.fa]: new VuetifyIcon('fas fa-code ' + faIconsSize),
-          [VuetifyIconsGropus.mdi]: new VuetifyIcon('mdi-code-tags')
-        }
+        render: new ExtensionActionRenderBtn({
+          tooltip: new I18nText('extensions.CodeBlock.buttons.codeBlock.tooltip'),
+          icons: {
+            [VuetifyIconsGroups.md]: new VuetifyIcon('code'),
+            [VuetifyIconsGroups.fa]: new VuetifyIcon('fas fa-code'),
+            [VuetifyIconsGroups.mdi]: new VuetifyIcon('mdi-code-tags')
+          },
+          nativeExtensionName: 'code_block'
+        })
       }
     ]
   }

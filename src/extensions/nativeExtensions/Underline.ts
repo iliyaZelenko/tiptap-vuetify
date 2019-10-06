@@ -1,24 +1,28 @@
 import { Underline as UnderlineOriginal } from 'tiptap-extensions'
-import AbstractExtensionAdapter from '~/extensions/nativeExtensions/AbstractExtensionAdapter'
-import { faIconsSize, VuetifyIconsGropus } from '~/configs/theme'
+import { VuetifyIconsGroups } from '~/configs/theme'
 import VuetifyIcon from '~/extensions/nativeExtensions/icons/VuetifyIcon'
 import I18nText from '~/i18n/I18nText'
+import AbstractExtension from '~/extensions/AbstractExtension'
+import ExtensionActionInterface from '~/extensions/actions/ExtensionActionInterface'
+import ExtensionActionRenderBtn from '~/extensions/actions/renders/btn/ExtensionActionRenderBtn.ts'
 
-export default class Underline extends AbstractExtensionAdapter {
+export default class Underline extends AbstractExtension {
   constructor (options) {
     super(options, UnderlineOriginal)
   }
 
-  get availableButtons () {
+  get availableActions (): ExtensionActionInterface[] {
     return [
       {
-        name: 'underline',
-        tooltip: new I18nText('extensions.Underline.buttons.underline.tooltip'),
-        icons: {
-          [VuetifyIconsGropus.md]: new VuetifyIcon('format_underline'),
-          [VuetifyIconsGropus.fa]: new VuetifyIcon('fas fa-underline ' + faIconsSize),
-          [VuetifyIconsGropus.mdi]: new VuetifyIcon('mdi-format-underline')
-        }
+        render: new ExtensionActionRenderBtn({
+          tooltip: new I18nText('extensions.Underline.buttons.underline.tooltip'),
+          icons: {
+            [VuetifyIconsGroups.md]: new VuetifyIcon('format_underline'),
+            [VuetifyIconsGroups.fa]: new VuetifyIcon('fas fa-underline'),
+            [VuetifyIconsGroups.mdi]: new VuetifyIcon('mdi-format-underline')
+          },
+          nativeExtensionName: 'underline'
+        })
       }
     ]
   }

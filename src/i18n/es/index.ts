@@ -59,12 +59,6 @@ export default {
         }
       }
     },
-    Link: {
-      bubble: {
-        updateLink: 'Actualizar enlace',
-        addLink: 'Añadir enlace'
-      }
-    },
     OrderedList: {
       buttons: {
         orderedList: {
@@ -96,7 +90,28 @@ export default {
     Heading: {
       buttons: {
         heading: {
-          tooltip: args => `Nivel de encabezado ${args.level}`
+          tooltip: ({ level }) => `Nivel de encabezado ${level}`
+        }
+      }
+    },
+    Link: {
+      buttons: {
+        isActive: {
+          tooltip: 'Actualizar enlace'
+        },
+        notActive: {
+          tooltip: 'Añadir enlace'
+        }
+      },
+      window: {
+        title: 'Control de enlace',
+        form: {
+          hrefLabel: 'Href'
+        },
+        buttons: {
+          close: 'Cerrar',
+          remove: 'Eliminar',
+          apply: 'Aplicar'
         }
       }
     }

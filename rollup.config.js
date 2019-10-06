@@ -100,7 +100,7 @@ async function getConfig ({
         }
       }),
       commonjs(),
-      // TODO autoprefixer
+      // TODO autoprefixer (update: разве в postcssPresetEnv его нет?)
       postcss({
         // TODO для каждого конфига генерируется свой main.css (одинаковый файл), исправить
         extract: join(distDir, 'main.css'),

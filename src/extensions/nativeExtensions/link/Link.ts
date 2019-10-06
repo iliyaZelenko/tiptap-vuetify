@@ -1,5 +1,5 @@
 import { Link as LinkOriginal } from 'tiptap-extensions'
-import { faIconsSize, VuetifyIconsGropus } from '~/configs/theme'
+import { VuetifyIconsGroups } from '~/configs/theme'
 import VuetifyIcon from '~/extensions/nativeExtensions/icons/VuetifyIcon'
 import I18nText from '~/i18n/I18nText'
 import AbstractExtension from '~/extensions/AbstractExtension'
@@ -24,9 +24,9 @@ export default class Link extends AbstractExtension {
               ? 'extensions.Link.buttons.isActive.tooltip'
               : 'extensions.Link.buttons.notActive.tooltip'),
           icons: {
-            [VuetifyIconsGropus.md]: new VuetifyIcon('link'),
-            [VuetifyIconsGropus.fa]: new VuetifyIcon('fas fas fa-link ' + faIconsSize),
-            [VuetifyIconsGropus.mdi]: new VuetifyIcon('mdi-link')
+            [VuetifyIconsGroups.md]: new VuetifyIcon('link'),
+            [VuetifyIconsGroups.fa]: new VuetifyIcon('fas fas fa-link'),
+            [VuetifyIconsGroups.mdi]: new VuetifyIcon('mdi-link')
           },
           nativeExtensionName,
           onClick ({ context, editor }) {
@@ -54,23 +54,23 @@ export default class Link extends AbstractExtension {
 
 // export const icons = {
 //   save: {
-//     [VuetifyIconsGropus.md]: new VuetifyIcon('check'),
-//     [VuetifyIconsGropus.fa]: new VuetifyIcon('fas fa-check ' + faIconsSize),
-//     [VuetifyIconsGropus.mdi]: new VuetifyIcon('mdi-check')
+//     [VuetifyIconsGroups.md]: new VuetifyIcon('check'),
+//     [VuetifyIconsGroups.fa]: new VuetifyIcon('fas fa-check'),
+//     [VuetifyIconsGroups.mdi]: new VuetifyIcon('mdi-check')
 //   },
 //   cancel: {
-//     [VuetifyIconsGropus.md]: new VuetifyIcon('link_off'),
-//     [VuetifyIconsGropus.fa]: new VuetifyIcon('fas fa-unlink ' + faIconsSize),
-//     [VuetifyIconsGropus.mdi]: new VuetifyIcon('mdi-link-off')
+//     [VuetifyIconsGroups.md]: new VuetifyIcon('link_off'),
+//     [VuetifyIconsGroups.fa]: new VuetifyIcon('fas fa-unlink'),
+//     [VuetifyIconsGroups.mdi]: new VuetifyIcon('mdi-link-off')
 //   },
 //   linkUpdate: {
-//     [VuetifyIconsGropus.md]: new VuetifyIcon('link'),
-//     [VuetifyIconsGropus.fa]: new VuetifyIcon('fas fas fa-link ' + faIconsSize),
-//     [VuetifyIconsGropus.mdi]: new VuetifyIcon('mdi-link')
+//     [VuetifyIconsGroups.md]: new VuetifyIcon('link'),
+//     [VuetifyIconsGroups.fa]: new VuetifyIcon('fas fas fa-link'),
+//     [VuetifyIconsGroups.mdi]: new VuetifyIcon('mdi-link')
 //   },
 //   linkAdd: {
-//     [VuetifyIconsGropus.md]: new VuetifyIcon('link'),
-//     [VuetifyIconsGropus.fa]: new VuetifyIcon('fas fa-link ' + faIconsSize),
-//     [VuetifyIconsGropus.mdi]: new VuetifyIcon('mdi-link-plus')
+//     [VuetifyIconsGroups.md]: new VuetifyIcon('link'),
+//     [VuetifyIconsGroups.fa]: new VuetifyIcon('fas fa-link'),
+//     [VuetifyIconsGroups.mdi]: new VuetifyIcon('mdi-link-plus')
 //   }
 // }

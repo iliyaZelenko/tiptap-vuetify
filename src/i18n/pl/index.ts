@@ -59,12 +59,6 @@ export default {
         }
       }
     },
-    Link: {
-      bubble: {
-        updateLink: 'Zaktualizuj link',
-        addLink: 'Dodaj Link'
-      }
-    },
     OrderedList: {
       buttons: {
         orderedList: {
@@ -97,6 +91,27 @@ export default {
       buttons: {
         heading: {
           tooltip: args => args.level + ' nagłówek'
+        }
+      }
+    },
+    Link: {
+      buttons: {
+        isActive: {
+          tooltip: 'Zaktualizuj link'
+        },
+        notActive: {
+          tooltip: 'Dodaj Link'
+        }
+      },
+      window: {
+        title: 'Kontrola link',
+        form: {
+          hrefLabel: 'Href'
+        },
+        buttons: {
+          close: 'Zamknąć',
+          remove: 'Usunąć',
+          apply: 'Zastosować'
         }
       }
     }

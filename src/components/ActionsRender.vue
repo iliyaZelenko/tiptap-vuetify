@@ -1,17 +1,15 @@
 <template>
   <div>
-    <span
-      v-for="(action, i) in $props[PROPS.ACTIONS]"
-      :key="'actions-' + i"
-    >
+    <template v-for="(action, i) in $props[PROPS.ACTIONS]">
       <action-btn
         v-if="isBtn(action)"
+        :key="'action-button-' + i"
         :options="action.render.options"
         :context="$props[PROPS.CONTEXT]"
         :editor="$props[PROPS.EDITOR]"
         :dark="$props[PROPS.DARK]"
       />
-    </span>
+    </template>
   </div>
 </template>
 
@@ -35,7 +33,7 @@ export const PROPS = {
     'action-btn': ExtensionActionRenderBtnComponent
   }
 })
-export default class ActionsBtnsRender extends Vue {
+export default class ActionsRender extends Vue {
   @Prop({ type: Object, required: true })
   readonly [PROPS.EDITOR]: Editor
 

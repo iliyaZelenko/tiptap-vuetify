@@ -1,12 +1,13 @@
 import { ListItem as ListItemOriginal } from 'tiptap-extensions'
-import AbstractExtensionAdapter from '~/extensions/nativeExtensions/AbstractExtensionAdapter'
+import AbstractExtension from '~/extensions/AbstractExtension'
+import ExtensionActionInterface from '~/extensions/actions/ExtensionActionInterface'
 
-export default class ListItem extends AbstractExtensionAdapter {
+export default class ListItem extends AbstractExtension {
   constructor (options) {
     super(options, ListItemOriginal)
   }
 
-  get availableButtons () {
+  get availableActions (): ExtensionActionInterface[] {
     return []
   }
 }

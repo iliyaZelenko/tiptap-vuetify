@@ -34,20 +34,42 @@ export default {
     `
   }),
   async created () {
-    const { Heading, Bold, Italic, Strike, Underline, Code, CodeBlock, Paragraph, BulletList, OrderedList, ListItem,
+    const {
+      Heading, Bold, Italic, Strike, Underline, Code, CodeBlock, Paragraph, BulletList, OrderedList, ListItem,
       Link, Blockquote, HardBreak, HorizontalRule, History
     } = await MAIN_MODULE
 
     this.extensions = [
-      // опции которые попадают в расширение tiptap
-      [Blockquote, {
-        renderIn: 'bubbleMenu',
-        nativeOptions: {
+      Code,
+      CodeBlock,
+      HorizontalRule,
+      Paragraph,
+      [History, {
+        // если не нужны кнокпи
+        options: { noActions: true }
+      }],
+      HardBreak, // позволяет переносить через Shift + Ctrl + Enter
+      Underline,
+      Strike,
+      Italic,
+      ListItem, // если нужно использовать список (BulletList, OrderedList)
+      BulletList,
+      OrderedList,
+      [Heading, {
+        // Опции которые попадают в расширение tiptap
+        options: {
           levels: [1, 2, 3]
         }
       }],
+      // но опции не обязательно указывать если нужно чтобы renderIn: 'toolbar', это по умолчанию.
       [Bold, {
         renderIn: 'toolbar'
+      }],
+      [Blockquote, {
+        renderIn: 'bubbleMenu',
+        options: {
+          levels: [1, 2, 3]
+        }
       }],
       [Link, {
         renderIn: 'bubbleMenu'
