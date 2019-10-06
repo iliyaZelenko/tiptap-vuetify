@@ -9,7 +9,7 @@ import { join } from 'path'
 import postcssPresetEnv from 'postcss-preset-env'
 
 const isProduction = process.env.BUILD === 'production'
-const srtDir = join(__dirname, 'src')
+const srcDir = join(__dirname, 'src')
 const distDir = join(__dirname, 'dist')
 
 export default async () => [
@@ -58,7 +58,7 @@ async function getConfig ({
   plugins = []
 }) {
   return {
-    input: join(srtDir, 'main.ts'),
+    input: join(srcDir, 'main.ts'),
     output: {
       esModule,
       file,
@@ -90,11 +90,11 @@ async function getConfig ({
     plugins: [
       alias({
         resolve: ['.ts', '.js', '.vue'],
-        '~': srtDir
+        '~': srcDir
       }),
       // TODO раньшн resolve был после commonjs (но в github я видел в таком порядке)
       resolve({
-        extensions: ['.ts', '.js', '.json'],
+        extensions: ['.ts', '.js', '.vue', '.json'],
         customResolveOptions: {
           moduleDirectory: 'node_modules'
         }

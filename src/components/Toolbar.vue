@@ -34,7 +34,6 @@ import { Component, Prop } from 'vue-property-decorator'
 import { Editor, EditorMenuBar } from 'tiptap'
 import toolbarConfig from '~/configs/toolbar'
 import ExtensionActionInterface from '~/extensions/actions/ExtensionActionInterface'
-import ExtensionActionRenderBtn from '~/extensions/actions/renders/btn/ExtensionActionRenderBtn.ts'
 import ActionsRender from '~/components/ActionsRender.vue'
 import { VToolbar } from 'vuetify/lib'
 
@@ -62,10 +61,6 @@ export default class Toolbar extends Vue {
   readonly toolbarAttributes!: any
 
   readonly toolbarConfig = toolbarConfig
-
-  isBtn (action: ExtensionActionInterface): boolean {
-    return action.render instanceof ExtensionActionRenderBtn
-  }
 }
 </script>
 

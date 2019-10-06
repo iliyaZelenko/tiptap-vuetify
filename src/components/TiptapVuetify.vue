@@ -149,7 +149,8 @@ export default class TiptapVuetify extends Vue {
       // Получение расширения и его опций
       if (Array.isArray(extensionDefinition)) {
         ([ExtensionClass, params] = extensionDefinition)
-      } else if (extensionDefinition.prototype instanceof AbstractExtension) { // Если extends от AbstractExtension
+        // TODO улучшить проверку, но почему-то это не работает: http://bit.ly/2ALqFJB
+      } else if (extensionDefinition.prototype.availableActions) { // Если extends от AbstractExtension
         ExtensionClass = extensionDefinition
       } else {
         throw new Error('Incorrect extension declaration passed to "extensions" prop (array). ' +
