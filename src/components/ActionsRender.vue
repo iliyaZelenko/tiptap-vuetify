@@ -18,7 +18,7 @@ import Vue from 'vue'
 import { Component, Prop } from 'vue-property-decorator'
 import ExtensionActionInterface from '~/extensions/actions/ExtensionActionInterface'
 import ExtensionActionRenderBtnComponent from '~/extensions/actions/renders/btn/ExtensionActionRenderBtn.vue'
-// import ExtensionActionRenderBtn from '~/extensions/actions/renders/btn/ExtensionActionRenderBtn.ts'
+import ExtensionActionRenderBtn from '~/extensions/actions/renders/btn/ExtensionActionRenderBtn.ts'
 import { Editor } from 'tiptap'
 
 export const PROPS = {
@@ -56,10 +56,8 @@ export default class ActionsRender extends Vue {
 
   PROPS = PROPS
 
-  // action: ExtensionActionInterface
-  isBtn (): boolean {
-    // TODO action.render instanceof ExtensionActionRenderBtn не срабатывает, может из-за того, что это как prop
-    return true
+  isBtn (action: ExtensionActionInterface): boolean {
+    return action.render instanceof ExtensionActionRenderBtn
   }
 }
 </script>
