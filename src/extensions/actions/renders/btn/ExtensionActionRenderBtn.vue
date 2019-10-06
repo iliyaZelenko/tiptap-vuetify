@@ -88,7 +88,7 @@ export default class ExtensionActionRenderBtn extends Vue {
 
 <style lang="stylus">
 .tiptap-vuetify-editor__action-render-btn
-  margin: 0 6px
+  margin: 2px 6px
 
 .tiptap-vuetify-editor__btn-icon.v-icon.fas
   font-size: 16px

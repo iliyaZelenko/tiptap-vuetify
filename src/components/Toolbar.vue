@@ -68,8 +68,11 @@ export default class Toolbar extends Vue {
   .tiptap-vuetify-editor__toolbar
     .v-toolbar
       display: flex
+      height: auto !important
+      padding: 5px
 
       .v-toolbar__content
         height: auto !important
         flex-wrap: wrap
+        padding: 0
 </style>
