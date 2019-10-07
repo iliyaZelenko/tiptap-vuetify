@@ -1,5 +1,5 @@
-**At the moment, this package does not fully support Vuetify 2, but it is planned soon. If you want me to work more on this project, you can give me motivation in the form of a star. Thanks for attention!**
-  
+If you have Vuetify `1.x` (not `2.x`), then you can find docs and demo [here](https://codesandbox.io/s/p2wnzxyo90?fontsize=14&module=%2Fsrc%2Fexamples%2FSimple.vue).
+
   <p align="center">
     <a href="https://www.npmjs.com/package/tiptap-vuetify">
       <img src="https://img.shields.io/npm/v/tiptap-vuetify.svg" alt="Version">
@@ -22,15 +22,18 @@
     <a href="https://www.npmjs.com/package/tiptap-vuetify">
       <img alt="codebeat badge" src="https://img.shields.io/badge/size-6.58%20kB-44cc11.svg" />
     </a>
+    <a href="https://www.npmjs.com/package/vue-cool-select" rel="noopener noreferrer" target="_blank">
+      <img src="https://img.shields.io/npm/dt/vue-cool-select?color=red&label=total%20downloads" alt="Downloads">
+    </a>
   </p>
 
 WYSIWYG editor for Vuetify. Component simplifies integration [tiptap](https://github.com/scrumpy/tiptap) with [vuetify](https://github.com/vuetifyjs/vuetify).
 
-[DEMO on codesanbox](https://codesandbox.io/s/p2wnzxyo90?fontsize=14&module=%2Fsrc%2Fexamples%2FSimple.vue)
+[DEMO on codesanbox](https://codesandbox.io/s/vue-template-6p9wp?fontsize=14&module=%2Fsrc%2Fexamples%2FSimple.vue)
 
 [
 ![](https://i.imgur.com/vfKWfkv.png)
-](https://codesandbox.io/s/p2wnzxyo90?fontsize=14&module=%2Fsrc%2Fexamples%2FSimple.vue)
+](https://codesandbox.io/s/vue-template-6p9wp?fontsize=14&module=%2Fsrc%2Fexamples%2FSimple.vue)
 
 
 ## Navigation
@@ -59,6 +62,7 @@ WYSIWYG editor for Vuetify. Component simplifies integration [tiptap](https://gi
 - the project is ready to actively develop if there is support (stars)!
 - the ability to create and use your own extensions
 - choose where the extension buttons should be displayed: in the toolbar or in the bubble menu
+- Vuetify `2.x` and `1.x` support
 
 ## Installation
 
@@ -71,18 +75,28 @@ npm install --save tiptap-vuetify
 
 ## Get started
 
-1) Add `Vue.use` for plugin. You can select your icons group (`iconsGroup`, `'md'` by default).
+1) Installing the package and Vuetify 2 from scratch:
 
 ```js
 import Vue from 'vue'
+import Vuetify from 'vuetify'
+// import plugin
 import { TiptapVuetifyPlugin } from 'tiptap-vuetify'
-// don't forget to import styles
+// don't forget to import CSS styles
 import 'tiptap-vuetify/dist/main.css'
+// Vuetify's CSS styles 
+import 'vuetify/dist/vuetify.min.css'
 
-// first it
+
+// Vuetify Object (as described in the Vuetify 2 documentation)
+const vuetify = new Vuetify()
+
+// use Vuetify's plugin
 Vue.use(Vuetify)
-// AFTER Vue.use(Vuetify) !!!
+// use this package's plugin
 Vue.use(TiptapVuetifyPlugin, {
+  // the next line is important! You need to provide the Vuetify Object to this place.
+  vuetify, // same as "vuetify: vuetify"
   // optional, default to 'md' (default vuetify icons before v2.0.0)
   iconsGroup: 'md'
 })
@@ -95,56 +109,46 @@ More about vuetify icons you can read [here](https://vuetifyjs.com/en/components
 ```vue
 <template>
   <div>
-    <!--Use the component in the right place of the template-->
+    <!-- Use the component in the right place of the template -->
     <tiptap-vuetify
       v-model="content"
       :extensions="extensions"
-    />
-
-    <!--Here's how to make a preview (optional)-->
-    <h1>Preview</h1>
-    <hr>
-
-    <div
-      class="tiptap-vuetify-editor__content"
-      v-html="content"
     />
   </div>
 </template>
 
 <script>
 // import the component and the necessary extensions
-import { TiptapVuetify, Heading, Bold, Italic, Strike, Underline, Code, CodeBlock, Paragraph, BulletList, OrderedList,
-  ListItem, Link, Blockquote, HardBreak, HorizontalRule, History
-} from 'tiptap-vuetify'
-import { TiptapVuetifyPlugin } from 'tiptap-vuetify'
+import { TiptapVuetify, Heading, Bold, Italic, Strike, Underline, Code, Paragraph, BulletList, OrderedList, ListItem, Link, Blockquote, HardBreak, HorizontalRule, History } from 'tiptap-vuetify'
+
 export default {
-  // specify in the list of components
+  // specify TiptapVuetify component in "components"
   components: { TiptapVuetify },
   data: () => ({
     // declare extensions you want to use
     extensions: [
-      // you can specify options for extension
-      new Heading({
-        levels: [1, 2, 3]
-      }),
-      new Bold(),
-      new Italic(),
-      new Strike(),
-      new Underline(),
-      new Code(),
-      new CodeBlock(),
-      new Paragraph(),
-      new BulletList(),
-      new OrderedList(),
-      new ListItem(),
-      new Link(),
-      new Blockquote(),
-      new HardBreak(),
-      new HorizontalRule(),
-      new History()
+      History,
+      Blockquote,
+      Link,
+      Underline,
+      Strike,
+      Italic,
+      ListItem,
+      BulletList,
+      OrderedList,
+      [Heading, {
+        options: {
+          levels: [1, 2, 3]
+        }
+      }],
+      Bold,
+      Link,
+      Code,
+      HorizontalRule,
+      Paragraph,
+      HardBreak
     ],
-    // starting content for the editor
+    // starting editor's content
     content: `
       <h1>Yay Headlines!</h1>
       <p>All these <strong>cool tags</strong> are working now.</p>
@@ -165,6 +169,10 @@ Or
 ```html
 <script src="https://cdn.jsdelivr.net/npm/tiptap-vuetify"></script>
 ```
+
+The plugin should be installed automatically after connecting the script.
+The only thing is that the Vuetify object must be set in `window.vuetify` so that the plugin gets access to it.
+Write if you have questions.
 
 ## Props
 
@@ -353,6 +361,6 @@ In the future version this problem will most likely be solved and you will not n
 ## TODO
 
 - images uploading (free hosting by default) [Relevant issue.](https://github.com/iliyaZelenko/tiptap-vuetify/issues/16)
-- site with docs and examples
+- site with full-docs and examples
 - emoticons
 - tests
