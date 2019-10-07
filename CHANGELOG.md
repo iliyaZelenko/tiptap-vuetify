@@ -1,3 +1,15 @@
+# [2.1.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.0.2...v2.1.0) (2019-10-07)
+
+
+### Bug Fixes
+
+* **toolbar:** correct wrap for toolbar elements and increase spacing for them ([44a521b](https://github.com/iliyaZelenko/tiptap-vuetify/commit/44a521b))
+
+
+### Features
+
+* **plugin:** auto install (if user use via CDN) ([f0786c6](https://github.com/iliyaZelenko/tiptap-vuetify/commit/f0786c6))
+
 ## [2.0.2](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.0.1...v2.0.2) (2019-10-06)
 
 
