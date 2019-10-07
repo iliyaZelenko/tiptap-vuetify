@@ -43,7 +43,6 @@ WYSIWYG editor for Vuetify. Component simplifies integration [tiptap](https://gi
 - [Props](#props)
 - [Events](#events)
 - [Slots](#slots)
-- [Frequent issues](#frequent-issues)
 - [TODO](#todo)
 
 <!-- /TOC -->
