@@ -209,6 +209,8 @@ Available extensions:
 - `HorizontalRule`
 - `History`
 
+I can easily add more.
+
 ### toolbar-attributes
 
 You can specify your attributes for the toolbar (`<v-toolbar>` vuetify component).
