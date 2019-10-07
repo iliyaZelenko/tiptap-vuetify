@@ -22,9 +22,6 @@ If you have Vuetify `1.x` (not `2.x`), then you can find docs and demo [here](ht
     <a href="https://www.npmjs.com/package/tiptap-vuetify">
       <img alt="codebeat badge" src="https://img.shields.io/badge/size-6.58%20kB-44cc11.svg" />
     </a>
-    <a href="https://www.npmjs.com/package/vue-cool-select" rel="noopener noreferrer" target="_blank">
-      <img src="https://img.shields.io/npm/dt/vue-cool-select?color=red&label=total%20downloads" alt="Downloads">
-    </a>
   </p>
 
 WYSIWYG editor for Vuetify. Component simplifies integration [tiptap](https://github.com/scrumpy/tiptap) with [vuetify](https://github.com/vuetifyjs/vuetify).
@@ -32,7 +29,7 @@ WYSIWYG editor for Vuetify. Component simplifies integration [tiptap](https://gi
 [DEMO on codesanbox](https://codesandbox.io/s/vue-template-6p9wp?fontsize=14&module=%2Fsrc%2Fexamples%2FSimple.vue)
 
 [
-![](https://i.imgur.com/vfKWfkv.png)
+![](https://d1sz9tkli0lfjq.cloudfront.net/items/0s2E3A433x1A2b1l3q24/Image%202019-10-07%20at%203.30.03%20AM.png)
 ](https://codesandbox.io/s/vue-template-6p9wp?fontsize=14&module=%2Fsrc%2Fexamples%2FSimple.vue)
 
 
@@ -329,38 +326,10 @@ You can add content before the toolbar.
 
 You can add content after the toolbar.
 
-## Frequent issues
-
-### A La Carte / VuetifyLoaderPlugin
-
-You may receive an error like this:
-
-```
-[Vue warn]:  Unknown custom element: <v-card> - did you register 
-the component correctly? For recursive components, 
-make sure to provide the "name" option.
-```
-
-To solve it, specify for Vuetify that you want to use components that this package uses: 
-
-```
-Vue.use(Vuetify, {
-  components: {
-    VTextField,
-    VTooltip,
-    VToolbar,
-    VCard,
-    VIcon,
-    VBtn,
-  }
-});
-```
-
-In the future version this problem will most likely be solved and you will not need to do anything.
-
 ## TODO
 
 - images uploading (free hosting by default) [Relevant issue.](https://github.com/iliyaZelenko/tiptap-vuetify/issues/16)
 - site with full-docs and examples
 - emoticons
 - tests
+- support for more extensions
