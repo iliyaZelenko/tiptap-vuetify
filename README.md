@@ -71,6 +71,8 @@ npm install --save tiptap-vuetify
 
 ## Get started
 
+### NPM (ES modules)
+
 1) Installing the package and Vuetify 2 from scratch:
 
 ```js
@@ -153,6 +155,12 @@ export default {
 }
 </script>
 ```
+
+### Nuxt
+
+If you have Nuxt.js, [here](https://github.com/iliyaZelenko/tiptap-vuetify/issues/42#issuecomment-539471212) is a description of how to integrate with it.
+
+### CDN (<script>)
 
 There is another use case with the script tag (CDN version of package):
 
