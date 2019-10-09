@@ -4,6 +4,8 @@ import ru from './ru'
 import es from './es'
 import pl from './pl'
 import fr from './fr'
+import uk from './uk'
+import ptbr from './ptbr'
 import ConsoleLogger from '~/logging/ConsoleLogger'
 
 export const defaultLanguage = 'en'
@@ -12,7 +14,9 @@ export const dictionary = {
   ru,
   es,
   pl,
-  fr
+  fr,
+  uk,
+  ptbr
 }
 
 export function getCurrentLang () {

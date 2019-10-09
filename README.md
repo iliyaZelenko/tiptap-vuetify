@@ -51,7 +51,7 @@ WYSIWYG editor for Vuetify. Component simplifies integration [tiptap](https://gi
 
 - used vuetify components
 - support for different types of icons ([fa](https://fontawesome.com/),  [md](https://material.io/tools/icons/), [mdi](https://materialdesignicons.com/))
-- internationalization (en, fr, pl, es, ru), with automatic detection of the current language through the Vuetify
+- internationalization (en, fr, pl, es, ru, uk, ptbr), with automatic detection of the current language through the Vuetify
 - easy to start using
 - props and events are available
 - TypeScript support
@@ -70,6 +70,8 @@ npm install --save tiptap-vuetify
 
 
 ## Get started
+
+### NPM (ES modules)
 
 1) Installing the package and Vuetify 2 from scratch:
 
@@ -154,6 +156,12 @@ export default {
 </script>
 ```
 
+### Nuxt
+
+If you have Nuxt.js, [here](https://github.com/iliyaZelenko/tiptap-vuetify/issues/42#issuecomment-539471212) is a description of how to integrate with it.
+
+### CDN (<script>)
+
 There is another use case with the script tag (CDN version of package):
 
 ```html
@@ -208,6 +216,8 @@ Available extensions:
 - `HardBreak`
 - `HorizontalRule`
 - `History`
+
+I can easily add more.
 
 ### toolbar-attributes
 
