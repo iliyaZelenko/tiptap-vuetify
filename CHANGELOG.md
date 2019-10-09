@@ -1,3 +1,11 @@
+# [2.2.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.1.0...v2.2.0) (2019-10-09)
+
+
+### Features
+
+* **i18n:** Brazilian portuguese localization ([429d970](https://github.com/iliyaZelenko/tiptap-vuetify/commit/429d970))
+* **i18n:** ua lang ([d002792](https://github.com/iliyaZelenko/tiptap-vuetify/commit/d002792))
+
 # [2.1.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.0.2...v2.1.0) (2019-10-07)
 
 
