@@ -19,7 +19,7 @@ import { MAIN_MODULE } from './config'
 
 const vuetify = new Vuetify({
   lang: {
-    current: 'en' // en | es | fr | pl | ru
+    current: 'en' // en | es | fr | pl | ru | ptbr
   }
 })
 
