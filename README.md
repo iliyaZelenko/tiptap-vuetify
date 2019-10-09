@@ -51,7 +51,7 @@ WYSIWYG editor for Vuetify. Component simplifies integration [tiptap](https://gi
 
 - used vuetify components
 - support for different types of icons ([fa](https://fontawesome.com/),  [md](https://material.io/tools/icons/), [mdi](https://materialdesignicons.com/))
-- internationalization (en, fr, pl, es, ru), with automatic detection of the current language through the Vuetify
+- internationalization (en, fr, pl, es, ru, uk, ptbr), with automatic detection of the current language through the Vuetify
 - easy to start using
 - props and events are available
 - TypeScript support
