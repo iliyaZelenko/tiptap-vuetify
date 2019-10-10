@@ -240,6 +240,8 @@ If you want to add extensions to the `extensions` property, then use the `native
 
 ### native-extensions
 
+You can transfer native extensions (not related to this package) to the [`extensions`](https://tiptap.scrumpy.io/docs/api/classes.html#extensions-2) property.
+
 How to use:
 
 ```vue
@@ -249,10 +251,23 @@ How to use:
 ```
 
 ```js
+// You can import from tiptap's built-in extensions
+import {
+  TrailingNode
+} from 'tiptap-extensions'
+// or your own extension
+import Title from './Title'
+
 // in script:
 data () {
   return {
-    nativeExtensions: [new TiptapExtension1(), new TiptapExtension2()]
+    nativeExtensions: [
+      new Title(),
+      new TrailingNode({
+        node: 'paragraph',
+        notAfter: ['paragraph'],
+      })
+    ]
   }
 }
 ```
@@ -335,9 +350,14 @@ You can add content before the toolbar.
 
 You can add content after the toolbar.
 
+### toolbar
+
+You can try to manually display the toolbar. [Here](https://github.com/iliyaZelenko/tiptap-vuetify/blob/b6d321e47c2f3c89198131df4ef067c277501fc8/src/components/TiptapVuetify.vue#L28) it in the code.
+
+
 ## TODO
 
-- images uploading (free hosting by default) [Relevant issue.](https://github.com/iliyaZelenko/tiptap-vuetify/issues/16)
+- images uploading (free hosting by default) [Relevant issue.](https://github.com/iliyaZelenko/tiptap-vuetify/issues/16). Ability to choose your uploading strategy.
 - site with full-docs and examples
 - emoticons
 - tests
