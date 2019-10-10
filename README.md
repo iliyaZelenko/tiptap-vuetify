@@ -1,4 +1,4 @@
-If you have Vuetify `1.x` (not `2.x`), then you can find docs and demo [here](https://codesandbox.io/s/p2wnzxyo90?fontsize=14&module=%2Fsrc%2Fexamples%2FSimple.vue).
+WYSIWYG editor for Vuetify. The editor is based on [tiptap](https://github.com/scrumpy/tiptap) and uses [vuetify's](https://github.com/vuetifyjs/vuetify) components. :muscle:
 
   <p align="center">
     <a href="https://www.npmjs.com/package/tiptap-vuetify">
@@ -24,7 +24,7 @@ If you have Vuetify `1.x` (not `2.x`), then you can find docs and demo [here](ht
     </a>
   </p>
 
-WYSIWYG editor for Vuetify. Component simplifies integration [tiptap](https://github.com/scrumpy/tiptap) with [vuetify](https://github.com/vuetifyjs/vuetify).
+If you have Vuetify `1.x` (not `2.x`), then you can find docs and demo [here](https://codesandbox.io/s/p2wnzxyo90?fontsize=14&module=%2Fsrc%2Fexamples%2FSimple.vue).
 
 [DEMO on codesanbox](https://codesandbox.io/s/vue-template-6p9wp?fontsize=14&module=%2Fsrc%2Fexamples%2FSimple.vue)
 
@@ -307,7 +307,7 @@ How to use:
 
 ### toolbar
 
-How to use:
+You can manually display the toolbar. How to use:
 
 1) Since Vue `2.6.0` (new syntax):
 
@@ -350,14 +350,9 @@ You can add content before the toolbar.
 
 You can add content after the toolbar.
 
-### toolbar
-
-You can try to manually display the toolbar. [Here](https://github.com/iliyaZelenko/tiptap-vuetify/blob/b6d321e47c2f3c89198131df4ef067c277501fc8/src/components/TiptapVuetify.vue#L28) it in the code.
-
-
 ## TODO
 
-- images uploading (free hosting by default) [Relevant issue.](https://github.com/iliyaZelenko/tiptap-vuetify/issues/16). Ability to choose your uploading strategy.
+- images uploading (free hosting by default) [Relevant issue.](https://github.com/iliyaZelenko/tiptap-vuetify/issues/16) Ability to choose your uploading strategy.
 - site with full-docs and examples
 - emoticons
 - tests
