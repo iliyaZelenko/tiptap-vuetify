@@ -158,8 +158,8 @@ export default {
 
 ### Nuxt
 
-If you have Nuxt.js, [here](https://codesandbox.io/s/github/iliyaZelenko/tiptap-vuetify-nuxt/tree/master/) is a simple demo how it works.
-The code for this example is taken from [this github repository](https://github.com/iliyaZelenko/tiptap-vuetify-nuxt).
+If you have Nuxt.js, [here](https://codesandbox.io/s/github/iliyaZelenko/tiptap-vuetify-nuxt/tree/master/) is a simple demo how to integrate it (`@nuxtjs/vuetify` module is used).
+The code for this example is taken from [this github repository](https://github.com/iliyaZelenko/tiptap-vuetify-nuxt), you can find more infо there.
 
 ### CDN (<script>)
 
