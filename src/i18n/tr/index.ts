@@ -3,115 +3,115 @@ export default {
     Blockquote: {
       buttons: {
         blockquote: {
-          tooltip: "Alıntı"
+          tooltip: 'Alıntı'
         }
       }
     },
     Bold: {
       buttons: {
         bold: {
-          tooltip: "Kalın"
+          tooltip: 'Kalın'
         }
       }
     },
     BulletList: {
       buttons: {
         bulletList: {
-          tooltip: "Liste"
+          tooltip: 'Liste'
         }
       }
     },
     Code: {
       buttons: {
         code: {
-          tooltip: "Kod"
+          tooltip: 'Kod'
         }
       }
     },
     CodeBlock: {
       buttons: {
         codeBlock: {
-          tooltip: "Kod Bloğu"
+          tooltip: 'Kod Bloğu'
         }
       }
     },
     History: {
       buttons: {
         undo: {
-          tooltip: "Geri"
+          tooltip: 'Geri'
         },
         redo: {
-          tooltip: "İleri"
+          tooltip: 'İleri'
         }
       }
     },
     HorizontalRule: {
       buttons: {
         horizontalRule: {
-          tooltip: "Yatay çizgi"
+          tooltip: 'Yatay çizgi'
         }
       }
     },
     Italic: {
       buttons: {
         italic: {
-          tooltip: "İtalik"
+          tooltip: 'İtalik'
         }
       }
     },
     OrderedList: {
       buttons: {
         orderedList: {
-          tooltip: "Numaralı Liste"
+          tooltip: 'Numaralı Liste'
         }
       }
     },
     Paragraph: {
       buttons: {
         paragraph: {
-          tooltip: "Paragraf"
+          tooltip: 'Paragraf'
         }
       }
     },
     Strike: {
       buttons: {
         strike: {
-          tooltip: "Üstü Çizili"
+          tooltip: 'Üstü Çizili'
         }
       }
     },
     Underline: {
       buttons: {
         underline: {
-          tooltip: "Altı Çizili"
+          tooltip: 'Altı Çizili'
         }
       }
     },
     Heading: {
       buttons: {
         heading: {
-          tooltip: ({ level }) => level + " Başlık"
+          tooltip: ({ level }) => level + ' Başlık'
         }
       }
     },
     Link: {
       buttons: {
         isActive: {
-          tooltip: "Link'i Düzenle"
+          tooltip: 'Link\'i Düzenle'
         },
         notActive: {
-          tooltip: "Link Ekle"
+          tooltip: 'Link Ekle'
         }
       },
       window: {
-        title: "Link Kontrol",
+        title: 'Link Kontrol',
         form: {
-          hrefLabel: "Adres"
+          hrefLabel: 'Adres'
         },
         buttons: {
-          close: "Kapat",
-          remove: "Sil",
-          apply: "Uygula"
+          close: 'Kapat',
+          remove: 'Sil',
+          apply: 'Uygula'
         }
       }
     }
