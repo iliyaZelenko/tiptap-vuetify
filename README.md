@@ -52,6 +52,7 @@ If you have Vuetify `1.x` (not `2.x`), then you can find docs and demo [here](ht
 - used vuetify components
 - support for different types of icons ([fa](https://fontawesome.com/),  [md](https://material.io/tools/icons/), [mdi](https://materialdesignicons.com/))
 - internationalization (en, fr, pl, es, ru, uk, ptbr), with automatic detection of the current language through the Vuetify
+- markdown support
 - easy to start using
 - props and events are available
 - TypeScript support
