@@ -10,7 +10,7 @@
       :actions="availableActions.bubbleMenu"
     />
 
-    <v-card v-if="$props[PROPS.TYPE] === EDITOR_TYPES_ENUM.card">
+    <VCard v-if="$props[PROPS.TYPE] === EDITOR_TYPES_ENUM.card">
       <slot name="toolbar-before" />
 
       <toolbar
@@ -40,7 +40,7 @@
       </div>
 
       <slot name="footer" />
-    </v-card>
+    </VCard>
   </div>
 </template>
 
@@ -56,14 +56,14 @@ import { Placeholder } from 'tiptap-extensions'
 import { ExtensionActionRenderInEnum } from '~/extensions/actions/ExtensionActionRenderInEnum'
 import ExtensionActionInterface from '~/extensions/actions/ExtensionActionInterface'
 import AbstractExtension from '~/extensions/AbstractExtension'
-import { VCard } from 'vuetify/lib'
+// import { VCard } from 'vuetify/lib'
 
 @Component({
   components: {
     Bubble,
     EditorContent,
-    Toolbar,
-    VCard
+    Toolbar
+    // VCard
   }
 })
 export default class TiptapVuetify extends Vue {

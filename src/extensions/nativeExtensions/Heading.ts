@@ -18,7 +18,8 @@ export default class Heading extends AbstractExtension {
         icons: {
           [VuetifyIconsGroups.md]: new TextIcon('H' + level),
           [VuetifyIconsGroups.fa]: new TextIcon('H' + level),
-          [VuetifyIconsGroups.mdi]: new TextIcon('H' + level)
+          [VuetifyIconsGroups.mdi]: new TextIcon('H' + level),
+          [VuetifyIconsGroups.mdiSvg]: new TextIcon('H' + level)
         },
         nativeExtensionName: 'heading',
         onClickOptions: { level },

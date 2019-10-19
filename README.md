@@ -59,6 +59,7 @@ If you have Vuetify `1.x` (not `2.x`), then you can find docs and demo [here](ht
 - the ability to create and use your own extensions
 - choose where the extension buttons should be displayed: in the toolbar or in the bubble menu
 - Vuetify `2.x` and `1.x` support
+- different icons presets: fa, md, mdi, mdiSvg
 
 ## Installation
 
