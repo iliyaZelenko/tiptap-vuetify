@@ -1,3 +1,15 @@
+## [2.3.1](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.3.0...v2.3.1) (2019-10-19)
+
+
+### Bug Fixes
+
+* **imports:** fix imports (in previous commit) ([4a91166](https://github.com/iliyaZelenko/tiptap-vuetify/commit/4a91166))
+
+
+### Reverts
+
+* **imports:** vuetify's components imports ([24c10ef](https://github.com/iliyaZelenko/tiptap-vuetify/commit/24c10ef))
+
 # [2.3.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.2.0...v2.3.0) (2019-10-19)
 
 
