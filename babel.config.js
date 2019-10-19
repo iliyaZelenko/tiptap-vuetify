@@ -5,7 +5,10 @@ module.exports = {
       '@babel/preset-env',
       {
         // https://babeljs.io/docs/en/babel-preset-env#usebuiltins
-        useBuiltIns: 'usage'
+        useBuiltIns: 'usage',
+        corejs: {
+          version: 3
+        }
       }
     ]
   ],

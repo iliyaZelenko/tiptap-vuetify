@@ -34,7 +34,7 @@ import ExtensionActionRenderBtnOptionsInterface from './ExtensionActionRenderBtn
 import TextIcon from '~/extensions/nativeExtensions/icons/TextIcon'
 import VuetifyIcon from '~/extensions/nativeExtensions/icons/VuetifyIcon'
 import IconInterface from '~/extensions/nativeExtensions/icons/IconInterface'
-import { VTooltip, VBtn, VIcon } from 'vuetify/lib'
+// import { VTooltip, VBtn, VIcon } from 'vuetify/lib'
 
 // TODO можно использовать как миксин, передавать туда сразу пропсы и не нужно будет писать PROPS = PROPS
 export const PROPS = {
@@ -45,7 +45,7 @@ export const PROPS = {
 }
 
 @Component({
-  components: { VTooltip, VBtn, VIcon }
+  // components: { VTooltip, VBtn, VIcon }
 })
 export default class ExtensionActionRenderBtn extends Vue {
   @Prop({ type: Object, required: true })

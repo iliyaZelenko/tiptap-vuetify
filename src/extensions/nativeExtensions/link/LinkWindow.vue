@@ -55,7 +55,7 @@
 <script lang="ts">
 import { mixins } from 'vue-class-component'
 import { Component, Prop } from 'vue-property-decorator'
-import { VDialog, VCard, VCardTitle, VCardText, VCardActions, VBtn, VSpacer, VIcon, VTextField } from 'vuetify/lib'
+// import { VDialog, VCard, VCardTitle, VCardText, VCardActions, VBtn, VSpacer, VIcon, VTextField } from 'vuetify/lib'
 import I18nMixin from '~/mixins/I18nMixin'
 
 export const PROPS = {
@@ -67,7 +67,7 @@ export const PROPS = {
 }
 
 @Component({
-  components: { VDialog, VCard, VCardTitle, VCardText, VCardActions, VBtn, VSpacer, VIcon, VTextField }
+  // components: { VDialog, VCard, VCardTitle, VCardText, VCardActions, VBtn, VSpacer, VIcon, VTextField }
 })
 export default class LinkWindow extends mixins(I18nMixin) {
   @Prop({

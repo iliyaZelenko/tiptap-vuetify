@@ -20,7 +20,8 @@ export default class HorizontalRule extends AbstractExtension {
           icons: {
             [VuetifyIconsGroups.md]: new TextIcon('—'),
             [VuetifyIconsGroups.fa]: new VuetifyIcon('fas fa-minus'),
-            [VuetifyIconsGroups.mdi]: new VuetifyIcon('mdi-minus')
+            [VuetifyIconsGroups.mdi]: new VuetifyIcon('mdi-minus'),
+            [VuetifyIconsGroups.mdiSvg]: new VuetifyIcon('M19,13H5V11H19V13Z')
           },
           nativeExtensionName: 'horizontal_rule'
         })

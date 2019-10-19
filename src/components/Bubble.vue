@@ -96,13 +96,13 @@ import { Editor, EditorMenuBubble } from 'tiptap'
 import I18nMixin from '~/mixins/I18nMixin'
 import ExtensionActionInterface from '~/extensions/actions/ExtensionActionInterface'
 import ActionsRender from '~/components/ActionsRender.vue'
-import { VCard } from 'vuetify/lib'
+// import { VCard } from 'vuetify/lib'
 
 @Component({
   components: {
     ActionsRender,
-    EditorMenuBubble,
-    VCard
+    EditorMenuBubble
+    // VCard
   }
 })
 export default class Menu extends mixins(I18nMixin) {

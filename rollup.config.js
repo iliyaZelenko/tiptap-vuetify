@@ -3,10 +3,12 @@ import vue from 'rollup-plugin-vue'
 import typescript from 'rollup-plugin-typescript2'
 import alias from 'rollup-plugin-alias'
 import postcss from 'rollup-plugin-postcss'
-import resolve from 'rollup-plugin-node-resolve'
+import nodeResolve from 'rollup-plugin-node-resolve'
 import ttypescript from 'ttypescript'
 import { join } from 'path'
 import postcssPresetEnv from 'postcss-preset-env'
+import babel from 'rollup-plugin-babel'
+import replace from 'rollup-plugin-replace'
 
 const isProduction = process.env.BUILD === 'production'
 const srcDir = join(__dirname, 'src')
@@ -75,8 +77,8 @@ async function getConfig ({
         tiptap: 'tiptap',
         // Походу так и есть: https://github.com/scrumpy/tiptap/blob/master/build/packages/config.js#L44
         'tiptap-extensions': 'tiptap', // TODO tiptapExtensions
-        vuetify: 'Vuetify',
-        'vuetify/lib': 'Vuetify'
+        vuetify: 'Vuetify'
+        // 'vuetify/lib': 'Vuetify'
       }
     },
     // TODO можно Object.keys(globals)
@@ -86,22 +88,31 @@ async function getConfig ({
       // 'vue-property-decorator',
       'tiptap',
       'tiptap-extensions',
-      'vuetify',
-      'vuetify/lib'
+      'vuetify'
+      // 'vuetify/lib'
     ],
     plugins: [
+      replace({
+        'process.env.NODE_ENV': JSON.stringify('production')
+      }),
       alias({
         resolve: ['.ts', '.js', '.vue'],
         '~': srcDir
       }),
-      // TODO раньшн resolve был после commonjs (но в github я видел в таком порядке)
-      resolve({
-        extensions: ['.ts', '.js', '.vue', '.json'],
-        customResolveOptions: {
-          moduleDirectory: 'node_modules'
-        }
+      // TODO раньшн nodeResolve был после commonjs (но в github я видел в таком порядке)
+      nodeResolve({
+        mainFields: ['module', 'main', 'browser'],
+        extensions: ['.ts', '.js', '.vue', '.json']
       }),
-      commonjs(),
+      typescript({
+        // это фиксит Unknown object type "asyncfunction"
+        // https://github.com/ezolenko/rollup-plugin-typescript2/issues/105
+        clean: true,
+        typescript: ttypescript
+      }),
+      commonjs({
+        extensions: ['.ts', '.js']
+      }),
       // TODO autoprefixer (update: разве в postcssPresetEnv его нет?)
       postcss({
         // TODO для каждого конфига генерируется свой main.css (одинаковый файл), исправить
@@ -111,16 +122,16 @@ async function getConfig ({
           postcssPresetEnv
         ]
       }),
-      typescript({
-        // это фиксит Unknown object type "asyncfunction"
-        // https://github.com/ezolenko/rollup-plugin-typescript2/issues/105
-        clean: true,
-        typescript: ttypescript
-      }),
       vue({
         defaultLang: { script: 'ts' },
         // Inject CSS in JavaScript. Setting css: false would extract styles in a .css file.
         css: false
+      }),
+      // транспилирует
+      babel({
+        exclude: 'node_modules/**',
+        runtimeHelpers: true,
+        extensions: ['.js', '.ts']
       }),
       // оптимизация
       optimize && isProduction && (await import('rollup-plugin-terser')).terser(),

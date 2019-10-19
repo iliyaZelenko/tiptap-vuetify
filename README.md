@@ -1,4 +1,4 @@
-If you have Vuetify `1.x` (not `2.x`), then you can find docs and demo [here](https://codesandbox.io/s/p2wnzxyo90?fontsize=14&module=%2Fsrc%2Fexamples%2FSimple.vue).
+WYSIWYG editor for Vuetify. The editor is based on [tiptap](https://github.com/scrumpy/tiptap) and uses [vuetify's](https://github.com/vuetifyjs/vuetify) components. :muscle:
 
   <p align="center">
     <a href="https://www.npmjs.com/package/tiptap-vuetify">
@@ -24,7 +24,7 @@ If you have Vuetify `1.x` (not `2.x`), then you can find docs and demo [here](ht
     </a>
   </p>
 
-WYSIWYG editor for Vuetify. Component simplifies integration [tiptap](https://github.com/scrumpy/tiptap) with [vuetify](https://github.com/vuetifyjs/vuetify).
+If you have Vuetify `1.x` (not `2.x`), then you can find docs and demo [here](https://codesandbox.io/s/p2wnzxyo90?fontsize=14&module=%2Fsrc%2Fexamples%2FSimple.vue).
 
 [DEMO on codesanbox](https://codesandbox.io/s/vue-template-6p9wp?fontsize=14&module=%2Fsrc%2Fexamples%2FSimple.vue)
 
@@ -50,8 +50,9 @@ WYSIWYG editor for Vuetify. Component simplifies integration [tiptap](https://gi
 ## Features
 
 - used vuetify components
-- support for different types of icons ([fa](https://fontawesome.com/),  [md](https://material.io/tools/icons/), [mdi](https://materialdesignicons.com/))
-- internationalization (en, fr, pl, es, ru, uk, ptbr), with automatic detection of the current language through the Vuetify
+- support for different types of icons ([fa](https://fontawesome.com/),  [md](https://material.io/tools/icons/), [mdi](https://materialdesignicons.com/), [mdiSvg](https://vuetifyjs.com/en/customization/icons#install-material-design-icons-js-svg))
+- internationalization (en, fr, pl, es, ru, uk, ptbr, tr), with automatic detection of the current language through the Vuetify
+- markdown support
 - easy to start using
 - props and events are available
 - TypeScript support
@@ -158,7 +159,8 @@ export default {
 
 ### Nuxt
 
-If you have Nuxt.js, [here](https://github.com/iliyaZelenko/tiptap-vuetify/issues/42#issuecomment-539471212) is a description of how to integrate with it.
+If you have Nuxt.js, [here](https://codesandbox.io/s/github/iliyaZelenko/tiptap-vuetify-nuxt/tree/master/) is a simple demo how to integrate it (`@nuxtjs/vuetify` module is used).
+The code for this example is taken from [this github repository](https://github.com/iliyaZelenko/tiptap-vuetify-nuxt), you can find more infо there.
 
 ### CDN (<script>)
 
@@ -240,6 +242,8 @@ If you want to add extensions to the `extensions` property, then use the `native
 
 ### native-extensions
 
+You can transfer native extensions (not related to this package) to the [`extensions`](https://tiptap.scrumpy.io/docs/api/classes.html#extensions-2) property.
+
 How to use:
 
 ```vue
@@ -249,10 +253,23 @@ How to use:
 ```
 
 ```js
+// You can import from tiptap's built-in extensions
+import {
+  TrailingNode
+} from 'tiptap-extensions'
+// or your own extension
+import Title from './Title'
+
 // in script:
 data () {
   return {
-    nativeExtensions: [new TiptapExtension1(), new TiptapExtension2()]
+    nativeExtensions: [
+      new Title(),
+      new TrailingNode({
+        node: 'paragraph',
+        notAfter: ['paragraph'],
+      })
+    ]
   }
 }
 ```
@@ -292,7 +309,7 @@ How to use:
 
 ### toolbar
 
-How to use:
+You can manually display the toolbar. How to use:
 
 1) Since Vue `2.6.0` (new syntax):
 
@@ -337,7 +354,7 @@ You can add content after the toolbar.
 
 ## TODO
 
-- images uploading (free hosting by default) [Relevant issue.](https://github.com/iliyaZelenko/tiptap-vuetify/issues/16)
+- images uploading (free hosting by default) [Relevant issue.](https://github.com/iliyaZelenko/tiptap-vuetify/issues/16) Ability to choose your uploading strategy.
 - site with full-docs and examples
 - emoticons
 - tests

@@ -19,7 +19,8 @@ export default class Strike extends AbstractExtension {
           icons: {
             [VuetifyIconsGroups.md]: new VuetifyIcon('format_strikethrough'),
             [VuetifyIconsGroups.fa]: new VuetifyIcon('fas fa-strikethrough'),
-            [VuetifyIconsGroups.mdi]: new VuetifyIcon('mdi-format-strikethrough')
+            [VuetifyIconsGroups.mdi]: new VuetifyIcon('mdi-format-strikethrough'),
+            [VuetifyIconsGroups.mdiSvg]: new VuetifyIcon('M3,14H21V12H3M5,4V7H10V10H14V7H19V4M10,19H14V16H10V19Z')
           },
           nativeExtensionName: 'strike'
         })

@@ -5,9 +5,7 @@ import IconInterface from '~/extensions/nativeExtensions/icons/IconInterface'
 export default interface ExtensionActionRenderBtnOptionsInterface {
   tooltip: I18nText | ((context, options) => I18nText)
   icons: {
-    [VuetifyIconsGroups.md]: IconInterface
-    [VuetifyIconsGroups.fa]: IconInterface
-    [VuetifyIconsGroups.mdi]: IconInterface
+    [key in keyof typeof VuetifyIconsGroups]: IconInterface
   }
   onClick: ({ context, editor }) => any
   onClickOptions?: { [key: string]: any }
