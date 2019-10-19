@@ -1,3 +1,11 @@
+# [2.3.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.2.0...v2.3.0) (2019-10-19)
+
+
+### Features
+
+* **i18n:** turkish lang ([75152fc](https://github.com/iliyaZelenko/tiptap-vuetify/commit/75152fc))
+* **icons:** mdiSvg iconfont support ([20b3976](https://github.com/iliyaZelenko/tiptap-vuetify/commit/20b3976)), closes [#62](https://github.com/iliyaZelenko/tiptap-vuetify/issues/62)
+
 # [2.2.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.1.0...v2.2.0) (2019-10-09)
 
 
