@@ -56,14 +56,14 @@ import { Placeholder } from 'tiptap-extensions'
 import { ExtensionActionRenderInEnum } from '~/extensions/actions/ExtensionActionRenderInEnum'
 import ExtensionActionInterface from '~/extensions/actions/ExtensionActionInterface'
 import AbstractExtension from '~/extensions/AbstractExtension'
-// import { VCard } from 'vuetify/lib'
+import { VCard } from 'vuetify/lib'
 
 @Component({
   components: {
     Bubble,
     EditorContent,
-    Toolbar
-    // VCard
+    Toolbar,
+    VCard
   }
 })
 export default class TiptapVuetify extends Vue {

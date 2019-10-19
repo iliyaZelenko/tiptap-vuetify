@@ -35,13 +35,13 @@ import { Editor, EditorMenuBar } from 'tiptap'
 import toolbarConfig from '~/configs/toolbar'
 import ExtensionActionInterface from '~/extensions/actions/ExtensionActionInterface'
 import ActionsRender from '~/components/ActionsRender.vue'
-// import { VToolbar } from 'vuetify/lib'
+import { VToolbar } from 'vuetify/lib'
 
 @Component({
   components: {
     ActionsRender,
-    EditorMenuBar
-    // VToolbar
+    EditorMenuBar,
+    VToolbar
   }
 })
 export default class Toolbar extends Vue {
