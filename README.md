@@ -32,7 +32,6 @@ If you have Vuetify `1.x` (not `2.x`), then you can find docs and demo [here](ht
 ![](https://d1sz9tkli0lfjq.cloudfront.net/items/0s2E3A433x1A2b1l3q24/Image%202019-10-07%20at%203.30.03%20AM.png)
 ](https://codesandbox.io/s/vue-template-6p9wp?fontsize=14&module=%2Fsrc%2Fexamples%2FSimple.vue)
 
-
 ## Navigation
 
 <!-- TOC -->
