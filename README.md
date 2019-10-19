@@ -52,6 +52,7 @@ If you have Vuetify `1.x` (not `2.x`), then you can find docs and demo [here](ht
 - used vuetify components
 - support for different types of icons ([fa](https://fontawesome.com/),  [md](https://material.io/tools/icons/), [mdi](https://materialdesignicons.com/))
 - internationalization (en, fr, pl, es, ru, uk, ptbr), with automatic detection of the current language through the Vuetify
+- markdown support
 - easy to start using
 - props and events are available
 - TypeScript support
@@ -159,7 +160,8 @@ export default {
 
 ### Nuxt
 
-If you have Nuxt.js, [here](https://github.com/iliyaZelenko/tiptap-vuetify/issues/42#issuecomment-539471212) is a description of how to integrate with it.
+If you have Nuxt.js, [here](https://codesandbox.io/s/github/iliyaZelenko/tiptap-vuetify-nuxt/tree/master/) is a simple demo how to integrate it (`@nuxtjs/vuetify` module is used).
+The code for this example is taken from [this github repository](https://github.com/iliyaZelenko/tiptap-vuetify-nuxt), you can find more infо there.
 
 ### CDN (<script>)
 
