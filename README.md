@@ -50,8 +50,8 @@ If you have Vuetify `1.x` (not `2.x`), then you can find docs and demo [here](ht
 ## Features
 
 - used vuetify components
-- support for different types of icons ([fa](https://fontawesome.com/),  [md](https://material.io/tools/icons/), [mdi](https://materialdesignicons.com/))
-- internationalization (en, fr, pl, es, ru, uk, ptbr), with automatic detection of the current language through the Vuetify
+- support for different types of icons ([fa](https://fontawesome.com/),  [md](https://material.io/tools/icons/), [mdi](https://materialdesignicons.com/), [mdiSvg](https://vuetifyjs.com/en/customization/icons#install-material-design-icons-js-svg))
+- internationalization (en, fr, pl, es, ru, uk, ptbr, tr), with automatic detection of the current language through the Vuetify
 - markdown support
 - easy to start using
 - props and events are available
@@ -60,7 +60,6 @@ If you have Vuetify `1.x` (not `2.x`), then you can find docs and demo [here](ht
 - the ability to create and use your own extensions
 - choose where the extension buttons should be displayed: in the toolbar or in the bubble menu
 - Vuetify `2.x` and `1.x` support
-- different icons presets: fa, md, mdi, mdiSvg
 
 ## Installation
 
