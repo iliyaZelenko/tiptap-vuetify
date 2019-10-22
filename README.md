@@ -24,7 +24,7 @@ WYSIWYG editor for Vuetify. The editor is based on [tiptap](https://github.com/s
     </a>
   </p>
 
-If you have Vuetify `1.x` (not `2.x`), then you can find docs and demo [here](https://codesandbox.io/s/p2wnzxyo90?fontsize=14&module=%2Fsrc%2Fexamples%2FSimple.vue).
+If you have Vuetify `1.x` (not `2.x`), then you can find docs and demo [here](https://github.com/iliyaZelenko/tiptap-vuetify/blob/version-1.x/README.md).
 
 [DEMO on codesanbox](https://codesandbox.io/s/vue-template-6p9wp?fontsize=14&module=%2Fsrc%2Fexamples%2FSimple.vue)
 
