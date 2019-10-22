@@ -1,5 +1,3 @@
-**At the moment, this package does not fully support Vuetify 2, but it is planned soon. If you want me to work more on this project, you can give me motivation in the form of a star. Thanks for attention!**
-  
   <p align="center">
     <a href="https://www.npmjs.com/package/tiptap-vuetify">
       <img src="https://img.shields.io/npm/v/tiptap-vuetify.svg" alt="Version">
@@ -60,10 +58,12 @@ WYSIWYG editor for Vuetify. Component simplifies integration [tiptap](https://gi
 
 ## Installation
 
+For Vuetify 1.x use 1.x version of this package.
+
 ```
-yarn add tiptap-vuetify
+yarn add tiptap-vuetify@"^1.0.0"
 # Or 
-npm install --save tiptap-vuetify
+npm install tiptap-vuetify@"^1.0.0"
 ```
 
 
