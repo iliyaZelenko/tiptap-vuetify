@@ -26,7 +26,7 @@
     "@semantic-release/npm": "^5.1.4",
     "@semantic-release/release-notes-generator": "^7.1.4",
     "@typescript-eslint/eslint-plugin": "^1.5.0",
-    "@typescript-eslint/eslint-plugin-tslint": "^1.5.0",
+    "@typescript-eslint/eslint-plugin-tslint": "^2.5.0",
     "@typescript-eslint/parser": "^1.5.0",
     "@vue/cli-plugin-typescript": "^3.5.1",
     "@vue/cli-service": "^3.5.1",
