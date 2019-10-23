@@ -24,7 +24,7 @@ WYSIWYG editor for Vuetify. The editor is based on [tiptap](https://github.com/s
     </a>
   </p>
 
-If you have Vuetify `1.x` (not `2.x`), then you can find docs and demo [here](https://codesandbox.io/s/p2wnzxyo90?fontsize=14&module=%2Fsrc%2Fexamples%2FSimple.vue).
+If you have Vuetify `1.x` (not `2.x`), then you can find docs and demo [here](https://github.com/iliyaZelenko/tiptap-vuetify/blob/version-1.x/README.md).
 
 [DEMO on codesanbox](https://codesandbox.io/s/vue-template-6p9wp?fontsize=14&module=%2Fsrc%2Fexamples%2FSimple.vue)
 
@@ -50,7 +50,7 @@ If you have Vuetify `1.x` (not `2.x`), then you can find docs and demo [here](ht
 
 - used vuetify components
 - support for different types of icons ([fa](https://fontawesome.com/),  [md](https://material.io/tools/icons/), [mdi](https://materialdesignicons.com/), [mdiSvg](https://vuetifyjs.com/en/customization/icons#install-material-design-icons-js-svg))
-- internationalization (en, fr, pl, es, ru, uk, ptbr, tr), with automatic detection of the current language through the Vuetify
+- internationalization (en, fr, pl, es, ru, uk, ptbr, tr), with automatic detection of the current language through the Vuetify. You can make a PR for your language if it is not there, [here](https://github.com/iliyaZelenko/tiptap-vuetify/pull/55/files) is an example.
 - markdown support
 - easy to start using
 - props and events are available
@@ -140,7 +140,6 @@ export default {
         }
       }],
       Bold,
-      Link,
       Code,
       HorizontalRule,
       Paragraph,
