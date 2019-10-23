@@ -1,3 +1,5 @@
+# [2.4.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.3.1...v2.4.0) (2019-10-23)
+
 ## [2.3.1](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.3.0...v2.3.1) (2019-10-19)
 
 
