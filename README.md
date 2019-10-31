@@ -283,6 +283,17 @@ For example, to get json instead:
 />
 ```
 
+### flat
+
+This will make remove the card elevation, default="false"
+
+For example, to get json instead:
+```vue
+<tiptap-vuetify
+  flat="true"
+/>
+```
+
 ## Events
 
 ### @init
