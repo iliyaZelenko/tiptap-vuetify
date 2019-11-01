@@ -14,7 +14,7 @@ export const PROPS = {
   EDITOR_PROPERTIES: 'editorProperties' as const,
   NATIVE_EXTENSIONS: 'nativeExtensions' as const,
   PLACEHOLDER: 'placeholder' as const,
-  FLAT: 'flat' as const,
+  CARD_PROPS: 'card_props' as const,
   OUTPUT_FORMAT: 'outputFormat' as const,
   TYPE: 'type' as const
 }
