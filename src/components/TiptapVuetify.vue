@@ -10,7 +10,10 @@
       :actions="availableActions.bubbleMenu"
     />
 
-    <VCard v-if="$props[PROPS.TYPE] === EDITOR_TYPES_ENUM.card" v-bind="$props[PROPS.CARD_PROPS]">
+    <VCard
+      v-if="$props[PROPS.TYPE] === EDITOR_TYPES_ENUM.card"
+      v-bind="$props[PROPS.CARD_PROPS]"
+    >
       <slot name="toolbar-before" />
 
       <toolbar
