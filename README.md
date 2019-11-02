@@ -283,14 +283,13 @@ For example, to get json instead:
 />
 ```
 
-### flat
+### card-props
 
-This will make remove the card elevation, default="false"
+Allows you to pass props for the editor's `<v-card>`.
 
-For example, to get json instead:
 ```vue
 <tiptap-vuetify
-  flat="true"
+  :card-props="{ flat: true, color: '#26c6da' }"
 />
 ```
 
