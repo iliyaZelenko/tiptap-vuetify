@@ -1,3 +1,10 @@
+# [2.5.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.4.0...v2.5.0) (2019-11-02)
+
+
+### Features
+
+* **props:** card-props ([be1fc06](https://github.com/iliyaZelenko/tiptap-vuetify/commit/be1fc067db47df49933e17a44bc4338388deef49)), closes [#89](https://github.com/iliyaZelenko/tiptap-vuetify/issues/89)
+
 # [2.4.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.3.1...v2.4.0) (2019-10-23)
 
 ### Improvement
