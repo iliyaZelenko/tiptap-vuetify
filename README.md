@@ -228,6 +228,16 @@ For example, change the color:
 :toolbar-attributes="{ color: 'yellow' }"
 ```
 
+### card-props
+
+Allows you to pass props for the editor's `<v-card>`.
+
+```vue
+<tiptap-vuetify
+  :card-props="{ flat: true, color: '#26c6da' }"
+/>
+```
+
 ### editor-properties
 
 Tiptap `Editor` properties (passed to the constructor).
@@ -280,16 +290,6 @@ For example, to get json instead:
 ```vue
 <tiptap-vuetify
   output-format="json"
-/>
-```
-
-### card-props
-
-Allows you to pass props for the editor's `<v-card>`.
-
-```vue
-<tiptap-vuetify
-  :card-props="{ flat: true, color: '#26c6da' }"
 />
 ```
 
