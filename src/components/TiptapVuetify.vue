@@ -80,7 +80,7 @@ export default class TiptapVuetify extends Vue {
   readonly [PROPS.PLACEHOLDER]: string
 
   @Prop({ type: Object, default: {} })
-  readonly [PROPS.CARD_PROPS]: Object
+  readonly [PROPS.CARD_PROPS]: Record<string, any>
 
   @Prop({ type: String, default: 'html' })
   readonly [PROPS.OUTPUT_FORMAT]: string
