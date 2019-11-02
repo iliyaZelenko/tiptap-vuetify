@@ -10,7 +10,10 @@
       :actions="availableActions.bubbleMenu"
     />
 
-    <VCard v-if="$props[PROPS.TYPE] === EDITOR_TYPES_ENUM.card">
+    <VCard
+      v-if="$props[PROPS.TYPE] === EDITOR_TYPES_ENUM.card"
+      v-bind="$props[PROPS.CARD_PROPS]"
+    >
       <slot name="toolbar-before" />
 
       <toolbar
@@ -75,6 +78,9 @@ export default class TiptapVuetify extends Vue {
 
   @Prop({ type: String })
   readonly [PROPS.PLACEHOLDER]: string
+
+  @Prop({ type: Object, default: {} })
+  readonly [PROPS.CARD_PROPS]: Record<string, any>
 
   @Prop({ type: String, default: 'html' })
   readonly [PROPS.OUTPUT_FORMAT]: string

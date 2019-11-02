@@ -283,6 +283,16 @@ For example, to get json instead:
 />
 ```
 
+### card-props
+
+Allows you to pass props for the editor's `<v-card>`.
+
+```vue
+<tiptap-vuetify
+  :card-props="{ flat: true, color: '#26c6da' }"
+/>
+```
+
 ## Events
 
 ### @init
