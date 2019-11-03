@@ -6,6 +6,7 @@ import AbstractExtension from '~/extensions/AbstractExtension'
 import ExtensionActionInterface from '~/extensions/actions/ExtensionActionInterface'
 import Vue from 'vue'
 import ExtensionActionRenderBtn from '~/extensions/actions/renders/btn/ExtensionActionRenderBtn.ts'
+import ImageWindow from '~/extensions/nativeExtensions/image/ImageWindow.vue'
 
 export default class Image extends AbstractExtension {
   constructor (options) {
@@ -27,7 +28,6 @@ export default class Image extends AbstractExtension {
           },
           nativeExtensionName,
           async onClick ({ context, editor }) {
-            const ImageWindow = (await import('~/extensions/nativeExtensions/image/ImageWindow.vue')).default
             const LinkWindowComponent = Vue.extend(ImageWindow)
             const instance = new LinkWindowComponent({
               vuetify: Vue.prototype.tiptapVuetifyPlugin.vuetify,
@@ -47,26 +47,3 @@ export default class Image extends AbstractExtension {
     ]
   }
 }
-
-// export const icons = {
-//   save: {
-//     [VuetifyIconsGroups.md]: new VuetifyIcon('check'),
-//     [VuetifyIconsGroups.fa]: new VuetifyIcon('fas fa-check'),
-//     [VuetifyIconsGroups.mdi]: new VuetifyIcon('mdi-check')
-//   },
-//   cancel: {
-//     [VuetifyIconsGroups.md]: new VuetifyIcon('link_off'),
-//     [VuetifyIconsGroups.fa]: new VuetifyIcon('fas fa-unlink'),
-//     [VuetifyIconsGroups.mdi]: new VuetifyIcon('mdi-link-off')
-//   },
-//   linkUpdate: {
-//     [VuetifyIconsGroups.md]: new VuetifyIcon('link'),
-//     [VuetifyIconsGroups.fa]: new VuetifyIcon('fas fas fa-link'),
-//     [VuetifyIconsGroups.mdi]: new VuetifyIcon('mdi-link')
-//   },
-//   linkAdd: {
-//     [VuetifyIconsGroups.md]: new VuetifyIcon('link'),
-//     [VuetifyIconsGroups.fa]: new VuetifyIcon('fas fa-link'),
-//     [VuetifyIconsGroups.mdi]: new VuetifyIcon('mdi-link-plus')
-//   }
-// }
