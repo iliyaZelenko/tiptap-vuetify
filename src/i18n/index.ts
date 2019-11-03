@@ -27,8 +27,8 @@ export function getCurrentLang () {
   return TiptapVuetifyPlugin.vuetifyLang || defaultLanguage
 }
 
-export function getMsg (path: string, args?): string {
-  let currentLang = getCurrentLang()
+export function getMsg (path: string, args?, lang: null | string = null): string {
+  let currentLang = lang || getCurrentLang()
 
   if (!dictionary[currentLang]) {
     currentLang = defaultLanguage
@@ -37,9 +37,18 @@ export function getMsg (path: string, args?): string {
   }
 
   const dictionaryByLang = dictionary[currentLang]
-  const target = path.split('.').reduce((prev: string, curr: string) => {
-    return prev[curr]
-  }, dictionaryByLang)
+  let target
+
+  try {
+    target = path.split('.').reduce((prev: string, curr: string) => {
+      return prev[curr]
+    }, dictionaryByLang)
+  } catch (e) {
+    ConsoleLogger.warn(`Cannot get translation "${path}" for language "${currentLang}". Fallback "${defaultLanguage}" is used instead. Contribution to github is welcome.`)
+
+    // Использовать defaultLanguage если фраза не переведена на текущий язык
+    return getMsg(path, args, defaultLanguage)
+  }
 
   if (target instanceof Function) {
     return target(args)

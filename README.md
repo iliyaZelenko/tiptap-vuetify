@@ -199,7 +199,7 @@ You can use the necessary extensions. The corresponding buttons are added automa
 
 How to import and use them can be seen in the example above.
 
-Available extensions:
+Available extensions (native tiptap extensions from `tiptap-extensions` package):
 
 - `Bold`
 - `Italic`
@@ -207,6 +207,7 @@ Available extensions:
 - `Underline`
 - `Code`
 - `CodeBlock`
+- `Image`
 - `Paragraph`
 - `BulletList`
 - `OrderedList`
@@ -362,7 +363,7 @@ You can add content after the toolbar.
 
 ## TODO
 
-- images uploading (free hosting by default) [Relevant issue.](https://github.com/iliyaZelenko/tiptap-vuetify/issues/16) Ability to choose your uploading strategy.
+- better images support: uploading (free hosting by default) [Relevant issue.](https://github.com/iliyaZelenko/tiptap-vuetify/issues/16) Ability to choose your uploading strategy. [Resize](https://github.com/scrumpy/tiptap/issues/333) image and change other params.
 - site with full-docs and examples
 - emoticons
 - tests

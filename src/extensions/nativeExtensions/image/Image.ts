@@ -1,46 +1,41 @@
-import { Link as LinkOriginal } from 'tiptap-extensions'
+import { Image as ImageOriginal } from 'tiptap-extensions'
 import { VuetifyIconsGroups } from '~/configs/theme'
 import VuetifyIcon from '~/extensions/nativeExtensions/icons/VuetifyIcon'
 import I18nText from '~/i18n/I18nText'
 import AbstractExtension from '~/extensions/AbstractExtension'
 import ExtensionActionInterface from '~/extensions/actions/ExtensionActionInterface'
-import LinkWindow from '~/extensions/nativeExtensions/link/LinkWindow.vue'
 import Vue from 'vue'
 import ExtensionActionRenderBtn from '~/extensions/actions/renders/btn/ExtensionActionRenderBtn.ts'
 
-export default class Link extends AbstractExtension {
+export default class Image extends AbstractExtension {
   constructor (options) {
-    super(options, LinkOriginal)
+    super(options, ImageOriginal)
   }
 
   get availableActions (): ExtensionActionInterface[] {
-    const nativeExtensionName = 'link'
+    const nativeExtensionName = 'image'
 
     return [
       {
         render: new ExtensionActionRenderBtn({
-          tooltip: (context, options) => new I18nText(
-            options.isActive(context)
-              ? 'extensions.Link.buttons.isActive.tooltip'
-              : 'extensions.Link.buttons.notActive.tooltip'),
+          tooltip: new I18nText('extensions.Image.buttons.tooltip'),
           icons: {
-            [VuetifyIconsGroups.md]: new VuetifyIcon('link'),
-            [VuetifyIconsGroups.fa]: new VuetifyIcon('fas fa-link'),
-            [VuetifyIconsGroups.mdi]: new VuetifyIcon('mdi-link'),
-            [VuetifyIconsGroups.mdiSvg]: new VuetifyIcon('M3.9,12C3.9,10.29 5.29,8.9 7,8.9H11V7H7A5,5 0 0,0 2,12A5,5 0 0,0 7,17H11V15.1H7C5.29,15.1 3.9,13.71 3.9,12M8,13H16V11H8V13M17,7H13V8.9H17C18.71,8.9 20.1,10.29 20.1,12C20.1,13.71 18.71,15.1 17,15.1H13V17H17A5,5 0 0,0 22,12A5,5 0 0,0 17,7Z')
+            [VuetifyIconsGroups.md]: new VuetifyIcon('image'),
+            [VuetifyIconsGroups.fa]: new VuetifyIcon('fas fa-image'),
+            [VuetifyIconsGroups.mdi]: new VuetifyIcon('mdi-image'),
+            [VuetifyIconsGroups.mdiSvg]: new VuetifyIcon('M8.5,13.5L11,16.5L14.5,12L19,18H5M21,19V5C21,3.89 20.1,3 19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19Z')
           },
           nativeExtensionName,
-          onClick ({ context, editor }) {
-            const href = context.getMarkAttrs(nativeExtensionName).href
-            const LinkWindowComponent = Vue.extend(LinkWindow)
+          async onClick ({ context, editor }) {
+            const ImageWindow = (await import('~/extensions/nativeExtensions/image/ImageWindow.vue')).default
+            const LinkWindowComponent = Vue.extend(ImageWindow)
             const instance = new LinkWindowComponent({
               vuetify: Vue.prototype.tiptapVuetifyPlugin.vuetify,
               propsData: {
                 value: true,
                 nativeExtensionName,
                 context,
-                editor,
-                href
+                editor
               }
             })
 

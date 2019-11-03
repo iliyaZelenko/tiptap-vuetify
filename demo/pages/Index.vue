@@ -36,7 +36,7 @@ export default {
   async created () {
     const {
       Heading, Bold, Italic, Strike, Underline, Code, CodeBlock, Paragraph, BulletList, OrderedList, ListItem,
-      Link, Blockquote, HardBreak, HorizontalRule, History
+      Link, Blockquote, HardBreak, HorizontalRule, History, Image
     } = await MAIN_MODULE
 
     this.extensions = [
@@ -52,6 +52,7 @@ export default {
       ListItem, // если нужно использовать список (BulletList, OrderedList)
       BulletList,
       OrderedList,
+      Image,
       [Heading, {
         // Опции которые попадают в расширение tiptap
         options: {
