@@ -1,3 +1,15 @@
+# [2.6.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.5.0...v2.6.0) (2019-11-03)
+
+
+### Bug Fixes
+
+* **props:** fix warning Invalid default value for prop "cardProps" ([f15d554](https://github.com/iliyaZelenko/tiptap-vuetify/commit/f15d5540c3ff7c21864a7ffde7f0594a74a2b77a)), closes [#89](https://github.com/iliyaZelenko/tiptap-vuetify/issues/89)
+
+
+### Features
+
+* **images:** image extensions ([e464b2b](https://github.com/iliyaZelenko/tiptap-vuetify/commit/e464b2b5f9d24d989107e93a69e22f76fb02c29a)), closes [#16](https://github.com/iliyaZelenko/tiptap-vuetify/issues/16)
+
 # [2.5.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.4.0...v2.5.0) (2019-11-02)
 
 
