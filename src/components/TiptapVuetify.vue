@@ -79,7 +79,10 @@ export default class TiptapVuetify extends Vue {
   @Prop({ type: String })
   readonly [PROPS.PLACEHOLDER]: string
 
-  @Prop({ type: Object, default: {} })
+  @Prop({
+    type: Object,
+    default: () => ({})
+  })
   readonly [PROPS.CARD_PROPS]: Record<string, any>
 
   @Prop({ type: String, default: 'html' })
