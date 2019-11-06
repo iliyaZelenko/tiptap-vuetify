@@ -97,21 +97,21 @@ export default {
     Link: {
       buttons: {
         isActive: {
-          tooltip: 'Zaktualizuj link'
+          tooltip: 'Zaktualizuj odnośnik'
         },
         notActive: {
-          tooltip: 'Dodaj Link'
+          tooltip: 'Dodaj odnośnik'
         }
       },
       window: {
-        title: 'Kontrola link',
+        title: 'Odnośnik',
         form: {
-          hrefLabel: 'Href'
+          hrefLabel: 'Adres URL'
         },
         buttons: {
-          close: 'Zamknąć',
-          remove: 'Usunąć',
-          apply: 'Zastosować'
+          close: 'Zamknij',
+          remove: 'Usuń',
+          apply: 'Zastosuj'
         }
       }
     }
