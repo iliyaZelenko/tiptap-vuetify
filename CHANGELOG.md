@@ -1,3 +1,10 @@
+## [2.6.1](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.6.0...v2.6.1) (2019-11-06)
+
+
+### Bug Fixes
+
+* **i18n:** polish translations (Image, Link) ([332cf5d](https://github.com/iliyaZelenko/tiptap-vuetify/commit/332cf5d681066429e77c6389024124cb5721c5bb)), closes [#93](https://github.com/iliyaZelenko/tiptap-vuetify/issues/93)
+
 # [2.6.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.5.0...v2.6.0) (2019-11-03)
 
 
