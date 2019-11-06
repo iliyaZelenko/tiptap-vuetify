@@ -90,7 +90,7 @@ export default {
     Heading: {
       buttons: {
         heading: {
-          tooltip: args =>  'Nagłówek ' + args.level
+          tooltip: args => 'Nagłówek ' + args.level
         }
       }
     },
