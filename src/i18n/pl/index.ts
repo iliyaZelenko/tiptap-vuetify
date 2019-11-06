@@ -90,28 +90,44 @@ export default {
     Heading: {
       buttons: {
         heading: {
-          tooltip: args => args.level + ' nagłówek'
+          tooltip: args => 'Nagłówek ' + args.level
         }
       }
     },
     Link: {
       buttons: {
         isActive: {
-          tooltip: 'Zaktualizuj link'
+          tooltip: 'Zaktualizuj odnośnik'
         },
         notActive: {
-          tooltip: 'Dodaj Link'
+          tooltip: 'Dodaj odnośnik'
         }
       },
       window: {
-        title: 'Kontrola link',
+        title: 'Odnośnik',
         form: {
-          hrefLabel: 'Href'
+          hrefLabel: 'Adres URL'
         },
         buttons: {
-          close: 'Zamknąć',
-          remove: 'Usunąć',
-          apply: 'Zastosować'
+          close: 'Zamknij',
+          remove: 'Usuń',
+          apply: 'Zastosuj'
+        }
+      }
+    },
+    Image: {
+      buttons: {
+        tooltip: 'Obrazek'
+      },
+      window: {
+        title: 'Dodaj obrazek',
+        or: 'LUB',
+        form: {
+          sourceLink: 'Adres URL obrazka'
+        },
+        buttons: {
+          close: 'Zamknij',
+          apply: 'Zastosuj'
         }
       }
     }
