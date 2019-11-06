@@ -109,7 +109,7 @@ export default {
           hrefLabel: 'Href'
         },
         buttons: {
-          close: 'Proche',
+          close: 'Fermer',
           remove: 'Retirer',
           apply: 'Appliquer'
         }
