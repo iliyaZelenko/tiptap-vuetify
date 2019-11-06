@@ -114,6 +114,22 @@ export default {
           apply: 'Zastosuj'
         }
       }
+    },
+    Image: {
+      buttons: {
+        tooltip: 'Obrazek'
+      },
+      window: {
+        title: 'Dodaj obrazek',
+        or: 'LUB',
+        form: {
+          sourceLink: 'Adres URL obrazka'
+        },
+        buttons: {
+          close: 'Zamknij',
+          apply: 'Zastosuj'
+        }
+      }
     }
   }
 }
