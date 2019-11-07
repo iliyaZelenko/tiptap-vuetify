@@ -16,7 +16,9 @@ export const PROPS = {
   PLACEHOLDER: 'placeholder' as const,
   CARD_PROPS: 'cardProps' as const,
   OUTPUT_FORMAT: 'outputFormat' as const,
-  TYPE: 'type' as const
+  TYPE: 'type' as const,
+  MIN_HEIGHT: 'minHeight' as const,
+  MAX_HEIGHT: 'maxHeight' as const
 }
 
 export enum EDITOR_TYPES_ENUM {
