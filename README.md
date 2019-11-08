@@ -245,6 +245,8 @@ Tiptap `Editor` properties (passed to the constructor).
 
 You can see the full list of properties [here](https://github.com/scrumpy/tiptap#editor-properties).
 
+This is the most powerful way to customize the editor for yourself. Pay particular attention to [`editorProps`](https://prosemirror.net/docs/ref/#view.EditorProps).
+
 Only these properties are not available: `content`, `onUpdate`, they are used in this package.
 If you want to add extensions to the `extensions` property, then use the `native-extensions` prop of this package.
 
@@ -282,6 +284,8 @@ data () {
   }
 }
 ```
+
+[Here](https://github.com/iliyaZelenko/tiptap-vuetify/issues/100#issuecomment-551950075) is example of how to create your extension from scratch.
 
 ### output-format
 
@@ -331,6 +335,8 @@ methods: {
   }
 }
 ```
+
+Note: if you need to work with the <kbd>Enter</kbd>, then look [here](https://github.com/iliyaZelenko/tiptap-vuetify/issues/100#issuecomment-551950075).
 
 [What is `view`?](https://prosemirror.net/docs/ref/#view.EditorView)
 
