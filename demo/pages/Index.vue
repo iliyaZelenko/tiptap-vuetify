@@ -1,6 +1,9 @@
 <template>
   <div>
-    <!-- :toolbar-attributes="{ color: 'yellow' }" -->
+    <!-- :toolbar-attributes="{ color: 'yellow' }"
+    min-height="500"
+    max-height="600"
+   -->
     <tiptap-vuetify
       v-model="content"
       :extensions="extensions"
