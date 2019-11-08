@@ -36,7 +36,10 @@
 
       <slot name="toolbar-after" />
 
-      <div class="tiptap-vuetify-editor__content">
+      <div
+        class="tiptap-vuetify-editor__content"
+        :style="contentDynamicStyles"
+      >
         <editor-content
           :editor="editor"
         />
@@ -112,6 +115,12 @@ export default class TiptapVuetify extends Vue {
   })
   readonly [PROPS.TYPE]: EDITOR_TYPES_ENUM
 
+  @Prop({ type: Number })
+  readonly [PROPS.MIN_HEIGHT]: number
+
+  @Prop({ type: Number })
+  readonly [PROPS.MAX_HEIGHT]: number
+
   PROPS = PROPS
   EDITOR_TYPES_ENUM = EDITOR_TYPES_ENUM
   editor: Editor | null = null
@@ -130,6 +139,13 @@ export default class TiptapVuetify extends Vue {
 
   get toolbarActions () {
     return this[PROPS.EXTENSIONS].filter(i => i.renderIn)
+  }
+
+  get contentDynamicStyles () {
+    let dynamicStylesToReturn = {}
+    if (this[PROPS.MIN_HEIGHT]) Object.assign(dynamicStylesToReturn, { minHeight: `${this[PROPS.MIN_HEIGHT]}px` })
+    if (this[PROPS.MAX_HEIGHT]) Object.assign(dynamicStylesToReturn, { maxHeight: `${this[PROPS.MAX_HEIGHT]}px` })
+    return dynamicStylesToReturn
   }
 
   @Watch('value')
