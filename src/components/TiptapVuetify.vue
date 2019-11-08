@@ -72,7 +72,7 @@ export default class TiptapVuetify extends Vue {
   readonly [PROPS.VALUE]: string
 
   @Prop({ type: Array, default: () => [] })
-  readonly [PROPS.EXTENSIONS]: any
+  readonly [PROPS.EXTENSIONS]: any[]
 
   @Prop({ type: String })
   readonly [PROPS.PLACEHOLDER]: string
@@ -90,19 +90,19 @@ export default class TiptapVuetify extends Vue {
     type: [Array, Object],
     default: () => ({})
   })
-  readonly [PROPS.TOOLBAR_ATTRIBUTES]: any
+  readonly [PROPS.TOOLBAR_ATTRIBUTES]: Record<string, any>
 
   @Prop({
     type: Object,
     default: () => ({})
   })
-  readonly [PROPS.EDITOR_PROPERTIES]: any
+  readonly [PROPS.EDITOR_PROPERTIES]: Record<string, any>
 
   @Prop({
     type: Array,
     default: () => []
   })
-  readonly [PROPS.NATIVE_EXTENSIONS]: any
+  readonly [PROPS.NATIVE_EXTENSIONS]: any[]
 
   @Prop({
     type: String,
@@ -213,6 +213,18 @@ export default class TiptapVuetify extends Vue {
     this.editor = new Editor({
       extensions,
       ...this[PROPS.EDITOR_PROPERTIES],
+      editorProps: {
+        ...this[PROPS.EDITOR_PROPERTIES].editorProps,
+        handleKeyDown: (view, event) => {
+          if (this[PROPS.EDITOR_PROPERTIES].editorProps &&
+            this[PROPS.EDITOR_PROPERTIES].editorProps.handleKeyDown
+          ) {
+            this[PROPS.EDITOR_PROPERTIES].editorProps.handleKeyDown(view, event)
+          }
+
+          this.$emit('keydown', event, view)
+        }
+      },
       content: this[PROPS.VALUE],
       onUpdate: this.onUpdate.bind(this)
     })

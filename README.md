@@ -296,7 +296,7 @@ For example, to get json instead:
 
 ## Events
 
-### @init
+### init
 
 **first argument** (object):
 ```ts
@@ -313,6 +313,26 @@ How to use:
   @init="onInit"
 />
 ```
+
+### keydown
+
+Called when the editor receives a keydown event.
+
+```vue
+<tiptap-vuetify
+  @keydown="onKeyDown"
+/>
+```
+
+``` js
+methods: {
+  onkeydown (event, view) {
+    console.log('event', event.key)
+  }
+}
+```
+
+[What is `view`?](https://prosemirror.net/docs/ref/#view.EditorView)
 
 ## Slots
 

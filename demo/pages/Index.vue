@@ -3,11 +3,14 @@
     <!-- :toolbar-attributes="{ color: 'yellow' }"
     min-height="500"
     max-height="600"
+    :editor-properties="editorProperties"
    -->
     <tiptap-vuetify
       v-model="content"
       :extensions="extensions"
       placeholder="Write something …"
+      output-format="json"
+      @keydown="onkeydown"
     />
 
     <br><br>
@@ -29,6 +32,13 @@ export default {
     TiptapVuetify: () => MAIN_MODULE.then(({ TiptapVuetify }) => TiptapVuetify)
   },
   data: () => ({
+    // editorProperties: {
+    //   editorProps: {
+    //     handleKeyDown (a, b, c) {
+    //       console.log('handleKeyDown', a, b, c)
+    //     }
+    //   }
+    // },
     extensions: null,
     content: `
       <h1>Yay Headlines!</h1>
@@ -76,6 +86,11 @@ export default {
         renderIn: 'bubbleMenu'
       }]
     ]
+  },
+  methods: {
+    onkeydown (event) {
+      console.log('event', event.key)
+    }
   }
 }
 </script>
