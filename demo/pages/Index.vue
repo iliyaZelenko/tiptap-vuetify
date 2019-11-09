@@ -1,10 +1,16 @@
 <template>
   <div>
+    <v-btn
+      @click="test=!test"
+    >
+    switch
+   </v-btn>
     <!-- :toolbar-attributes="{ color: 'yellow' }" -->
     <tiptap-vuetify
       v-model="content"
       :extensions="extensions"
       placeholder="Write something …"
+      output-format="json"
     />
 
     <br><br>
@@ -27,12 +33,24 @@ export default {
   },
   data: () => ({
     extensions: null,
-    content: `
-      <h1>Yay Headlines!</h1>
-      <blockquote>Test quote.</blockquote>
-      <p>All these <strong>cool tags</strong> are working now.</p>
-    `
+    a: '',
+    b:'',
+    test: true
   }),
+  computed: {
+    content: {
+      get() {
+        return this.test ? this.a : this.b
+      },
+      set(value) {
+        if(this.test) {
+          this.a = value
+        }else {
+          this.b = value
+        }
+      }
+    }
+  },
   async created () {
     const {
       Heading, Bold, Italic, Strike, Underline, Code, CodeBlock, Paragraph, BulletList, OrderedList, ListItem,
