@@ -1,16 +1,28 @@
 <template>
   <div>
+<<<<<<< HEAD
     <!-- :toolbar-attributes="{ color: 'yellow' }"
     min-height="500"
     max-height="600"
     :editor-properties="editorProperties"
    -->
+=======
+    <v-btn
+      @click="test=!test"
+    >
+    switch
+   </v-btn>
+    <!-- :toolbar-attributes="{ color: 'yellow' }" -->
+>>>>>>> cbf6185b6ef68359af46f53e05d8847548adaea3
     <tiptap-vuetify
       v-model="content"
       :extensions="extensions"
       placeholder="Write something …"
       output-format="json"
+<<<<<<< HEAD
       @keydown="onkeydown"
+=======
+>>>>>>> cbf6185b6ef68359af46f53e05d8847548adaea3
     />
 
     <br><br>
