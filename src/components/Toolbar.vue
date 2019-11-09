@@ -21,6 +21,7 @@
             :actions="actions"
             :context="menuBarContext"
             :editor="editor"
+            :disabled="disabled"
           />
         </v-toolbar>
       </slot>
@@ -45,6 +46,9 @@ import { VToolbar } from 'vuetify/lib'
   }
 })
 export default class Toolbar extends Vue {
+  @Prop({ type: Boolean, default: false })
+  readonly disabled: boolean
+  
   @Prop({ type: Object, required: true })
   readonly editor: Editor
 

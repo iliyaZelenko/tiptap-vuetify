@@ -18,7 +18,8 @@ export const PROPS = {
   OUTPUT_FORMAT: 'outputFormat' as const,
   TYPE: 'type' as const,
   MIN_HEIGHT: 'minHeight' as const,
-  MAX_HEIGHT: 'maxHeight' as const
+  MAX_HEIGHT: 'maxHeight' as const,
+  DISABLED: 'disabled' as const
 }
 
 export enum EDITOR_TYPES_ENUM {
