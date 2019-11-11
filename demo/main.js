@@ -15,12 +15,12 @@ import '@fortawesome/fontawesome-free/css/all.css'
 import App from './App'
 import router from './router'
 
-import '../dist/main.css'
+// import '../dist/main.css'
 import { MAIN_MODULE } from './config'
 
 const vuetify = new Vuetify({
   lang: {
-    current: 'es' // en | es | fr | pl | ru | uk | ptbr | tr | he | nl
+    current: 'en' // en | es | fr | pl | ru | uk | ptbr | tr | he | nl
   }
 })
 
