@@ -1,3 +1,16 @@
+# [2.7.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.6.1...v2.7.0) (2019-11-08)
+
+
+### Bug Fixes
+
+* **I18n:** french word issue ([38f3604](https://github.com/iliyaZelenko/tiptap-vuetify/commit/38f36048cba2f881e77a1bc1945b84129f04e131)), closes [#96](https://github.com/iliyaZelenko/tiptap-vuetify/issues/96)
+
+
+### Features
+
+* **events:** keydown event ([ff2aa5d](https://github.com/iliyaZelenko/tiptap-vuetify/commit/ff2aa5dea2e2c5c6b40c1e7cfcb70efad99eae2f)), closes [#100](https://github.com/iliyaZelenko/tiptap-vuetify/issues/100)
+* **props:** Added min-height and max-height attributes ([525347c](https://github.com/iliyaZelenko/tiptap-vuetify/commit/525347cc9c563bca96372fc157a374a42d6e94c8))
+
 ## [2.6.1](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.6.0...v2.6.1) (2019-11-06)
 
 

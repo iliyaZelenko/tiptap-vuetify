@@ -3,7 +3,6 @@
     v-if="editor"
     class="tiptap-vuetify-editor"
   >
-    <!-- hasLink || -->
     <bubble
       v-if="availableActions.bubbleMenu.length"
       :editor="editor"
@@ -36,14 +35,11 @@
 
       <slot name="toolbar-after" />
 
-      <div
-        class="tiptap-vuetify-editor__content"
+      <editor-content
+        :editor="editor"
         :style="contentDynamicStyles"
-      >
-        <editor-content
-          :editor="editor"
-        />
-      </div>
+        class="tiptap-vuetify-editor__content"
+      />
 
       <slot name="footer" />
     </VCard>
@@ -57,7 +53,6 @@ import Toolbar from '~/components/Toolbar.vue'
 import { Component, Prop, Watch } from 'vue-property-decorator'
 import { EVENTS, PROPS, EDITOR_TYPES_ENUM } from '~/const'
 import Bubble from '~/components/Bubble.vue'
-import { Link } from '~/main'
 import { Placeholder } from 'tiptap-extensions'
 import { ExtensionActionRenderInEnum } from '~/extensions/actions/ExtensionActionRenderInEnum'
 import ExtensionActionInterface from '~/extensions/actions/ExtensionActionInterface'
@@ -77,7 +72,7 @@ export default class TiptapVuetify extends Vue {
   readonly [PROPS.VALUE]: string
 
   @Prop({ type: Array, default: () => [] })
-  readonly [PROPS.EXTENSIONS]: any
+  readonly [PROPS.EXTENSIONS]: any[]
 
   @Prop({ type: String })
   readonly [PROPS.PLACEHOLDER]: string
@@ -95,19 +90,19 @@ export default class TiptapVuetify extends Vue {
     type: [Array, Object],
     default: () => ({})
   })
-  readonly [PROPS.TOOLBAR_ATTRIBUTES]: any
+  readonly [PROPS.TOOLBAR_ATTRIBUTES]: Record<string, any>
 
   @Prop({
     type: Object,
     default: () => ({})
   })
-  readonly [PROPS.EDITOR_PROPERTIES]: any
+  readonly [PROPS.EDITOR_PROPERTIES]: Record<string, any>
 
   @Prop({
     type: Array,
     default: () => []
   })
-  readonly [PROPS.NATIVE_EXTENSIONS]: any
+  readonly [PROPS.NATIVE_EXTENSIONS]: any[]
 
   @Prop({
     type: String,
@@ -115,11 +110,11 @@ export default class TiptapVuetify extends Vue {
   })
   readonly [PROPS.TYPE]: EDITOR_TYPES_ENUM
 
-  @Prop({ type: Number })
-  readonly [PROPS.MIN_HEIGHT]: number
+  @Prop({ type: [String, Number] })
+  readonly [PROPS.MIN_HEIGHT]: string | number
 
-  @Prop({ type: Number })
-  readonly [PROPS.MAX_HEIGHT]: number
+  @Prop({ type: [String, Number] })
+  readonly [PROPS.MAX_HEIGHT]: string | number
 
   PROPS = PROPS
   EDITOR_TYPES_ENUM = EDITOR_TYPES_ENUM
@@ -133,19 +128,21 @@ export default class TiptapVuetify extends Vue {
   }
   emitAfterOnUpdate = false
 
-  get hasLink (): boolean {
-    return this[PROPS.EXTENSIONS].some((extension: AbstractExtension) => extension instanceof Link)
-  }
-
-  get toolbarActions () {
-    return this[PROPS.EXTENSIONS].filter(i => i.renderIn)
-  }
-
   get contentDynamicStyles () {
-    let dynamicStylesToReturn = {}
-    if (this[PROPS.MIN_HEIGHT]) Object.assign(dynamicStylesToReturn, { minHeight: `${this[PROPS.MIN_HEIGHT]}px` })
-    if (this[PROPS.MAX_HEIGHT]) Object.assign(dynamicStylesToReturn, { maxHeight: `${this[PROPS.MAX_HEIGHT]}px` })
-    return dynamicStylesToReturn
+    // если не указана еденица измерения (e.g. 60, 25), то будет как px. То есть 60em, 25% такими и останетутся.
+    const getUnitWithPxAsDefault = (str) => {
+      if (!str) return str
+
+      const num = parseInt(str, 10)
+      const unit = str.slice(num.toString().length)
+
+      return num + (unit || 'px')
+    }
+
+    return {
+      minHeight: getUnitWithPxAsDefault(this[PROPS.MIN_HEIGHT]),
+      maxHeight: getUnitWithPxAsDefault(this[PROPS.MAX_HEIGHT])
+    }
   }
 
   @Watch('value')
@@ -216,6 +213,18 @@ export default class TiptapVuetify extends Vue {
     this.editor = new Editor({
       extensions,
       ...this[PROPS.EDITOR_PROPERTIES],
+      editorProps: {
+        ...this[PROPS.EDITOR_PROPERTIES].editorProps,
+        handleKeyDown: (view, event) => {
+          if (this[PROPS.EDITOR_PROPERTIES].editorProps &&
+            this[PROPS.EDITOR_PROPERTIES].editorProps.handleKeyDown
+          ) {
+            this[PROPS.EDITOR_PROPERTIES].editorProps.handleKeyDown(view, event)
+          }
+
+          this.$emit('keydown', event, view)
+        }
+      },
       content: this[PROPS.VALUE],
       onUpdate: this.onUpdate.bind(this)
     })
