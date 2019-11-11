@@ -1,3 +1,10 @@
+# [2.8.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.7.0...v2.8.0) (2019-11-11)
+
+
+### Features
+
+* **i18n:** added the Dutch language ([3b91ffe](https://github.com/iliyaZelenko/tiptap-vuetify/commit/3b91ffedc6def74e21352e89a869082af76d8d02))
+
 # [2.7.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.6.1...v2.7.0) (2019-11-08)
 
 
