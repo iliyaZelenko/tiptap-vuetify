@@ -20,7 +20,7 @@ import { MAIN_MODULE } from './config'
 
 const vuetify = new Vuetify({
   lang: {
-    current: 'es' // en | es | fr | pl | ru | uk | ptbr | tr | he
+    current: 'es' // en | es | fr | pl | ru | uk | ptbr | tr | he | nl
   }
 })
 
