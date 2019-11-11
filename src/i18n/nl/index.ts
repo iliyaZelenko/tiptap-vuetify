@@ -3,7 +3,7 @@ export default {
     Blockquote: {
       buttons: {
         blockquote: {
-          tooltip: 'Citaatblock'
+          tooltip: 'Citaatblok'
         }
       }
     },
