@@ -8,6 +8,7 @@ import ptbr from './ptbr'
 import tr from './tr'
 import he from './he'
 import nl from './nl'
+import ja from './ja'
 import ConsoleLogger from '~/logging/ConsoleLogger'
 import { TiptapVuetifyPlugin } from '~/main'
 
@@ -22,7 +23,8 @@ export const dictionary = {
   ptbr,
   tr,
   he,
-  nl
+  nl,
+  ja
 }
 
 export function getCurrentLang () {
