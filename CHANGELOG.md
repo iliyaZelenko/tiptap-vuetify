@@ -1,3 +1,10 @@
+# [2.9.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.8.0...v2.9.0) (2019-12-26)
+
+
+### Features
+
+* **i18n:** ja translation ([4f792af](https://github.com/iliyaZelenko/tiptap-vuetify/commit/4f792af1eec6bcf53f42f0d1324d326be6d9a421)), closes [#118](https://github.com/iliyaZelenko/tiptap-vuetify/issues/118)
+
 # [2.8.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.7.0...v2.8.0) (2019-11-11)
 
 
