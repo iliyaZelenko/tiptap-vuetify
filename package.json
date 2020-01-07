@@ -11,7 +11,7 @@
     "lint-fix": "yarn lint --fix"
   },
   "dependencies": {
-    "tiptap": "1.16.2",
+    "tiptap": "1.26.4",
     "tiptap-extensions": "^1.14.0"
   },
   "devDependencies": {
