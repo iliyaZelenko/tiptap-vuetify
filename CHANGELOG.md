@@ -1,3 +1,10 @@
+# [2.10.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.9.0...v2.10.0) (2020-01-10)
+
+
+### Features
+
+* **i18n:** german language support ([02e78e2](https://github.com/iliyaZelenko/tiptap-vuetify/commit/02e78e2f0f9f130419ec6cfe0a6f91c2433dce43)), closes [#122](https://github.com/iliyaZelenko/tiptap-vuetify/issues/122)
+
 # [2.9.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.8.0...v2.9.0) (2019-12-26)
 
 
