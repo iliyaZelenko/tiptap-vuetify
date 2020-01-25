@@ -1,3 +1,10 @@
+# [2.11.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.10.0...v2.11.0) (2020-01-25)
+
+
+### Features
+
+* **i18n:** added Korean language support ([9826b7c](https://github.com/iliyaZelenko/tiptap-vuetify/commit/9826b7c2c4a2d080aaf8e55282dd9400e478d87e)), closes [#129](https://github.com/iliyaZelenko/tiptap-vuetify/issues/129)
+
 # [2.10.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.9.0...v2.10.0) (2020-01-10)
 
 
