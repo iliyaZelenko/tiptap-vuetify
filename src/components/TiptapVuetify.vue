@@ -118,6 +118,7 @@ export default class TiptapVuetify extends Vue {
 
   PROPS = PROPS
   EDITOR_TYPES_ENUM = EDITOR_TYPES_ENUM
+  // TODO было бы удобно передавать через vue provide (DI)
   editor: Editor | null = null
   availableActions: {
     toolbar: ExtensionActionInterface[]

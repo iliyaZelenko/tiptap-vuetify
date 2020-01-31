@@ -1,89 +1,21 @@
 <template>
-  <!-- @hide="hideLinkMenu"-->
-  <!-- { commands, isActive, getMarkAttrs, menu } -->
   <editor-menu-bubble
     v-slot="context"
     :editor="editor"
-    :keep-in-bounds="true"
-    class="tiptap-vuetify-editor__menububble"
   >
-    <!--
-    v-show="menu.isActive"
-    absolute
-    fixed
-    // Классы не применяются:
-    :content-class="{
-      'tiptap-vuetify-editor__menububble-tooltip': true,
-      'tiptap-vuetify-editor__menububble-tooltip--is-active': menu.isActive
-    }"
-    -->
-    <!-- getMenuY(context.menu) v-show="context.menu.isActive" -->
-    <div>
-      <v-card
-        :style="getBubbleContentStyle(context)"
-        class="tiptap-vuetify-editor__menububble-card"
-        dark
-      >
-        <!--
-        <form
-          v-if="linkMenuIsActive"
-          class="tiptap-vuetify-editor__menububble-form"
-          @submit.prevent="setLinkUrl(commands.link, linkUrl)"
-        >
-          <v-text-field
-            ref="linkInput"
-            v-model="linkUrl"
-            placeholder="Link"
-            hide-details
-            solo
-            @keydown.esc="hideLinkMenu"
-          />
-
-          <v-btn
-            color="success"
-            type="submit"
-            icon
-          >
-            <v-icon>
-              {{ getIconByKey('save') }}
-            </v-icon>
-          </v-btn>
-
-          <v-btn
-            color="error"
-            icon
-            @click="setLinkUrl(commands.link, null)"
-          >
-            <v-icon>
-              {{ getIconByKey('cancel') }}
-            </v-icon>
-          </v-btn>
-        </form>
-
-        <v-btn
-          v-else
-          :class="{ 'v-btn--active': isActive.link() }"
-          color="primary"
-          small
-          @click="showLinkMenu(getMarkAttrs('link'))"
-        >
-          <v-icon left>
-            {{ getIconByKey(
-              isActive.link() ? 'linkUpdate' : 'linkAdd'
-            ) }}
-          </v-icon>
-
-          {{ isActive.link() ? $i18n.getMsg('extensions.Link.bubble.updateLink') : $i18n.getMsg('extensions.Link.bubble.addLink') }}
-        </v-btn>
-        -->
-
+    <div
+      class="tiptap-vuetify-editor-pop"
+      role="tooltip"
+    >
+      <div class="tiptap-vuetify-editor-pop__popper">
         <actions-render
           :actions="actions"
           :context="context"
           :editor="editor"
           :dark="true"
         />
-      </v-card>
+        <div x-arrow />
+      </div>
     </div>
   </editor-menu-bubble>
 </template>
@@ -97,6 +29,11 @@ import I18nMixin from '~/mixins/I18nMixin'
 import ExtensionActionInterface from '~/extensions/actions/ExtensionActionInterface'
 import ActionsRender from '~/components/ActionsRender.vue'
 import { VCard } from 'vuetify/lib'
+// нативный menu-bubble от tiptap не правильно выдавал позицию в последней версии. Норм поведение у них пропало в 1.16.2
+import Popper from 'popper.js'
+
+/* eslint-disable */
+// TODO REFACTOR! Потратил 3 часа чтобы решить один странный issue и переделать под poper.
 
 @Component({
   components: {
@@ -115,59 +52,195 @@ export default class Menu extends mixins(I18nMixin) {
   })
   readonly actions: ExtensionActionInterface[]
 
-  // linkUrl: null | string = null
-  // linkMenuIsActive: null | boolean = false
+  mounted () {
+    class RangeRef {
+      range = null
+      rect = null
+      timeoutMousemove = null
 
-  getMenuY (menu) {
-    // высота всей страницы - высота окна - сколько страницу прокрученно от верха
-    const diff = document.documentElement.scrollHeight - window.innerHeight - window.scrollY
-    // bottom позиция относитель низа окна
-    const bottomRelatedToWindow = menu.bottom - diff
+      constructor () {
+        this.updateRect()
 
-    // top позиция
-    return window.innerHeight - bottomRelatedToWindow + 15 // + 15 из-за того что bottom, если top, то не нужно
-  }
+        const update = (evt, hide) => {
+          let selection = document.getSelection()
 
-  getBubbleContentStyle (context) {
-    return {
-      display: context.menu.isActive ? 'block' : 'none',
-      // иначе не видно
-      zIndex: 1,
-      position: 'absolute',
-      left: context.menu.left + 'px',
-      bottom: context.menu.bottom + 'px'
+          this.range = selection && selection.rangeCount && selection.getRangeAt(0)
+
+          this.updateRect(hide)
+        }
+        const editorContent = document.querySelector('.tiptap-vuetify-editor .ProseMirror')
+
+        editorContent.addEventListener('mouseup', update)
+        editorContent.addEventListener('input', update)
+        editorContent.addEventListener('keydown', evt => update(evt, true))
+
+        const debounce = function debounce(f, ms) {
+          let isCooldown = false;
+
+          return function() {
+            if (isCooldown) return;
+
+            f.apply(this, arguments);
+
+            isCooldown = true;
+
+            setTimeout(() => isCooldown = false, ms);
+          };
+        }
+
+        editorContent.addEventListener('mousemove',
+          debounce(function () {
+            update()
+          }, 100)
+        )
+
+        window.addEventListener('scroll', update)
+        document
+          .scrollingElement
+          .addEventListener('scroll', update)
+      }
+
+      updateRect (hide) {
+        if (!hide && this.range) {
+          this.rect = this.range.getBoundingClientRect()
+        } else {
+          this.rect = {
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            width: 0,
+            height: 0
+          }
+        }
+
+        this.rectChangedCallback(this.rect)
+      }
+
+      rectChangedCallback () {
+        // Abstract to be implemented
+      }
+
+      getBoundingClientRect () {
+        return this.rect
+      }
+
+      get clientWidth () {
+        return this.rect.width
+      }
+
+      get clientHeight () {
+        return this.rect.height
+      }
     }
+
+    setTimeout(() => {
+      const pop = document.querySelector('.tiptap-vuetify-editor-pop')
+      const rangeRef = new RangeRef()
+      const popper = new Popper(rangeRef, pop, {
+        placement: 'top',
+        modifiers: { offset: { offset: '0,5' } }
+      })
+
+      rangeRef.rectChangedCallback = ({ width }) => {
+        if (width > 0) {
+          popper.scheduleUpdate()
+          pop.firstElementChild.classList.add('tiptap-vuetify-editor-pop__popper--visible')
+        } else {
+          pop.firstElementChild.classList.remove('tiptap-vuetify-editor-pop__popper--visible')
+        }
+      }
+    }, 1000)
   }
-
-  // getIconByKey (key) {
-  //   return icons[key][this.$tiptapVuetify.iconsGroup]
-  // }
-
-  // showLinkMenu (attrs) {
-  //   this.linkUrl = attrs.href
-  //   this.linkMenuIsActive = true
-  //   this.$nextTick(() => {
-  //     // @ts-ignore
-  //     this.$refs.linkInput.focus()
-  //   })
-  // }
-
-  // hideLinkMenu () {
-  //   this.linkUrl = null
-  //   this.linkMenuIsActive = false
-  // }
-
-  // setLinkUrl (command, url) {
-  //   command({ href: url })
-  //   this.hideLinkMenu()
-  //   this.editor.focus()
-  // }
 }
 </script>
 
 <style lang="stylus">
-  .tiptap-vuetify-editor
-    &__menububble-card
-      opacity: 0.9 !important
-      padding: 5px
+.tiptap-vuetify-editor-pop {
+  position: absolute
+  z-index 1;
+  opacity: 0.9 !important
+  transition: transform 100ms ease-in-out;
+
+  .tiptap-vuetify-editor-pop__popper {
+    background-image: linear-gradient(
+      to bottom,
+      rgba(49, 49, 47, 0.99),
+      #262625
+    );
+    background-repeat: repeat-x;
+    border-radius: 5px;
+    padding: 0 10px;
+    color: white;
+    line-height: 44px;
+    display: inline-block;
+    visibility: hidden
+    opacity: 0;
+    pointer-events: none;
+
+    &--visible {
+      visibility: visible
+      pointer-events: auto;
+      animation: pop-upwards 180ms forwards linear;
+      animation-delay: 0.2s;
+      transition: opacity 0s linear 0.2s;
+    }
+  }
+
+  &[x-placement="top"] {
+    margin-bottom: 7px;
+  }
+  &[x-placement="bottom"] {
+    margin-top: 7px;
+  }
+  &[x-placement="bottom"] .tiptap-vuetify-editor-pop__popper {
+    background-image: linear-gradient(to top, rgba(49, 49, 47, 0.99), #262625);
+  }
+}
+
+[x-arrow] {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background-color: #262625;
+  transform: rotate(45deg);
+  z-index: -1;
+
+  [x-placement="top"] & {
+    margin-bottom: -7px;
+    bottom: 0;
+  }
+  [x-placement="bottom"] & {
+    margin-top: -7px;
+    top: 0;
+  }
+}
+
+
+@keyframes pop-upwards {
+  0% {
+    transform: matrix(0.97, 0, 0, 1, 0, 12);
+    opacity: 0;
+  }
+
+  20% {
+    transform: matrix(0.99, 0, 0, 1, 0, 2);
+    opacity: 0.7;
+  }
+
+  40% {
+    transform: matrix(1, 0, 0, 1, 0, -1);
+    opacity: 1;
+  }
+
+  70% {
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    opacity: 1;
+  }
+}
 </style>
