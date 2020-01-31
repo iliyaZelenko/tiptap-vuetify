@@ -11,7 +11,8 @@
     "lint-fix": "yarn lint --fix"
   },
   "dependencies": {
-    "tiptap": "1.16.2",
+    "popper.js": "^1.16.1",
+    "tiptap": "^1.16.2",
     "tiptap-extensions": "^1.14.0"
   },
   "devDependencies": {
