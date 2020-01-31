@@ -54,21 +54,21 @@ export default class Menu extends mixins(I18nMixin) {
 
   mounted () {
     class RangeRef {
-      range = null
-      rect = null
-      timeoutMousemove = null
+      range: any = null
+      rect: any = null
+      timeoutMousemove: any = null
 
       constructor () {
         this.updateRect()
 
-        const update = (evt, hide) => {
+        const update: any = (evt, hide) => {
           let selection = document.getSelection()
 
           this.range = selection && selection.rangeCount && selection.getRangeAt(0)
 
           this.updateRect(hide)
         }
-        const editorContent = document.querySelector('.tiptap-vuetify-editor .ProseMirror')
+        const editorContent = document.querySelector('.tiptap-vuetify-editor .ProseMirror')!
 
         editorContent.addEventListener('mouseup', update)
         editorContent.addEventListener('input', update)
@@ -96,11 +96,11 @@ export default class Menu extends mixins(I18nMixin) {
 
         window.addEventListener('scroll', update)
         document
-          .scrollingElement
+          .scrollingElement!
           .addEventListener('scroll', update)
       }
 
-      updateRect (hide) {
+      updateRect (hide = false) {
         if (!hide && this.range) {
           this.rect = this.range.getBoundingClientRect()
         } else {
@@ -117,7 +117,7 @@ export default class Menu extends mixins(I18nMixin) {
         this.rectChangedCallback(this.rect)
       }
 
-      rectChangedCallback () {
+      rectChangedCallback (arg) {
         // Abstract to be implemented
       }
 
@@ -135,8 +135,8 @@ export default class Menu extends mixins(I18nMixin) {
     }
 
     setTimeout(() => {
-      const pop = document.querySelector('.tiptap-vuetify-editor-pop')
-      const rangeRef = new RangeRef()
+      const pop = document.querySelector('.tiptap-vuetify-editor-pop')!
+      const rangeRef: any = new RangeRef()
       const popper = new Popper(rangeRef, pop, {
         placement: 'top',
         modifiers: { offset: { offset: '0,5' } }
@@ -145,9 +145,9 @@ export default class Menu extends mixins(I18nMixin) {
       rangeRef.rectChangedCallback = ({ width }) => {
         if (width > 0) {
           popper.scheduleUpdate()
-          pop.firstElementChild.classList.add('tiptap-vuetify-editor-pop__popper--visible')
+          pop.firstElementChild!.classList.add('tiptap-vuetify-editor-pop__popper--visible')
         } else {
-          pop.firstElementChild.classList.remove('tiptap-vuetify-editor-pop__popper--visible')
+          pop.firstElementChild!.classList.remove('tiptap-vuetify-editor-pop__popper--visible')
         }
       }
     }, 1000)

@@ -1,3 +1,10 @@
+## [2.11.1](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.11.0...v2.11.1) (2020-01-31)
+
+
+### Bug Fixes
+
+* **buble menu:** rewrote the bubble menu using poper.js ([354550e](https://github.com/iliyaZelenko/tiptap-vuetify/commit/354550e7dd5c2b63589a7be35adeca9e59627da8)), closes [#131](https://github.com/iliyaZelenko/tiptap-vuetify/issues/131)
+
 # [2.11.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.10.0...v2.11.0) (2020-01-25)
 
 
