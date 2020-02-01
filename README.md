@@ -42,7 +42,7 @@ If you have Vuetify `1.x` (not `2.x`), then you can find docs and demo [here](ht
 - [Props](#props)
 - [Events](#events)
 - [Slots](#slots)
-- [Donate](#donate)
+- [Donate](#donate-creating-code-at-your-request-out-of-turn)
 - [TODO](#todo)
 
 <!-- /TOC -->
