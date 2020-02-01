@@ -42,6 +42,7 @@ If you have Vuetify `1.x` (not `2.x`), then you can find docs and demo [here](ht
 - [Props](#props)
 - [Events](#events)
 - [Slots](#slots)
+- [Donate](#donate)
 - [TODO](#todo)
 
 <!-- /TOC -->
@@ -386,6 +387,10 @@ You can add content before the toolbar.
 ### toolbar-after
 
 You can add content after the toolbar.
+
+## Donate (creating code at your request out of turn)
+
+I can do some feature for you out of turn and at a fast pace. To do this, you can [pay me one-time or make a subscription](http://patreon.com/zelen). We can discuss the details by email, it is written in [my profile](https://github.com/iliyaZelenko).
 
 ## TODO
 
