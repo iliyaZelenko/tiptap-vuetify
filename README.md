@@ -26,11 +26,13 @@ WYSIWYG editor for Vuetify. The editor is based on [tiptap](https://github.com/s
 
 If you have Vuetify `1.x` (not `2.x`), then you can find docs and demo [here](https://github.com/iliyaZelenko/tiptap-vuetify/blob/version-1.x/README.md).
 
-[DEMO on codesanbox](https://codesandbox.io/s/vue-template-6p9wp?fontsize=14&module=%2Fsrc%2Fexamples%2FSimple.vue)
+# [DEMO :bomb:](https://iliyazelenko.github.io/tiptap-vuetify-demo)
 
 [
-![](https://d1sz9tkli0lfjq.cloudfront.net/items/0s2E3A433x1A2b1l3q24/Image%202019-10-07%20at%203.30.03%20AM.png)
-](https://codesandbox.io/s/vue-template-6p9wp?fontsize=14&module=%2Fsrc%2Fexamples%2FSimple.vue)
+![](https://p35.f2.n0.cdn.getcloudapp.com/items/qGuDmGEm/Image+2020-02-01+at+10.14.29+AM.png?v=40d834512cb17e777f36c96b622990f2)
+](https://iliyazelenko.github.io/tiptap-vuetify-demo)
+
+
 
 ## Navigation
 
