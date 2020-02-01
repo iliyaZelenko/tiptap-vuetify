@@ -390,7 +390,7 @@ You can add content after the toolbar.
 
 ## Donate (creating code at your request out of turn)
 
-💰 I can do some feature for you out of turn and at a fast pace. To do this, you can [pay me one-time or make a subscription](http://patreon.com/zelen). We can discuss the details by email, it is written in [my profile](https://github.com/iliyaZelenko).
+💰 I can do some feature for you out of turn and at a fast pace or solve your problem, give a quick answers. To do this, you can [pay me one-time or make a subscription](http://patreon.com/zelen). We can discuss the details by email, it is written in [my profile](https://github.com/iliyaZelenko).
 
 ## TODO
 
