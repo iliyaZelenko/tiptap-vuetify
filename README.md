@@ -210,8 +210,7 @@ Available extensions (native tiptap extensions from `tiptap-extensions` package)
 - `CodeBlock`
 - `Image`
 - `Paragraph`
-- `BulletList`
-- `OrderedList`
+- `BulletList` or `OrderedList` (use with the `ListItem` extension)
 - `ListItem`
 - `Link`
 - `Blockquote`
