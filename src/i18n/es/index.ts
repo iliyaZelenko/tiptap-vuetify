@@ -114,6 +114,22 @@ export default {
           apply: 'Aplicar'
         }
       }
+    },
+    Image: {
+      buttons: {
+        tooltip: 'Imagen'
+      },
+      window: {
+        title: 'Agregar Imagen',
+        or: 'O',
+        form: {
+          sourceLink: 'URL de la Imagen'
+        },
+        buttons: {
+          close: 'Cerrar',
+          apply: 'Aplicar'
+        }
+      }
     }
   }
 }
