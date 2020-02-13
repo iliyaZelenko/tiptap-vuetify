@@ -1,3 +1,5 @@
+# [2.12.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.11.1...v2.12.0) (2020-02-13)
+
 ## [2.11.1](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.11.0...v2.11.1) (2020-01-31)
 
 
