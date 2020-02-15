@@ -1,3 +1,10 @@
+## [2.12.1](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.12.0...v2.12.1) (2020-02-15)
+
+
+### Bug Fixes
+
+* **tiptap dependecies:** conflicts ([9c679e4](https://github.com/iliyaZelenko/tiptap-vuetify/commit/9c679e4e6d7d8ecfdea28ca7cee39fa1835fc1f9)), closes [#134](https://github.com/iliyaZelenko/tiptap-vuetify/issues/134)
+
 # [2.12.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.11.1...v2.12.0) (2020-02-13)
 
 ## [2.11.1](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.11.0...v2.11.1) (2020-01-31)
