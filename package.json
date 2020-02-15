@@ -10,6 +10,9 @@
     "lint": "eslint ./src --ext .ts,.js,.vue --ignore-path .gitignore",
     "lint-fix": "yarn lint --fix"
   },
+  "resolutions": {
+    "prosemirror-model": "1.8.2"
+  },
   "dependencies": {
     "popper.js": "^1.16.1",
     "tiptap": "^1.16.2",

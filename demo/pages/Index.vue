@@ -89,7 +89,7 @@ export default {
   },
   methods: {
     onkeydown (event) {
-      console.log('event', event.key)
+      // console.log('event', event.key)
     }
   }
 }
