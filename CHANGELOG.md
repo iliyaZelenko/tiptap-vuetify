@@ -7,6 +7,11 @@
 
 # [2.12.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.11.1...v2.12.0) (2020-02-13)
 
+### Improvements
+
+* **i18n:** add missing spanish translations ([bb52851](https://github.com/iliyaZelenko/tiptap-vuetify/commit/bb52851292dc52c69d06cea852da4786652053b6)), closes [#137](https://github.com/iliyaZelenko/tiptap-vuetify/issues/137)
+
+
 ## [2.11.1](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.11.0...v2.11.1) (2020-01-31)
 
 
