@@ -49,7 +49,7 @@ MAIN_MODULE.then(({ TiptapVuetifyPlugin }) => {
   })
   Vue.use(TiptapVuetifyPlugin, {
     vuetify,
-    iconsGroup: 'mdiSvg' // VuetifyIconsGroups (fa, md, mdi, mdiSvg)
+    iconsGroup: 'mdi' // VuetifyIconsGroups (fa, md, mdi, mdiSvg)
   })
 
   Vue.config.productionTip = false

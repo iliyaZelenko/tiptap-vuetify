@@ -15,7 +15,7 @@
           icon
           @click="close"
         >
-          <v-icon>close</v-icon>
+          <v-icon>{{ COMMON_ICONS.close[$tiptapVuetify.iconsGroup] }}</v-icon>
         </v-btn>
       </v-card-title>
       <v-card-text>
@@ -93,6 +93,7 @@ import { VRow, VCol, VImg, VDialog, VCard, VCardTitle, VCardText, VCardActions, 
 import I18nMixin from '~/mixins/I18nMixin'
 import ImageUploadArea from '~/extensions/nativeExtensions/image/ImageUploadArea.vue'
 import { VExpandTransition } from 'vuetify/lib/components/transitions'
+import { COMMON_ICONS } from '~/configs/theme'
 
 export const PROPS = {
   VALUE: 'value' as const,
@@ -128,6 +129,8 @@ export default class ImageWindow extends mixins(I18nMixin) {
     required: true
   })
   readonly [PROPS.EDITOR]: any
+
+  readonly COMMON_ICONS = COMMON_ICONS
 
   form: {
     src: null | string
