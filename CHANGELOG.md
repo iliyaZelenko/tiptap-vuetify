@@ -1,3 +1,10 @@
+## [2.13.1](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.13.0...v2.13.1) (2020-02-19)
+
+
+### Bug Fixes
+
+* **todolist:** settled the change event ([2132508](https://github.com/iliyaZelenko/tiptap-vuetify/commit/2132508e8daffdd29e82d16c99bc8056a0ffcccb)), closes [#127](https://github.com/iliyaZelenko/tiptap-vuetify/issues/127)
+
 # [2.13.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.12.2...v2.13.0) (2020-02-19)
 
 
