@@ -6,7 +6,7 @@
     data-drag-handle
   >
     <VCheckbox
-      :value="node.attrs.done"
+      :input-value="node.attrs.done"
       class="mr-2 mt-3 pt-1"
       hide-details
       @change="onChange"
