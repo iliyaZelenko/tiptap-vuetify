@@ -26,6 +26,7 @@
 
 <script>
 import { MAIN_MODULE } from '../config'
+import MyCustomExtension from '../MyCustomExtension'
 
 export default {
   components: {
@@ -53,6 +54,7 @@ export default {
     } = await MAIN_MODULE
 
     this.extensions = [
+      MyCustomExtension,
       Code,
       CodeBlock,
       HorizontalRule,

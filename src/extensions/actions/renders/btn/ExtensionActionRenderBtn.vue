@@ -35,6 +35,7 @@ import TextIcon from '~/extensions/nativeExtensions/icons/TextIcon'
 import VuetifyIcon from '~/extensions/nativeExtensions/icons/VuetifyIcon'
 import IconInterface from '~/extensions/nativeExtensions/icons/IconInterface'
 import { VTooltip, VBtn, VIcon } from 'vuetify/lib'
+import ConsoleLogger from '~/logging/ConsoleLogger'
 
 // TODO можно использовать как миксин, передавать туда сразу пропсы и не нужно будет писать PROPS = PROPS
 export const PROPS = {
@@ -63,7 +64,15 @@ export default class ExtensionActionRenderBtn extends Vue {
   PROPS = PROPS
 
   get buttonIcon (): IconInterface {
-    return this[PROPS.OPTIONS].icons[this.$tiptapVuetify.iconsGroup]
+    const icon = this[PROPS.OPTIONS].icons[this.$tiptapVuetify.iconsGroup]
+
+    if (!icon) {
+      ConsoleLogger.warn('No icon was provided in extension options.')
+
+      return 'No icon'
+    }
+
+    return icon
   }
 
   get isTextIcon () {
