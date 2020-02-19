@@ -1,13 +1,12 @@
-import { Extension } from 'tiptap'
-import ExtensionActionInterface from '~/extensions/actions/ExtensionActionInterface'
+import AbstractExtensionInterface from '~/extensions/AbstractExtensionInterface'
 
-export default abstract class AbstractExtension {
-  nativeExtensionInstance: Extension | null = null
+export default abstract class AbstractExtension implements AbstractExtensionInterface {
+  nativeExtensionInstance = null
 
   /**
    * Доступные для отображения кнопки (например в зависимости от настроек)
    */
-  abstract get availableActions (): ExtensionActionInterface[]
+  abstract get availableActions ()
 
   protected constructor (protected options, protected extensionClass) {
     if (extensionClass) {

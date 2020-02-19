@@ -4,7 +4,7 @@
     class="tiptap-vuetify-editor"
   >
     <bubble
-      v-if="availableActions.bubbleMenu.length"
+      v-if="availableActions.bubbleMenu.length && editor.options.editable"
       :editor="editor"
       :actions="availableActions.bubbleMenu"
     />
@@ -56,8 +56,8 @@ import Bubble from '~/components/Bubble.vue'
 import { Placeholder } from 'tiptap-extensions'
 import { ExtensionActionRenderInEnum } from '~/extensions/actions/ExtensionActionRenderInEnum'
 import ExtensionActionInterface from '~/extensions/actions/ExtensionActionInterface'
-import AbstractExtension from '~/extensions/AbstractExtension'
 import { VCard } from 'vuetify/lib'
+import AbstractExtensionInterface from '~/extensions/AbstractExtensionInterface'
 
 @Component({
   components: {
@@ -159,6 +159,7 @@ export default class TiptapVuetify extends Vue {
 
   mounted () {
     const nativeExtensionsInstances: any = []
+    const extensionsInstances: AbstractExtensionInterface[] = []
     // опции расширений по умолчанию
     const paramsDefault = {
       renderIn: ExtensionActionRenderInEnum.toolbar,
@@ -182,7 +183,7 @@ export default class TiptapVuetify extends Vue {
 
       // параметры с дефолтными значениями TODO deep merge
       const paramsFinal = { ...paramsDefault, ...params }
-      const extension: AbstractExtension = new ExtensionClass(paramsFinal.options)
+      const extension: AbstractExtensionInterface = new ExtensionClass(paramsFinal.options)
       // const renderInVariants = Object.values(ExtensionActionRenderInEnum)
       //
       // if (!renderInVariants.includes(options.renderIn)) {
@@ -196,6 +197,8 @@ export default class TiptapVuetify extends Vue {
       if (extension.nativeExtensionInstance) {
         nativeExtensionsInstances.push(extension.nativeExtensionInstance)
       }
+      // Сбор расширений
+      extensionsInstances.push(extension)
     })
     const extensions = [
       ...this[PROPS.NATIVE_EXTENSIONS],
@@ -211,7 +214,7 @@ export default class TiptapVuetify extends Vue {
       }))
     }
 
-    this.editor = new Editor({
+    this.editor = (new Editor({
       extensions,
       ...this[PROPS.EDITOR_PROPERTIES],
       editorProps: {
@@ -228,11 +231,14 @@ export default class TiptapVuetify extends Vue {
       },
       content: this[PROPS.VALUE],
       onUpdate: this.onUpdate.bind(this)
-    })
+    }))!
 
     this.$emit(EVENTS.INIT, {
       editor: this.editor
     })
+    extensionsInstances.forEach(ext =>
+      ext.onEditorInit && ext.onEditorInit(this.editor!)
+    )
   }
 
   onUpdate (info) {

@@ -130,6 +130,13 @@ export default {
           apply: 'Apply'
         }
       }
+    },
+    TodoList: {
+      buttons: {
+        todoList: {
+          tooltip: 'To Do List'
+        }
+      }
     }
   }
 }

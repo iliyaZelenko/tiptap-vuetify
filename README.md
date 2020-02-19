@@ -74,6 +74,11 @@ npm install --save tiptap-vuetify
 
 ## Get started
 
+### Nuxt
+
+If you have Nuxt.js, [here](https://codesandbox.io/s/github/iliyaZelenko/tiptap-vuetify-nuxt/tree/master/) is a simple demo how to integrate it (`@nuxtjs/vuetify` module is used).
+The code for this example is taken from [this github repository](https://github.com/iliyaZelenko/tiptap-vuetify-nuxt), you can find more infо there.
+
 ### NPM (ES modules)
 
 1) Installing the package and Vuetify 2 from scratch:
@@ -158,11 +163,6 @@ export default {
 </script>
 ```
 
-### Nuxt
-
-If you have Nuxt.js, [here](https://codesandbox.io/s/github/iliyaZelenko/tiptap-vuetify-nuxt/tree/master/) is a simple demo how to integrate it (`@nuxtjs/vuetify` module is used).
-The code for this example is taken from [this github repository](https://github.com/iliyaZelenko/tiptap-vuetify-nuxt), you can find more infо there.
-
 ### CDN (<script>)
 
 There is another use case with the script tag (CDN version of package):
@@ -219,6 +219,8 @@ Available extensions (native tiptap extensions from `tiptap-extensions` package)
 - `HardBreak`
 - `HorizontalRule`
 - `History`
+- `TodoList` (use with the `TodoItem` extension)
+- `TodoItem`
 
 I can easily add more.
 
