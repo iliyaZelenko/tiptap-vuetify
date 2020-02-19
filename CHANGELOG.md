@@ -1,3 +1,10 @@
+# [2.13.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.12.2...v2.13.0) (2020-02-19)
+
+
+### Features
+
+* **extensions:** todoList and TodoItem extension! ([de0aa90](https://github.com/iliyaZelenko/tiptap-vuetify/commit/de0aa90c6a5f3b27d49daca3fb0170cc95e4d75e)), closes [#127](https://github.com/iliyaZelenko/tiptap-vuetify/issues/127)
+
 ## [2.12.2](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.12.1...v2.12.2) (2020-02-19)
 
 
