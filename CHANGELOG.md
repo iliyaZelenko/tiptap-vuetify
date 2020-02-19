@@ -1,3 +1,11 @@
+## [2.12.2](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.12.1...v2.12.2) (2020-02-19)
+
+
+### Bug Fixes
+
+* **bubble menu:** fix positioning for the condition when parent has "position: relative" ([de4b37b](https://github.com/iliyaZelenko/tiptap-vuetify/commit/de4b37bdce2345faf1d22320b55eb013bdca803f)), closes [#136](https://github.com/iliyaZelenko/tiptap-vuetify/issues/136)
+* **icons:** fix close icon ([b6e29cd](https://github.com/iliyaZelenko/tiptap-vuetify/commit/b6e29cd648e2267fce43aa8c2efbc36f31e9c731)), closes [#130](https://github.com/iliyaZelenko/tiptap-vuetify/issues/130)
+
 ## [2.12.1](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.12.0...v2.12.1) (2020-02-15)
 
 
