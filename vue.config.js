@@ -6,7 +6,7 @@ module.exports = {
   //   : '/',
   outputDir: undefined,
   assetsDir: undefined,
-  runtimeCompiler: undefined,
+  runtimeCompiler: true,
   productionSourceMap: undefined,
   parallel: undefined,
 

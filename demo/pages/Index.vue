@@ -50,11 +50,17 @@ export default {
   async created () {
     const {
       Heading, Bold, Italic, Strike, Underline, Code, CodeBlock, Paragraph, BulletList, OrderedList, ListItem,
-      Link, Blockquote, HardBreak, HorizontalRule, History, Image
+      Link, Blockquote, HardBreak, HorizontalRule, History, Image, TodoList, TodoItem
     } = await MAIN_MODULE
 
     this.extensions = [
       MyCustomExtension,
+      TodoList,
+      [TodoItem, {
+        options: {
+          nested: true
+        }
+      }],
       Code,
       CodeBlock,
       HorizontalRule,

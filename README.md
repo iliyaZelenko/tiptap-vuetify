@@ -219,6 +219,8 @@ Available extensions (native tiptap extensions from `tiptap-extensions` package)
 - `HardBreak`
 - `HorizontalRule`
 - `History`
+- `TodoList` (use with the `TodoItem` extension)
+- `TodoItem`
 
 I can easily add more.
 

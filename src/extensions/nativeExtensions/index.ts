@@ -52,3 +52,5 @@ export { default as HorizontalRule } from '~/extensions/nativeExtensions/Horizon
 export { default as History } from '~/extensions/nativeExtensions/History'
 export { default as Link } from '~/extensions/nativeExtensions/link/Link'
 export { default as Image } from '~/extensions/nativeExtensions/image/Image'
+export { default as TodoList } from '~/extensions/nativeExtensions/TodoList/TodoList'
+export { default as TodoItem } from '~/extensions/nativeExtensions/TodoList/TodoItem'
