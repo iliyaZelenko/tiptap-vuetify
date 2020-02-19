@@ -1,3 +1,10 @@
+## [2.13.2](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.13.1...v2.13.2) (2020-02-19)
+
+
+### Bug Fixes
+
+* **todolist:** vuetify's checkobx init value ([420d6e6](https://github.com/iliyaZelenko/tiptap-vuetify/commit/420d6e6d05021e1730296a15b20eb747e612792d))
+
 ## [2.13.1](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.13.0...v2.13.1) (2020-02-19)
 
 
