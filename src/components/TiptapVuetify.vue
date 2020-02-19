@@ -256,6 +256,8 @@ export default class TiptapVuetify extends Vue {
 
 <style lang="stylus">
   .tiptap-vuetify-editor
+    position: relative
+
     .ProseMirror
       outline: none !important
       margin: 20px !important

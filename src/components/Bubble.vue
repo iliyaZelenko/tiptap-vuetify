@@ -135,11 +135,12 @@ export default class Menu extends mixins(I18nMixin) {
     }
 
     setTimeout(() => {
-      const pop = document.querySelector('.tiptap-vuetify-editor-pop')!
+      const pop = document.querySelector<HTMLElement>('.tiptap-vuetify-editor-pop')!
       const rangeRef: any = new RangeRef()
       const popper = new Popper(rangeRef, pop, {
         placement: 'top',
-        modifiers: { offset: { offset: '0,5' } }
+        modifiers: { offset: { offset: '0,5' } },
+        positionFixed: true
       })
 
       rangeRef.rectChangedCallback = ({ width }) => {
@@ -157,7 +158,7 @@ export default class Menu extends mixins(I18nMixin) {
 
 <style lang="stylus">
 .tiptap-vuetify-editor-pop {
-  position: absolute
+  position: fixed;
   z-index 1;
   opacity: 0.9 !important
   transition: transform 100ms ease-in-out;
@@ -199,7 +200,7 @@ export default class Menu extends mixins(I18nMixin) {
 }
 
 [x-arrow] {
-  position: absolute;
+  position: fixed;
   width: 14px;
   height: 14px;
   background-color: #262625;
