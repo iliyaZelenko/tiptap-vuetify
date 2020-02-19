@@ -1,3 +1,24 @@
+## [2.13.2](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.13.1...v2.13.2) (2020-02-19)
+
+
+### Bug Fixes
+
+* **todolist:** vuetify's checkobx init value ([420d6e6](https://github.com/iliyaZelenko/tiptap-vuetify/commit/420d6e6d05021e1730296a15b20eb747e612792d))
+
+## [2.13.1](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.13.0...v2.13.1) (2020-02-19)
+
+
+### Bug Fixes
+
+* **todolist:** settled the change event ([2132508](https://github.com/iliyaZelenko/tiptap-vuetify/commit/2132508e8daffdd29e82d16c99bc8056a0ffcccb)), closes [#127](https://github.com/iliyaZelenko/tiptap-vuetify/issues/127)
+
+# [2.13.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.12.2...v2.13.0) (2020-02-19)
+
+
+### Features
+
+* **extensions:** todoList and TodoItem extension! ([de0aa90](https://github.com/iliyaZelenko/tiptap-vuetify/commit/de0aa90c6a5f3b27d49daca3fb0170cc95e4d75e)), closes [#127](https://github.com/iliyaZelenko/tiptap-vuetify/issues/127)
+
 ## [2.12.2](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.12.1...v2.12.2) (2020-02-19)
 
 

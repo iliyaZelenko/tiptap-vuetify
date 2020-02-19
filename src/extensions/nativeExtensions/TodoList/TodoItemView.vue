@@ -6,10 +6,10 @@
     data-drag-handle
   >
     <VCheckbox
-      :value="node.attrs.done"
+      :input-value="node.attrs.done"
       class="mr-2 mt-3 pt-1"
       hide-details
-      @input="onChange"
+      @change="onChange"
     />
     <div
       ref="content"
@@ -47,8 +47,6 @@ export default class TodoItemView extends Vue {
   updateAttrs: (...args: any) => any
 
   onChange () {
-    console.log('onChange')
-
     this.updateAttrs({
       done: !this.node.attrs.done
     })
