@@ -15,7 +15,7 @@
           icon
           @click="close"
         >
-          <v-icon>close</v-icon>
+          <v-icon>{{ COMMON_ICONS.close[$tiptapVuetify.iconsGroup] }}</v-icon>
         </v-btn>
       </v-card-title>
       <v-card-text>
@@ -57,6 +57,7 @@ import { mixins } from 'vue-class-component'
 import { Component, Prop } from 'vue-property-decorator'
 import { VDialog, VCard, VCardTitle, VCardText, VCardActions, VBtn, VSpacer, VIcon, VTextField } from 'vuetify/lib'
 import I18nMixin from '~/mixins/I18nMixin'
+import { COMMON_ICONS } from '~/configs/theme'
 
 export const PROPS = {
   VALUE: 'value' as const,
@@ -98,6 +99,8 @@ export default class LinkWindow extends mixins(I18nMixin) {
     type: String
   })
   readonly [PROPS.HREF]: null | string
+
+  readonly COMMON_ICONS = COMMON_ICONS
 
   form = {
     href: this[PROPS.HREF],

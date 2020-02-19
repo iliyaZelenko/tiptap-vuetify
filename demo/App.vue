@@ -12,7 +12,7 @@
             The Tiptap Editor Package
           </h1>
 
-          <div class="mt-4">
+          <div class="element-with-relative-position-to-test-bugs">
             <router-view />
           </div>
         </v-container>
@@ -22,9 +22,10 @@
 </template>
 
 <script>
-export default {
-  data: () => ({
-
-  })
-}
+export default {}
 </script>
+
+<style lang="stylus">
+.element-with-relative-position-to-test-bugs
+  position: relative
+</style>

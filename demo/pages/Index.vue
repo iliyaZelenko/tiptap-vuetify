@@ -4,12 +4,12 @@
     min-height="500"
     max-height="600"
     :editor-properties="editorProperties"
+    output-format="json"
    -->
     <tiptap-vuetify
       v-model="content"
       :extensions="extensions"
       placeholder="Write something …"
-      output-format="json"
       @keydown="onkeydown"
     />
 
