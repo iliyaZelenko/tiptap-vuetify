@@ -274,6 +274,9 @@ export default class TiptapVuetify extends Vue {
     transition: all 2s
     overflow: auto !important
     padding: 5px
+    
+    a
+      pointer-events: none
 
     h1, h2, h3, h4
       margin: 10px 0 20px !important
