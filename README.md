@@ -164,6 +164,8 @@ export default {
 ```
 
 ### CDN (<script>)
+  
+**Attention: it seems that this method does not work due to the fact that this is not done in the `tiptap` package itself. Therefore, it most likely will not work. [More details](https://github.com/iliyaZelenko/tiptap-vuetify/issues/146#issuecomment-601548526).**
 
 There is another use case with the script tag (CDN version of package):
 
