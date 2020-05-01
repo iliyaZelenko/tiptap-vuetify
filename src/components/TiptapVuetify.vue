@@ -230,7 +230,8 @@ export default class TiptapVuetify extends Vue {
         }
       },
       content: this[PROPS.VALUE],
-      onUpdate: this.onUpdate.bind(this)
+      onUpdate: this.onUpdate.bind(this),
+      onBlur: this.onBlur.bind(this)
     }))!
 
     this.$emit(EVENTS.INIT, {
@@ -254,6 +255,10 @@ export default class TiptapVuetify extends Vue {
     this.$emit(EVENTS.INPUT, output, info)
   }
 
+  onBlur ({ event, view }) {
+    this.$emit(EVENTS.BLUR, event, view)
+  }
+
   beforeDestroy () {
     if (this.editor) this.editor.destroy()
   }
@@ -274,6 +279,9 @@ export default class TiptapVuetify extends Vue {
     transition: all 2s
     overflow: auto !important
     padding: 5px
+
+    a
+      pointer-events: none
 
     h1, h2, h3, h4
       margin: 10px 0 20px !important
