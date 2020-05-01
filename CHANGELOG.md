@@ -1,3 +1,16 @@
+# [2.14.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.13.2...v2.14.0) (2020-05-01)
+
+
+### Bug Fixes
+
+* **linter:** remove trailing space ([103f4a1](https://github.com/iliyaZelenko/tiptap-vuetify/commit/103f4a17a2a23e8cb9cbbed057822056533c849a))
+
+
+### Features
+
+* **events:** support to event blur ([544f684](https://github.com/iliyaZelenko/tiptap-vuetify/commit/544f6844fa3300d6ca1f217b13addcada65e8335))
+* **i18n:** zh_CN translation ([ccc02a6](https://github.com/iliyaZelenko/tiptap-vuetify/commit/ccc02a635173efc4246677790826a635d6969588)), closes [#163](https://github.com/iliyaZelenko/tiptap-vuetify/issues/163)
+
 ## [2.13.2](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.13.1...v2.13.2) (2020-02-19)
 
 
