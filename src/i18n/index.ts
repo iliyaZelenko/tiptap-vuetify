@@ -30,7 +30,8 @@ export const dictionary = {
   nl,
   ja,
   de,
-  ko
+  ko,
+  fa
 }
 
 export function getCurrentLang () {
