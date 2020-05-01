@@ -11,6 +11,8 @@ import nl from './nl'
 import ja from './ja'
 import de from './de'
 import ko from './ko'
+import fa from './fa'
+
 import ConsoleLogger from '~/logging/ConsoleLogger'
 import { TiptapVuetifyPlugin } from '~/main'
 
