@@ -15,7 +15,7 @@ export default class Image extends AbstractExtension {
 
   get availableActions (): ExtensionActionInterface[] {
     const nativeExtensionName = 'image'
-    const options = this.options;
+    const options = this.options
     return [
       {
         render: new ExtensionActionRenderBtn({

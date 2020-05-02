@@ -47,18 +47,32 @@
                     </v-icon>
                   </v-btn>
                 </v-img>
-                <v-text-field label="Alt Text" v-model="source.alt" />
+                <v-text-field
+                  v-model="source.alt"
+                  label="Alt Text"
+                />
               </v-col>
             </v-row>
           </div>
         </v-expand-transition>
       </v-card-text>
       <v-tabs fixed-tabs>
-        <v-tab v-for="(imageTab, i) in imageTabs" :key="'tab-' + i" :href="'#tab-' + i">
+        <v-tab
+          v-for="(imageTab, i) in imageTabs"
+          :key="'tab-' + i"
+          :href="'#tab-' + i"
+        >
           {{ imageTab.name }}
         </v-tab>
-        <v-tab-item v-for="(imageTab, i) in imageTabs" :key="'tab-item-' + i" :value="'tab-' + i">
-          <component :is="imageTab.component" @select-file="onFileSelect" />
+        <v-tab-item
+          v-for="(imageTab, i) in imageTabs"
+          :key="'tab-item-' + i"
+          :value="'tab-' + i"
+        >
+          <component
+            :is="imageTab.component"
+            @select-file="onFileSelect"
+          />
         </v-tab-item>
       </v-tabs>
       <v-card-actions>
@@ -102,7 +116,7 @@ export const PROPS = {
 }
 
 @Component({
-  components: {VRow, VCol, VExpandTransition, ImageForm, ImageUploadArea, VImg, VDialog, VCard, VCardTitle, VCardText, VCardActions, VBtn, VSpacer, VIcon, VTextField, VTabs, VTab, VTabsSlider, VTabItem, VTabsItems }
+  components: { VRow, VCol, VExpandTransition, ImageForm, ImageUploadArea, VImg, VDialog, VCard, VCardTitle, VCardText, VCardActions, VBtn, VSpacer, VIcon, VTextField, VTabs, VTab, VTabsSlider, VTabItem, VTabsItems }
 })
 export default class ImageWindow extends mixins(I18nMixin) {
   @Prop({
@@ -146,7 +160,7 @@ export default class ImageWindow extends mixins(I18nMixin) {
   readonly defaultImageTabs = [
     {
       name: 'URL',
-      component: ImageForm,
+      component: ImageForm
     },
     {
       name: 'Upload',
@@ -156,14 +170,14 @@ export default class ImageWindow extends mixins(I18nMixin) {
 
   inputPreviewSources: ImageSource[] = []
 
-  get imageTabs() {
+  get imageTabs () {
     if (this[PROPS.IMAGE_SOURCES]) {
       if (this[PROPS.IMAGE_SOURCES_OVERRIDE]) {
-        return this[PROPS.IMAGE_SOURCES];
+        return this[PROPS.IMAGE_SOURCES]
       }
-      return this.defaultImageTabs.concat(this[PROPS.IMAGE_SOURCES]);
+      return this.defaultImageTabs.concat(this[PROPS.IMAGE_SOURCES])
     }
-    return this.defaultImageTabs;
+    return this.defaultImageTabs
   }
 
   get previewSources () {
@@ -182,23 +196,23 @@ export default class ImageWindow extends mixins(I18nMixin) {
 
   onFileSelect (file: ImageSource) {
     if (file.src !== null && file.src !== '') {
-      const existingFile = this.findFile(file);
+      const existingFile = this.findFile(file)
       if (existingFile !== null) {
-        existingFile.alt = file.alt;
+        existingFile.alt = file.alt
       } else {
-        this.inputPreviewSources.push(file);
+        this.inputPreviewSources.push(file)
       }
     }
   }
 
   findFile (file: ImageSource) {
-    const matches: ImageSource[] = this.inputPreviewSources.filter((source : ImageSource) => {
-      return (source.src === file.src);
+    const matches: ImageSource[] = this.inputPreviewSources.filter((source: ImageSource) => {
+      return (source.src === file.src)
     })
     if (matches.length > 0) {
-      return matches[0];
+      return matches[0]
     }
-    return null;
+    return null
   }
 
   apply () {

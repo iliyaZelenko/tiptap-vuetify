@@ -1,4 +1,4 @@
 export default interface ImageSource {
-  src: null | string,
+  src: null | string
   alt: null | string
 }

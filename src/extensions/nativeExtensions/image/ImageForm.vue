@@ -8,38 +8,40 @@
       v-model="form.alt"
       :label="'Alt Text'"
     />
-    <v-btn @click="addImage">Add Image</v-btn>
+    <v-btn @click="addImage">
+      Add Image
+    </v-btn>
     <!-- TODO: Alt text i18n -->
   </div>
 </template>
 
 <script lang="ts">
-  import { mixins } from 'vue-class-component'
-  import { Component } from 'vue-property-decorator'
-  import { VTextField } from 'vuetify/lib'
-  import I18nMixin from "../../../mixins/I18nMixin";
-  import EVENTS from '~/extensions/nativeExtensions/image/events';
+import { mixins } from 'vue-class-component'
+import { Component } from 'vue-property-decorator'
+import { VTextField } from 'vuetify/lib'
+import I18nMixin from '../../../mixins/I18nMixin'
+import EVENTS from '~/extensions/nativeExtensions/image/events'
 
   @Component({
     components: { VTextField }
   })
-  export default class ImageForm extends mixins(I18nMixin) {
-    form: {
-      src: null | string,
-      alt: null | string
-    } = {
-      src: null, // 'https://www.nationalgeographic.com/content/dam/news/2018/05/17/you-can-train-your-cat/02-cat-training-NationalGeographic_1484324.jpg'
-      alt: null
-    }
-    addImage() {
-      this.$emit(EVENTS.SELECT_FILE, {
-        src: this.form.src,
-        alt: this.form.alt
-      });
-      this.form.src = null;
-      this.form.alt = null;
-    }
+export default class ImageForm extends mixins(I18nMixin) {
+  form: {
+    src: null | string
+    alt: null | string
+  } = {
+    src: null, // 'https://www.nationalgeographic.com/content/dam/news/2018/05/17/you-can-train-your-cat/02-cat-training-NationalGeographic_1484324.jpg'
+    alt: null
   }
+  addImage () {
+    this.$emit(EVENTS.SELECT_FILE, {
+      src: this.form.src,
+      alt: this.form.alt
+    })
+    this.form.src = null
+    this.form.alt = null
+  }
+}
 </script>
 
 <style scoped>
