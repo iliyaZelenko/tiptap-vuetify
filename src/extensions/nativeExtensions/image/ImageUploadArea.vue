@@ -32,10 +32,8 @@
 import { mixins } from 'vue-class-component'
 import { Component } from 'vue-property-decorator'
 import I18nMixin from '~/mixins/I18nMixin'
+import EVENTS from '~/extensions/nativeExtensions/image/events';
 
-export const EVENTS = {
-  SELECT_FILES: 'select-files' as const
-}
 const HOLDER_CLASS = 'tiptap-vuetify-image-upload-area-holder'
 
 @Component
@@ -46,7 +44,7 @@ export default class ImageUploadArea extends mixins(I18nMixin) {
 
     input.addEventListener('change', e => {
       if (e.target instanceof HTMLInputElement) {
-        this.$emit(EVENTS.SELECT_FILES, e.target.files)
+        this.filesSelected(e.target.files);
         holder.classList.remove(HOLDER_CLASS + '--dragover')
 
         e.target.value = ''
@@ -66,7 +64,20 @@ export default class ImageUploadArea extends mixins(I18nMixin) {
     holder.addEventListener('dragend', dragleaveOrEndHandler)
     holder.addEventListener('drop', e => {
       e.preventDefault()
-      this.$emit(EVENTS.SELECT_FILES, e.dataTransfer!.files)
+      this.filesSelected(e.dataTransfer!.files);
+    })
+  }
+  filesSelected (files: HTMLInputElement['files']) {
+    [...files].forEach(file => {
+      const reader = new FileReader()
+      reader.addEventListener('load', readerEvent => {
+        // TODO URL.createObjectURL(file) and upload
+        this.$emit(EVENTS.SELECT_FILE, {
+          src: readerEvent.target!.result!.toString(),
+          alt: file.name
+        });
+      })
+      reader.readAsDataURL(file)
     })
   }
 }

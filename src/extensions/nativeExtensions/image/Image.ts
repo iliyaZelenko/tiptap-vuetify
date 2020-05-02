@@ -15,7 +15,7 @@ export default class Image extends AbstractExtension {
 
   get availableActions (): ExtensionActionInterface[] {
     const nativeExtensionName = 'image'
-
+    const options = this.options;
     return [
       {
         render: new ExtensionActionRenderBtn({
@@ -35,7 +35,8 @@ export default class Image extends AbstractExtension {
                 value: true,
                 nativeExtensionName,
                 context,
-                editor
+                editor,
+                imageSources: options.imageSources
               }
             })
 

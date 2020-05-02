@@ -32,7 +32,8 @@
                 cols="4"
               >
                 <v-img
-                  :src="source"
+                  :src="source.src"
+                  :alt="source.alt"
                   class="text-right"
                 >
                   <v-btn
@@ -46,26 +47,20 @@
                     </v-icon>
                   </v-btn>
                 </v-img>
+                <v-text-field label="Alt Text" v-model="source.alt" />
               </v-col>
             </v-row>
           </div>
         </v-expand-transition>
-
-        <v-text-field
-          v-model="form.src"
-          :label="$i18n.getMsg('extensions.Image.window.form.sourceLink')"
-        />
-
-        <v-expand-transition>
-          <div v-show="!form.src">
-            <div class="text-center grey--text mt-2 mb-4">
-              {{ $i18n.getMsg('extensions.Image.window.or') }}
-            </div>
-
-            <ImageUploadArea @select-files="onFilesSelect" />
-          </div>
-        </v-expand-transition>
       </v-card-text>
+      <v-tabs fixed-tabs>
+        <v-tab v-for="(imageTab, i) in imageTabs" :key="'tab-' + i" :href="'#tab-' + i">
+          {{ imageTab.name }}
+        </v-tab>
+        <v-tab-item v-for="(imageTab, i) in imageTabs" :key="'tab-item-' + i" :value="'tab-' + i">
+          <component :is="imageTab.component" @select-file="onFileSelect" />
+        </v-tab-item>
+      </v-tabs>
       <v-card-actions>
         <v-btn
           text
@@ -89,9 +84,11 @@
 <script lang="ts">
 import { mixins } from 'vue-class-component'
 import { Component, Prop } from 'vue-property-decorator'
-import { VRow, VCol, VImg, VDialog, VCard, VCardTitle, VCardText, VCardActions, VBtn, VSpacer, VIcon, VTextField } from 'vuetify/lib'
+import { VRow, VCol, VImg, VDialog, VCard, VCardTitle, VCardText, VCardActions, VBtn, VSpacer, VIcon, VTextField, VTabs, VTab, VTabsSlider, VTabItem, VTabsItems } from 'vuetify/lib'
 import I18nMixin from '~/mixins/I18nMixin'
 import ImageUploadArea from '~/extensions/nativeExtensions/image/ImageUploadArea.vue'
+import ImageForm from '~/extensions/nativeExtensions/image/ImageForm.vue'
+import ImageSource from '~/extensions/nativeExtensions/image/ImageSource'
 import { VExpandTransition } from 'vuetify/lib/components/transitions'
 import { COMMON_ICONS } from '~/configs/theme'
 
@@ -99,11 +96,13 @@ export const PROPS = {
   VALUE: 'value' as const,
   CONTEXT: 'context' as const,
   EDITOR: 'editor' as const,
+  IMAGE_SOURCES: 'imageSources' as const,
+  IMAGE_SOURCES_OVERRIDE: 'imageSourcesOverride' as const,
   NATIVE_EXTENSION_NAME: 'nativeExtensionName' as const
 }
 
 @Component({
-  components: { VRow, VCol, VExpandTransition, ImageUploadArea, VImg, VDialog, VCard, VCardTitle, VCardText, VCardActions, VBtn, VSpacer, VIcon, VTextField }
+  components: {VRow, VCol, VExpandTransition, ImageForm, ImageUploadArea, VImg, VDialog, VCard, VCardTitle, VCardText, VCardActions, VBtn, VSpacer, VIcon, VTextField, VTabs, VTab, VTabsSlider, VTabItem, VTabsItems }
 })
 export default class ImageWindow extends mixins(I18nMixin) {
   @Prop({
@@ -130,50 +129,81 @@ export default class ImageWindow extends mixins(I18nMixin) {
   })
   readonly [PROPS.EDITOR]: any
 
+  @Prop({
+    type: Array,
+    required: false
+  })
+  readonly [PROPS.IMAGE_SOURCES]: any
+
+  @Prop({
+    type: Boolean,
+    required: false
+  })
+  readonly [PROPS.IMAGE_SOURCES_OVERRIDE]: any
+
   readonly COMMON_ICONS = COMMON_ICONS
 
-  form: {
-    src: null | string
-  } = {
-    src: null // 'https://www.nationalgeographic.com/content/dam/news/2018/05/17/you-can-train-your-cat/02-cat-training-NationalGeographic_1484324.jpg'
+  readonly defaultImageTabs = [
+    {
+      name: 'URL',
+      component: ImageForm,
+    },
+    {
+      name: 'Upload',
+      component: ImageUploadArea
+    }
+  ]
+
+  inputPreviewSources: ImageSource[] = []
+
+  get imageTabs() {
+    if (this[PROPS.IMAGE_SOURCES]) {
+      if (this[PROPS.IMAGE_SOURCES_OVERRIDE]) {
+        return this[PROPS.IMAGE_SOURCES];
+      }
+      return this.defaultImageTabs.concat(this[PROPS.IMAGE_SOURCES]);
+    }
+    return this.defaultImageTabs;
   }
-  inputPreviewSources: string[] = []
 
   get previewSources () {
-    return [this.form.src, ...this.inputPreviewSources].filter(Boolean)
+    return this.inputPreviewSources.filter(Boolean)
   }
 
   get isDisabled () {
     return !this.previewSources.length
   }
 
-  removeSource (source) {
+  removeSource (source: ImageSource) {
     if (this.inputPreviewSources.includes(source)) {
       this.inputPreviewSources = this.inputPreviewSources.filter(i => i !== source)
-    } else if (this.form.src === source) {
-      this.form.src = null
     }
   }
 
-  onFilesSelect (files: HTMLInputElement['files']) {
-    [...files].forEach(file => {
-      const reader = new FileReader()
+  onFileSelect (file: ImageSource) {
+    if (file.src !== null && file.src !== '') {
+      const existingFile = this.findFile(file);
+      if (existingFile !== null) {
+        existingFile.alt = file.alt;
+      } else {
+        this.inputPreviewSources.push(file);
+      }
+    }
+  }
 
-      reader.addEventListener('load', readerEvent => {
-        // TODO URL.createObjectURL(file) and upload
-        this.inputPreviewSources.push(readerEvent.target!.result!.toString())
-      })
-      reader.readAsDataURL(file)
+  findFile (file: ImageSource) {
+    const matches: ImageSource[] = this.inputPreviewSources.filter((source : ImageSource) => {
+      return (source.src === file.src);
     })
+    if (matches.length > 0) {
+      return matches[0];
+    }
+    return null;
   }
 
   apply () {
     this.previewSources.forEach(src => {
-      this[PROPS.CONTEXT].commands[this[PROPS.NATIVE_EXTENSION_NAME]]({
-        // TODO alt, title
-        src,
-        alt: 'Image'
-      })
+      this[PROPS.CONTEXT].commands[this[PROPS.NATIVE_EXTENSION_NAME]](src)
     })
 
     this.close()
