@@ -12,6 +12,8 @@ import ja from './ja'
 import de from './de'
 import ko from './ko'
 import zh from './zh'
+import fa from './fa'
+
 import ConsoleLogger from '~/logging/ConsoleLogger'
 import { TiptapVuetifyPlugin } from '~/main'
 
@@ -30,7 +32,8 @@ export const dictionary = {
   ja,
   de,
   ko,
-  zh
+  zh,
+  fa
 }
 
 export function getCurrentLang () {
