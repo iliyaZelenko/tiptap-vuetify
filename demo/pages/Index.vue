@@ -27,7 +27,7 @@
 <script>
 import { MAIN_MODULE } from '../config'
 import MyCustomExtension from '../MyCustomExtension'
-import FileSelector from "../Components/FileSelector";
+import FileSelector from '../Components/FileSelector'
 
 export default {
   components: {
