@@ -33,6 +33,7 @@ export default class ImageForm extends mixins(I18nMixin) {
     src: null, // 'https://www.nationalgeographic.com/content/dam/news/2018/05/17/you-can-train-your-cat/02-cat-training-NationalGeographic_1484324.jpg'
     alt: null
   }
+
   addImage () {
     this.$emit(EVENTS.SELECT_FILE, {
       src: this.form.src,
