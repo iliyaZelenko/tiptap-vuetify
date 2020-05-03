@@ -93,7 +93,7 @@ export default {
       OrderedList,
       [Image, {
         options: {
-          imageSources: [ {component: FileSelector, name: 'File Selector'} ]
+          imageSources: [{ component: FileSelector, name: 'File Selector' }]
         }
       }],
       [Heading, {
