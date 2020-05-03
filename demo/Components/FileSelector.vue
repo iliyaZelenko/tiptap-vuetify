@@ -3,11 +3,12 @@
     <v-img
       v-for="(img, i) in images"
       :key="'img-' + i"
+      :alt="img.alt"
+      :src="img.src"
       class="ma-2 selectable"
       max-height="100"
       max-width="100"
-      :alt="img.alt"
-      :src="img.src" @click="selectImage(img)"
+      @click="selectImage(img)"
     />
   </div>
 </template>
