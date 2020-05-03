@@ -1,3 +1,10 @@
+# [2.15.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.14.0...v2.15.0) (2020-05-03)
+
+
+### Features
+
+* **i18n:** farsi translation ([7b1ff48](https://github.com/iliyaZelenko/tiptap-vuetify/commit/7b1ff486dcd70c82990ae28c4130cfa07d7f37ee)), closes [#167](https://github.com/iliyaZelenko/tiptap-vuetify/issues/167) [#152](https://github.com/iliyaZelenko/tiptap-vuetify/issues/152)
+
 # [2.14.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.13.2...v2.14.0) (2020-05-01)
 
 
