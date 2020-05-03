@@ -22,9 +22,9 @@ import { VTextField } from 'vuetify/lib'
 import I18nMixin from '../../../mixins/I18nMixin'
 import EVENTS from '~/extensions/nativeExtensions/image/events'
 
-  @Component({
-    components: { VTextField }
-  })
+@Component({
+  components: { VTextField }
+})
 export default class ImageForm extends mixins(I18nMixin) {
   form: {
     src: null | string
