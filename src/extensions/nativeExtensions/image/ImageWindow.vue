@@ -57,24 +57,24 @@
         </v-expand-transition>
       </v-card-text>
       <v-tabs fixed-tabs>
-      <template v-for="(imageTab, i) in imageTabs">
-        <v-tab
-          :key="'tab-' + i"
-          :href="'#tab-' + i"
-        >
-          {{ imageTab.name }}
-        </v-tab>
-        <v-tab-item
-          :key="'tab-item-' + i"
-          :value="'tab-' + i"
-        >
-          <component
-            :is="imageTab.component"
-            @select-file="onFileSelect"
-          />
-        </v-tab-item>
+        <template v-for="(imageTab, i) in imageTabs">
+          <v-tab
+            :key="'tab-' + i"
+            :href="'#tab-' + i"
+          >
+            {{ imageTab.name }}
+          </v-tab>
+          <v-tab-item
+            :key="'tab-item-' + i"
+            :value="'tab-' + i"
+          >
+            <component
+              :is="imageTab.component"
+              @select-file="onFileSelect"
+            />
+          </v-tab-item>
+        </template>
       </v-tabs>
-    </template>
       <v-card-actions>
         <v-btn
           text
