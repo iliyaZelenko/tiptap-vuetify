@@ -122,7 +122,11 @@ export default {
       window: {
         title: 'Afbeelding toevoegen',
         form: {
-          sourceLink: 'Afbeelding URL'
+          sourceLink: 'Afbeelding URL',
+          altText: 'Alternatieve Tekst'
+        },
+        imageUpload: {
+          instruction: 'Kies een of meerdere bestanden of sleep ze hiernaartoe.',
         },
         buttons: {
           close: 'Sluiten',

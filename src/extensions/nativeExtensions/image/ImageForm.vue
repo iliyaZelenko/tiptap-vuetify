@@ -6,12 +6,11 @@
     />
     <v-text-field
       v-model="form.alt"
-      :label="'Alt Text'"
+      :label="$i18n.getMsg('extensions.Image.window.form.altText')"
     />
     <v-btn @click="addImage">
-      Add Image
+      {{ $i18n.getMsg('extensions.Image.window.form.addImage') }}
     </v-btn>
-    <!-- TODO: Alt text i18n -->
   </div>
 </template>
 
