@@ -121,7 +121,6 @@ export default {
       },
       window: {
         title: '画像を追加する',
-        or: 'または',
         form: {
           sourceLink: '画像URL'
         },

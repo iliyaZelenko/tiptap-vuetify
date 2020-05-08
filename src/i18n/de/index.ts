@@ -121,7 +121,6 @@ export default {
       },
       window: {
         title: 'Bild hinzufügen',
-        or: 'ODER',
         form: {
           sourceLink: 'Bild URL'
         },

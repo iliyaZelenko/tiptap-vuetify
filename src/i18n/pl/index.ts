@@ -121,7 +121,6 @@ export default {
       },
       window: {
         title: 'Dodaj obrazek',
-        or: 'LUB',
         form: {
           sourceLink: 'Adres URL obrazka'
         },
