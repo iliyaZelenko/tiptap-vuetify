@@ -303,7 +303,7 @@ When a user selects an image, the component must emit a `select-file` event with
 For example:
 ```js
 selectImage() {
-  // There may be your asynchronous file upload to the server (backend), when the file is uploaded you can set the path to the "src" property.
+  // When doing an asynchronous upload, you can set the src property to the value provided by the server (backend).
   this.$emit('select-file', { src: '/path/to/image.jpg', alt: 'Uploaded image' });
 }
 ```
