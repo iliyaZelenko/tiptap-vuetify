@@ -61,7 +61,7 @@ If you have Vuetify `1.x` (not `2.x`), then you can find docs and demo [here](ht
 - the project is ready to actively develop if there is support (stars)!
 - the ability to create and use your own extensions
 - choose where the extension buttons should be displayed: in the toolbar or in the bubble menu
-- support for custom image upload / selection components
+- support for custom image upload. You can use any method of upload through your Vue component.
 - Vuetify `2.x` and `1.x` support
 
 ## Installation
@@ -303,6 +303,7 @@ When a user selects an image, the component must emit a `select-file` event with
 For example:
 ```js
 selectImage() {
+  // There may be your asynchronous file upload to the server (backend), when the file is uploaded you can set the path to the "src" property.
   this.$emit('select-file', { src: '/path/to/image.jpg', alt: 'Uploaded image' });
 }
 ```
