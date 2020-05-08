@@ -70,6 +70,7 @@
           >
             <component
               :is="imageTab.component"
+              class="pa-4"
               @select-file="onFileSelect"
             />
           </v-tab-item>
