@@ -37,7 +37,8 @@ export default class Image extends AbstractExtension {
                 nativeExtensionName,
                 context,
                 editor,
-                imageSources: options.imageSources
+                imageSources: options.imageSources,
+                imageSourcesOverride: options.imageSourcesOverride
               }
             })
 
