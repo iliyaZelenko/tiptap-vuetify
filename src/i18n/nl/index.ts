@@ -121,7 +121,6 @@ export default {
       },
       window: {
         title: 'Afbeelding toevoegen',
-        or: 'OF',
         form: {
           sourceLink: 'Afbeelding URL'
         },

@@ -121,7 +121,6 @@ export default {
       },
       window: {
         title: 'Add Image',
-        or: 'OR',
         form: {
           sourceLink: 'Image URL'
         },
