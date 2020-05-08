@@ -121,7 +121,6 @@ export default {
       },
       window: {
         title: '이미지 추가',
-        or: '또는',
         form: {
           sourceLink: '이미지 URL'
         },

@@ -121,7 +121,6 @@ export default {
       },
       window: {
         title: '添加图片',
-        or: '或者',
         form: {
           sourceLink: '图片链接'
         },

@@ -121,7 +121,6 @@ export default {
       },
       window: {
         title: 'Agregar Imagen',
-        or: 'O',
         form: {
           sourceLink: 'URL de la Imagen'
         },
