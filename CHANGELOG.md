@@ -1,3 +1,10 @@
+## [2.16.1](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.16.0...v2.16.1) (2020-05-08)
+
+
+### Bug Fixes
+
+* optimize main build file ([#169](https://github.com/iliyaZelenko/tiptap-vuetify/issues/169)) ([a15c4a1](https://github.com/iliyaZelenko/tiptap-vuetify/commit/a15c4a1bb9ca361c9b04fc264f73164d958b2e1a)), closes [#157](https://github.com/iliyaZelenko/tiptap-vuetify/issues/157) [#157](https://github.com/iliyaZelenko/tiptap-vuetify/issues/157)
+
 # [2.16.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.15.0...v2.16.0) (2020-05-08)
 
 
