@@ -55,7 +55,7 @@ export function getMsg (path: string, args?, lang: null | string = null): string
     }, dictionaryByLang)
     // No error thrown by above reduce function if last stage is undefined - no fallback used and returned value is empty
     if (target === undefined) {
-      throw new Error(`${path} is undefined.`);
+      throw new Error(`${path} is undefined.`)
     }
   } catch (e) {
     ConsoleLogger.warn(`Cannot get translation "${path}" for language "${currentLang}". Fallback "${defaultLanguage}" is used instead. Contribution to github is welcome.`)

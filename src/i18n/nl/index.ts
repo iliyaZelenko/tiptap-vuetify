@@ -126,7 +126,7 @@ export default {
           altText: 'Alternatieve Tekst'
         },
         imageUpload: {
-          instruction: 'Kies een of meerdere bestanden of sleep ze hiernaartoe.',
+          instruction: 'Kies een of meerdere bestanden of sleep ze hiernaartoe.'
         },
         buttons: {
           close: 'Sluiten',

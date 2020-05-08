@@ -127,7 +127,7 @@ export default {
           addImage: 'Add Image'
         },
         imageUpload: {
-          instruction: 'Choose a file(s) or drag it here.',
+          instruction: 'Choose a file(s) or drag it here.'
         },
         buttons: {
           close: 'Close',
