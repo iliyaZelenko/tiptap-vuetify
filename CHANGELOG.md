@@ -1,3 +1,10 @@
+# [2.16.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.15.0...v2.16.0) (2020-05-08)
+
+
+### Features
+
+* Custom images upload ([3af6fc3](https://github.com/iliyaZelenko/tiptap-vuetify/commit/3af6fc3dc9a3445414c1ca64eee329183efa0d63)), closes [#141](https://github.com/iliyaZelenko/tiptap-vuetify/issues/141) [#16](https://github.com/iliyaZelenko/tiptap-vuetify/issues/16)
+
 # [2.15.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.14.0...v2.15.0) (2020-05-03)
 
 
