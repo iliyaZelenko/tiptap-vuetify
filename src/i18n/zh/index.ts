@@ -3,130 +3,130 @@ export default {
     Blockquote: {
       buttons: {
         blockquote: {
-          tooltip: 'Blok cytatu'
+          tooltip: '引用'
         }
       }
     },
     Bold: {
       buttons: {
         bold: {
-          tooltip: 'Pogrubienie'
+          tooltip: '粗体'
         }
       }
     },
     BulletList: {
       buttons: {
         bulletList: {
-          tooltip: 'Lista punktów'
+          tooltip: '项目符号'
         }
       }
     },
     Code: {
       buttons: {
         code: {
-          tooltip: 'Kod'
+          tooltip: '代码'
         }
       }
     },
     CodeBlock: {
       buttons: {
         codeBlock: {
-          tooltip: 'Blok kodu'
+          tooltip: '代码块'
         }
       }
     },
     History: {
       buttons: {
         undo: {
-          tooltip: 'Cofnij'
+          tooltip: '撤销'
         },
         redo: {
-          tooltip: 'Ponów'
+          tooltip: '重做'
         }
       }
     },
     HorizontalRule: {
       buttons: {
         horizontalRule: {
-          tooltip: 'Linia pozioma'
+          tooltip: '水平线'
         }
       }
     },
     Italic: {
       buttons: {
         italic: {
-          tooltip: 'Kursywa'
+          tooltip: '斜体'
         }
       }
     },
     OrderedList: {
       buttons: {
         orderedList: {
-          tooltip: 'Lista numerowana'
+          tooltip: '数字编号'
         }
       }
     },
     Paragraph: {
       buttons: {
         paragraph: {
-          tooltip: 'Paragraf'
+          tooltip: '段落'
         }
       }
     },
     Strike: {
       buttons: {
         strike: {
-          tooltip: 'Przekreślenie'
+          tooltip: '删除线'
         }
       }
     },
     Underline: {
       buttons: {
         underline: {
-          tooltip: 'Podkreślenie'
+          tooltip: '下划线'
         }
       }
     },
     Heading: {
       buttons: {
         heading: {
-          tooltip: args => 'Nagłówek ' + args.level
+          tooltip: ({ level }) => level + ' 级标题 '
         }
       }
     },
     Link: {
       buttons: {
         isActive: {
-          tooltip: 'Zaktualizuj odnośnik'
+          tooltip: '改变链接'
         },
         notActive: {
-          tooltip: 'Dodaj odnośnik'
+          tooltip: '增加链接'
         }
       },
       window: {
-        title: 'Odnośnik',
+        title: '增加链接',
         form: {
-          hrefLabel: 'Adres URL'
+          hrefLabel: '链接'
         },
         buttons: {
-          close: 'Zamknij',
-          remove: 'Usuń',
-          apply: 'Zastosuj'
+          close: '关闭',
+          remove: '移除',
+          apply: '使用'
         }
       }
     },
     Image: {
       buttons: {
-        tooltip: 'Obrazek'
+        tooltip: '图片'
       },
       window: {
-        title: 'Dodaj obrazek',
+        title: '添加图片',
         form: {
-          sourceLink: 'Adres URL obrazka'
+          sourceLink: '图片链接'
         },
         buttons: {
-          close: 'Zamknij',
-          apply: 'Zastosuj'
+          close: '关闭',
+          apply: '使用'
         }
       }
     }

@@ -22,7 +22,7 @@
           <path d="M48.4 26.5c-.9 0-1.7.7-1.7 1.7v11.6h-43.3v-11.6c0-.9-.7-1.7-1.7-1.7s-1.7.7-1.7 1.7v13.2c0 .9.7 1.7 1.7 1.7h46.7c.9 0 1.7-.7 1.7-1.7v-13.2c0-1-.7-1.7-1.7-1.7zm-24.5 6.1c.3.3.8.5 1.2.5.4 0 .9-.2 1.2-.5l10-11.6c.7-.7.7-1.7 0-2.4s-1.7-.7-2.4 0l-7.1 8.3v-25.3c0-.9-.7-1.7-1.7-1.7s-1.7.7-1.7 1.7v25.3l-7.1-8.3c-.7-.7-1.7-.7-2.4 0s-.7 1.7 0 2.4l10 11.6z" />
         </svg>
         <br><br>
-        <h3>Choose a file(s) or drag it here.</h3>
+        <h3>{{ $i18n.getMsg('extensions.Image.window.imageUpload.instruction') }}</h3>
       </div>
     </label>
   </div>
@@ -32,10 +32,8 @@
 import { mixins } from 'vue-class-component'
 import { Component } from 'vue-property-decorator'
 import I18nMixin from '~/mixins/I18nMixin'
+import EVENTS from '~/extensions/nativeExtensions/image/events'
 
-export const EVENTS = {
-  SELECT_FILES: 'select-files' as const
-}
 const HOLDER_CLASS = 'tiptap-vuetify-image-upload-area-holder'
 
 @Component
@@ -46,7 +44,7 @@ export default class ImageUploadArea extends mixins(I18nMixin) {
 
     input.addEventListener('change', e => {
       if (e.target instanceof HTMLInputElement) {
-        this.$emit(EVENTS.SELECT_FILES, e.target.files)
+        this.filesSelected(e.target.files)
         holder.classList.remove(HOLDER_CLASS + '--dragover')
 
         e.target.value = ''
@@ -66,7 +64,20 @@ export default class ImageUploadArea extends mixins(I18nMixin) {
     holder.addEventListener('dragend', dragleaveOrEndHandler)
     holder.addEventListener('drop', e => {
       e.preventDefault()
-      this.$emit(EVENTS.SELECT_FILES, e.dataTransfer!.files)
+      this.filesSelected(e.dataTransfer!.files)
+    })
+  }
+  filesSelected (files: HTMLInputElement['files']) {
+    [...files].forEach(file => {
+      const reader = new FileReader()
+      reader.addEventListener('load', readerEvent => {
+        // TODO URL.createObjectURL(file) and upload
+        this.$emit(EVENTS.SELECT_FILE, {
+          src: readerEvent.target!.result!.toString(),
+          alt: file.name
+        })
+      })
+      reader.readAsDataURL(file)
     })
   }
 }

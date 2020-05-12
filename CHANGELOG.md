@@ -1,3 +1,37 @@
+## [2.16.1](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.16.0...v2.16.1) (2020-05-08)
+
+
+### Bug Fixes
+
+* optimize main build file ([#169](https://github.com/iliyaZelenko/tiptap-vuetify/issues/169)) ([a15c4a1](https://github.com/iliyaZelenko/tiptap-vuetify/commit/a15c4a1bb9ca361c9b04fc264f73164d958b2e1a)), closes [#157](https://github.com/iliyaZelenko/tiptap-vuetify/issues/157) [#157](https://github.com/iliyaZelenko/tiptap-vuetify/issues/157)
+
+# [2.16.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.15.0...v2.16.0) (2020-05-08)
+
+
+### Features
+
+* Custom images upload ([3af6fc3](https://github.com/iliyaZelenko/tiptap-vuetify/commit/3af6fc3dc9a3445414c1ca64eee329183efa0d63)), closes [#141](https://github.com/iliyaZelenko/tiptap-vuetify/issues/141) [#16](https://github.com/iliyaZelenko/tiptap-vuetify/issues/16)
+
+# [2.15.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.14.0...v2.15.0) (2020-05-03)
+
+
+### Features
+
+* **i18n:** farsi translation ([7b1ff48](https://github.com/iliyaZelenko/tiptap-vuetify/commit/7b1ff486dcd70c82990ae28c4130cfa07d7f37ee)), closes [#167](https://github.com/iliyaZelenko/tiptap-vuetify/issues/167) [#152](https://github.com/iliyaZelenko/tiptap-vuetify/issues/152)
+
+# [2.14.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.13.2...v2.14.0) (2020-05-01)
+
+
+### Bug Fixes
+
+* **linter:** remove trailing space ([103f4a1](https://github.com/iliyaZelenko/tiptap-vuetify/commit/103f4a17a2a23e8cb9cbbed057822056533c849a))
+
+
+### Features
+
+* **events:** support to event blur ([544f684](https://github.com/iliyaZelenko/tiptap-vuetify/commit/544f6844fa3300d6ca1f217b13addcada65e8335))
+* **i18n:** zh_CN translation ([ccc02a6](https://github.com/iliyaZelenko/tiptap-vuetify/commit/ccc02a635173efc4246677790826a635d6969588)), closes [#163](https://github.com/iliyaZelenko/tiptap-vuetify/issues/163)
+
 ## [2.13.2](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.13.1...v2.13.2) (2020-02-19)
 
 

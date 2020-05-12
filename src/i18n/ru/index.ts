@@ -121,7 +121,6 @@ export default {
       },
       window: {
         title: 'Добавить картинку',
-        or: 'ИЛИ',
         form: {
           sourceLink: 'Ссылка на картинку'
         },

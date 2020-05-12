@@ -53,7 +53,7 @@ If you have Vuetify `1.x` (not `2.x`), then you can find docs and demo [here](ht
 
 - used vuetify components
 - support for different types of icons ([fa](https://fontawesome.com/),  [md](https://material.io/tools/icons/), [mdi](https://materialdesignicons.com/), [mdiSvg](https://vuetifyjs.com/en/customization/icons#install-material-design-icons-js-svg))
-- internationalization (en, es, fr, pl, ru, uk, ptbr, tr, he, nl, ja, de, ko, sv), with automatic detection of the current language through the Vuetify. You can make a PR for your language if it is not there, [here](https://github.com/iliyaZelenko/tiptap-vuetify/pull/118/files) is an example.
+- internationalization (en, es, fr, pl, ru, uk, ptbr, tr, he, nl, ja, de, ko, zh-CN, fa, sv), with automatic detection of the current language through the Vuetify. You can make a PR for your language if it is not there, [here](https://github.com/iliyaZelenko/tiptap-vuetify/pull/118/files) is an example.
 - markdown support
 - easy to start using
 - props and events are available
@@ -61,6 +61,7 @@ If you have Vuetify `1.x` (not `2.x`), then you can find docs and demo [here](ht
 - the project is ready to actively develop if there is support (stars)!
 - the ability to create and use your own extensions
 - choose where the extension buttons should be displayed: in the toolbar or in the bubble menu
+- support for custom image upload. You can use any method of upload through your Vue component.
 - Vuetify `2.x` and `1.x` support
 
 ## Installation
@@ -163,7 +164,7 @@ export default {
 </script>
 ```
 
-### CDN (<script>)
+### CDN
   
 **Attention: it seems that this method does not work due to the fact that this is not done in the `tiptap` package itself. Therefore, it most likely will not work. [More details](https://github.com/iliyaZelenko/tiptap-vuetify/issues/146#issuecomment-601548526).**
 
@@ -292,6 +293,43 @@ data () {
 ```
 
 [Here](https://github.com/iliyaZelenko/tiptap-vuetify/issues/100#issuecomment-551950075) is example of how to create your extension from scratch.
+
+### custom image upload components
+A custom image upload / selection component allows you to upload images to or select images from your application's backend system.
+The when properly configured, the component will be displayed as a tab in the Add Image window.
+
+To implement this, first create a component where users can upload and/or select images. The component will not get any props from the image window.
+When a user selects an image, the component must emit a `select-file` event with an object containing `src` and `alt` properties.
+For example:
+```js
+selectImage() {
+  // When doing an asynchronous upload, you can set the src property to the value provided by the server (backend).
+  this.$emit('select-file', { src: '/path/to/image.jpg', alt: 'Uploaded image' });
+}
+```
+
+To add your component to the image extension, make the following changes:
+Import your component, e.g.
+```js
+import FileSelector from '~/Components/FileSelector'
+```
+Update `tiptap-vuetify :extensions` value for Image as follows:
+```js
+...
+[Image, {
+  options: {
+    imageSources: [
+      { component: FileSelector, name: 'File Selector' }
+    ]
+  }
+}]
+...
+```
+The value of `name` will be the tab name.
+
+By default, your component will be added to tiptap-vuetify's own image sources (URL and data url Upload). If you want to exclude these image sources you can set `imageSourcesOverride: true` in the extension's options.
+
+A basic example implementation can be found in the package's demo code in [FileSelector.vue](demo/Components/FileSelector.vue) and [Index.vue](demo/pages/Index.vue).
 
 ### output-format
 

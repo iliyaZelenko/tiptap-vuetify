@@ -27,6 +27,7 @@
 <script>
 import { MAIN_MODULE } from '../config'
 import MyCustomExtension from '../MyCustomExtension'
+import FileSelector from '../Components/FileSelector'
 
 export default {
   components: {
@@ -90,7 +91,11 @@ export default {
       ListItem, // если нужно использовать список (BulletList, OrderedList)
       BulletList,
       OrderedList,
-      Image,
+      [Image, {
+        options: {
+          imageSources: [{ component: FileSelector, name: 'File Selector' }]
+        }
+      }],
       [Heading, {
         // Опции которые попадают в расширение tiptap
         options: {

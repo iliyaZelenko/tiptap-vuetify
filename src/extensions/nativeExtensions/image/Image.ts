@@ -15,6 +15,7 @@ export default class Image extends AbstractExtension {
 
   get availableActions (): ExtensionActionInterface[] {
     const nativeExtensionName = 'image'
+    const options = this.options
 
     return [
       {
@@ -35,7 +36,9 @@ export default class Image extends AbstractExtension {
                 value: true,
                 nativeExtensionName,
                 context,
-                editor
+                editor,
+                imageSources: options.imageSources,
+                imageSourcesOverride: options.imageSourcesOverride
               }
             })
 

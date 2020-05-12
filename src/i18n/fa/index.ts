@@ -3,130 +3,138 @@ export default {
     Blockquote: {
       buttons: {
         blockquote: {
-          tooltip: 'Blok cytatu'
+          tooltip: 'نقل قول'
         }
       }
     },
     Bold: {
       buttons: {
         bold: {
-          tooltip: 'Pogrubienie'
+          tooltip: 'درشت'
         }
       }
     },
     BulletList: {
       buttons: {
         bulletList: {
-          tooltip: 'Lista punktów'
+          tooltip: 'لیست بولت'
         }
       }
     },
     Code: {
       buttons: {
         code: {
-          tooltip: 'Kod'
+          tooltip: 'کد'
         }
       }
     },
     CodeBlock: {
       buttons: {
         codeBlock: {
-          tooltip: 'Blok kodu'
+          tooltip: 'بلوک کد'
         }
       }
     },
     History: {
       buttons: {
         undo: {
-          tooltip: 'Cofnij'
+          tooltip: 'بازگشت'
         },
         redo: {
-          tooltip: 'Ponów'
+          tooltip: 'مجدد'
         }
       }
     },
     HorizontalRule: {
       buttons: {
         horizontalRule: {
-          tooltip: 'Linia pozioma'
+          tooltip: 'خط افقی'
         }
       }
     },
     Italic: {
       buttons: {
         italic: {
-          tooltip: 'Kursywa'
+          tooltip: 'ایتالیک'
         }
       }
     },
     OrderedList: {
       buttons: {
         orderedList: {
-          tooltip: 'Lista numerowana'
+          tooltip: 'لیست مرتب شده'
         }
       }
     },
     Paragraph: {
       buttons: {
         paragraph: {
-          tooltip: 'Paragraf'
+          tooltip: 'پاراگراف'
         }
       }
     },
     Strike: {
       buttons: {
         strike: {
-          tooltip: 'Przekreślenie'
+          tooltip: 'خط زدن'
         }
       }
     },
     Underline: {
       buttons: {
         underline: {
-          tooltip: 'Podkreślenie'
+          tooltip: 'خط زیرین'
         }
       }
     },
     Heading: {
       buttons: {
         heading: {
-          tooltip: args => 'Nagłówek ' + args.level
+          tooltip: ({ level }) => level + ' سطح هدر'
         }
       }
     },
     Link: {
       buttons: {
         isActive: {
-          tooltip: 'Zaktualizuj odnośnik'
+          tooltip: 'عوض کردن لینک'
         },
         notActive: {
-          tooltip: 'Dodaj odnośnik'
+          tooltip: 'اضافه لینک'
         }
       },
       window: {
-        title: 'Odnośnik',
+        title: 'کنترل لینک',
         form: {
-          hrefLabel: 'Adres URL'
+          hrefLabel: 'لینک'
         },
         buttons: {
-          close: 'Zamknij',
-          remove: 'Usuń',
-          apply: 'Zastosuj'
+          close: 'بستن',
+          remove: 'حذف',
+          apply: 'اعمال'
         }
       }
     },
     Image: {
       buttons: {
-        tooltip: 'Obrazek'
+        tooltip: 'عکس'
       },
       window: {
-        title: 'Dodaj obrazek',
+        title: 'اضافه عکس',
+        or: 'OR',
         form: {
-          sourceLink: 'Adres URL obrazka'
+          sourceLink: 'لینک عکس'
         },
         buttons: {
-          close: 'Zamknij',
-          apply: 'Zastosuj'
+          close: 'بستن',
+          apply: 'اعمال'
+        }
+      }
+    },
+    TodoList: {
+      buttons: {
+        todoList: {
+          tooltip: 'لیست کارها'
         }
       }
     }
