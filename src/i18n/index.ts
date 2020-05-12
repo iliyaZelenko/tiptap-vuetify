@@ -11,6 +11,7 @@ import nl from './nl'
 import ja from './ja'
 import de from './de'
 import ko from './ko'
+import sv from './sv'
 import ConsoleLogger from '~/logging/ConsoleLogger'
 import { TiptapVuetifyPlugin } from '~/main'
 
@@ -28,7 +29,8 @@ export const dictionary = {
   nl,
   ja,
   de,
-  ko
+  ko,
+  sv
 }
 
 export function getCurrentLang () {
