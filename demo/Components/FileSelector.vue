@@ -23,6 +23,7 @@
     name: "FileSelector",
     components: { VImg },
     data() {
+      this.$someFunction();
       // Some public domain images from wikimedia.
       return {
         images: [

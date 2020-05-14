@@ -51,6 +51,13 @@ MAIN_MODULE.then(({ TiptapVuetifyPlugin }) => {
     vuetify,
     iconsGroup: 'mdi' // VuetifyIconsGroups (fa, md, mdi, mdiSvg)
   })
+  Vue.use({
+    install: (Vue, options) => {
+      Vue.prototype.$someFunction = function() {
+        console.log('pluginFunction');
+      }
+    }
+  })
 
   Vue.config.productionTip = false
 

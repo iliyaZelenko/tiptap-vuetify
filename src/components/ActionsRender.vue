@@ -1,13 +1,21 @@
 <template>
   <div>
     <template v-for="(action, i) in $props[PROPS.ACTIONS]">
-      <action-btn
+      <component
         v-if="isBtn(action)"
         :key="'action-button-' + i"
         :options="action.render.options"
         :context="$props[PROPS.CONTEXT]"
         :editor="$props[PROPS.EDITOR]"
         :dark="$props[PROPS.DARK]"
+        :is="action.component ? action.component : 'action-btn'"
+        v-bind="{
+          options: action.render.options,
+          context: $props[PROPS.CONTEXT],
+          editor: $props[PROPS.EDITOR],
+          dark: $props[PROPS.DARK],
+          ... action.componentOptions ? action.componentOptions : {}
+        }"
       />
     </template>
   </div>

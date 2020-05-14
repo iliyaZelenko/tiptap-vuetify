@@ -1,99 +1,94 @@
 <template>
-  <v-dialog
-    :value="value"
-    max-width="500px"
-  >
-    <v-card>
-      <v-card-title>
-        <span class="headline">
-          {{ $i18n.getMsg('extensions.Image.window.title') }}
-        </span>
+  <v-card>
+    <v-card-title>
+      <span class="headline">
+        {{ $i18n.getMsg('extensions.Image.window.title') }}
+      </span>
 
-        <v-spacer />
+      <v-spacer />
 
-        <v-btn
-          icon
-          @click="close"
-        >
-          <v-icon>{{ COMMON_ICONS.close[$tiptapVuetify.iconsGroup] }}</v-icon>
-        </v-btn>
-      </v-card-title>
-      <v-card-text>
-        <v-expand-transition>
-          <div v-show="previewSources.length">
-            <v-row
-              no-gutters
-              justify="center"
-              align="center"
+      <v-btn
+        icon
+        @click="close"
+      >
+        <v-icon>{{ COMMON_ICONS.close[$tiptapVuetify.iconsGroup] }}</v-icon>
+      </v-btn>
+    </v-card-title>
+    <v-card-text>
+      <v-expand-transition>
+        <div v-show="previewSources.length">
+          <v-row
+            no-gutters
+            justify="center"
+            align="center"
+          >
+            <v-col
+              v-for="(source, i) of previewSources"
+              :key="'preview' + i"
+              cols="4"
             >
-              <v-col
-                v-for="(source, i) of previewSources"
-                :key="'preview' + i"
-                cols="4"
+              <v-img
+                :src="source.src"
+                :alt="source.alt"
+                class="text-right"
               >
-                <v-img
-                  :src="source.src"
-                  :alt="source.alt"
-                  class="text-right"
+                <v-btn
+                  icon
+                  small
+                  dark
+                  @click="removeSource(source)"
                 >
-                  <v-btn
-                    icon
-                    small
-                    dark
-                    @click="removeSource(source)"
-                  >
-                    <v-icon small>
-                      close
-                    </v-icon>
-                  </v-btn>
-                </v-img>
-                <v-text-field
-                  v-model="source.alt"
-                  label="Alt Text"
-                />
-              </v-col>
-            </v-row>
-          </div>
-        </v-expand-transition>
-      </v-card-text>
-      <v-tabs fixed-tabs>
-        <template v-for="(imageTab, i) in imageTabs">
-          <v-tab
-            :key="'tab-' + i"
-            :href="'#tab-' + i"
-          >
-            {{ imageTab.name }}
-          </v-tab>
-          <v-tab-item
-            :key="'tab-item-' + i"
-            :value="'tab-' + i"
-          >
-            <component
-              :is="imageTab.component"
-              class="pa-4"
-              @select-file="onFileSelect"
-            />
-          </v-tab-item>
-        </template>
-      </v-tabs>
-      <v-card-actions>
-        <v-btn
-          text
-          @click="close"
+                  <v-icon small>
+                    close
+                  </v-icon>
+                </v-btn>
+              </v-img>
+              <v-text-field
+                v-model="source.alt"
+                label="Alt Text"
+              />
+            </v-col>
+          </v-row>
+        </div>
+      </v-expand-transition>
+    </v-card-text>
+    <v-tabs fixed-tabs>
+      <template v-for="(imageTab, i) in imageTabs">
+        <v-tab
+          :key="'tab-' + i"
+          :href="'#tab-' + i"
         >
-          {{ $i18n.getMsg('extensions.Image.window.buttons.close') }}
-        </v-btn>
+          {{ imageTab.name }}
+        </v-tab>
+        <v-tab-item
+          :key="'tab-item-' + i"
+          :value="'tab-' + i"
+        >
+          <component
+            :is="imageTab.component"
+            class="pa-4"
+            @select-file="onFileSelect"
+          />
+        </v-tab-item>
+      </template>
+    </v-tabs>
+    <v-card-actions>
+      <v-btn
+        text
+        @click="close"
+      >
+        {{ $i18n.getMsg('extensions.Image.window.buttons.close') }}
+      </v-btn>
 
-        <v-btn
-          :disabled="isDisabled"
-          text
-          @click="apply"
-        >
-          {{ $i18n.getMsg('extensions.Image.window.buttons.apply') }}
-        </v-btn>
-      </v-card-actions>
-    </v-card>
-  </v-dialog>
+      <v-btn
+        :disabled="isDisabled"
+        text
+        @click="apply"
+      >
+        {{ $i18n.getMsg('extensions.Image.window.buttons.apply') }}
+      </v-btn>
+    </v-card-actions>
+  </v-card>
 </template>
 
 <script lang="ts">
@@ -108,7 +103,6 @@ import { VExpandTransition } from 'vuetify/lib/components/transitions'
 import { COMMON_ICONS } from '~/configs/theme'
 
 export const PROPS = {
-  VALUE: 'value' as const,
   CONTEXT: 'context' as const,
   EDITOR: 'editor' as const,
   IMAGE_SOURCES: 'imageSources' as const,
@@ -120,12 +114,6 @@ export const PROPS = {
   components: { VRow, VCol, VExpandTransition, ImageForm, ImageUploadArea, VImg, VDialog, VCard, VCardTitle, VCardText, VCardActions, VBtn, VSpacer, VIcon, VTextField, VTabs, VTab, VTabsSlider, VTabItem, VTabsItems }
 })
 export default class ImageWindow extends mixins(I18nMixin) {
-  @Prop({
-    type: Boolean,
-    default: false
-  })
-  readonly [PROPS.VALUE]: boolean
-
   @Prop({
     type: String,
     required: true
@@ -172,6 +160,7 @@ export default class ImageWindow extends mixins(I18nMixin) {
   inputPreviewSources: ImageSource[] = []
 
   get imageTabs () {
+    console.log(this);
     if (this[PROPS.IMAGE_SOURCES]) {
       if (this[PROPS.IMAGE_SOURCES_OVERRIDE]) {
         return this[PROPS.IMAGE_SOURCES]
@@ -226,8 +215,7 @@ export default class ImageWindow extends mixins(I18nMixin) {
   }
 
   close () {
-    this.$destroy()
-    this.$el.parentNode!.removeChild(this.$el)
+    this.$emit('close');
   }
 }
 </script>
