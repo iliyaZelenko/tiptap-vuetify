@@ -53,7 +53,7 @@ If you have Vuetify `1.x` (not `2.x`), then you can find docs and demo [here](ht
 
 - used vuetify components
 - support for different types of icons ([fa](https://fontawesome.com/),  [md](https://material.io/tools/icons/), [mdi](https://materialdesignicons.com/), [mdiSvg](https://vuetifyjs.com/en/customization/icons#install-material-design-icons-js-svg))
-- internationalization (en, es, fr, pl, ru, uk, ptbr, tr, he, nl, ja, de, ko, zh-CN, fa), with automatic detection of the current language through the Vuetify. You can make a PR for your language if it is not there, [here](https://github.com/iliyaZelenko/tiptap-vuetify/pull/118/files) is an example.
+- internationalization (en, es, fr, pl, ru, uk, ptbr, tr, he, nl, ja, de, ko, zh-CN, fa, sv), with automatic detection of the current language through the Vuetify. You can make a PR for your language if it is not there, [here](https://github.com/iliyaZelenko/tiptap-vuetify/pull/118/files) is an example.
 - markdown support
 - easy to start using
 - props and events are available
@@ -303,7 +303,7 @@ When a user selects an image, the component must emit a `select-file` event with
 For example:
 ```js
 selectImage() {
-  // There may be your asynchronous file upload to the server (backend), when the file is uploaded you can set the path to the "src" property.
+  // When doing an asynchronous upload, you can set the src property to the value provided by the server (backend).
   this.$emit('select-file', { src: '/path/to/image.jpg', alt: 'Uploaded image' });
 }
 ```
