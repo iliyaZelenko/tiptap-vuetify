@@ -1,3 +1,10 @@
+# [2.17.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.16.1...v2.17.0) (2020-05-14)
+
+
+### Features
+
+* **i18n:** added Swedish language support ([#158](https://github.com/iliyaZelenko/tiptap-vuetify/issues/158)) ([3337180](https://github.com/iliyaZelenko/tiptap-vuetify/commit/33371802c708316287cda76859e84a790fa98d56))
+
 ## [2.16.1](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.16.0...v2.16.1) (2020-05-08)
 
 
