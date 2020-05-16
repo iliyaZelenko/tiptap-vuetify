@@ -5,7 +5,7 @@
   >
     <template #activator="{ on: onDialog }">
       <v-tooltip top>
-        <template v-slot:activator="{ on: tooltip }">
+        <template #activator="{ on: tooltip }">
           <v-btn
             :class="{
               'tiptap-vuetify-editor__action-render-btn': true,
