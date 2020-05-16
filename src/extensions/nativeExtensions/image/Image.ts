@@ -5,7 +5,7 @@ import I18nText from '~/i18n/I18nText'
 import AbstractExtension from '~/extensions/AbstractExtension'
 import ExtensionActionInterface from '~/extensions/actions/ExtensionActionInterface'
 import ExtensionActionRenderBtn from '~/extensions/actions/renders/btn/ExtensionActionRenderBtn.ts'
-import ImageExtensionActionRenderBtn from "~/extensions/nativeExtensions/image/ImageExtensionActionRenderBtn.vue";
+import ImageExtensionActionRenderBtn from '~/extensions/nativeExtensions/image/ImageExtensionActionRenderBtn.vue'
 
 export default class Image extends AbstractExtension {
   constructor (options) {

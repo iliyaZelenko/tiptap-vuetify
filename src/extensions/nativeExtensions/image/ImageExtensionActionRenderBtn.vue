@@ -1,5 +1,8 @@
 <template>
-  <v-dialog v-model="dialog" max-width="500px">
+  <v-dialog
+    v-model="dialog"
+    max-width="500px"
+  >
     <template #activator="{ on: onDialog }">
       <v-tooltip top>
         <template v-slot:activator="{ on: tooltip }">
@@ -9,7 +12,6 @@
               'v-btn--active': $props[PROPS.OPTIONS].isActive($props[PROPS.CONTEXT])
             }"
             :dark="$props[PROPS.DARK]"
-            color="green"
             small
             icon
             v-on="{ ...tooltip, ...onDialog }"
@@ -28,78 +30,41 @@
     <image-window
       :editor="editor"
       :context="context"
-      nativeExtensionName="image"
-      :imageSources="imageSources"
-      :imageSourcesOverride="imageSourcesOverride"
+      native-extension-name="image"
+      :image-sources="imageSources"
+      :image-sources-override="imageSourcesOverride"
       @close="dialog = false"
     />
   </v-dialog>
 </template>
 
 <script lang="ts">
-  import Vue from 'vue'
-  import { Component, Prop } from 'vue-property-decorator'
-  import { Editor } from 'tiptap'
-  import ExtensionActionRenderBtnOptionsInterface from '~/extensions/actions/renders/btn/ExtensionActionRenderBtnOptionsInterface';
-  import TextIcon from '~/extensions/nativeExtensions/icons/TextIcon'
-  import VuetifyIcon from '~/extensions/nativeExtensions/icons/VuetifyIcon'
-  import IconInterface from '~/extensions/nativeExtensions/icons/IconInterface'
-  import { VTooltip, VBtn, VIcon, VDialog } from 'vuetify/lib'
-  import ConsoleLogger from '~/logging/ConsoleLogger'
-  import ImageWindow from '~/extensions/nativeExtensions/image/ImageWindow.vue';
-  // TODO можно использовать как миксин, передавать туда сразу пропсы и не нужно будет писать PROPS = PROPS
-  export const PROPS = {
-    EDITOR: 'editor' as const,
-    OPTIONS: 'options' as const,
-    CONTEXT: 'context' as const,
-    DARK: 'dark' as const,
-    IMAGE_SOURCES: 'imageSources' as const,
-    IMAGE_SOURCES_OVERRIDE: 'imageSourcesOverride' as const,
-  }
+import { Component, Prop } from 'vue-property-decorator'
+import { VTooltip, VBtn, VIcon, VDialog } from 'vuetify/lib'
+import ImageWindow from '~/extensions/nativeExtensions/image/ImageWindow.vue'
+import ExtensionActionRenderBtn from '~/extensions/actions/renders/btn/ExtensionActionRenderBtn.vue'
+import { mixins } from 'vue-class-component'
+// TODO can be used as a mixin, immediately send props and you won’t need to write PROPS = PROPS
+export const PROPS_IMG_BTN = {
+  IMAGE_SOURCES: 'imageSources' as const,
+  IMAGE_SOURCES_OVERRIDE: 'imageSourcesOverride' as const
+}
   @Component({
-    components: {ImageWindow, VTooltip, VBtn, VIcon, VDialog }
+    components: { ImageWindow, VTooltip, VBtn, VIcon, VDialog }
   })
-  export default class ExtensionActionRenderBtn extends Vue {
-    @Prop({ type: Object, required: true })
-    readonly [PROPS.EDITOR]: Editor
-    @Prop({ type: Object, required: true })
-    readonly [PROPS.OPTIONS]: ExtensionActionRenderBtnOptionsInterface
-    @Prop({ type: Object, required: true })
-    readonly [PROPS.CONTEXT]: any
-    @Prop({ type: Boolean, default: false })
-    readonly [PROPS.DARK]: boolean
+export default class ImageExtensionActionRenderBtn extends mixins(ExtensionActionRenderBtn) {
     @Prop({
       type: Array,
       required: false
     })
-    readonly [PROPS.IMAGE_SOURCES]: any
+  readonly [PROPS_IMG_BTN.IMAGE_SOURCES]: anyR
     @Prop({
       type: Boolean,
       required: false
     })
-    readonly [PROPS.IMAGE_SOURCES_OVERRIDE]: any
-    PROPS = PROPS
+    readonly [PROPS_IMG_BTN.IMAGE_SOURCES_OVERRIDE]: any
     dialog: boolean = false
-    get buttonIcon (): IconInterface {
-      const icon = this[PROPS.OPTIONS].icons[this.$tiptapVuetify.iconsGroup]
-      if (!icon) {
-        ConsoleLogger.warn('No icon was provided in extension options.')
-        return 'No icon'
-      }
-      return icon
-    }
-    get isTextIcon () {
-      return this.buttonIcon instanceof TextIcon
-    }
-    get isVuetifyIcon () {
-      return this.buttonIcon instanceof VuetifyIcon
-    }
-    get tooltipText () {
-      const source = this.$props[PROPS.OPTIONS].tooltip
-      if (typeof source === 'function') {
-        return source(this.$props[PROPS.CONTEXT], this.$props[PROPS.OPTIONS])
-      }
-      return source
-    }
-  }
+
+    PROPS_IMG_BTN = PROPS_IMG_BTN;
+}
 </script>
