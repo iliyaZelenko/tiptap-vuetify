@@ -14,6 +14,7 @@ import ko from './ko'
 import zh from './zh'
 import fa from './fa'
 import sv from './sv'
+import cs from './cs'
 
 import ConsoleLogger from '~/logging/ConsoleLogger'
 import { TiptapVuetifyPlugin } from '~/main'
@@ -35,7 +36,8 @@ export const dictionary = {
   ko,
   zh,
   fa,
-  sv
+  sv,
+  cs
 }
 
 export function getCurrentLang () {
@@ -46,9 +48,9 @@ export function getMsg (path: string, args?, lang: null | string = null): string
   let currentLang = lang || getCurrentLang()
 
   if (!dictionary[currentLang]) {
-    currentLang = defaultLanguage
-
     ConsoleLogger.warn(`The current language "${currentLang}" is not yet available. Using language "${defaultLanguage}" by default. Contribution to github is welcome.`)
+
+    currentLang = defaultLanguage
   }
 
   const dictionaryByLang = dictionary[currentLang]
