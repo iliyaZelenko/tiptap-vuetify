@@ -1,7 +1,7 @@
 <template>
   <v-dialog
     v-model="dialog"
-    max-width="500px"
+    :max-width="dialogMaxWidth"
   >
     <template #activator="{ on: onDialog }">
       <v-tooltip top>
@@ -47,24 +47,34 @@ import { mixins } from 'vue-class-component'
 // TODO can be used as a mixin, immediately send props and you won’t need to write PROPS = PROPS
 export const PROPS_IMG_BTN = {
   IMAGE_SOURCES: 'imageSources' as const,
-  IMAGE_SOURCES_OVERRIDE: 'imageSourcesOverride' as const
+  IMAGE_SOURCES_OVERRIDE: 'imageSourcesOverride' as const,
+  DIALOG_MAX_WIDTH: 'dialogMaxWidth' as const
 }
   @Component({
     components: { ImageCard, VTooltip, VBtn, VIcon, VDialog }
   })
 export default class ImageExtensionActionRenderBtn extends mixins(ExtensionActionRenderBtn) {
-    @Prop({
-      type: Array,
-      required: false
-    })
+  @Prop({
+    type: Array,
+    required: false
+  })
   readonly [PROPS_IMG_BTN.IMAGE_SOURCES]: any
-    @Prop({
-      type: Boolean,
-      required: false
-    })
-    readonly [PROPS_IMG_BTN.IMAGE_SOURCES_OVERRIDE]: any
-    dialog: boolean = false
 
-    PROPS_IMG_BTN = PROPS_IMG_BTN;
+  @Prop({
+    type: Boolean,
+    required: false
+  })
+  readonly [PROPS_IMG_BTN.IMAGE_SOURCES_OVERRIDE]: any
+
+  @Prop({
+    default: '500px',
+    type: [String, Number],
+    required: false
+  })
+  readonly [PROPS_IMG_BTN.DIALOG_MAX_WIDTH]: any
+
+  dialog: boolean = false
+
+  PROPS_IMG_BTN = PROPS_IMG_BTN;
 }
 </script>
