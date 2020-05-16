@@ -1,3 +1,15 @@
+# [2.18.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.17.0...v2.18.0) (2020-05-16)
+
+
+### Bug Fixes
+
+* **translation:** useless warning about unsupported current language ([#174](https://github.com/iliyaZelenko/tiptap-vuetify/issues/174)) ([ad551c1](https://github.com/iliyaZelenko/tiptap-vuetify/commit/ad551c18823127d290511c5a732161258dc7c7a6))
+
+
+### Features
+
+* **i18n:** cs translation ([#173](https://github.com/iliyaZelenko/tiptap-vuetify/issues/173)) ([2cf77ff](https://github.com/iliyaZelenko/tiptap-vuetify/commit/2cf77ff58fa65ddc0605275ae5c63ab0569a88a6))
+
 # [2.17.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.16.1...v2.17.0) (2020-05-14)
 
 
