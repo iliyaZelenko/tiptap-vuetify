@@ -5,9 +5,9 @@
         <template v-slot:activator="{ on: tooltip }">
           <v-btn
             :class="{
-          'tiptap-vuetify-editor__action-render-btn': true,
-          'v-btn--active': $props[PROPS.OPTIONS].isActive($props[PROPS.CONTEXT])
-        }"
+              'tiptap-vuetify-editor__action-render-btn': true,
+              'v-btn--active': $props[PROPS.OPTIONS].isActive($props[PROPS.CONTEXT])
+            }"
             :dark="$props[PROPS.DARK]"
             color="green"
             small
