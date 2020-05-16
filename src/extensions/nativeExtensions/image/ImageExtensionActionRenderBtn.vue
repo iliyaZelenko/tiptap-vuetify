@@ -27,7 +27,7 @@
         <template>{{ tooltipText }}</template>
       </v-tooltip>
     </template>
-    <image-window
+    <image-card
       :editor="editor"
       :context="context"
       native-extension-name="image"
@@ -41,7 +41,7 @@
 <script lang="ts">
 import { Component, Prop } from 'vue-property-decorator'
 import { VTooltip, VBtn, VIcon, VDialog } from 'vuetify/lib'
-import ImageWindow from '~/extensions/nativeExtensions/image/ImageWindow.vue'
+import ImageCard from '~/extensions/nativeExtensions/image/ImageCard.vue'
 import ExtensionActionRenderBtn from '~/extensions/actions/renders/btn/ExtensionActionRenderBtn.vue'
 import { mixins } from 'vue-class-component'
 // TODO can be used as a mixin, immediately send props and you won’t need to write PROPS = PROPS
@@ -50,14 +50,14 @@ export const PROPS_IMG_BTN = {
   IMAGE_SOURCES_OVERRIDE: 'imageSourcesOverride' as const
 }
   @Component({
-    components: { ImageWindow, VTooltip, VBtn, VIcon, VDialog }
+    components: { ImageCard, VTooltip, VBtn, VIcon, VDialog }
   })
 export default class ImageExtensionActionRenderBtn extends mixins(ExtensionActionRenderBtn) {
     @Prop({
       type: Array,
       required: false
     })
-  readonly [PROPS_IMG_BTN.IMAGE_SOURCES]: anyR
+  readonly [PROPS_IMG_BTN.IMAGE_SOURCES]: any
     @Prop({
       type: Boolean,
       required: false

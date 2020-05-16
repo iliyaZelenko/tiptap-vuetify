@@ -113,7 +113,7 @@ export const PROPS = {
 @Component({
   components: { VRow, VCol, VExpandTransition, ImageForm, ImageUploadArea, VImg, VDialog, VCard, VCardTitle, VCardText, VCardActions, VBtn, VSpacer, VIcon, VTextField, VTabs, VTab, VTabsSlider, VTabItem, VTabsItems }
 })
-export default class ImageWindow extends mixins(I18nMixin) {
+export default class ImageCard extends mixins(I18nMixin) {
   @Prop({
     type: String,
     required: true
