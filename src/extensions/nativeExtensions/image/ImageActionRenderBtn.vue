@@ -50,9 +50,10 @@ export const PROPS_IMG_BTN = {
   IMAGE_SOURCES_OVERRIDE: 'imageSourcesOverride' as const,
   DIALOG_MAX_WIDTH: 'dialogMaxWidth' as const
 }
-  @Component({
-    components: { ImageCard, VTooltip, VBtn, VIcon, VDialog }
-  })
+
+@Component({
+  components: { ImageCard, VTooltip, VBtn, VIcon, VDialog }
+})
 export default class ImageExtensionActionRenderBtn extends mixins(ExtensionActionRenderBtn) {
   @Prop({
     type: Array,
@@ -75,6 +76,6 @@ export default class ImageExtensionActionRenderBtn extends mixins(ExtensionActio
 
   dialog: boolean = false
 
-  PROPS_IMG_BTN = PROPS_IMG_BTN;
+  PROPS_IMG_BTN = PROPS_IMG_BTN
 }
 </script>
