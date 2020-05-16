@@ -160,7 +160,6 @@ export default class ImageCard extends mixins(I18nMixin) {
   inputPreviewSources: ImageSource[] = []
 
   get imageTabs () {
-    console.log(this)
     if (this[PROPS.IMAGE_SOURCES]) {
       if (this[PROPS.IMAGE_SOURCES_OVERRIDE]) {
         return this[PROPS.IMAGE_SOURCES]
