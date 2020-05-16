@@ -1,6 +1,6 @@
 <template>
   <v-dialog v-model="dialog" max-width="500px">
-    <template v-slot:activator="{ on: onDialog }">
+    <template #activator="{ on: onDialog }">
       <v-tooltip top>
         <template v-slot:activator="{ on: tooltip }">
           <v-btn
