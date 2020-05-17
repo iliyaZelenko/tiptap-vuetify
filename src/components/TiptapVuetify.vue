@@ -20,6 +20,7 @@
         :editor="editor"
         :actions="availableActions.toolbar"
         :toolbar-attributes="$props[PROPS.TOOLBAR_ATTRIBUTES]"
+        :disabled="$props[PROPS.DISABLED]"
       >
         <!-- Позволяет пользователю показывать свой тулбар -->
         <template
@@ -68,6 +69,9 @@ import AbstractExtensionInterface from '~/extensions/AbstractExtensionInterface'
   }
 })
 export default class TiptapVuetify extends Vue {
+  @Prop({ type: Boolean, default: false })
+  readonly [PROPS.DISABLED]: boolean
+
   @Prop({ type: String, default: '' })
   readonly [PROPS.VALUE]: string
 
@@ -146,6 +150,11 @@ export default class TiptapVuetify extends Vue {
     }
   }
 
+  @Watch('disabled')
+  onDisabledChange (val) {
+    if (this.editor) this.editor.setOptions({ editable: !val })
+  }
+
   @Watch('value')
   onValueChange (val) {
     if (this.emitAfterOnUpdate) {
@@ -215,6 +224,7 @@ export default class TiptapVuetify extends Vue {
     }
 
     this.editor = (new Editor({
+      editable: !this[PROPS.DISABLED],
       extensions,
       ...this[PROPS.EDITOR_PROPERTIES],
       editorProps: {
