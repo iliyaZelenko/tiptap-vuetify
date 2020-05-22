@@ -2,6 +2,9 @@
   <div
     v-if="editor"
     class="tiptap-vuetify-editor"
+    :class="{
+      'tiptap-vuetify-editor--disabled': $props[PROPS.DISABLED]
+    }"
   >
     <bubble
       v-if="availableActions.bubbleMenu.length && editor.options.editable"
@@ -20,6 +23,7 @@
         :editor="editor"
         :actions="availableActions.toolbar"
         :toolbar-attributes="$props[PROPS.TOOLBAR_ATTRIBUTES]"
+        :disabled="$props[PROPS.DISABLED]"
       >
         <!-- Позволяет пользователю показывать свой тулбар -->
         <template
@@ -39,6 +43,9 @@
         :editor="editor"
         :style="contentDynamicStyles"
         class="tiptap-vuetify-editor__content"
+        :class="{
+          'tiptap-vuetify-editor__content--disabled': $props[PROPS.DISABLED]
+        }"
       />
 
       <slot name="footer" />
@@ -68,6 +75,9 @@ import AbstractExtensionInterface from '~/extensions/AbstractExtensionInterface'
   }
 })
 export default class TiptapVuetify extends Vue {
+  @Prop({ type: Boolean, default: false })
+  readonly [PROPS.DISABLED]: boolean
+
   @Prop({ type: String, default: '' })
   readonly [PROPS.VALUE]: string
 
@@ -146,6 +156,11 @@ export default class TiptapVuetify extends Vue {
     }
   }
 
+  @Watch('disabled')
+  onDisabledChange (val) {
+    if (this.editor) this.editor.setOptions({ editable: !val })
+  }
+
   @Watch('value')
   onValueChange (val) {
     if (this.emitAfterOnUpdate) {
@@ -215,6 +230,7 @@ export default class TiptapVuetify extends Vue {
     }
 
     this.editor = (new Editor({
+      editable: !this[PROPS.DISABLED],
       extensions,
       ...this[PROPS.EDITOR_PROPERTIES],
       editorProps: {
@@ -273,6 +289,9 @@ export default class TiptapVuetify extends Vue {
       outline: none !important
       margin: 20px !important
 
+    &--disabled
+      cursor: not-allowed
+
   /* Элемент не обязательно содрежится в .tiptap-vuetify-editor, может использоваться для отображения результата
   редактора в не редактора */
   .tiptap-vuetify-editor__content
@@ -319,4 +338,18 @@ export default class TiptapVuetify extends Vue {
           pointer-events: none
           height: 0
           font-style: italic
+
+    &--disabled
+      // same color for disabled text as default light vuetify theme: vuetify/src/styles/settings/_light.scss#L30
+      color rgba(0, 0, 0, 0.38)
+      &:after
+        // same as background as for filled v-text-input: vuetify/src/styles/settings/_light.scss#L87
+        background-color: rgba(0, 0, 0, 0.06)
+        position: absolute
+        content: ''
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+
 </style>
