@@ -4,6 +4,7 @@
     <template #activator="{ on }">
       <!--TODO options.isActive сделать реактивным -->
       <v-btn
+        :disabled="disabled"
         :class="{
           'tiptap-vuetify-editor__action-render-btn': true,
           'v-btn--active': $props[PROPS.OPTIONS].isActive($props[PROPS.CONTEXT])
@@ -42,13 +43,17 @@ export const PROPS = {
   EDITOR: 'editor' as const,
   OPTIONS: 'options' as const,
   CONTEXT: 'context' as const,
-  DARK: 'dark' as const
+  DARK: 'dark' as const,
+  DISABLED: 'disabled' as const
 }
 
 @Component({
   components: { VTooltip, VBtn, VIcon }
 })
 export default class ExtensionActionRenderBtn extends Vue {
+  @Prop({ type: Boolean, default: false })
+  readonly [PROPS.DISABLED]: boolean
+
   @Prop({ type: Object, required: true })
   readonly [PROPS.EDITOR]: Editor
 

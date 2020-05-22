@@ -342,6 +342,17 @@ For example, to get json instead:
 />
 ```
 
+### disabled
+
+Flag for disabling entire editor (disabled toolbar items and [ready-only](https://tiptap.scrumpy.io/read-only) content area). Default false.
+
+For example, disabled editor by component prop: 
+```vue
+<tiptap-vuetify
+  :disabled="editorDisabled"
+/>
+```
+
 ## Events
 
 ### init
