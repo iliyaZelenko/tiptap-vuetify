@@ -1,3 +1,10 @@
+# [2.20.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.19.0...v2.20.0) (2020-05-22)
+
+
+### Features
+
+* add disabled flag ([#176](https://github.com/iliyaZelenko/tiptap-vuetify/issues/176)) ([c79b4bd](https://github.com/iliyaZelenko/tiptap-vuetify/commit/c79b4bd55ac827c4bd45d503e38b3d8cef121329)), closes [#102](https://github.com/iliyaZelenko/tiptap-vuetify/issues/102)
+
 # [2.19.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.18.0...v2.19.0) (2020-05-21)
 
 # [2.18.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.17.0...v2.18.0) (2020-05-16)
