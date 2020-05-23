@@ -134,6 +134,13 @@ export default {
           apply: 'Appliquer'
         }
       }
-    },
+    }, 
+    TodoList: {
+      buttons: {
+        todoList: {
+          tooltip: 'To Do Liste'
+        }
+      }
+    }
   }
 }
