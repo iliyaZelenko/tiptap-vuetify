@@ -134,7 +134,7 @@ export default {
           apply: 'Appliquer'
         }
       }
-    }, 
+    },
     TodoList: {
       buttons: {
         todoList: {
