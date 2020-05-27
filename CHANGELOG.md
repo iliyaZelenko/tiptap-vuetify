@@ -1,3 +1,10 @@
+# [2.22.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.21.0...v2.22.0) (2020-05-27)
+
+
+### Features
+
+* **events:** add onFocus-Event ([#183](https://github.com/iliyaZelenko/tiptap-vuetify/issues/183)) ([dcf8fd7](https://github.com/iliyaZelenko/tiptap-vuetify/commit/dcf8fd7dc31d7d122869b0361aa2261d58871d70)), closes [#154](https://github.com/iliyaZelenko/tiptap-vuetify/issues/154)
+
 # [2.21.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.20.0...v2.21.0) (2020-05-27)
 
 
