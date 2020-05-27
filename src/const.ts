@@ -5,7 +5,8 @@ export const VuetifyVuePrototypeProperty = '$vuetify'
 export const EVENTS = {
   INPUT: 'input' as const,
   INIT: 'init' as const,
-  BLUR: 'blur' as const
+  BLUR: 'blur' as const,
+  FOCUS: 'focus' as const
 }
 
 export const PROPS = {
