@@ -1,3 +1,10 @@
+# [2.21.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.20.0...v2.21.0) (2020-05-27)
+
+
+### Features
+
+* **i18n:** it translation ([#184](https://github.com/iliyaZelenko/tiptap-vuetify/issues/184)) ([a66049f](https://github.com/iliyaZelenko/tiptap-vuetify/commit/a66049fd64234795f5e123774407c11845000592))
+
 # [2.20.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.19.0...v2.20.0) (2020-05-22)
 
 

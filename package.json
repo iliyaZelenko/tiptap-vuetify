@@ -1,6 +1,6 @@
 {
   "name": "tiptap-vuetify",
-  "version": "2.20.0",
+  "version": "2.21.0",
   "license": "MIT",
   "scripts": {
     "commit": "git-cz",
