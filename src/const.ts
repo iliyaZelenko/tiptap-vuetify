@@ -5,7 +5,8 @@ export const VuetifyVuePrototypeProperty = '$vuetify'
 export const EVENTS = {
   INPUT: 'input' as const,
   INIT: 'init' as const,
-  BLUR: 'blur' as const
+  BLUR: 'blur' as const,
+  FOCUS: 'focus' as const
 }
 
 export const PROPS = {
@@ -19,7 +20,8 @@ export const PROPS = {
   OUTPUT_FORMAT: 'outputFormat' as const,
   TYPE: 'type' as const,
   MIN_HEIGHT: 'minHeight' as const,
-  MAX_HEIGHT: 'maxHeight' as const
+  MAX_HEIGHT: 'maxHeight' as const,
+  DISABLED: 'disabled' as const
 }
 
 export enum EDITOR_TYPES_ENUM {

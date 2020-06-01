@@ -1,3 +1,45 @@
+# [2.23.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.22.0...v2.23.0) (2020-06-01)
+
+
+### Features
+
+* **tables:** prototype ([6442677](https://github.com/iliyaZelenko/tiptap-vuetify/commit/644267717e12f028eec28e08ac61e9dfcd9d2df1)), closes [#20](https://github.com/iliyaZelenko/tiptap-vuetify/issues/20) [#182](https://github.com/iliyaZelenko/tiptap-vuetify/issues/182) [#140](https://github.com/iliyaZelenko/tiptap-vuetify/issues/140)
+
+# [2.22.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.21.0...v2.22.0) (2020-05-27)
+
+
+### Features
+
+* **events:** add onFocus-Event ([#183](https://github.com/iliyaZelenko/tiptap-vuetify/issues/183)) ([dcf8fd7](https://github.com/iliyaZelenko/tiptap-vuetify/commit/dcf8fd7dc31d7d122869b0361aa2261d58871d70)), closes [#154](https://github.com/iliyaZelenko/tiptap-vuetify/issues/154)
+
+# [2.21.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.20.0...v2.21.0) (2020-05-27)
+
+
+### Features
+
+* **i18n:** it translation ([#184](https://github.com/iliyaZelenko/tiptap-vuetify/issues/184)) ([a66049f](https://github.com/iliyaZelenko/tiptap-vuetify/commit/a66049fd64234795f5e123774407c11845000592))
+
+# [2.20.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.19.0...v2.20.0) (2020-05-22)
+
+
+### Features
+
+* add disabled flag ([#176](https://github.com/iliyaZelenko/tiptap-vuetify/issues/176)) ([c79b4bd](https://github.com/iliyaZelenko/tiptap-vuetify/commit/c79b4bd55ac827c4bd45d503e38b3d8cef121329)), closes [#102](https://github.com/iliyaZelenko/tiptap-vuetify/issues/102)
+
+# [2.19.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.18.0...v2.19.0) (2020-05-21)
+
+# [2.18.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.17.0...v2.18.0) (2020-05-16)
+
+
+### Bug Fixes
+
+* **translation:** useless warning about unsupported current language ([#174](https://github.com/iliyaZelenko/tiptap-vuetify/issues/174)) ([ad551c1](https://github.com/iliyaZelenko/tiptap-vuetify/commit/ad551c18823127d290511c5a732161258dc7c7a6))
+
+
+### Features
+
+* **i18n:** cs translation ([#173](https://github.com/iliyaZelenko/tiptap-vuetify/issues/173)) ([2cf77ff](https://github.com/iliyaZelenko/tiptap-vuetify/commit/2cf77ff58fa65ddc0605275ae5c63ab0569a88a6))
+
 # [2.17.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.16.1...v2.17.0) (2020-05-14)
 
 

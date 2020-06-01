@@ -63,17 +63,41 @@ export default {
           Call mom
         </li>
       </ul>
+      <table>
+        <tr>
+          <th colspan="3" data-colwidth="100,0,0">Wide header</th>
+        </tr>
+        <tr>
+          <td>One</td>
+          <td>Two</td>
+          <td>Three</td>
+        </tr>
+        <tr>
+          <td>Four</td>
+          <td>Five</td>
+          <td>Six</td>
+        </tr>
+      </table>
     `
   }),
   async created () {
     const {
       Heading, Bold, Italic, Strike, Underline, Code, CodeBlock, Paragraph, BulletList, OrderedList, ListItem,
-      Link, Blockquote, HardBreak, HorizontalRule, History, Image, TodoList, TodoItem
+      Link, Blockquote, HardBreak, HorizontalRule, History, Image, TodoList, TodoItem, Table, TableCell, TableHeader,
+      TableRow
     } = await MAIN_MODULE
 
     this.extensions = [
       MyCustomExtension,
+      [Table, {
+        options: {
+          resizable: true
+        }
+      }],
+      TableCell,
+      TableHeader,
       TodoList,
+      TableRow,
       [TodoItem, {
         options: {
           nested: true

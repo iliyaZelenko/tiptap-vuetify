@@ -9,6 +9,7 @@
         :context="$props[PROPS.CONTEXT]"
         :editor="$props[PROPS.EDITOR]"
         :dark="$props[PROPS.DARK]"
+        :disabled="$props[PROPS.DISABLED]"
         v-bind="{
           options: action.render.options,
           context: $props[PROPS.CONTEXT],
@@ -33,7 +34,8 @@ export const PROPS = {
   EDITOR: 'editor' as const,
   ACTIONS: 'actions' as const,
   CONTEXT: 'context' as const,
-  DARK: 'dark' as const
+  DARK: 'dark' as const,
+  DISABLED: 'disabled' as const
 }
 
 @Component({
@@ -44,6 +46,9 @@ export const PROPS = {
 export default class ActionsRender extends Vue {
   @Prop({ type: Object, required: true })
   readonly [PROPS.EDITOR]: Editor
+
+  @Prop({ type: Boolean, default: false })
+  readonly [PROPS.DISABLED]: boolean
 
   @Prop({
     type: Array,

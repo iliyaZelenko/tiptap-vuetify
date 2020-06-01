@@ -3,142 +3,142 @@ export default {
     Blockquote: {
       buttons: {
         blockquote: {
-          tooltip: 'Block quote'
+          tooltip: 'Citazione'
         }
       }
     },
     Bold: {
       buttons: {
         bold: {
-          tooltip: 'Bold'
+          tooltip: 'Grassetto'
         }
       }
     },
     BulletList: {
       buttons: {
         bulletList: {
-          tooltip: 'Bulleted list'
+          tooltip: 'Elenco puntato'
         }
       }
     },
     Code: {
       buttons: {
         code: {
-          tooltip: 'Code'
+          tooltip: 'Codice'
         }
       }
     },
     CodeBlock: {
       buttons: {
         codeBlock: {
-          tooltip: 'Code block'
+          tooltip: 'Blocco codice'
         }
       }
     },
     History: {
       buttons: {
         undo: {
-          tooltip: 'Undo'
+          tooltip: 'Annulla'
         },
         redo: {
-          tooltip: 'Redo'
+          tooltip: 'Ripristina'
         }
       }
     },
     HorizontalRule: {
       buttons: {
         horizontalRule: {
-          tooltip: 'Horizontal line'
+          tooltip: 'Linea orizzontale'
         }
       }
     },
     Italic: {
       buttons: {
         italic: {
-          tooltip: 'Italic'
+          tooltip: 'Corsivo'
         }
       }
     },
     OrderedList: {
       buttons: {
         orderedList: {
-          tooltip: 'Ordered list'
+          tooltip: 'Elenco numerato'
         }
       }
     },
     Paragraph: {
       buttons: {
         paragraph: {
-          tooltip: 'Paragraph'
+          tooltip: 'Paragrafo'
         }
       }
     },
     Strike: {
       buttons: {
         strike: {
-          tooltip: 'Strike'
+          tooltip: 'Barrato'
         }
       }
     },
     Underline: {
       buttons: {
         underline: {
-          tooltip: 'Underline'
+          tooltip: 'Sottolineato'
         }
       }
     },
     Heading: {
       buttons: {
         heading: {
-          tooltip: ({ level }) => level + ' level header'
+          tooltip: ({ level }) => level + ' livello intestazione'
         }
       }
     },
     Link: {
       buttons: {
         isActive: {
-          tooltip: 'Change Link'
+          tooltip: 'Modifica collegamento'
         },
         notActive: {
-          tooltip: 'Add Link'
+          tooltip: 'Aggiungi collegamento'
         }
       },
       window: {
-        title: 'Link control',
+        title: 'Gestione collegamento',
         form: {
-          hrefLabel: 'URL'
+          hrefLabel: 'Indirizzo'
         },
         buttons: {
-          close: 'Close',
-          remove: 'Remove',
-          apply: 'Apply'
+          close: 'Chiudi',
+          remove: 'Rimuovi',
+          apply: 'Applica'
         }
       }
     },
     Image: {
       buttons: {
-        tooltip: 'Image'
+        tooltip: 'Immagine'
       },
       window: {
-        title: 'Add Image',
+        title: 'Aggiungi Immagine',
         form: {
-          sourceLink: 'Image URL',
-          altText: 'Alternative Text',
-          addImage: 'Add Image'
+          sourceLink: 'Indirizzo Immagine',
+          altText: 'Testo Alternativo',
+          addImage: 'Aggiungi Immagine'
         },
         imageUpload: {
-          instruction: 'Choose a file(s) or drag it here.'
+          instruction: 'Seleziona file o trascinalo(i) qui.'
         },
         buttons: {
-          close: 'Close',
-          apply: 'Apply'
+          close: 'Chiudi',
+          apply: 'Applica'
         }
       }
     },
     TodoList: {
       buttons: {
         todoList: {
-          tooltip: 'To Do List'
+          tooltip: 'Cose da fare'
         }
       }
     }

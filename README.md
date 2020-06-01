@@ -53,7 +53,7 @@ If you have Vuetify `1.x` (not `2.x`), then you can find docs and demo [here](ht
 
 - used vuetify components
 - support for different types of icons ([fa](https://fontawesome.com/),  [md](https://material.io/tools/icons/), [mdi](https://materialdesignicons.com/), [mdiSvg](https://vuetifyjs.com/en/customization/icons#install-material-design-icons-js-svg))
-- internationalization (en, es, fr, pl, ru, uk, ptbr, tr, he, nl, ja, de, ko, zh-CN, fa, sv), with automatic detection of the current language through the Vuetify. You can make a PR for your language if it is not there, [here](https://github.com/iliyaZelenko/tiptap-vuetify/pull/118/files) is an example.
+- internationalization (en, es, fr, pl, ru, uk, ptbr, tr, he, nl, ja, de, ko, zh-CN, fa, sv, cs, it), with automatic detection of the current language through the Vuetify. You can make a PR for your language if it is not there, [here](https://github.com/iliyaZelenko/tiptap-vuetify/pull/118/files) is an example.
 - markdown support
 - easy to start using
 - props and events are available
@@ -344,6 +344,17 @@ For example, to get json instead:
 />
 ```
 
+### disabled
+
+Flag for disabling entire editor (disabled toolbar items and [ready-only](https://tiptap.scrumpy.io/read-only) content area). Default false.
+
+For example, disabled editor by component prop: 
+```vue
+<tiptap-vuetify
+  :disabled="editorDisabled"
+/>
+```
+
 ## Events
 
 ### init
@@ -434,6 +445,8 @@ You can add content before the toolbar.
 You can add content after the toolbar.
 
 ## Donate (creating code at your request out of turn)
+
+<a href="https://www.buymeacoffee.com/ilyaZ" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a>
 
 💰 I can do some feature for you out of turn and at a fast pace or solve your problem, give a quick answers. To do this, you can [pay me one-time or make a subscription](http://patreon.com/zelen). We can discuss the details by email, it is written in [my profile](https://github.com/iliyaZelenko).
 
