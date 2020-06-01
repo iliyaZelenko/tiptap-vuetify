@@ -70,7 +70,7 @@ export default class ImageExtensionActionRenderBtn extends mixins(ExtensionActio
   @Prop({
     type: [Object],
     required: false,
-    default: () => ({maxWidth: '500px'})
+    default: () => ({ maxWidth: '500px' })
   })
   readonly [PROPS_IMG_BTN.DIALOG_PROPS]: any
 
