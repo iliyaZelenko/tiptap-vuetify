@@ -1,3 +1,10 @@
+# [2.23.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.22.0...v2.23.0) (2020-06-01)
+
+
+### Features
+
+* **tables:** prototype ([6442677](https://github.com/iliyaZelenko/tiptap-vuetify/commit/644267717e12f028eec28e08ac61e9dfcd9d2df1)), closes [#20](https://github.com/iliyaZelenko/tiptap-vuetify/issues/20) [#182](https://github.com/iliyaZelenko/tiptap-vuetify/issues/182) [#140](https://github.com/iliyaZelenko/tiptap-vuetify/issues/140)
+
 # [2.22.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.21.0...v2.22.0) (2020-05-27)
 
 
