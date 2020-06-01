@@ -329,7 +329,7 @@ The value of `name` will be the tab name.
 
 By default, your component will be added to tiptap-vuetify's own image sources (URL and data url Upload). If you want to exclude these image sources you can set `imageSourcesOverride: true` in the extension's options.
 
-The dialog width can be changed by setting `options.dialogMaxWidth`.
+The dialog options can be changed by setting `options.dialogProps`, with an object following props specified in [Dialogs API](https://vuetifyjs.com/en/components/dialogs/).
 
 A basic example implementation can be found in the package's demo code in [FileSelector.vue](demo/Components/FileSelector.vue) and [Index.vue](demo/pages/Index.vue).
 

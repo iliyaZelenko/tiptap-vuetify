@@ -1,7 +1,7 @@
 <template>
   <v-dialog
     v-model="dialog"
-    :max-width="dialogMaxWidth"
+    v-bind="$props[PROPS_IMG_BTN.DIALOG_PROPS]"
   >
     <template #activator="{ on: onDialog }">
       <v-tooltip top>
@@ -48,7 +48,7 @@ import { mixins } from 'vue-class-component'
 export const PROPS_IMG_BTN = {
   IMAGE_SOURCES: 'imageSources' as const,
   IMAGE_SOURCES_OVERRIDE: 'imageSourcesOverride' as const,
-  DIALOG_MAX_WIDTH: 'dialogMaxWidth' as const
+  DIALOG_PROPS: 'dialogProps' as const
 }
 
 @Component({
@@ -68,11 +68,11 @@ export default class ImageExtensionActionRenderBtn extends mixins(ExtensionActio
   readonly [PROPS_IMG_BTN.IMAGE_SOURCES_OVERRIDE]: any
 
   @Prop({
-    default: '500px',
-    type: [String, Number],
-    required: false
+    type: [Object],
+    required: false,
+    default: () => ({maxWidth: '500px'})
   })
-  readonly [PROPS_IMG_BTN.DIALOG_MAX_WIDTH]: any
+  readonly [PROPS_IMG_BTN.DIALOG_PROPS]: any
 
   dialog: boolean = false
 

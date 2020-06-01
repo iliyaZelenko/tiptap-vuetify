@@ -21,7 +21,7 @@ export default class Image extends AbstractExtension {
         componentOptions: {
           imageSources: this.options.imageSources,
           imageSourcesOverride: this.options.imageSourcesOverride,
-          dialogMaxWidth: this.options.dialogMaxWidth
+          dialogProps: this.options.dialogProps
         },
         render: new ExtensionActionRenderBtn({
           tooltip: new I18nText('extensions.Image.buttons.tooltip'),
