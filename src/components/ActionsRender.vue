@@ -14,7 +14,7 @@
           context: $props[PROPS.CONTEXT],
           editor: $props[PROPS.EDITOR],
           dark: $props[PROPS.DARK],
-          ... action.componentOptions ? action.componentOptions : {}
+          ... action.componentOptions || {}
         }"
       />
     </template>
