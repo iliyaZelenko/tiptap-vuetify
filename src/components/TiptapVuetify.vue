@@ -78,7 +78,7 @@ export default class TiptapVuetify extends Vue {
   @Prop({ type: Boolean, default: false })
   readonly [PROPS.DISABLED]: boolean
 
-  @Prop({ type: [String,Object], default: '' })
+  @Prop({ type: [String, Object], default: '' })
   readonly [PROPS.VALUE]: string
 
   @Prop({ type: Array, default: () => [] })
