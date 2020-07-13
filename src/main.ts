@@ -8,7 +8,7 @@ export { TiptapVuetifyPlugin }
 // @ts-ignore
 if (process.env.ES_BUILD === 'false') {
   // авто установка (полезно если ставится через CDN)
-  ;(function autoInstall () {
+  (function autoInstall () {
     let globalScope: any = null
 
     if (typeof window !== 'undefined') {
