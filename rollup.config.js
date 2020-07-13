@@ -94,7 +94,8 @@ async function getConfig ({
     ],
     plugins: [
       replace({
-        'process.env.NODE_ENV': JSON.stringify('production')
+        'process.env.NODE_ENV': JSON.stringify('production'),
+        'process.env.ES_BUILD': JSON.stringify(esModule ? 'true' : 'false')
       }),
       alias({
         resolve: ['.ts', '.js', '.vue'],
