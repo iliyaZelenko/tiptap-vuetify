@@ -78,7 +78,7 @@ export default class TiptapVuetify extends Vue {
   @Prop({ type: Boolean, default: false })
   readonly [PROPS.DISABLED]: boolean
 
-  @Prop({ type: String, default: '' })
+  @Prop({ type: [String, Object], default: '' })
   readonly [PROPS.VALUE]: string
 
   @Prop({ type: Array, default: () => [] })
@@ -266,7 +266,7 @@ export default class TiptapVuetify extends Vue {
     if (this[PROPS.OUTPUT_FORMAT] === 'html') {
       output = info.getHTML()
     } else {
-      output = JSON.stringify(info.getJSON())
+      output = info.getJSON()
     }
 
     this.$emit(EVENTS.INPUT, output, info)
