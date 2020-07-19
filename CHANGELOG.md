@@ -1,3 +1,16 @@
+# [2.24.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.23.0...v2.24.0) (2020-07-19)
+
+
+### Bug Fixes
+
+* Consistent JSON Output Format ([#188](https://github.com/iliyaZelenko/tiptap-vuetify/issues/188)) ([80bade0](https://github.com/iliyaZelenko/tiptap-vuetify/commit/80bade043dd213a59fb4470b05abfdc8b0c76ec3)), closes [#94](https://github.com/iliyaZelenko/tiptap-vuetify/issues/94)
+* **i18n:** improve fr translation ([#207](https://github.com/iliyaZelenko/tiptap-vuetify/issues/207)) ([d964357](https://github.com/iliyaZelenko/tiptap-vuetify/commit/d96435771ce6f14a164afa82bc0fb5258b742f75))
+
+
+### Features
+
+* **i18n:** el translation ([#195](https://github.com/iliyaZelenko/tiptap-vuetify/issues/195)) ([6e17964](https://github.com/iliyaZelenko/tiptap-vuetify/commit/6e17964481c0b2d45b5a28afffc9cb55d674297a))
+
 # [2.23.0](https://github.com/iliyaZelenko/tiptap-vuetify/compare/v2.22.0...v2.23.0) (2020-06-01)
 
 
