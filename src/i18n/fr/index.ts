@@ -90,7 +90,7 @@ export default {
     Heading: {
       buttons: {
         heading: {
-          tooltip: args => args.level + ' niveau de titre'
+          tooltip: args => 'Titre de niveau ' + args.level
         }
       }
     },
@@ -104,9 +104,9 @@ export default {
         }
       },
       window: {
-        title: 'Contrôle de lien',
+        title: "Ajout ou mise à jour d'un lien",
         form: {
-          hrefLabel: 'Href'
+          hrefLabel: 'URL'
         },
         buttons: {
           close: 'Fermer',
@@ -138,7 +138,7 @@ export default {
     TodoList: {
       buttons: {
         todoList: {
-          tooltip: 'To Do Liste'
+          tooltip: 'Liste de choses à faire'
         }
       }
     }
