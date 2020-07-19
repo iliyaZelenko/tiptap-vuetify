@@ -3,142 +3,142 @@ export default {
     Blockquote: {
       buttons: {
         blockquote: {
-          tooltip: 'Bloc de citation'
+          tooltip: 'Παράθεση'
         }
       }
     },
     Bold: {
       buttons: {
         bold: {
-          tooltip: 'Gras'
+          tooltip: 'Έντονη γραφή'
         }
       }
     },
     BulletList: {
       buttons: {
         bulletList: {
-          tooltip: 'Liste à puce'
+          tooltip: 'Λίστα με κουκκίδες'
         }
       }
     },
     Code: {
       buttons: {
         code: {
-          tooltip: 'Code'
+          tooltip: 'Κώδικας'
         }
       }
     },
     CodeBlock: {
       buttons: {
         codeBlock: {
-          tooltip: 'Bloc de code'
+          tooltip: 'Μπλοκ κώδικα'
         }
       }
     },
     History: {
       buttons: {
         undo: {
-          tooltip: 'Annuler'
+          tooltip: 'Αναίρεση'
         },
         redo: {
-          tooltip: 'Rétablir'
+          tooltip: 'Ακύρωση αναίρεσης'
         }
       }
     },
     HorizontalRule: {
       buttons: {
         horizontalRule: {
-          tooltip: 'Ligne horizontale'
+          tooltip: 'Οριζόντια γραμμή'
         }
       }
     },
     Italic: {
       buttons: {
         italic: {
-          tooltip: 'Italique'
+          tooltip: 'Πλάγια γραφή'
         }
       }
     },
     OrderedList: {
       buttons: {
         orderedList: {
-          tooltip: 'Liste ordonnée'
+          tooltip: 'Λίστα με αρίθμηση'
         }
       }
     },
     Paragraph: {
       buttons: {
         paragraph: {
-          tooltip: 'Paragraphe'
+          tooltip: 'Παράγραφος'
         }
       }
     },
     Strike: {
       buttons: {
         strike: {
-          tooltip: 'Barré'
+          tooltip: 'Επιγράμμιση'
         }
       }
     },
     Underline: {
       buttons: {
         underline: {
-          tooltip: 'Souligné'
+          tooltip: 'Υπογράμμιση'
         }
       }
     },
     Heading: {
       buttons: {
         heading: {
-          tooltip: args => 'Titre de niveau ' + args.level
+          tooltip: ({ level }) => level + ' επίπεδο κεφαλίδας'
         }
       }
     },
     Link: {
       buttons: {
         isActive: {
-          tooltip: 'Mise à jour du lien'
+          tooltip: 'Αλλαγή συνδέσμου'
         },
         notActive: {
-          tooltip: 'Ajouter un lien'
+          tooltip: 'Προσθήκη συνδέσμου'
         }
       },
       window: {
-        title: "Ajout ou mise à jour d'un lien",
+        title: 'Διαχείριση συνδέσμου',
         form: {
-          hrefLabel: 'URL'
+          hrefLabel: 'Διεύθυνση'
         },
         buttons: {
-          close: 'Fermer',
-          remove: 'Retirer',
-          apply: 'Appliquer'
+          close: 'Κλείσιμο',
+          remove: 'Αφαίρεση',
+          apply: 'Εφαρμογή'
         }
       }
     },
     Image: {
       buttons: {
-        tooltip: 'Image'
+        tooltip: 'Εικόνα'
       },
       window: {
-        title: 'Ajouter une Image',
+        title: 'Προσθήκη εικόνας',
         form: {
-          sourceLink: 'Image URL',
-          altText: 'Texte alternatif',
-          addImage: 'Ajouter une image'
+          sourceLink: 'Διεύθυνση εικόνας',
+          altText: 'Εναλλακτικό κείμενο',
+          addImage: 'Προσθήκη εικόνας'
         },
         imageUpload: {
-          instruction: 'Sélectionnez un fichier(s), ou glisser-déposser içi'
+          instruction: 'Επιλέξτε ένα αρχείο ή σύρετε το εδώ.'
         },
         buttons: {
-          close: 'Fermer',
-          apply: 'Appliquer'
+          close: 'Κλείσιμο',
+          apply: 'Εφαρμογή'
         }
       }
     },
     TodoList: {
       buttons: {
         todoList: {
-          tooltip: 'Liste de choses à faire'
+          tooltip: 'Λίστα εκκρεμοτήτων'
         }
       }
     }
