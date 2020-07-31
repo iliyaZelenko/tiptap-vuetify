@@ -37,6 +37,7 @@ export const dictionary = {
   de,
   ko,
   zh,
+  zhHans: zh,
   fa,
   sv,
   cs,
