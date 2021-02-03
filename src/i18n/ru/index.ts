@@ -122,11 +122,23 @@ export default {
       window: {
         title: 'Добавить картинку',
         form: {
-          sourceLink: 'Ссылка на картинку'
+          sourceLink: 'Ссылка на картинку',
+          altText: 'Альтернативный текст',
+          addImage: 'Добавить картинку'
+        },
+        imageUpload: {
+          instruction: 'Выберите файл (ы) или перетащите его (их) сюда.'
         },
         buttons: {
           close: 'Закрыть',
           apply: 'Применить'
+        }
+      }
+    },
+    TodoList: {
+      buttons: {
+        todoList: {
+          tooltip: 'Список дел'
         }
       }
     }
