@@ -17,7 +17,6 @@ import sv from './sv'
 import cs from './cs'
 import it from './it'
 import el from './el'
-import ua from './ua'
 
 import ConsoleLogger from '~/logging/ConsoleLogger'
 import { TiptapVuetifyPlugin } from '~/main'
@@ -43,8 +42,7 @@ export const dictionary = {
   sv,
   cs,
   it,
-  el,
-  ua
+  el
 }
 
 export function getCurrentLang () {
