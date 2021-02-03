@@ -97,6 +97,10 @@ export default class ImageUploadArea extends mixins(I18nMixin) {
   justify-content center
   align-items center
 
+  h3
+    margin 0 40px
+    text-align center
+
   &:hover,
   &--dragover
     background-color #a5b7bc
