@@ -100,7 +100,7 @@ export default class ImageUploadArea extends mixins(I18nMixin) {
   h3
     margin 0 40px
     text-align center
-    
+
   &:hover,
   &--dragover
     background-color #a5b7bc
