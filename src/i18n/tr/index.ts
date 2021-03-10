@@ -134,6 +134,6 @@ export default {
           apply: 'Uygula'
         }
       }
-    },
+    }
   }
 }
