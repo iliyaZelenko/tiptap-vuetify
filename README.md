@@ -444,9 +444,14 @@ You can add content after the toolbar.
 
 ## Donate (creating code at your request out of turn)
 
-<a href="https://www.buymeacoffee.com/ilyaZ" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a>
+<p align="center">
+  <a href="https://www.paypal.com/donate?hosted_button_id=Z8AGGHKB3ZVWE">
+    <img src="https://www.eurozine.com/wp-content/uploads/2018/12/paypal-donate-button-high-quality-png.png" alt="Donate" width="450px" />
+  </a>
+</p>
 
-💰 I can do some feature for you out of turn and at a fast pace or solve your problem, give a quick answers. To do this, you can [pay me one-time or make a subscription](http://patreon.com/zelen). We can discuss the details by email, it is written in [my profile](https://github.com/iliyaZelenko).
+
+💰 I can do some feature for you out of turn and at a fast pace or solve your problem, give a quick answers. To do this, you can donate me. We can discuss the details by email, it is written in [my profile](https://github.com/iliyaZelenko).
 
 ## TODO
 
@@ -456,8 +461,3 @@ You can add content after the toolbar.
 - tests
 - support for more extensions
 
-<p align="center">
-  <a href="https://www.paypal.com/donate?hosted_button_id=Z8AGGHKB3ZVWE">
-    <img src="https://www.eurozine.com/wp-content/uploads/2018/12/paypal-donate-button-high-quality-png.png" alt="Donate" width="450px" />
-  </a>
-</p>
