@@ -17,6 +17,7 @@ import sv from './sv'
 import cs from './cs'
 import it from './it'
 import el from './el'
+import zhHant from './zhHant'
 
 import ConsoleLogger from '~/logging/ConsoleLogger'
 import { TiptapVuetifyPlugin } from '~/main'
@@ -38,6 +39,7 @@ export const dictionary = {
   ko,
   zh,
   zhHans: zh,
+  zhHant,
   fa,
   sv,
   cs,
