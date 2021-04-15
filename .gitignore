@@ -1,6 +1,8 @@
 /node_modules/
 /dist/
 /.yalc/
+/lib
+/lib-temp
 
 yalc.lock
 

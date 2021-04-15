@@ -9,6 +9,7 @@ import { join } from 'path'
 import postcssPresetEnv from 'postcss-preset-env'
 import babel from 'rollup-plugin-babel'
 import replace from 'rollup-plugin-replace'
+import pkg from './package.json'
 
 const isProduction = process.env.BUILD === 'production'
 const srcDir = join(__dirname, 'src')
@@ -84,17 +85,16 @@ async function getConfig ({
     },
     // TODO можно Object.keys(globals)
     external: [
-      'vue',
       // 'vue-class-component',
       // 'vue-property-decorator',
-      'tiptap',
-      'tiptap-extensions',
-      'vuetify',
-      'vuetify/lib'
+      'vuetify/lib',
+      ...Object.keys(pkg.dependencies),
+      ...Object.keys(pkg.peerDependencies)
     ],
     plugins: [
       replace({
-        'process.env.NODE_ENV': JSON.stringify('production')
+        'process.env.NODE_ENV': JSON.stringify('production'),
+        'process.env.ES_BUILD': JSON.stringify(esModule ? 'true' : 'false')
       }),
       alias({
         resolve: ['.ts', '.js', '.vue'],
