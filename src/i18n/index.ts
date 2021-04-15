@@ -1,3 +1,4 @@
+import ar from './ar'
 import en from './en'
 import ru from './ru'
 import es from './es'
@@ -23,6 +24,7 @@ import { TiptapVuetifyPlugin } from '~/main'
 
 export const defaultLanguage = 'en'
 export const dictionary = {
+  ar,
   en,
   ru,
   es,
