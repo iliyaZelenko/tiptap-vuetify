@@ -114,6 +114,26 @@ export default {
           apply: 'Uygula'
         }
       }
+    },
+    Image: {
+      buttons: {
+        tooltip: 'Fotoğraf'
+      },
+      window: {
+        title: 'Fotoğraf Ekle',
+        form: {
+          sourceLink: 'Fotoğraf URL',
+          altText: 'Alternatif Text',
+          addImage: 'Fotoğraf Ekle'
+        },
+        imageUpload: {
+          instruction: 'Dosya seç ve buraya sürükle.'
+        },
+        buttons: {
+          close: 'Kapat',
+          apply: 'Uygula'
+        }
+      }
     }
   }
 }
