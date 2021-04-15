@@ -122,11 +122,23 @@ export default {
       window: {
         title: '画像を追加する',
         form: {
-          sourceLink: '画像URL'
+          sourceLink: '画像URL',
+          altText: '代替テキスト',
+          addImage: '画像を追加'
+        },
+        imageUpload: {
+          instruction: '画像を選択するかここにドラッグ'
         },
         buttons: {
           close: '閉じる',
           apply: '適用'
+        }
+      }
+    },
+    TodoList: {
+      buttons: {
+        todoList: {
+          tooltip: 'ToDoリスト'
         }
       }
     }
