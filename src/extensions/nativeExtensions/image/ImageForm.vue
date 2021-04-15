@@ -17,12 +17,12 @@
 <script lang="ts">
 import { mixins } from 'vue-class-component'
 import { Component } from 'vue-property-decorator'
-import { VTextField } from 'vuetify/lib'
+import { VTextField, VBtn } from 'vuetify/lib'
 import I18nMixin from '../../../mixins/I18nMixin'
 import EVENTS from '~/extensions/nativeExtensions/image/events'
 
 @Component({
-  components: { VTextField }
+  components: { VTextField, VBtn }
 })
 export default class ImageForm extends mixins(I18nMixin) {
   form: {
