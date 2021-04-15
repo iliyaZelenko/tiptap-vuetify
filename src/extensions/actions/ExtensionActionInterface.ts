@@ -3,5 +3,7 @@ import ExtensionActionRenderInterface from '~/extensions/actions/renders/Extensi
 
 export default interface ExtensionActionInterface {
   render: ExtensionActionRenderInterface
+  component?: any
+  componentOptions?: object
   // renderIn: ExtensionActionRenderInEnum
 }
