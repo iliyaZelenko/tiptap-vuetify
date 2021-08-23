@@ -68,17 +68,34 @@ export default class ImageUploadArea extends mixins(I18nMixin) {
     })
   }
   filesSelected (files: HTMLInputElement['files']) {
-    [...files].forEach(file => {
-      const reader = new FileReader()
-      reader.addEventListener('load', readerEvent => {
-        // TODO URL.createObjectURL(file) and upload
-        this.$emit(EVENTS.SELECT_FILE, {
-          src: readerEvent.target!.result!.toString(),
-          alt: file.name
+
+    if (files !== null) {
+      for(var i=0; i < files.length; i++){
+        var file = files[i]
+        console.log(file)
+        const reader = new FileReader()
+        reader.addEventListener('load', readerEvent => {
+          // TODO URL.createObjectURL(file) and upload
+          this.$emit(EVENTS.SELECT_FILE, {
+            src: readerEvent.target!.result!.toString(),
+            alt: file.name
+          })
         })
-      })
-      reader.readAsDataURL(file)
-    })
+        reader.readAsDataURL(file)
+      }
+    }
+
+    // [...files].forEach(file => {
+    //   const reader = new FileReader()
+    //   reader.addEventListener('load', readerEvent => {
+    //     // TODO URL.createObjectURL(file) and upload
+    //     this.$emit(EVENTS.SELECT_FILE, {
+    //       src: readerEvent.target!.result!.toString(),
+    //       alt: file.name
+    //     })
+    //   })
+    //   reader.readAsDataURL(file)
+    // })
   }
 }
 </script>
