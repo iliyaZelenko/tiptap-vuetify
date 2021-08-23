@@ -1,5 +1,5 @@
 <template>
-  <v-tooltip top>
+  <v-tooltip top :content-class="tiptap-vuetify-editor__action-tooltip">
     <!--:disabled="isButtonDisabled(commands, button)"-->
     <template #activator="{ on }">
       <!--TODO options.isActive сделать реактивным -->
