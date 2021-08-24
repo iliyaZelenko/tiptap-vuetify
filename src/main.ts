@@ -53,6 +53,6 @@ export const TiptapVuetifyPlugin = new (class Plugin implements PluginInterface<
       vuetify: globalScope.vuetify,
       ...globalScope.tiptapVuetifyPluginOptions
     })
-    globalScope.Vue.component('tiptap-vuetify', TiptapVuetify)
+    globalScope.Vue.component('tiptap-vuetify-monetizze', TiptapVuetify)
   }
 })()
