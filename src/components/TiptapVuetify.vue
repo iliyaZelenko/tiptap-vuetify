@@ -281,8 +281,8 @@ export default class TiptapVuetify extends Vue {
     this.$emit(EVENTS.FOCUS, event, view)
   }
 
-  onTransaction ({ event, view }) {
-    this.$emit(EVENTS.TRANSACTION, event, view)
+  onTransaction (transaction) {
+    this.$emit(EVENTS.TRANSACTION, transaction)
   }
 
   beforeDestroy () {
