@@ -248,7 +248,8 @@ export default class TiptapVuetify extends Vue {
       content: this[PROPS.VALUE],
       onUpdate: this.onUpdate.bind(this),
       onBlur: this.onBlur.bind(this),
-      onFocus: this.onFocus.bind(this)
+      onFocus: this.onFocus.bind(this),
+      onTransaction: this.onTransaction.bind(this),
     }))!
 
     this.$emit(EVENTS.INIT, {
@@ -278,6 +279,10 @@ export default class TiptapVuetify extends Vue {
 
   onFocus ({ event, view }) {
     this.$emit(EVENTS.FOCUS, event, view)
+  }
+
+  onTransaction ({ event, view }) {
+    this.$emit(EVENTS.TRANSACTION, event, view)
   }
 
   beforeDestroy () {

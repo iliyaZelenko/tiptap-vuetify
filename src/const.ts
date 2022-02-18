@@ -6,7 +6,8 @@ export const EVENTS = {
   INPUT: 'input' as const,
   INIT: 'init' as const,
   BLUR: 'blur' as const,
-  FOCUS: 'focus' as const
+  FOCUS: 'focus' as const,
+  TRANSACTION: 'transaction' as const,
 }
 
 export const PROPS = {
