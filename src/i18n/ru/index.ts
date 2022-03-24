@@ -3,7 +3,7 @@ export default {
     Blockquote: {
       buttons: {
         blockquote: {
-          tooltip: 'Блок цитаты'
+          tooltip: 'Цитата'
         }
       }
     },
@@ -38,24 +38,24 @@ export default {
     History: {
       buttons: {
         undo: {
-          tooltip: 'Назад'
+          tooltip: 'Отменить'
         },
         redo: {
-          tooltip: 'Вперед'
+          tooltip: 'Вернуть'
         }
       }
     },
     HorizontalRule: {
       buttons: {
         horizontalRule: {
-          tooltip: 'Горизонтальная линия'
+          tooltip: 'Разделитель'
         }
       }
     },
     Italic: {
       buttons: {
         italic: {
-          tooltip: 'Курсивный'
+          tooltip: 'Курсив'
         }
       }
     },
@@ -76,14 +76,14 @@ export default {
     Strike: {
       buttons: {
         strike: {
-          tooltip: 'Перечерктнутый'
+          tooltip: 'Зачеркнутый'
         }
       }
     },
     Underline: {
       buttons: {
         underline: {
-          tooltip: 'Подчерктнутый'
+          tooltip: 'Подчеркнутый'
         }
       }
     },
@@ -100,13 +100,13 @@ export default {
           tooltip: 'Изменить ссылку'
         },
         notActive: {
-          tooltip: 'Добавить ссылку'
+          tooltip: 'Вставить ссылку'
         }
       },
       window: {
-        title: 'Управление ссылкой',
+        title: 'Ссылка',
         form: {
-          hrefLabel: 'Href'
+          hrefLabel: 'URL'
         },
         buttons: {
           close: 'Закрыть',
@@ -117,28 +117,28 @@ export default {
     },
     Image: {
       buttons: {
-        tooltip: 'Картинка'
+        tooltip: 'Вставить изображение'
       },
       window: {
-        title: 'Добавить картинку',
+        title: 'Добавить изображение',
         form: {
-          sourceLink: 'Ссылка на картинку',
-          altText: 'Альтернативный текст',
-          addImage: 'Добавить картинку'
+          sourceLink: 'Ссылка на изображение',
+          altText: 'Описание',
+          addImage: 'Добавить'
         },
         imageUpload: {
-          instruction: 'Выберите файл (ы) или перетащите его (их) сюда.'
+          instruction: 'Выберите файл(ы) или перетащите его(их) сюда.'
         },
         buttons: {
-          close: 'Закрыть',
-          apply: 'Применить'
+          close: 'Отменить',
+          apply: 'Вставить'
         }
       }
     },
     TodoList: {
       buttons: {
         todoList: {
-          tooltip: 'Список дел'
+          tooltip: 'Список задач'
         }
       }
     }
