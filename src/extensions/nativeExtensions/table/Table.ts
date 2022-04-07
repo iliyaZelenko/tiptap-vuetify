@@ -18,7 +18,7 @@ export default class Table extends AbstractExtension {
     return [
       {
         render: new ExtensionActionRenderBtn({
-          tooltip: 'TODO',
+          tooltip: 'Table',
           icons: {
             [VuetifyIconsGroups.md]: new VuetifyIcon('table'),
             [VuetifyIconsGroups.fa]: new VuetifyIcon('fas fa-table'),
