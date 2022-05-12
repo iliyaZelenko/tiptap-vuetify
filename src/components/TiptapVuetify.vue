@@ -156,6 +156,19 @@ export default class TiptapVuetify extends Vue {
     }
   }
 
+  get minHeightInPixels () {
+    const minHeight = this[PROPS.MIN_HEIGHT]
+
+    if (minHeight) {
+      const isNumber = typeof minHeight === 'number'
+      const hasOnlyDigits = /^\d+$/.test(`${minHeight}`)
+
+      return isNumber || hasOnlyDigits ? `${minHeight}px` : minHeight
+    }
+
+    return null
+  }
+
   @Watch('disabled')
   onDisabledChange (val) {
     if (this.editor) this.editor.setOptions({ editable: !val })
@@ -248,7 +261,8 @@ export default class TiptapVuetify extends Vue {
       content: this[PROPS.VALUE],
       onUpdate: this.onUpdate.bind(this),
       onBlur: this.onBlur.bind(this),
-      onFocus: this.onFocus.bind(this)
+      onFocus: this.onFocus.bind(this),
+      onInit: this.onInit.bind(this)
     }))!
 
     this.$emit(EVENTS.INIT, {
@@ -278,6 +292,17 @@ export default class TiptapVuetify extends Vue {
 
   onFocus ({ event, view }) {
     this.$emit(EVENTS.FOCUS, event, view)
+  }
+
+  onInit ({ view }) {
+    const minHeightInPixels = this.minHeightInPixels
+
+    if (minHeightInPixels) {
+      const EDITOR_CONTENT_PADDING = '5px'
+      const CONTENTEDITABLE_MARGIN = '20px'
+
+      view.dom.style.minHeight = `calc(${minHeightInPixels} - (${CONTENTEDITABLE_MARGIN} * 2) - (${EDITOR_CONTENT_PADDING} * 2))`
+    }
   }
 
   beforeDestroy () {
