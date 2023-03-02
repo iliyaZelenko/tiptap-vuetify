@@ -120,14 +120,14 @@ export default {
         tooltip: 'Image'
       },
       window: {
-        title: 'Ajouter une Image',
+        title: 'Ajouter une image',
         form: {
           sourceLink: 'Image URL',
           altText: 'Texte alternatif',
           addImage: 'Ajouter une image'
         },
         imageUpload: {
-          instruction: 'Sélectionnez un fichier(s), ou glisser-déposser içi'
+          instruction: 'Sélectionnez un fichier, ou glissez-déposez ici'
         },
         buttons: {
           close: 'Fermer',
