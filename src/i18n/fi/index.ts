@@ -17,7 +17,7 @@ export default {
     BulletList: {
       buttons: {
         bulletList: {
-          tooltip: 'Pisteytetty lista'
+          tooltip: 'Luettelomerkitty luettelo'
         }
       }
     },
@@ -62,7 +62,7 @@ export default {
     OrderedList: {
       buttons: {
         orderedList: {
-          tooltip: 'Numeroitu lista'
+          tooltip: 'Numeroitu luettelo'
         }
       }
     },
