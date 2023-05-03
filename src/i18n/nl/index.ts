@@ -10,14 +10,14 @@ export default {
     Bold: {
       buttons: {
         bold: {
-          tooltip: 'Vet'
+          tooltip: 'Dikgedrukt'
         }
       }
     },
     BulletList: {
       buttons: {
         bulletList: {
-          tooltip: 'Opsomming tekens'
+          tooltip: 'Ongenummerde lijst'
         }
       }
     },
@@ -106,7 +106,7 @@ export default {
       window: {
         title: 'Link controle',
         form: {
-          hrefLabel: 'Href'
+          hrefLabel: 'URL'
         },
         buttons: {
           close: 'Sluiten',
@@ -123,14 +123,22 @@ export default {
         title: 'Afbeelding toevoegen',
         form: {
           sourceLink: 'Afbeelding URL',
-          altText: 'Alternatieve Tekst'
+          altText: 'Alternatieve tekst',
+          addImage: 'Afbeelding toevoegen'
         },
         imageUpload: {
-          instruction: 'Kies een of meerdere bestanden of sleep ze hiernaartoe.'
+          instruction: 'Kies of sleep een of meerdere bestanden.'
         },
         buttons: {
           close: 'Sluiten',
           apply: 'Toepassen'
+        }
+      }
+    },
+    TodoList: {
+      buttons: {
+        todoList: {
+          tooltip: 'Takenlijst'
         }
       }
     }
