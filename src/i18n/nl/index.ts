@@ -3,163 +3,163 @@ export default {
     Blockquote: {
       buttons: {
         blockquote: {
-          tooltip: "Citaatblok",
-        },
-      },
+          tooltip: 'Citaatblok'
+        }
+      }
     },
     Bold: {
       buttons: {
         bold: {
-          tooltip: "Dikgedrukt",
-        },
-      },
+          tooltip: 'Dikgedrukt'
+        }
+      }
     },
     BulletList: {
       buttons: {
         bulletList: {
-          tooltip: "Ongenummerde lijst",
-        },
-      },
+          tooltip: 'Ongenummerde lijst'
+        }
+      }
     },
     Code: {
       buttons: {
         code: {
-          tooltip: "Code",
-        },
-      },
+          tooltip: 'Code'
+        }
+      }
     },
     CodeBlock: {
       buttons: {
         codeBlock: {
-          tooltip: "Code blok",
-        },
-      },
+          tooltip: 'Code blok'
+        }
+      }
     },
     History: {
       buttons: {
         undo: {
-          tooltip: "Ongedaan maken",
+          tooltip: 'Ongedaan maken'
         },
         redo: {
-          tooltip: "Opnieuw uitvoeren",
-        },
-      },
+          tooltip: 'Opnieuw uitvoeren'
+        }
+      }
     },
     HorizontalRule: {
       buttons: {
         horizontalRule: {
-          tooltip: "Horizontale lijn",
-        },
-      },
+          tooltip: 'Horizontale lijn'
+        }
+      }
     },
     Italic: {
       buttons: {
         italic: {
-          tooltip: "Cursief",
-        },
-      },
+          tooltip: 'Cursief'
+        }
+      }
     },
     OrderedList: {
       buttons: {
         orderedList: {
-          tooltip: "Genummerde lijst",
-        },
-      },
+          tooltip: 'Genummerde lijst'
+        }
+      }
     },
     Paragraph: {
       buttons: {
         paragraph: {
-          tooltip: "Paragraaf",
-        },
-      },
+          tooltip: 'Paragraaf'
+        }
+      }
     },
     Strike: {
       buttons: {
         strike: {
-          tooltip: "Doorhalen",
-        },
-      },
+          tooltip: 'Doorhalen'
+        }
+      }
     },
     Underline: {
       buttons: {
         underline: {
-          tooltip: "Onderstrepen",
-        },
-      },
+          tooltip: 'Onderstrepen'
+        }
+      }
     },
     Heading: {
       buttons: {
         heading: {
-          tooltip: ({ level }) => "Kop " + level,
-        },
-      },
+          tooltip: ({ level }) => 'Kop ' + level
+        }
+      }
     },
     Link: {
       buttons: {
         isActive: {
-          tooltip: "Link wijzigigen",
+          tooltip: 'Link wijzigigen'
         },
         notActive: {
-          tooltip: "Link invoegen",
-        },
+          tooltip: 'Link invoegen'
+        }
       },
       window: {
-        title: "Link controle",
+        title: 'Link controle',
         form: {
-          hrefLabel: "URL",
+          hrefLabel: 'URL'
         },
         buttons: {
-          close: "Sluiten",
-          remove: "Verwijderen",
-          apply: "Toepassen",
-        },
-      },
+          close: 'Sluiten',
+          remove: 'Verwijderen',
+          apply: 'Toepassen'
+        }
+      }
     },
     Image: {
       buttons: {
-        tooltip: "Afbeelding",
+        tooltip: 'Afbeelding'
       },
       window: {
-        title: "Afbeelding toevoegen",
+        title: 'Afbeelding toevoegen',
         form: {
-          sourceLink: "Afbeelding URL",
-          altText: "Alternatieve tekst",
-          addImage: "Afbeelding toevoegen",
+          sourceLink: 'Afbeelding URL',
+          altText: 'Alternatieve tekst',
+          addImage: 'Afbeelding toevoegen'
         },
         imageUpload: {
-          instruction: "Kies of sleep een of meerdere bestanden.",
+          instruction: 'Kies of sleep een of meerdere bestanden.'
         },
         buttons: {
-          close: "Sluiten",
-          apply: "Toepassen",
-        },
-      },
+          close: 'Sluiten',
+          apply: 'Toepassen'
+        }
+      }
     },
     Table: {
       buttons: {
         table: {
-          tooltip: "Tabel",
-        },
+          tooltip: 'Tabel'
+        }
       },
       window: {
-        title: "Tabellen",
+        title: 'Tabellen',
         form: {
-          rowsCount: "Aantal rijen",
-          colsCount: "Aantal kolommen",
-          withHeaderRow: "Met koprij",
+          rowsCount: 'Aantal rijen',
+          colsCount: 'Aantal kolommen',
+          withHeaderRow: 'Met koprij'
         },
         buttons: {
-          close: "Sluiten",
-          apply: "Toepassen",
-        },
-      },
+          close: 'Sluiten',
+          apply: 'Toepassen'
+        }
+      }
     },
     TodoList: {
       buttons: {
         todoList: {
-          tooltip: "Takenlijst",
-        },
-      },
-    },
-  },
-};
+          tooltip: 'Takenlijst'
+        }
+      }
+    }
+  }
+}
