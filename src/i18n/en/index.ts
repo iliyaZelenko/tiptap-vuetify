@@ -135,6 +135,25 @@ export default {
         }
       }
     },
+    Table: {
+      buttons: {
+        table: {
+          tooltip: 'Table'
+        }
+      },
+      window: {
+        title: 'Tables',
+        form: {
+          rowsCount: 'Rows count',
+          colsCount: 'Cols count',
+          withHeaderRow: 'With header row'
+        },
+        buttons: {
+          close: 'Close',
+          apply: 'Apply'
+        }
+      }
+    },
     TodoList: {
       buttons: {
         todoList: {

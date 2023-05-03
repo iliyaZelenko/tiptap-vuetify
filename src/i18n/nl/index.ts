@@ -135,6 +135,25 @@ export default {
         }
       }
     },
+    Table: {
+      buttons: {
+        table: {
+          tooltip: 'Tabel'
+        }
+      },
+      window: {
+        title: 'Tabellen',
+        form: {
+          rowsCount: 'Aantal rijen',
+          colsCount: 'Aantal kolommen',
+          withHeaderRow: 'Met koprij'
+        },
+        buttons: {
+          close: 'Sluiten',
+          apply: 'Toepassen'
+        }
+      }
+    },
     TodoList: {
       buttons: {
         todoList: {
