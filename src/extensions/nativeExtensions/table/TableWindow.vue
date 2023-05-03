@@ -6,7 +6,7 @@
     <v-card>
       <v-card-title>
         <span class="headline">
-          Tables
+          {{ $i18n.getMsg('extensions.Table.window.title') }}
         </span>
 
         <v-spacer />
@@ -21,15 +21,15 @@
       <v-card-text>
         <v-text-field
           v-model="form.rowsCount"
-          label="Rows count"
+          :label="$i18n.getMsg('extensions.Table.window.form.rowsCount')"
         />
         <v-text-field
           v-model="form.colsCount"
-          label="Cols count"
+          :label="$i18n.getMsg('extensions.Table.window.form.colsCount')"
         />
         <v-checkbox
           v-model="form.withHeaderRow"
-          label="With header row"
+          :label="$i18n.getMsg('extensions.Table.window.form.withHeaderRow')"
         />
       </v-card-text>
       <v-card-actions>
@@ -37,14 +37,14 @@
           text
           @click="close"
         >
-          Close
+          {{ $i18n.getMsg('extensions.Table.window.buttons.close') }}
         </v-btn>
 
         <v-btn
           text
           @click="apply"
         >
-          Apply
+          {{ $i18n.getMsg('extensions.Table.window.buttons.apply') }}
         </v-btn>
       </v-card-actions>
     </v-card>
