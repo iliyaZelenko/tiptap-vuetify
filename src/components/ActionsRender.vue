@@ -1,7 +1,8 @@
 <template>
   <div>
     <template v-for="(action, i) in $props[PROPS.ACTIONS]">
-      <action-btn
+      <component
+        :is="action.component ? action.component : 'action-btn'"
         v-if="isBtn(action)"
         :key="'action-button-' + i"
         :options="action.render.options"
@@ -9,6 +10,13 @@
         :editor="$props[PROPS.EDITOR]"
         :dark="$props[PROPS.DARK]"
         :disabled="$props[PROPS.DISABLED]"
+        v-bind="{
+          options: action.render.options,
+          context: $props[PROPS.CONTEXT],
+          editor: $props[PROPS.EDITOR],
+          dark: $props[PROPS.DARK],
+          ... action.componentOptions || {}
+        }"
       />
     </template>
   </div>
