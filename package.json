@@ -58,7 +58,7 @@
     "rollup-plugin-vue": "^4.7.2",
     "sass": "^1.23.0",
     "sass-loader": "^7.0.0",
-    "semantic-release": "^15.13.3",
+    "semantic-release": "^17.2.3",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "tslib": "^1.9.3",
