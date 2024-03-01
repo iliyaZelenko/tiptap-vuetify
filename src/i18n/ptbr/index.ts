@@ -114,6 +114,33 @@ export default {
           apply: 'Aplicar'
         }
       }
+    },
+    Image: {
+      buttons: {
+        tooltip: 'Imagem'
+      },
+      window: {
+        title: 'Adiciona Imagem',
+        form: {
+          sourceLink: 'URL da imagem',
+          altText: 'Texto Alternativo',
+          addImage: 'Adiciona Imagem'
+        },
+        imageUpload: {
+          instruction: 'Escolha o(s) arquivo(s) ou arraste e solte aqui.'
+        },
+        buttons: {
+          close: 'Fechar',
+          apply: 'Aplicar'
+        }
+      }
+    },
+    TodoList: {
+      buttons: {
+        todoList: {
+          tooltip: 'Lista de afazeres'
+        }
+      }
     }
   }
 }
