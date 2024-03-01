@@ -19,6 +19,7 @@ import it from './it'
 import el from './el'
 import sk from './sk'
 import fi from './fi'
+import th from './th'
 
 import ConsoleLogger from '~/logging/ConsoleLogger'
 import { TiptapVuetifyPlugin } from '~/main'
@@ -46,7 +47,8 @@ export const dictionary = {
   it,
   el,
   sk,
-  fi
+  fi,
+  th
 }
 
 export function getCurrentLang () {
